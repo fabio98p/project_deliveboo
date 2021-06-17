@@ -15,6 +15,12 @@ class CreateDishesTable extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 50);
+            $table->text('description')->nullable();
+            $table->decimal('price', 7, 2)->unsigned();
+            $table->boolean('available');
+            $table->text('image')->nullable();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
