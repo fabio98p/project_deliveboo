@@ -32,6 +32,9 @@ class UpdateDishesTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::table('dishes', function (Blueprint $table) {
+        $table->dropForeign('dishes_restaurant_id_foreign');
+        $table->dropColumn('restaurant_id');
+      });
     }
 }
