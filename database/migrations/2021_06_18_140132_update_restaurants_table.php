@@ -13,7 +13,13 @@ class UpdateRestaurantsTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::table('restaurants', function (Blueprint $table) {
+        $table->unsignedBigInteger('user_id')->nullable()->after('slug');
+        $table->foreign('user_id')
+              ->references('id')
+              ->on('users')
+              ->onDelete('set null');
+      });
     }
 
     /**
@@ -23,6 +29,9 @@ class UpdateRestaurantsTable extends Migration
      */
     public function down()
     {
-        //
+      Schema::table('restaurants', function (Blueprint $table) {
+        $table->dropForeign('restaurants_user_id_foreign');
+        $table->dropColumn('user_id');
+      });
     }
 }
