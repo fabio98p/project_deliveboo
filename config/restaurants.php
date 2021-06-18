@@ -3,7 +3,7 @@
 return [
 
     // PIZZERIA
-    
+
     [
         'name' => 'Pizzeria La Grotta',
         'address' => 'Via Legnone, 73',
@@ -94,7 +94,7 @@ return [
         'available' => true,
     ],
     [
-        'name' => 'New Mexico',
+        'name' => 'Cucaracha',
         'address' => 'Via Prodi, 425',
         'logo' => '',
         'description' =>'Il vero cibo messicano direttamente a casa tua con Deliveboo',
@@ -113,7 +113,7 @@ return [
         'available' => true,
     ],
     [
-        'name' => 'Crazy Ice Cream',
+        'name' => 'Cream Italy',
         'address' => 'Via Davide Siena, 7',
         'logo' => '',
         'description' =>'Il vero gelato artigianale direttamente a casa tua con Deliveboo',
@@ -151,7 +151,7 @@ return [
         'available' => true,
     ],
     [
-        'name' => 'Poke Sunrise',
+        'name' => 'Poke Sun-Rice',
         'address' => 'Via Barona, 51',
         'logo' => '',
         'description' =>'I migliori poke direttamente a casa tua con Deliveboo',
@@ -170,7 +170,7 @@ return [
         'available' => true,
     ],
     [
-        'name' => 'American Chips',
+        'name' => 'Seven Chips',
         'address' => 'Via Costantinopoli, 41',
         'logo' => '',
         'description' =>'I migliori cibi internazionali direttamente a casa tua con Deliveboo',
@@ -239,5 +239,4 @@ return [
         'banner' => '',
         'available' => true,
     ],
-
 ];

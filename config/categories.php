@@ -10,7 +10,7 @@ return [
     ['name' => 'kebab'],
     ['name' => 'vegetariano'],
     ['name' => 'fast-food'],
-    ['name' => 'pizzeria'],
+    ['name' => 'pizza'],
     ['name' => 'dessert'],
     ['name' => 'poke'],
 ];
