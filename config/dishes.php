@@ -113,21 +113,21 @@ return [
         "description" => "Burrito ripieno di Gamberi, Instalata, Pomodoro, Cipolla",
         "price" => 15,
         "available" => true,
-        "image" => "",
+        "image" => "/images/dishes/messicano/burritogamberi.png",
     ],
     [
-        "name" => "Burrito Manzo",
-        "description" => "Tortillas di farina ripiena con manzo e formaggio, riso mex e fagioli neri",
+        "name" => "Tacos al chili",
+        "description" => "Tacos con Carne, Formaggio cheddar, Pomodori e Guacamole",
         "price" => 15,
         "available" => true,
-        "image" => "",
+        "image" => "/images/dishes/messicano/tacoschili.png",
     ],
     [
-        "name" => "Tortillas di grano",
-        "description" => "4 tortillas di grano",
+        "name" => "Tacos vegetariano",
+        "description" => "Tacos con Fagioli, Instalata, Pomodori, Formaggio Cheddar e Guacamole",
         "price" => 3,
         "available" => true,
-        "image" => "",
+        "image" => "/images/dishes/messicano/tacosvegetariano",
     ],
 
     // CINESE
