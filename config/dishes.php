@@ -55,10 +55,32 @@ return [
         "image" => "",
     ],
     [
-        "name" => "pasta in bianco",
-        "description" => "la pasta senza nulla, si spera che ci mettano almeno il sale",
+        "name" => "pasta al pomodoro",
+        "description" => "classica pasta al pomodoro, perche ti aspettavi altro?",
         "price" => 4.99,
         "available" => "true",
         "image" => "",
     ],
+    [
+        "name" => "pasta al ragu",
+        "description" => "una pastaal pomodoro ma con l'aggiunta di carne",
+        "price" => 5.99,
+        "available" => "true",
+        "image" => "",
+    ],
+    [
+        "name" => "pasta al pesto",
+        "description" => "se mangi questa pasta dopo ti metterai a dire belin come un vero genovese",
+        "price" => 5.99,
+        "available" => "true",
+        "image" => "",
+    ],
+    [
+        "name" => "pasta con le vongole",
+        "description" => "la pasta per chi non si accontenta di mangiare ma vuole anche la sfida di aprire quelle cazzo di vongole",
+        "price" => 5.99,
+        "available" => "true",
+        "image" => "",
+    ],
+    //tacos
 ];
