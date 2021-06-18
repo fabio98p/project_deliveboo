@@ -35,5 +35,5 @@ class Restaurant extends Model
       return $this->hasMany('App\Order');
   };
 
-  
+    
 }
