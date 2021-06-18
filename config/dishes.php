@@ -47,12 +47,12 @@ return [
         "image" => "",
     ],
 
-    // PASTA
+    // PRIMI PIATTI / ITALIANO
 
     [
         "name" => "Spaghetti alle vongole",
         "description" => "",
-        "price" => 10,
+        "price" => 17,
         "available" => true,
         "image" => "",
     ],
@@ -73,91 +73,101 @@ return [
     [
         "name" => "Fettuccine alla bolognese",
         "description" => "Fettuccine con ragu' e macinato",
-        "price" => 5.99,
+        "price" => 9,
+        "available" => true,
+        "image" => "",
+    ],
+    [
+        "name" => "Gnocchi alla sorrentina",
+        "description" => "Gnocchi, Pomodoro, Provola e Basilico",
+        "price" => 9,
         "available" => true,
         "image" => "",
     ],
 
-    //tacos
+    // MESSICANO
 
     [
-        "name" => "Tacos classico",
-        "description" => "Tacos classico, con semplicemente tutti gli ingredienti, non e' cosi un tacos classico??",
-        "price" => 5.99,
-        "available" => "true",
+        "name" => "Tacos Manzo",
+        "description" => "Tre tortillas ripiene di manzo servite con pico de gallo, guacamole e lime",
+        "price" => 14,
+        "available" => true,
         "image" => "",
     ],
     [
-        "name" => "Tacos piccante",
-        "description" => "Tacos classico ma con molto piu piccante",
-        "price" => 5.99,
-        "available" => "true",
+        "name" => "Tacos Pollo",
+        "description" => "Tre tortillas ripiene di pollo servite con pico de gallo, guacamole e lime",
+        "price" => 12,
+        "available" => true,
         "image" => "",
     ],
     [
-        "name" => "Tacos vegetariano",
-        "description" => "Tacos classico ma sena carne, tranquilli pero, il picvcante c'e' comunque",
-        "price" => 5.99,
-        "available" => "true",
-        "image" => "",
-    ],
-    //burrito
-    [
-        "name" => "Burrito classico",
-        "description" => "Burrito classico, con semplicemente tutti gli ingredienti, non e' cosi un burrito classico??",
-        "price" => 5.99,
-        "available" => "true",
+        "name" => "Chili con carne",
+        "description" => "Cubetti di carne di manzo e maiale cucinati con fagioli messicani, pomodori, cipolla, peperoni",
+        "price" => 13,
+        "available" => true,
         "image" => "",
     ],
     [
-        "name" => "Burrito piccante",
-        "description" => "Burrito classico ma con molto piu piccante",
-        "price" => 5.99,
-        "available" => "true",
+        "name" => "Burrito Pollo",
+        "description" => "Tortillas di farina ripiena con pollo, formaggio, peperoni e cipolla",
+        "price" => 15,
+        "available" => true,
         "image" => "",
     ],
     [
-        "name" => "Burrito vegetariano",
-        "description" => "Burrito classico ma sena carne, tranquilli pero, il picvcante c'e' comunque",
-        "price" => 5.99,
-        "available" => "true",
-        "image" => "",
-    ],
-    //cinese
-    [
-        "name" => "Riso alla cantonese",
-        "description" => "Riso tipico cinese con prosciutto cotto",
-        "price" => 5.99,
-        "available" => "true",
+        "name" => "Burrito Manzo",
+        "description" => "Tortillas di farina ripiena con manzo e formaggio, riso mex e fagioli neri",
+        "price" => 15,
+        "available" => true,
         "image" => "",
     ],
     [
-        "name" => "anatra all'arancia",
-        "description" => "anatra all'arancia, non chiedetemi il perche dell'arancia",
-        "price" => 5.99,
-        "available" => "true",
+        "name" => "Tortillas di grano",
+        "description" => "4 tortillas di grano",
+        "price" => 3,
+        "available" => true,
+        "image" => "",
+    ],
+
+    // CINESE
+
+    [
+        "name" => "Riso Cantonese",
+        "description" => "Riso, uova, verdure, pollo",
+        "price" => 7,
+        "available" => true,
         "image" => "",
     ],
     [
-        "name" => "involtini di gamberi",
-        "description" => "semplici involtini di gamberi",
-        "price" => 5.99,
-        "available" => "true",
+        "name" => "Anatra all'arancia",
+        "description" => "",
+        "price" => 8,
+        "available" => true,
         "image" => "",
     ],
     [
-        "name" => "tofu con carne piccante",
-        "description" => "tofu con carne piccante",
-        "price" => 5.99,
-        "available" => "true",
+        "name" => "Udon con verdure",
+        "description" => "",
+        "price" => 7,
+        "available" => true,
         "image" => "",
     ],
-    //amerticano
     [
-        "name" => "Hamburger generico",
-        "description" => "hamburger generico con 2000kcal",
-        "price" => 5.99,
-        "available" => "true",
+        "name" => "Shiratake di verdure e gamberi",
+        "description" => "",
+        "price" => 9,
+        "available" => true,
+        "image" => "",
+    ],
+
+    // AMERICANO
+
+    [
+        "name" => "Hamburger",
+        "description" => "",
+        "price" => 13,
+        "available" => true,
         "image" => "",
     ],
 
