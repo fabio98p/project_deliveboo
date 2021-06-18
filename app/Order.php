@@ -15,4 +15,9 @@ class Order extends Model
       'total_price',
       'order_details'
   ];
+
+  public function restaurant()
+  {
+    return $this->belongsTo('App\Restaurant');
+  };
 }
