@@ -13,10 +13,19 @@ class CreateRestaurantCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('restaurant_category', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+      Schema::create('restaurant_category', function (Blueprint $table) {
+        $table->unsignedBigInteger('category_id');
+        $table->foreign('category_id')
+              ->references('id')
+              ->on('categories');
+
+        $table->unsignedBigInteger('restaurant_id');
+        $table->foreign('restaurant_id')
+              ->references('id')
+              ->on('restaurants');
+
+        $table->primary(['category_id', 'restaurant_id']);
+      });
     }
 
     /**
