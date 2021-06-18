@@ -253,14 +253,16 @@ return [
         "available" => "true",
         "image" => "",
     ],
-    //gappionese
-    // [
-    //     "name" => "Ramen",
-    //     "description" => "se hai visto almeno una volta naruto sai di cosa stiamo parlando",
-    //     "price" => 5.99,
-    //     "available" => "true",
-    //     "image" => "",
-    // ],
+
+    // GIAPPONESE
+
+    [
+        "name" => "Ramen",
+        "description" => "se hai visto almeno una volta naruto sai di cosa stiamo parlando",
+        "price" => 5.99,
+        "available" => "true",
+        "image" => "",
+    ],
     [
         "name" => "Ramen",
         "description" => "Brodo con spagetti e carne",
@@ -368,7 +370,7 @@ return [
         "available" => "true",
         "image" => "",
     ],
-    
+
     //vegetariano
 
     [
