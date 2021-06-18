@@ -1,370 +1,447 @@
 <?php
 
 return [
-    [
-        'name' => 'Pizza bianca',
-        'price' => '8',
-        'description' => 'Fior di latte di Agerola',
-        'cover' => 'dishesCover/bianca.jpg'
 
-    ],
+    // PIZZA
 
     [
-        'name' => 'Pizza rossa',
-        'price' => '7',
-        'description' => 'San Marzano e origano',
-        'cover' => 'dishesCover/rossa.jpg'
-
-    ],
-
-    [
-        'name' => 'Pizza Marinara',
-        'price' => '7',
-        'description' => 'Salsa di pomodoro San Marzano DOP, origano selvatico, aglio rosso, basilico fresco, olio EVO Pregio DOP',
-        'cover' => 'dishesCover/marinara.jpg'
-
+        "name" => "Marinara",
+        "description" => "Pomodoro, Basilico",
+        "price" => 4,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Pizza Datterino',
-        'price' => '9',
-        'description' => 'Pomodorini gialli Giagiù del Vesuvio, fior di latte di Agerola, fior di ricotta di Agerola, basilico fresco e olio evo Pregio DOP',
-        'cover' => 'dishesCover/datterini.jpg'
-
-    ],
-
-    [
-        'name' => 'Calzone Napoletano',
-        'price' => '7',
-        'description' => 'Salame crespone BIO, fior di ricotta e provola affumicata di Agerola, pepe nero, basilico fresco',
-        'cover' => 'dishesCover/calzone.jpg'
-
-    ],
-
-    [
-        'name' => 'Pizza Diavola',
-        'price' => '8',
-        'description' => 'Salsa piccante all\'amatriciana, cipolla rossa, pecorino, basilico, olio Pregio, mozzarella di bufala, prosciutto crudo croccante.',
-        'cover' => 'dishesCover/diavola.jpg'
-
+        "name" => "Margherita",
+        "description" => "Pomodoro, Mozzarella, Basilico",
+        "price" => 5,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Pizza Lucana',
-        'price' => '8',
-        'description' => 'Baccalà mantecato, pomodorini gialli del Vesuvio, fiordilatte d\'Agerola, polvere di olive nere di Caiazzo, chips di peperone dolce Sciuscillone, zest di limone di Sorrento, basilico fresco, olio evo Incluso',
-        'cover' => 'dishesCover/lucana.jpg'
-
-    ],
-
-    [
-        'name' => 'Pizza 4 formaggi',
-        'price' => '9',
-        'description' => 'Gorgonzola di capra Girgentana, mozzarella di bufala Campana DOP, vastedda del Belice DOP, provolone del Monaco DOP, basilico fresco, olio evo Pregio DOP',
-        'cover' => 'dishesCover/formaggi.jpg'
-
-    ],
-
-    [
-        'name' => 'Pizza Margherita',
-        'price' => '6',
-        'description' => 'Salsa di San Marzano DOP, fior di latte di Agerola, basilico fresco e olio evo colline salernitane DOP Pregio',
-        'cover' => 'dishesCover/margherita.jpg'
-
+        "name" => "ZuccaBacon",
+        "description" => "Pomodoro, Mozzarella, Fiore di Zucca e Bacon",
+        "price" => 8,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Pizza margherita con bufala',
-        'price' => '9',
-        'description' => 'Salsa di San Marzano DOP, bufala, basilico fresco e olio evo colline salernitane DOP Pregio',
-        'cover' => 'dishesCover/bufala.jpg'
-
-    ],
-
-    [
-        'name' => 'Pizza Brontese',
-        'price' => '10',
-        'description' => 'Fiordilatte di Agerola, pesto di pistacchio di Bronte, parmigiano reggiano, scorza di limone, basilico',
-        'cover' => 'dishesCover/brontese.jpg'
-
-    ],
-
-    [
-        'name' => 'Pasta Aglio, olio e peperoncino',
-        'price' => '6',
-        'description' => 'Aglio, Olio extravergine di oliva, acciughe, prezzemolo, pangrattato e peperoncino',
-        'cover' => 'dishesCover/aglio.jpeg'
-
+        "name" => "Diavola",
+        "description" => "Pomodoro, Mozzarella, Salamino piccante",
+        "price" => 6,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Pasta alla Norma',
-        'price' => '7',
-        'description' => 'Pomodoro, melanzane, ricotta salata, basilico',
-        'cover' => 'dishesCover/norma.jpeg'
-
+        "name" => "Pizza Prosciutto e Funghi",
+        "description" => "Pomodoro, Mozzarella, Prosciutto cotto, Funghi",
+        "price" => 7.50,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Tortelli Ricotta e Spinaci',
-        'price' => '10',
-        'description' => 'Tortelli di parma con ricotta ed erbette mantecati con burro e parmigiano 24 mesi',
-        'cover' => 'dishesCover/ricotta.jpeg'
+        "name" => "Calzone Classico",
+        "description" => "Pomodoro, Mozzarella, Prosciutto cotto",
+        "price" => 8,
+        "available" => true,
+        "image" => "",
+    ],
 
+    // ITALIANO
+
+    [
+        "name" => "Spaghetti alle vongole",
+        "description" => "",
+        "price" => 17,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Pasta alla genovese',
-        'price' => '8',
-        'description' => 'pasta con pesto di basilico e aglio',
-        'cover' => 'dishesCover/genovese.jpeg'
-
+        "name" => "Pasta al pomodoro",
+        "description" => "",
+        "price" => 12,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Pasta al ragù di Chianina',
-        'price' => '12',
-        'description' => 'Ragù di chianina IGP con passata pomodoro',
-        'cover' => 'dishesCover/chianina.jpeg'
-
+        "name" => "Risotto alla pescatora",
+        "description" => "Risotto, Gamberi, Cozze, Vongole, Polpo, Seppia, Calamari",
+        "price" => 19,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Tortelli di zucca',
-        'price' => '13',
-        'description' => 'Tortelli di zucca mantecati con burro nocciola salvia e parmigiano',
-        'cover' => 'dishesCover/zucca.jpeg'
-
+        "name" => "Fettuccine alla bolognese",
+        "description" => "Fettuccine con ragu' e macinato",
+        "price" => 9,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Pasta al pomodoro e basilico',
-        'price' => '6',
-        'description' => 'Passata di Pomodoro e Basilico',
-        'cover' => 'dishesCover/basilico.jpeg'
+        "name" => "Gnocchi alla sorrentina",
+        "description" => "Gnocchi, Pomodoro, Provola e Basilico",
+        "price" => 9,
+        "available" => true,
+        "image" => "",
+    ],
 
+    // MESSICANO
+
+    [
+        "name" => "Tacos Manzo",
+        "description" => "Tre tortillas ripiene di manzo servite con pico de gallo, guacamole e lime",
+        "price" => 14,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Uramaki di tonno',
-        'price' => '10',
-        'description' => 'Tartare di tonno, sesamo, cipollotto, jalapeño esterni con crunch, tobiko e salsa kimchi',
-        'cover' => 'dishesCover/u-tonno.jpeg'
-
+        "name" => "Tacos Pollo",
+        "description" => "Tre tortillas ripiene di pollo servite con pico de gallo, guacamole e lime",
+        "price" => 12,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Sashimi di Salmone',
-        'price' => '5',
-        'description' => 'salmone',
-        'cover' => 'dishesCover/sashimi-s.jpeg'
-
+        "name" => "Chili con carne",
+        "description" => "Cubetti di carne di manzo e maiale cucinati con fagioli messicani, pomodori, cipolla, peperoni",
+        "price" => 13,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Sashimi di Ricciola',
-        'price' => '7',
-        'description' => 'Ricciola',
-        'cover' => 'dishesCover/sashimi-r.jpeg'
-
+        "name" => "Burrito Pollo",
+        "description" => "Tortillas di farina ripiena con pollo, formaggio, peperoni e cipolla",
+        "price" => 15,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Uramaki Especial',
-        'price' => '12',
-        'description' => 'Gambero in tempura, sesamo, avocado, carpaccio di avocado esterno, tartare di astice gratinata, maionese, spicy cream e salsa teriyaki',
-        'cover' => 'dishesCover/u-special.jpeg'
-
+        "name" => "Burrito Manzo",
+        "description" => "Tortillas di farina ripiena con manzo e formaggio, riso mex e fagioli neri",
+        "price" => 15,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Uramaki Pink',
-        'price' => '12',
-        'description' => 'pasta con pesto di basilico e aglio',
-        'cover' => 'dishesCover/u-pink.jpeg'
+        "name" => "Tortillas di grano",
+        "description" => "4 tortillas di grano",
+        "price" => 3,
+        "available" => true,
+        "image" => "",
+    ],
 
+    // CINESE
+
+    [
+        "name" => "Riso Cantonese",
+        "description" => "Riso, uova, verdure, pollo",
+        "price" => 7,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Temaki',
-        'price' => '8',
-        'description' => 'pasta con pesto di basilico e aglio',
-        'cover' => 'dishesCover/temaki.jpeg'
-
+        "name" => "Anatra all'arancia",
+        "description" => "",
+        "price" => 8,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Nigiri Ricciola',
-        'price' => '11',
-        'description' => 'pasta con pesto di basilico e aglio',
-        'cover' => 'dishesCover/nigiri.jpeg'
-
+        "name" => "Udon con verdure",
+        "description" => "",
+        "price" => 7,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Pokè Hawaii',
-        'price' => '15',
-        'description' => 'Riso bianco, gamberi cotti al vapore, pomodorini, melograno, ananas e edamame',
-        'cover' => 'dishesCover/p-hawaii.jpeg'
+        "name" => "Shiratake di verdure e gamberi",
+        "description" => "",
+        "price" => 9,
+        "available" => true,
+        "image" => "",
+    ],
 
+    // AMERICANO
+
+    [
+        "name" => "Hamburger",
+        "description" => "",
+        "price" => 13,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Pokè Tuna',
-        'price' => '16',
-        'description' => 'Riso bianco, dadolata di tonno, cipolla bianca, cetrioli, mandorle, avocado',
-        'cover' => 'dishesCover/p-tuna.jpeg'
-
+        "name" => "Cheeseburger",
+        "description" => "",
+        "price" => 13,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Pokè Salmon',
-        'price' => '15',
-        'description' => 'Riso bianco, dadolata di salmone, avocado, cetrioli, edamame',
-        'cover' => 'dishesCover/p-salmon.jpeg'
-
+        "name" => "Cheesburger Bacon",
+        "description" => "",
+        "price" => 14,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Pokè Ahi',
-        'price' => '18',
-        'description' => 'Riso bianco, dadolata di salmone, feta greca, avocado, wakame, edamame',
-        'cover' => 'dishesCover/p-ahi.jpeg'
-
+        "name" => "Baconburger",
+        "description" => "",
+        "price" => 15,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Edamame',
-        'price' => '5',
-        'description' => 'Edamame',
-        'cover' => 'dishesCover/edamame.jpeg'
-
+        "name" => "Chicken burger",
+        "description" => "",
+        "price" => 12,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Ravioli Cinesi',
-        'price' => '5',
-        'description' => 'ravioli ripieni di carne e verdure',
-        'cover' => 'dishesCover/ravioli-c.jpg'
+        "name" => "Patatine fritte",
+        "description" => "",
+        "price" => 5,
+        "available" => true,
+        "image" => "",
+    ],
 
+    // INDIANO
+
+    [
+        "name" => "Dal sup vegetariano",
+        "description" => "Zuppa di lenticchie con verdure",
+        "price" => 8.50,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Involtini primavera',
-        'price' => '3',
-        'description' => 'involtini di verdure cinesi',
-        'cover' => 'dishesCover/involtini-c.jpg'
-
+        "name" => "Basmati bianco",
+        "description" => "Riso bianco cotto al vapore",
+        "price" => 5,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Riso alla cantonese',
-        'price' => '5',
-        'description' => 'Riso con piselli, maiale, uova',
-        'cover' => 'dishesCover/riso-c.jpeg'
-
+        "name" => "Chicken curry",
+        "description" => "Pollo curry classico con spezie e verdure",
+        "price" => 9,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Panino con Polpo',
-        'price' => '13',
-        'description' => 'Pane burger classico, polpo, feta, pomodorini confit, misticanza, semi di zucca, salsa senapata',
-        'cover' => 'dishesCover/polpo-p.jpg'
-
+        "name" => "Chicken dhansak",
+        "description" => "Pollo cotto nella crema di lenticchie",
+        "price" => 12,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Panino con Salmone',
-        'price' => '12',
-        'description' => 'Pane burger integrale, salmone, ricotta aromatizzata al lime con prezzemolo e sale rosa dell’Himalaya, chips di patate croccanti, cipolla caramellata, misticanza e salsa serok',
-        'cover' => 'dishesCover/salmone-p.jpg'
-
+        "name" => "Panir tikka",
+        "description" => "Formaggio magro marinato e cotto nel forno tandoori",
+        "price" => 7.5,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Panino con Gamberi',
-        'price' => '14',
-        'description' => 'Pane burger classico, gamberi, pomodorini confit, cipolla caramellata, chips di patate croccanti, misticanza, salsa GoodBlue',
-        'cover' => 'dishesCover/gamberi-p.jpg'
+        "name" => "Palak paneer",
+        "description" => "Crema di spinaci con la ricotta magra da accompagnare al pane indiano",
+        "price" => 8,
+        "available" => true,
+        "image" => "",
+    ],
 
+    // GIAPPONESE
+
+    [
+        "name" => "Ramen di maiale",
+        "description" => "",
+        "price" => 15,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Beef biryani',
-        'price' => '8',
-        'description' => 'Carne di manzo, riso basmati, mix spezie di biryani masala, aglio, cipolla, zenzero',
-        'cover' => 'dishesCover/beef-b.jpeg'
-
+        "name" => "Harumaki",
+        "description" => "4 pezzi",
+        "price" => 4.00,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Pollo al curry',
-        'price' => '12',
-        'description' => 'Pollo, mix spezie masala, aglio, cipolla, zenzero',
-        'cover' => 'dishesCover/pollo-p.jpeg'
-
+        "name" => "Ebi shumai 5pz",
+        "description" => "",
+        "price" => 5.00,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Samosa',
-        'price' => '10',
-        'description' => 'Samosa di manzo, chicken roll, kema chop, bevanda a scelta',
-        'cover' => 'dishesCover/samosa.jpeg'
-
+        "name" => "Tonno 2 pezzi",
+        "description" => "",
+        "price" => 3.00,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Falafel',
-        'price' => '5',
-        'description' => 'Polpette di ceci e verdure macinate, spezie',
-        'cover' => 'dishesCover/falafel.jpg'
-
+        "name" => "Gunkan spicy salmone e alga",
+        "description" => "",
+        "price" => 5.00,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Salmao Mexicano',
-        'price' => '8',
-        'description' => 'Tartare di salmone, philadelphia, nachos, peperoncino messicano, maionese piccante, erba cipollina e uova di pesce volante',
-        'cover' => 'dishesCover/salmao.jpg'
+        "name" => "Salmone a pezzi",
+        "description" => "Salmone pezzi, avocado",
+        "price" => 8.00,
+        "available" => true,
+        "image" => "",
+    ],
 
+    // GELATERIA
+
+    [
+        "name" => "Yogurt bianco",
+        "description" => "Yogurt fresco intero, senza zucchero",
+        "price" => 3.50,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Tacos con salmone',
-        'price' => '11',
-        'description' => 'salmone, guacamole, lime, cipolla, coriandolo, tabasco',
-        'cover' => 'dishesCover/tacos.jpeg'
-
+        "name" => "Frutta rossa",
+        "description" => "fragole, mirtilli, lamponi",
+        "price" => 4,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Bruschette Guacamole',
-        'price' => '6',
-        'description' => 'Bruschette con salsa di avocado',
-        'cover' => 'dishesCover/guacamole.jpeg'
-
+        "name" => "Crepes al dulce de leche",
+        "description" => "",
+        "price" => 4.00,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Tiramisù',
-        'price' => '5',
-        'description' => 'Deliziosa crema al mascarpone e pan di Spagna imbevuto al caffè',
-        'cover' => 'dishesCover/tiramisu.jpeg'
+        "name" => "Crepes alla Nutella",
+        "description" => "",
+        "price" => 4.50,
+        "available" => true,
+        "image" => "",
+    ],
 
+    // KEBAB
+
+    [
+        "name" => "Piatto kebab",
+        "description" => "",
+        "price" => 6.50,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Muffin triplo cioccolato ',
-        'price' => '5',
-        'description' => 'Morbido muffin con pezzi di cioccolato al latte e fondente, e un dolce ripieno al cioccolato bianco',
-        'cover' => 'dishesCover/muffin-c.jpeg'
-
+        "name" => "Sfilatino kebab",
+        "description" => "Pomodoro, mozzarella, carne, cipolla, salsa yogurt e piccante",
+        "price" => 8.00,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Torta di Mele',
-        'price' => '4',
-        'description' => 'Torta farcita alle mele',
-        'cover' => 'dishesCover/torta-mele.jpeg'
-
+        "name" => "Focaccia kebab completa",
+        "description" => "",
+        "price" => 8.00,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Muffin al mirtillo',
-        'price' => '5',
-        'description' => 'Morbido muffin con farcitura di mirtilli',
-        'cover' => 'dishesCover/muffin-m.jpeg'
+        "name" => "Piadina kebab",
+        "description" => "Carne di vitello e tacchino, insalata, pomodoro, cipolle, salsa yogurt e salsa piccante",
+        "price" => 5.50,
+        "available" => true,
+        "image" => "",
+    ],
 
+    // VEGETARIANO
+
+    [
+        "name" => "Haruka Sushi",
+        "description" => "Sushi vegetariano",
+        "price" => 10.00,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Ciambella allo zucchero',
-        'price' => '5',
-        'description' => 'Morbida ciambella decorata con zucchero semolato',
-        'cover' => 'dishesCover/ciambella-z.jpeg'
-
+        "name" => "Ramen vegetariano",
+        "description" => "Ramen vegetariano con shishito, mizuna, enoki-take e tofu",
+        "price" => 15.00,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Bombolone al cioccolato',
-        'price' => '5',
-        'description' => 'Soffice e goloso bombolone con una ricca farcitura di crema alle nocciole e cacao magro',
-        'cover' => 'dishesCover/bomboloni.jpeg'
+        "name" => "Pizza vegetariana",
+        "description" => "",
+        "price" => 8.00,
+        "available" => true,
+        "image" => "",
+    ],
 
+    // FAST-FOOD
+
+    [
+        "name" => "Hamburger",
+        "description" => "Hamburger 180gr, insalata, pomodoro, ketchup servito con patate dorate",
+        "price" => 5.99,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Semifreddo alla crema',
-        'price' => '5',
-        'description' => 'Gelato alla crema',
-        'cover' => 'dishesCover/crema-s.jpeg'
-
+        "name" => "Chickenburger",
+        "description" => "120gr di pollo croccante ai cereali, maionese, pomodoro, insalata servito con patate dorate",
+        "price" => 6.99,
+        "available" => true,
+        "image" => "",
     ],
     [
-        'name' => 'Semifreddo al mirtillo',
-        'price' => '5',
-        'description' => 'Gelato al mirtillo',
-        'cover' => 'dishesCover/mirtillo-s.jpeg'
+        "name" => "Fishburger",
+        "description" => "120gr di merluzzo in pastella, insalata, pomodoro, guacamole, servito con patate dorate",
+        "price" => 4.99,
+        "available" => true,
+        "image" => "",
+    ],
+    [
+        "name" => "Patatine fritte",
+        "description" => "",
+        "price" => 2.99,
+        "available" => true,
+        "image" => "",
+    ],
 
-    ]
+    // POKE
+
+    [
+        "name" => "Poke Sunny Salmon",
+        "description" => "Riso bianco, Juicy Salmon, Avocado, Edamame, Cavolo rosso, Salsa speciale,Crema di avocado, Crispy Mix Alghe e Wasabi, Sesamo",
+        "price" => 9.95,
+        "available" => true,
+        "image" => "",
+    ],
+    [
+        "name" => "Poke Spring Break",
+        "description" => "Riso Integrale, Gamberi, Avocado, Zucchine, Barbabietola, Cavolo Rosso, Germogli di Porro, Salsa Spring, Olio Sale e Limone, Sesamo",
+        "price" => 12.95,
+        "available" => true,
+        "image" => "",
+    ],
+    [
+        "name" => "Poke Avocado Toast",
+        "description" => "Pane Tostato, Avocado, Feta, Olio Sale e Limone, Peperoncino",
+        "price" => 6.00,
+        "available" => true,
+        "image" => "",
+    ],
+    [
+        "name" => "Poke White Fish",
+        "description" => "Riso bianco, branzino, avocado, mango, zenzero fresco, cipollotto, salsa Hawaii, sesamo",
+        "price" => 11.95,
+        "available" => true,
+        "image" => "",
+    ],
 
 ];
