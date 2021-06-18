@@ -41,8 +41,8 @@ return [
         'icon' => '/images/categories/fastfood.png',
     ],
     [
-        'name' => 'pizzeria',
-        'icon' => '/images/categories/pizzeria.png',
+        'name' => 'pizza',
+        'icon' => '/images/categories/pizza.png',
     ],
     [
         'name' => 'dessert',
