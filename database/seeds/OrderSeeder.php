@@ -13,18 +13,18 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        $restaurants = config('restaurants');
-        foreach ($restaurants as $restaurant) {
-            $newRestaurant = new Restaurant();
-            $newRestaurant->name = $restaurant['name'];
-            $newRestaurant->address = $restaurant['address'];
-            $newRestaurant->logo = $restaurant['logo'];
-            $newRestaurant->description = $restaurant['description'];
-            $newRestaurant->banner = $restaurant['banner'];
-            $newRestaurant->available = $restaurant['available'];
-            $newRestaurant->slug = // inserire funzioine slug
-            $newRestaurant->user_id = rand(1,5);
-            $newRestaurant->save();
+        $orders = config('orders');
+        foreach ($orders as $order) {
+            $newOrder = new Order();
+            $newOrder->customer_name = $order['customer_name'];
+            $newOrder->customer_lastname = $order['customer_lastname'];
+            $newOrder->customer_address = $order['customer_address'];
+            $newOrder->customer_phone_number = $order['customer_phone_number'];
+            $newOrder->customer_email = $order['customer_email'];
+            $newOrder->total_price = $order['total_price'];
+            $newOrder->order_details = $order['order_details'];
+            $newOrder->restaurant_id = // e' da capire come fare;
+            $newOrder->save();
         }
     }
 }

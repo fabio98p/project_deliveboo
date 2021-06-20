@@ -15,15 +15,14 @@ class DishSeeder extends Seeder
     {
         $dishes = config('dishes');
         foreach ($dishes as $dish) {
-            $newDish = new dish();
+            $newDish = new Dish();
             $newDish->name = $dish['name'];
             $newDish->description = $dish['description'];
             $newDish->price = $dish['price'];
             $newDish->available = $dish['available'];
             $newDish->image = $dish['image'];
-            $newDish->available = $dish['available'];
             $newDish->slug = // inserire funzioine slug
-            $newDish->user_id = rand(1,5);
+            $newDish->restaurant_id = //decidere come associate il Restaurant_id ai dish
             $newDish->save();
         }
     }
