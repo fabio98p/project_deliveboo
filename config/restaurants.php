@@ -9,7 +9,7 @@ return [
         'address' => 'Via Legnone, 73',
         'logo' => '/images/logos/la-grotta.png',
         'description' =>'La migliore pizza napoletana direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/pizzeria-la-grotta.jpg',
         'available' => true,
     ],
     [
@@ -17,7 +17,7 @@ return [
         'address' => 'Via Bixio, 11',
         'logo' => '/images/logos/il-rustico.png',
         'description' =>'La migliore pizza napoletana direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/pizzeria-il-rustico.jpg',
         'available' => true,
     ],
     [
@@ -25,7 +25,7 @@ return [
         'address' => 'Via Michelangelo Da Merisi, 30',
         'logo' => '/images/logos/bella-napoli.png',
         'description' =>'La migliore pizza napoletana direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/pizzeria-bella-napoli.jpg',
         'available' => true,
     ],
 
@@ -36,7 +36,7 @@ return [
         'address' => 'Via Andreotti, 25',
         'logo' => '/images/logos/kyoto.png',
         'description' =>'Il vero sushi giapponese direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/kyoto-sushi.jpg',
         'available' => true,
     ],
     [
@@ -44,7 +44,7 @@ return [
         'address' => 'Via Pasqualetto, 278',
         'logo' => '/images/logos/momotaro.png',
         'description' =>'Il vero sushi giapponese direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/momotaro.jpg',
         'available' => true,
     ],
     [
@@ -52,7 +52,7 @@ return [
         'address' => 'Via Rocco Casalino, 85',
         'logo' => '/images/logos/sushiko.png',
         'description' =>'Il vero Sushi giapponese direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/sushiko.jpg',
         'available' => true,
     ],
     [
@@ -60,7 +60,7 @@ return [
         'address' => 'Piazza Ciampi, 25',
         'logo' => '/images/logos/nemo-sushi.png',
         'description' =>'Il vero Sushi giapponese direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/nemo-sushi.jpg',
         'available' => true,
     ],
 
@@ -71,7 +71,7 @@ return [
         'address' => 'Via Lanzirotti, 25',
         'logo' => '/images/logos/turkish-kebab.png',
         'description' =>'Il vero Kebab Arabo direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/turkish-kebab.jpg',
         'available' => true,
     ],
     [
@@ -79,7 +79,7 @@ return [
         'address' => 'Via Bernadetti, 101',
         'logo' => '/images/logos/haram-eat.png',
         'description' =>'Il vero Kebab Arabo direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/haram-eat.jpg',
         'available' => true,
     ],
 
@@ -90,7 +90,7 @@ return [
         'address' => 'Via Zegna, 10',
         'logo' => '/images/logos/pinotaco.png',
         'description' =>"Il vero cibo messicano cucinato a regola d'arte direttamente a casa tua con Deliveboo",
-        'banner' => '',
+        'banner' => '/images/restaurants/pico-taco.jpg',
         'available' => true,
     ],
     [
@@ -98,7 +98,7 @@ return [
         'address' => 'Via Prodi, 425',
         'logo' => '/images/logos/cucaracha.jng',
         'description' =>'Il vero cibo messicano direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/cucaracha.jpg',
         'available' => true,
     ],
 
@@ -109,7 +109,7 @@ return [
         'address' => 'Via Catania, 7',
         'logo' => '/images/logos/gola.jng',
         'description' =>'Il vero gelato artigianale direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/gola.jpg',
         'available' => true,
     ],
     [
@@ -117,7 +117,7 @@ return [
         'address' => 'Via Davide Siena, 7',
         'logo' => '/images/logos/cream-italy.png',
         'description' =>'Il vero gelato artigianale direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/cream-italy.jpg',
         'available' => true,
     ],
 
@@ -128,7 +128,7 @@ return [
         'address' => 'Via Mozart, 77',
         'logo' => '/images/logos/dolci-tentazioni.png',
         'description' =>'I migliori cibi dolci direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/dolci-tentazioni.jpg',
         'available' => true,
     ],
 
@@ -139,7 +139,7 @@ return [
         'address' => 'Via Bivona, 201',
         'logo' => '/images/logos/healthy-color.png',
         'description' =>'I migliori poke direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/healthy-colors.jpg',
         'available' => true,
     ],
     [
@@ -147,7 +147,7 @@ return [
         'address' => 'Viale Della regione, 4',
         'logo' => '/images/logos/aloha-poke.jng',
         'description' =>'I migliori poke direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/aloha-poka.jpg',
         'available' => true,
     ],
     [
@@ -155,7 +155,7 @@ return [
         'address' => 'Via Barona, 51',
         'logo' => '/images/logos/poke-sunrice.png',
         'description' =>'I migliori poke direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/poke-sun-rice.jpg',
         'available' => true,
     ],
 
@@ -166,7 +166,7 @@ return [
         'address' => 'Via Giuseppe Verdi, 341',
         'logo' => '/images/logos/fast-food.jpg',
         'description' =>'I migliori cibi internazionali direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/fast-food.jpg',
         'available' => true,
     ],
     [
@@ -174,7 +174,7 @@ return [
         'address' => 'Via Costantinopoli, 41',
         'logo' => '/images/logos/seven-chips.png',
         'description' =>'I migliori cibi internazionali direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/seven-chips.jpg',
         'available' => true,
     ],
     [
@@ -182,7 +182,7 @@ return [
         'address' => 'Via Barbara Palombelli, 1',
         'logo' => '/images/logos/chicago-meat.png',
         'description' =>'I migliori cibi internazionali direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/chicago-meat.jpg',
         'available' => true,
     ],
     [
@@ -190,7 +190,7 @@ return [
         'address' => 'Via Genova, 65',
         'logo' => '/images/logos/old-mc-king.png',
         'description' =>'I migliori cibi internazionali direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/old-mc-king.jpg',
         'available' => true,
     ],
 
@@ -201,7 +201,7 @@ return [
         'address' => 'Via Pavia, 81',
         'logo' => '/images/logos/locanda-del-gusto.png',
         'description' =>'Specialità vegetariane-vegane creative direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/la-locanda-del-gusto.jpg',
         'available' => true,
     ],
     [
@@ -209,7 +209,7 @@ return [
         'address' => 'Via Picasso, 81',
         'logo' => '/images/logos/la-vega.png',
         'description' =>'Specialità vegetariane-vegane creative direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/la-vega.jpg',
         'available' => true,
     ],
     [
@@ -217,7 +217,7 @@ return [
         'address' => 'Via Dalì, 19',
         'logo' => '/images/logos/wagyu.png',
         'description' =>'Specialità vegetariane-vegane creative direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/wagyu.jpg',
         'available' => true,
     ],
 
@@ -228,7 +228,7 @@ return [
         'address' => 'Via Lombardia, 81',
         'logo' => '/images/logos/little-india.jpg',
         'description' =>'Il miglior cibo indiano direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/little-india.jpg',
         'available' => true,
     ],
     [
@@ -236,7 +236,7 @@ return [
         'address' => 'Via Gherardesca, 508',
         'logo' => '/images/logos/new-delhi.png',
         'description' =>'Il miglior cibo indiano direttamente a casa tua con Deliveboo',
-        'banner' => '',
+        'banner' => '/images/restaurants/new-delhi.jpg',
         'available' => true,
     ],
 ];
