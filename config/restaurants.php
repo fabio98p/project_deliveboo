@@ -21,10 +21,10 @@ return [
         'available' => true,
     ],
     [
-        'name' => 'Pizzeria Bella Napoli',
+        'name' => 'Mi scusi',
         'address' => 'Via Michelangelo Da Merisi, 30',
         'logo' => '/images/logos/bella-napoli.png',
-        'description' =>'La migliore pizza napoletana direttamente a casa tua con Deliveboo',
+        'description' =>'La migliore pasta direttamente a casa tua con Deliveboo',
         'banner' => '/images/restaurants/pizzeria-bella-napoli.jpg',
         'available' => true,
     ],
