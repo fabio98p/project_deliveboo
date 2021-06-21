@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use App\Dish;
-use Config\Dishes;
 use Illuminate\Support\Str;
+use Config\dishes;
 
 class DishSeeder extends Seeder
 {
