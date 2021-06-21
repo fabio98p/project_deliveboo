@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Restaurant;
+use App\Category;
 use Illuminate\Support\Str;
 
 class RestaurantSeeder extends Seeder
@@ -14,7 +15,7 @@ class RestaurantSeeder extends Seeder
     public function run()
     {
         $restaurants = config('restaurants');
-        foreach ($restaurants as $restaurant) {
+        foreach ($restaurants as $i =>$restaurant) {
             $newRestaurant = new Restaurant();
             $newRestaurant->name = $restaurant['name'];
             $newRestaurant->address = $restaurant['address'];
@@ -24,7 +25,14 @@ class RestaurantSeeder extends Seeder
             $newRestaurant->available = $restaurant['available'];
             $newRestaurant->slug = $this->generateSlug($restaurant['name']);
             $newRestaurant->user_id = rand(1,5);
+            
             $newRestaurant->save();
+            
+            // $newRestaurant = Restaurant::find(1);
+            // $newRestaurant->categories()->attach([1,2,3]);
+
+           
+
         }
     }
 
