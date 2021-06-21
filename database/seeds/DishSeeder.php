@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Dish;
-use Config\Dishes;
+use Config\dishes;
 
 class DishSeeder extends Seeder
 {
