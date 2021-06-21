@@ -9,4 +9,9 @@ class Category extends Model
   protected $fillable = [
       'name', 'icon', 'slug'
   ];
+
+  public function restaurants()
+  {
+    return $this->belongsToMany('App\Restaurant');
+  };
 }
