@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use App\Category;
-use Config\categories;
 use Illuminate\Support\Str;
 
 class CategorySeeder extends Seeder

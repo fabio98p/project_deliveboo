@@ -10,7 +10,7 @@ return [
         "price" => 4,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "1",
+        "restaurant_id" => 1,
     ],
     [
         "name" => "Margherita",
@@ -18,7 +18,7 @@ return [
         "price" => 5,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "2",
+        "restaurant_id" => 2,
     ],
     [
         "name" => "ZuccaBacon",
@@ -26,7 +26,7 @@ return [
         "price" => 8,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "1",
+        "restaurant_id" => 1,
     ],
     [
         "name" => "Diavola",
@@ -34,7 +34,7 @@ return [
         "price" => 6,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "1",
+        "restaurant_id" => 1,
     ],
     [
         "name" => "Pizza Prosciutto e Funghi",
@@ -42,7 +42,7 @@ return [
         "price" => 7.50,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "2",
+        "restaurant_id" => 2,
     ],
     [
         "name" => "Calzone Classico",
@@ -50,7 +50,7 @@ return [
         "price" => 8,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "2",
+        "restaurant_id" => 2,
     ],
 
     // ITALIANO
@@ -61,7 +61,7 @@ return [
         "price" => 17,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "3",
+        "restaurant_id" => 3,
     ],
     [
         "name" => "Pasta al pomodoro",
@@ -69,7 +69,7 @@ return [
         "price" => 12,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "3",
+        "restaurant_id" => 3,
     ],
     [
         "name" => "Risotto alla pescatora",
@@ -77,7 +77,7 @@ return [
         "price" => 19,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "3",
+        "restaurant_id" => 3,
     ],
     [
         "name" => "Fettuccine alla bolognese",
@@ -85,7 +85,7 @@ return [
         "price" => 9,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "3",
+        "restaurant_id" => 3,
     ],
     [
         "name" => "Gnocchi alla sorrentina",
@@ -93,7 +93,7 @@ return [
         "price" => 9,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "3",
+        "restaurant_id" => 3,
     ],
 
     // MESSICANO
@@ -104,7 +104,7 @@ return [
         "price" => 14,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "10",
+        "restaurant_id" => 10,
     ],
     [
         "name" => "Tacos Pollo",
@@ -112,7 +112,7 @@ return [
         "price" => 12,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "11",
+        "restaurant_id" => 11,
     ],
     [
         "name" => "Chili con carne",
@@ -120,7 +120,7 @@ return [
         "price" => 13,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "10",
+        "restaurant_id" => 10,
     ],
     [
         "name" => "Burrito Pollo",
@@ -128,7 +128,7 @@ return [
         "price" => 15,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "11",
+        "restaurant_id" => 11,
     ],
     [
         "name" => "Burrito Manzo",
@@ -136,7 +136,7 @@ return [
         "price" => 15,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "10",
+        "restaurant_id" => 10,
     ],
     [
         "name" => "Tortillas di grano",
@@ -144,7 +144,7 @@ return [
         "price" => 3,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "11",
+        "restaurant_id" => 11,
     ],
 
     // CINESE
@@ -155,7 +155,7 @@ return [
         "price" => 7,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "4",
+        "restaurant_id" => 4,
     ],
     [
         "name" => "Anatra all'arancia",
@@ -163,7 +163,7 @@ return [
         "price" => 8,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "5",
+        "restaurant_id" => 5,
     ],
     [
         "name" => "Udon con verdure",
@@ -171,7 +171,7 @@ return [
         "price" => 7,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "6",
+        "restaurant_id" => 6,
     ],
     [
         "name" => "Shiratake di verdure e gamberi",
@@ -179,7 +179,7 @@ return [
         "price" => 9,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "7",
+        "restaurant_id" => 7,
     ],
 
     // AMERICANO
@@ -190,7 +190,7 @@ return [
         "price" => 13,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "18",
+        "restaurant_id" => 18,
     ],
     [
         "name" => "Cheeseburger",
@@ -198,7 +198,7 @@ return [
         "price" => 13,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "19",
+        "restaurant_id" => 19,
     ],
     [
         "name" => "Cheesburger Bacon",
@@ -206,7 +206,7 @@ return [
         "price" => 14,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "20",
+        "restaurant_id" => 20,
     ],
     [
         "name" => "Baconburger",
@@ -214,7 +214,7 @@ return [
         "price" => 15,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "21",
+        "restaurant_id" => 21,
     ],
     [
         "name" => "Chicken burger",
@@ -222,7 +222,7 @@ return [
         "price" => 12,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "18",
+        "restaurant_id" => 18,
     ],
     [
         "name" => "Patatine fritte",
@@ -230,7 +230,7 @@ return [
         "price" => 5,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "19",
+        "restaurant_id" => 19,
     ],
 
     // INDIANO
@@ -241,7 +241,7 @@ return [
         "price" => 8.50,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "25",
+        "restaurant_id" => 25,
     ],
     [
         "name" => "Basmati bianco",
@@ -249,7 +249,7 @@ return [
         "price" => 5,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "26",
+        "restaurant_id" => 26,
     ],
     [
         "name" => "Chicken curry",
@@ -257,7 +257,7 @@ return [
         "price" => 9,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "25",
+        "restaurant_id" => 25,
     ],
     [
         "name" => "Chicken dhansak",
@@ -265,7 +265,7 @@ return [
         "price" => 12,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "26",
+        "restaurant_id" => 26,
     ],
     [
         "name" => "Panir tikka",
@@ -273,7 +273,7 @@ return [
         "price" => 7.5,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "25",
+        "restaurant_id" => 25,
     ],
     [
         "name" => "Palak paneer",
@@ -281,7 +281,7 @@ return [
         "price" => 8,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "26",
+        "restaurant_id" => 26,
     ],
 
     // GIAPPONESE
@@ -292,7 +292,7 @@ return [
         "price" => 15,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "4",
+        "restaurant_id" => 4,
     ],
     [
         "name" => "Harumaki",
@@ -300,7 +300,7 @@ return [
         "price" => 4.00,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "5",
+        "restaurant_id" => 5,
     ],
     [
         "name" => "Ebi shumai 5pz",
@@ -308,7 +308,7 @@ return [
         "price" => 5.00,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "6",
+        "restaurant_id" => 6,
     ],
     [
         "name" => "Tonno 2 pezzi",
@@ -316,7 +316,7 @@ return [
         "price" => 3.00,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "7",
+        "restaurant_id" => 7,
     ],
     [
         "name" => "Gunkan spicy salmone e alga",
@@ -324,7 +324,7 @@ return [
         "price" => 5.00,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "4",
+        "restaurant_id" => 4,
     ],
     [
         "name" => "Salmone a pezzi",
@@ -332,7 +332,7 @@ return [
         "price" => 8.00,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "5",
+        "restaurant_id" => 5,
     ],
 
     // GELATERIA
@@ -343,7 +343,7 @@ return [
         "price" => 3.50,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "12",
+        "restaurant_id" => 12,
     ],
     [
         "name" => "Frutta rossa",
@@ -351,7 +351,7 @@ return [
         "price" => 4,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "13",
+        "restaurant_id" => 13,
     ],
     [
         "name" => "Crepes al dulce de leche",
@@ -359,7 +359,7 @@ return [
         "price" => 4.00,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "14",
+        "restaurant_id" => 14,
     ],
     [
         "name" => "Crepes alla Nutella",
@@ -367,7 +367,7 @@ return [
         "price" => 4.50,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "14",
+        "restaurant_id" => 14,
     ],
 
     // KEBAB
@@ -378,7 +378,7 @@ return [
         "price" => 6.50,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "8",
+        "restaurant_id" => 8,
     ],
     [
         "name" => "Sfilatino kebab",
@@ -386,7 +386,7 @@ return [
         "price" => 8.00,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "9",
+        "restaurant_id" => 9,
     ],
     [
         "name" => "Focaccia kebab completa",
@@ -394,7 +394,7 @@ return [
         "price" => 8.00,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "8",
+        "restaurant_id" => 8,
     ],
     [
         "name" => "Piadina kebab",
@@ -402,7 +402,7 @@ return [
         "price" => 5.50,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "9",
+        "restaurant_id" => 9,
     ],
 
     // VEGETARIANO
@@ -413,7 +413,7 @@ return [
         "price" => 10.00,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "22",
+        "restaurant_id" => 22,
     ],
     [
         "name" => "Ramen vegetariano",
@@ -421,7 +421,7 @@ return [
         "price" => 15.00,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "23",
+        "restaurant_id" => 23,
     ],
     [
         "name" => "Pizza vegetariana",
@@ -429,7 +429,7 @@ return [
         "price" => 8.00,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "24",
+        "restaurant_id" => 24,
     ],
 
     // FAST-FOOD
@@ -440,7 +440,7 @@ return [
         "price" => 5.99,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "19",
+        "restaurant_id" => 19,
     ],
     [
         "name" => "Chickenburger",
@@ -448,7 +448,7 @@ return [
         "price" => 6.99,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "20",
+        "restaurant_id" => 20,
     ],
     [
         "name" => "Fishburger",
@@ -456,7 +456,7 @@ return [
         "price" => 4.99,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "21",
+        "restaurant_id" => 21,
     ],
     [
         "name" => "Patatine fritte",
@@ -464,7 +464,7 @@ return [
         "price" => 2.99,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "18",
+        "restaurant_id" => 18,
     ],
 
     // POKE
@@ -475,7 +475,7 @@ return [
         "price" => 9.95,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "15",
+        "restaurant_id" => 15,
     ],
     [
         "name" => "Poke Spring Break",
@@ -483,7 +483,7 @@ return [
         "price" => 12.95,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "16",
+        "restaurant_id" => 16,
     ],
     [
         "name" => "Poke Avocado Toast",
@@ -491,7 +491,7 @@ return [
         "price" => 6.00,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "17",
+        "restaurant_id" => 17,
     ],
     [
         "name" => "Poke White Fish",
@@ -499,7 +499,7 @@ return [
         "price" => 11.95,
         "available" => true,
         "image" => "",
-        "restaurant_id" => "15",
+        "restaurant_id" => 15,
     ],
 
 ];

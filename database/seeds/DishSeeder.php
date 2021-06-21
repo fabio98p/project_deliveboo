@@ -3,7 +3,6 @@
 use Illuminate\Database\Seeder;
 use App\Dish;
 use Illuminate\Support\Str;
-use Config\dishes;
 
 class DishSeeder extends Seeder
 {

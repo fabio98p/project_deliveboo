@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use App\Order;
-use Config\orders;
 
 class OrderSeeder extends Seeder
 {

@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use App\Restaurant;
-use Config\Restaurants;
 use Illuminate\Support\Str;
 
 class RestaurantSeeder extends Seeder
