@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateDishesTable extends Migration
+class UpdateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class UpdateDishesTable extends Migration
      */
     public function up()
     {
-      Schema::table('dishes', function (Blueprint $table) {
+      Schema::table('orders', function (Blueprint $table) {
         $table->unsignedBigInteger('restaurant_id')
               ->nullable()
-              ->after('slug');
+              ->after('order_details');
 
         $table->foreign('restaurant_id')
               ->references('id')
@@ -32,8 +32,8 @@ class UpdateDishesTable extends Migration
      */
     public function down()
     {
-      Schema::table('dishes', function (Blueprint $table) {
-        $table->dropForeign('dishes_restaurant_id_foreign');
+      Schema::table('orders', function (Blueprint $table) {
+        $table->dropForeign('orders_restaurant_id_foreign');
         $table->dropColumn('restaurant_id');
       });
     }
