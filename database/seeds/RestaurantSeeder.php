@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Restaurant;
-use Config\Restaurants;
+use App\Category;
 use Illuminate\Support\Str;
 
 class RestaurantSeeder extends Seeder
@@ -15,7 +15,7 @@ class RestaurantSeeder extends Seeder
     public function run()
     {
         $restaurants = config('restaurants');
-        foreach ($restaurants as $restaurant) {
+        foreach ($restaurants as $i =>$restaurant) {
             $newRestaurant = new Restaurant();
             $newRestaurant->name = $restaurant['name'];
             $newRestaurant->address = $restaurant['address'];
@@ -23,9 +23,32 @@ class RestaurantSeeder extends Seeder
             $newRestaurant->description = $restaurant['description'];
             $newRestaurant->banner = $restaurant['banner'];
             $newRestaurant->available = $restaurant['available'];
-            $newRestaurant->slug = Str::slug($restaurant['name'],'-');
+            $newRestaurant->slug = $this->generateSlug($restaurant['name']);
             $newRestaurant->user_id = rand(1,5);
+            
             $newRestaurant->save();
+            
+            // $newRestaurant = Restaurant::find(1);
+            // $newRestaurant->categories()->attach([1,2,3]);
+
+           
+
         }
+    }
+
+    private function generateSlug(string $title) {
+
+      $slug = Str::slug($title,'-');
+      $slug_base = $slug;
+      $contatore = 1;
+
+      $post_with_slug = Restaurant::where('slug','=',$slug)->first();
+      while($post_with_slug) {
+        $slug = $slug_base . '-' . $contatore;
+        $contatore++;
+
+        $post_with_slug = Restaurant::where('slug','=',$slug)->first();
+      }
+      return $slug;
     }
 }

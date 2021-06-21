@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use App\Category;
-use Config\categories;
 use Illuminate\Support\Str;
 
 class CategorySeeder extends Seeder
@@ -19,8 +18,24 @@ class CategorySeeder extends Seeder
             $newCategory = new Category();
             $newCategory->name = $category['name'];
             $newCategory->icon = $category['icon'];
-            $newCategory->slug = Str::slug($category['name'],'-');
+            $newCategory->slug = $this->generateSlug($category['name']);
             $newCategory->save();
         }
+    }
+
+    private function generateSlug(string $title) {
+
+      $slug = Str::slug($title,'-');
+      $slug_base = $slug;
+      $contatore = 1;
+
+      $post_with_slug = Category::where('slug','=',$slug)->first();
+      while($post_with_slug) {
+        $slug = $slug_base . '-' . $contatore;
+        $contatore++;
+
+        $post_with_slug = Category::where('slug','=',$slug)->first();
+      }
+      return $slug;
     }
 }
