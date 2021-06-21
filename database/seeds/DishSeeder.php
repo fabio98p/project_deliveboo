@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Dish;
 use Config\Dishes;
+use Illuminate\Support\Str;
 
 class DishSeeder extends Seeder
 {
@@ -21,8 +22,8 @@ class DishSeeder extends Seeder
             $newDish->price = $dish['price'];
             $newDish->available = $dish['available'];
             $newDish->image = $dish['image'];
-            $newDish->slug = // inserire funzioine slug
-            $newDish->restaurant_id = //decidere come associate il Restaurant_id ai dish
+            $newDish->slug = Str::slug($dish['name'],'-');
+            $newDish->restaurant_id = $dish['restaurant_id'];
             $newDish->save();
         }
     }

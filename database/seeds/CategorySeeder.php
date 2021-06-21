@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Category;
 use Config\categories;
+use Illuminate\Support\Str;
 
 class CategorySeeder extends Seeder
 {
@@ -18,7 +19,7 @@ class CategorySeeder extends Seeder
             $newCategory = new Category();
             $newCategory->name = $category['name'];
             $newCategory->icon = $category['icon'];
-            $newCategory->slug = // creare funzione slug
+            $newCategory->slug = Str::slug($category['name'],'-');
             $newCategory->save();
         }
     }
