@@ -23,7 +23,7 @@ class CategoryController extends Controller
 
         return response()->json([
             'response' => $data,
-            'succes' => true,
+            'success' => true,
         ]);
     }
 }

@@ -21,7 +21,7 @@ class RestaurantController extends Controller
 
         return response()->json([
             'response' => $data,
-            'succes' => true,
+            'success' => true,
         ]);
     }
 
@@ -35,7 +35,7 @@ class RestaurantController extends Controller
 
         return response()->json([
             'response' => $data,
-            'succes' => true,
+            'success' => true,
         ]);
     }
 }
