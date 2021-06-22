@@ -10956,3 +10956,7 @@ a.text-dark:focus {
   margin: 50px;
 }
 
+.card .cover img {
+  width: 100%;
+}
+

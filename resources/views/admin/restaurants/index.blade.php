@@ -13,15 +13,20 @@
         </div>
 
     </div>
-        @foreach($restaurants as $index => $restaurants)
-
+        @foreach($restaurants as $index => $restaurant)
         <div class="col-md-3 mt-2">
           <div class="card">
             <div class="card-title">
-                <h2 class="text-center">{{$restaurants['name']}}</h5>
+                <h2 class="text-center">{{$restaurant['name']}}</h5>
             </div>
             <div class="cover">
-                <img src="{{$restaurants['logo']}}" alt="image logo">
+                <img src="{{$restaurant['logo']}}" alt="image logo">
+            </div>
+            <div class="">
+              <a class="btn btn-info" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->id])}}">Show</a>
+              <a class="btn btn-primary" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->id])}}">Edit</a>
+              <a class="btn btn-danger" href="">Delete</a>
+
             </div>
           </div>
         </div>
@@ -32,18 +37,6 @@
 
 
         @endforeach
-        <div class="col-md-3 mt-5">
-          <div class="card-my-restaurant border-2px">
-            <div class="restaurant-image">
-              <img src="restaurant.logo" alt="">
-            </div>
-            <h3>Nome</h3>
-            <div class="">
-              <button type="button" name="button">Modifica</button>
-              <button type="button" name="button">Elimina</button>
-            </div>
-          </div>
-        </div>
 
       </div>
         <div class="col-md-3 mt-5">
