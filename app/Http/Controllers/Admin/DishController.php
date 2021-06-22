@@ -93,7 +93,9 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        //
+      $restaurants = Restaurant::where('user_id', Auth::user()->id)->get();
+
+      return view('admin.dishes.edit', compact('restaurants'));
     }
 
     /**
@@ -105,7 +107,27 @@ class DishController extends Controller
      */
     public function update(Request $request, Dish $dish)
     {
-        //
+      $request->validate([
+          'restaurant_id' => 'required|exists:restaurants,id',
+          'name' => 'required|string|max:50',
+          'description' => 'required|text',
+          'price' => 'required|numeric',
+          'available' => 'required|boolean',
+          'image' => 'nullable|image|max:10000',
+      ]);
+      $data = $request->all();
+
+      $data['slug'] = $this->generateSlug($data['name'], $dish->name != $data['name'], $dish->slug);
+
+      if (array_key_exists('image', $data)) {
+        $image = Storage::put('uploads_dishes', $data['image']);
+        $data['image'] = 'storage/'.$image;
+      }
+
+      $dish->update($data);
+
+      return redirect()->route('admin.dishes.show', compact('dish'));
+
     }
 
     /**
@@ -116,8 +138,14 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
-        //
+      $restaurant_id = $dish['restaurant_id'];
+      $restaurant = Restaurant::where('id', $restaurant_id);
+
+      $dish->delete();
+
+      return redirect()->route('admin.restaurants.show', compact('restaurant'));
     }
+
 
     private function generateSlug(string $title, bool $change = true, string $old_slug = '') {
 

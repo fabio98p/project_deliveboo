@@ -76,18 +76,18 @@ class RestaurantController extends Controller
         $restaurant->user_id = Auth::user()->id;
         //popolo lo slug con una funzione che si riferisce al restaurant name
         $restaurant->slug = $this->generateSlug($restaurant->name);
-        
+
         //link immagini
         $restaurant->logo = 'storage/' . $logo;
         $restaurant->banner = 'storage/' . $banner;
-        
+
         $restaurant->save();
-        
-        //popolare la tabella pvot 
+
+        //popolare la tabella pvot
         if (array_key_exists('category_ids', $data)) {
           $restaurant->categories()->attach($data['category_ids']);
         }
-        
+
         return redirect()->route('admin.restaurants.index');
     }
 
@@ -140,6 +140,7 @@ class RestaurantController extends Controller
     {
         //
     }
+
 
     private function generateSlug(string $title, bool $change = true, string $old_slug = '') {
 
