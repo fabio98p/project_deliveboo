@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Restaurant;
 use App\Category;
-use App\Dish;
+use app\Dish;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -29,12 +29,8 @@ class RestaurantController extends Controller
 
         $filteredRestaurants = Category::with('restaurants')->get();
 
-        $data = [
-            'filteredRestaurants' => $filteredRestaurants
-        ];
-
         return response()->json([
-            'response' => $data,
+            'response' => $filteredRestaurants,
             'success' => true,
         ]);
     }
