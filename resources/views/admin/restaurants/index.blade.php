@@ -11,6 +11,27 @@
                 <h3>I miei ristoranti</h2>
 
         </div>
+
+    </div>
+        @foreach($restaurants as $index => $restaurants)
+
+        <div class="col-md-3 mt-2">
+          <div class="card">
+            <div class="card-title">
+                <h2 class="text-center">{{$restaurants['name']}}</h5>
+            </div>
+            <div class="cover">
+                <img src="{{$restaurants['logo']}}" alt="image logo">
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+        @endforeach
         <div class="col-md-3 mt-5">
           <div class="card-my-restaurant border-2px">
             <div class="restaurant-image">

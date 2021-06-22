@@ -71,8 +71,9 @@
                             @enderror
                         </div>
                           <!-- upload file banner -->
-                        
+
                         <!-- disponibilità si no -->
+                        <label for="banner">Disponibile:</label>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                             <label class="form-check-label" for="inlineRadio1">Si</label>
@@ -82,14 +83,7 @@
                             <label class="form-check-label" for="inlineRadio2">No</label>
                         </div>
                         <!-- multiselezione categorie -->
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">2</label>
-                        </div>
+
 
 
 
