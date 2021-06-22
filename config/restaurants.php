@@ -96,7 +96,7 @@ return [
     [
         'name' => 'Cucaracha',
         'address' => 'Via Prodi, 425',
-        'logo' => '/images/logos/cucaracha.jng',
+        'logo' => '/images/logos/cucaracha.jpg',
         'description' =>'Il vero cibo messicano direttamente a casa tua con Deliveboo',
         'banner' => '/images/restaurants/cucaracha.jpg',
         'available' => true,
@@ -107,7 +107,7 @@ return [
     [
         'name' => 'Gola',
         'address' => 'Via Catania, 7',
-        'logo' => '/images/logos/gola.jng',
+        'logo' => '/images/logos/gola.jpg',
         'description' =>'Il vero gelato artigianale direttamente a casa tua con Deliveboo',
         'banner' => '/images/restaurants/gola.jpg',
         'available' => true,
@@ -145,7 +145,7 @@ return [
     [
         'name' => 'Aloha Poke',
         'address' => 'Viale Della regione, 4',
-        'logo' => '/images/logos/aloha-poke.jng',
+        'logo' => '/images/logos/aloha-poke.jpg',
         'description' =>'I migliori poke direttamente a casa tua con Deliveboo',
         'banner' => '/images/restaurants/aloha-poka.jpg',
         'available' => true,
