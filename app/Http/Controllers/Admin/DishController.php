@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Dish;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class DishController extends Controller
 {
@@ -25,7 +28,7 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.dishes.create');
     }
 
     /**
@@ -36,7 +39,45 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            
+            'name' => 'required|string|max:50',
+            'description' => 'required|text',
+            'price' => 'required|numeric',
+            'available' => 'required|boolean',
+            'image' => 'nullable|image|max:10000',
+        ]);
+        $data = $request->all();
+
+        //salvataggio immagini in storage
+        $image = NULL;
+        if (array_key_exists('image', $data)) {
+            $image = Storage::put('upload_dishes', $data['image']);
+        }
+
+        //creo un novo ristorante e lo fillo
+        $dish = new Dish();
+        
+        $userRestaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        $newDish->restaurant_id = $userRestaurant->id;
+        $newDish->fill($data);
+        
+        //inserisco lo user id cercando lo user con cui si e' fatto l'accesso
+        $dish->restaurant_id = Auth::user()->id;
+        //popolo lo slug con una funzione che si riferisce al dish name
+        $dish->slug = $this->generateSlug($dish->name);
+        
+        //link immagini
+        $dish->logo = 'storage/' . $image;
+        
+        $dish->save();
+        
+        //popolare la tabella pvot 
+        if (array_key_exists('category_ids', $data)) {
+          $dish->categories()->attach($data['category_ids']);
+        }
+        
+        return redirect()->route('admin.restaurants.index');
     }
 
     /**
@@ -47,7 +88,7 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        //
+        return view('admin.dishes.show', compact('dish'));
     }
 
     /**

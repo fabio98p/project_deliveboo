@@ -8,7 +8,10 @@ use App\User;
 use app\Dish;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+
 
 class RestaurantController extends Controller
 {
@@ -55,28 +58,36 @@ class RestaurantController extends Controller
         ]);
         $data = $request->all();
 
+        //salvataggio immagini in storage
         $logo = NULL;
         if (array_key_exists('logo', $data)) {
             $logo = Storage::put('uploads', $data['logo']);
         }
-
         $banner = NULL;
         if (array_key_exists('banner', $data)) {
             $banner = Storage::put('uploads', $data['banner']);
         }
 
+        //creo un novo ristorante e lo fillo
+        $restaurant = new Restaurant();
+        $restaurant->fill($data);
+
+        //inserisco lo user id cercando lo user con cui si e' fatto l'accesso
+        $restaurant->user_id = Auth::user()->id;
+        //popolo lo slug con una funzione che si riferisce al restaurant name
+        $restaurant->slug = $this->generateSlug($restaurant->name);
+        
+        //link immagini
+        $restaurant->logo = 'storage/' . $logo;
+        $restaurant->banner = 'storage/' . $banner;
+        
+        $restaurant->save();
+        
+        //popolare la tabella pvot 
         if (array_key_exists('category_ids', $data)) {
           $restaurant->categories()->attach($data['category_ids']);
         }
-
-        $restaurant = new Restaurant();
-        $restaurant->fill($data);
-        $restaurant->user_id = Auth::user()->id;
-        $restaurant->slug = $this->generateSlug($restaurant->name);
-        $restaurant->logo = 'storage/' . $logo;
-        $restaurant->banner = 'storage/' . $banner;
-        $restaurant->save();
-
+        
         return redirect()->route('admin.restaurants.index');
     }
 
@@ -88,7 +99,12 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        //
+        //prendo il ristorante id
+        $restaurant_id = $restaurant['id'];
+        //uso il ristorante id per prendere i piatti relativi a quel ristorante
+        $dishes = Dish::where('restaurant_id', $restaurant_id)->get();
+
+        return view('admin.restaurants.show', compact($restaurant, $dishes));
     }
 
     /**
