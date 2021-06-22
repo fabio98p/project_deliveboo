@@ -22,12 +22,13 @@
 </head>
 
 <body>
+    
     @include('partials.navbar')
     <main>
         @yield('main')
     </main>
     @include('partials.footer')
-    <script src="/js/app.js"></script>
+
 </body>
 
 </html>
