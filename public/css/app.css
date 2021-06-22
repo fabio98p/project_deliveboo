@@ -10942,3 +10942,17 @@ a.text-dark:focus {
   }
 }
 
+.h-prova {
+  height: 150px;
+  border: 2px solid black;
+}
+
+.border-2px {
+  border: 2px solid black;
+}
+
+.card-my-restaurant,
+.card-my-dish {
+  margin: 50px;
+}
+
