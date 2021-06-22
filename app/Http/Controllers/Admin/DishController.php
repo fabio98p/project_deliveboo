@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Dish;
+use App\Restaurant;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;

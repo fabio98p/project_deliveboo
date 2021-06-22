@@ -19,4 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-// Route::get('guest/restaurant/index', 'CityController@index');
+Route::get('/restaurants', 'Api\RestaurantController@index');
+Route::get('/categories', 'Api\CategoryController@index');
