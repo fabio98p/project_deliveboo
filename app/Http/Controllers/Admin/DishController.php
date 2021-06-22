@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Dish;
+use App\Restaurant;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -28,7 +29,8 @@ class DishController extends Controller
      */
     public function create()
     {
-        return view('admin.dishes.create');
+        $restaurants = Restaurant::where('user_id', Auth::user()->id)->get();
+        return view('admin.dishes.create', compact('restaurants'));
     }
 
     /**
@@ -40,7 +42,7 @@ class DishController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            
+            'restaurant_id' => 'required|exists:restaurants,id',
             'name' => 'required|string|max:50',
             'description' => 'required|text',
             'price' => 'required|numeric',
@@ -56,28 +58,21 @@ class DishController extends Controller
         }
 
         //creo un novo ristorante e lo fillo
-        $dish = new Dish();
-        
-        $userRestaurant = Restaurant::where('user_id', Auth::user()->id)->first();
-        $newDish->restaurant_id = $userRestaurant->id;
+        $newDish = new Dish();
         $newDish->fill($data);
-        
-        //inserisco lo user id cercando lo user con cui si e' fatto l'accesso
-        $dish->restaurant_id = Auth::user()->id;
+
         //popolo lo slug con una funzione che si riferisce al dish name
-        $dish->slug = $this->generateSlug($dish->name);
-        
+        $newDish->slug = $this->generateSlug($newDish->name);
+
         //link immagini
-        $dish->logo = 'storage/' . $image;
-        
-        $dish->save();
-        
-        //popolare la tabella pvot 
-        if (array_key_exists('category_ids', $data)) {
-          $dish->categories()->attach($data['category_ids']);
-        }
-        
-        return redirect()->route('admin.restaurants.index');
+        $newDish->image = 'storage/' . $image;
+
+        $newDish->save();
+
+        // prendo tutti i piatti, li riordino decrescente e prendo il primo
+        $dish = Dish::where('restaurant_id', $data['restaurant_id'])->orderBy('id', 'desh')->first();
+
+        return redirect()->route('admin.dishes.show', compact('dish'));
     }
 
     /**
@@ -99,7 +94,9 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        //
+      $restaurants = Restaurant::where('user_id', Auth::user()->id)->get();
+
+      return view('admin.dishes.edit', compact('restaurants'));
     }
 
     /**
@@ -111,7 +108,27 @@ class DishController extends Controller
      */
     public function update(Request $request, Dish $dish)
     {
-        //
+      $request->validate([
+          'restaurant_id' => 'required|exists:restaurants,id',
+          'name' => 'required|string|max:50',
+          'description' => 'required|text',
+          'price' => 'required|numeric',
+          'available' => 'required|boolean',
+          'image' => 'nullable|image|max:10000',
+      ]);
+      $data = $request->all();
+
+      $data['slug'] = $this->generateSlug($data['name'], $dish->name != $data['name'], $dish->slug);
+
+      if (array_key_exists('image', $data)) {
+        $image = Storage::put('uploads_dishes', $data['image']);
+        $data['image'] = 'storage/'.$image;
+      }
+
+      $dish->update($data);
+
+      return redirect()->route('admin.dishes.show', compact('dish'));
+
     }
 
     /**
@@ -122,6 +139,32 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
-        //
+      $restaurant_id = $dish['restaurant_id'];
+      $restaurant = Restaurant::where('id', $restaurant_id);
+
+      $dish->delete();
+
+      return redirect()->route('admin.restaurants.show', compact('restaurant'));
+    }
+
+
+    private function generateSlug(string $title, bool $change = true, string $old_slug = '') {
+
+      if (!$change) {
+        return $old_slug;
+      }
+
+      $slug = Str::slug($title,'-');
+      $slug_base = $slug;
+      $contatore = 1;
+
+      $post_with_slug = Dish::where('slug','=',$slug)->first();
+      while($post_with_slug) {
+        $slug = $slug_base . '-' . $contatore;
+        $contatore++;
+
+        $post_with_slug = Dish::where('slug','=',$slug)->first();
+      }
+      return $slug;
     }
 }
