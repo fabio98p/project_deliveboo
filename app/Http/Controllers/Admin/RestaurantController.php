@@ -7,6 +7,7 @@ use App\Category;
 use App\User;
 use app\Dish;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -18,8 +19,9 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurant = Restaurant::where('user_id', Auth::user()->id)->get();
-        return view('admin.index', compact('restaurant'));
+        $restaurants = Restaurant::where('user_id', Auth::user()->id)->get();
+
+        return view('admin.restaurants.index', compact('restaurants'));
     }
 
     /**
@@ -48,27 +50,34 @@ class RestaurantController extends Controller
             'logo' => 'nullable|image|max:5000',
             'description' => 'required|text',
             'banner' => 'nullable|image|max:10000',
+            'category_ids' => 'exists:categories,id|nullable',
             'available' => 'required|boolean',
         ]);
         $data = $request->all();
 
-        $cover = NULL;
-        if (array_key_exists('cover', $data)) {
-            $cover = Storage::put('uploads', $data['cover']);
+        $logo = NULL;
+        if (array_key_exists('logo', $data)) {
+            $logo = Storage::put('uploads', $data['logo']);
         }
 
-        $post = new Post();
-        $post->fill($data);
-
-
-        $post->slug = $this->generateSlug($post->title);
-        $post->cover = 'storage/' . $cover;
-        $post->save();
-
-        if (array_key_exists('categories', $data)) {
-            $restaurant->categories()->attach($data['tag_ids']);
+        $banner = NULL;
+        if (array_key_exists('banner', $data)) {
+            $banner = Storage::put('uploads', $data['banner']);
         }
-        return redirect(route('admin.posts.index'));
+
+        if (array_key_exists('category_ids', $data)) {
+          $restaurant->categories()->attach($data['category_ids']);
+        }
+
+        $restaurant = new Restaurant();
+        $restaurant->fill($data);
+        $restaurant->user_id = Auth::user()->id;
+        $restaurant->slug = $this->generateSlug($restaurant->name);
+        $restaurant->logo = 'storage/' . $logo;
+        $restaurant->banner = 'storage/' . $banner;
+        $restaurant->save();
+
+        return redirect()->route('admin.restaurants.index');
     }
 
     /**
@@ -114,5 +123,25 @@ class RestaurantController extends Controller
     public function destroy(Restaurant $restaurant)
     {
         //
+    }
+
+    private function generateSlug(string $title, bool $change = true, string $old_slug = '') {
+
+      if (!$change) {
+        return $old_slug;
+      }
+
+      $slug = Str::slug($title,'-');
+      $slug_base = $slug;
+      $contatore = 1;
+
+      $post_with_slug = Restaurant::where('slug','=',$slug)->first();
+      while($post_with_slug) {
+        $slug = $slug_base . '-' . $contatore;
+        $contatore++;
+
+        $post_with_slug = Restaurant::where('slug','=',$slug)->first();
+      }
+      return $slug;
     }
 }
