@@ -172,7 +172,7 @@ return [
     [
         'name' => 'Seven Chips',
         'address' => 'Via Costantinopoli, 41',
-        'logo' => '/images/logos/seven-chips.png',
+        'logo' => '/images/logos/seven-chips.jpg',
         'description' =>'I migliori cibi internazionali direttamente a casa tua con Deliveboo',
         'banner' => '/images/restaurants/seven-chips.jpg',
         'available' => true,

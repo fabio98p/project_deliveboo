@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="#">DeliveBoo</a>
+        <a class="navbar-brand" href="">DeliveBoo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -19,10 +19,11 @@
                 @else
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">I miei ristoranti</a>
+                    <a class="nav-link" href="{{ route('admin.restaurants.index') }}">I miei ristoranti</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profilo</a>
+                    <a class="nav-link" href="">Profilo</a>
+                    {{-- <a class="nav-link" href="{{ route('admin.user.index') }}">Profilo</a> --}}
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}"

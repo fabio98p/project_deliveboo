@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Restaurant;
 use App\Category;
 use App\User;
-use app\Dish;
+use App\Dish;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -104,7 +104,7 @@ class RestaurantController extends Controller
         //uso il ristorante id per prendere i piatti relativi a quel ristorante
         $dishes = Dish::where('restaurant_id', $restaurant_id)->get();
 
-        return view('admin.restaurants.show', compact($restaurant, $dishes));
+        return view('admin.restaurants.show', compact('restaurant', 'dishes'));
     }
 
     /**

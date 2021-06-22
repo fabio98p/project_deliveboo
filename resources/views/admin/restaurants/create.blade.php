@@ -40,29 +40,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="logo" class="col-md-4 col-form-label text-md-right">{{ __('Logo') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="logo" type="text" class="form-control @error('logo') is-invalid @enderror" name="logo" value="{{ old('logo') }}" required autocomplete="logo" autofocus>
-
-                                @error('logo')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <!-- upload file -->
-                        <div class="form-group">
-                          <label for="cover">Cover</label>
-                          <input class="form-control-file @error('cover') is-invalid @enderror" id="cover" name="cover" type="file">
-                          @error('cover')
-                          <small class="text-danger">{{ $message }}</small>
-                          @enderror
-                        </div>
-                        <!-- upload file -->
-                        <div class="form-group row">
-                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('description') }}</label>
+                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
                                 <input id="description" type="description" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description">
@@ -74,33 +52,38 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <!-- upload logo -->
+                        <div class="form-group row">
+                            <label for="logo">Logo</label>
+                            <input class="form-control-file @error('logo') is-invalid @enderror" id="logo" name="logo" type="file">
+                            @error('logo')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <!-- upload logo -->
                         <!-- upload file banner -->
-                        <div class="form-group">
-                          <label for="cover">Cover</label>
-                          <input class="form-control-file @error('cover') is-invalid @enderror" id="cover" name="cover" type="file">
-                          @error('cover')
-                          <small class="text-danger">{{ $message }}</small>
-                          @enderror
+                        <div class="form-group row">
+                            <label for="banner">Banner</label>
+                            <input class="form-control-file @error('banner') is-invalid @enderror" id="banner" name="banner" type="file">
+                            @error('banner')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
-                        <!-- upload file -->
+                          <!-- upload file banner -->
+
                         <!-- disponibilità si no -->
+                        <label for="banner">Disponibile:</label>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                          <label class="form-check-label" for="inlineRadio1">Si</label>
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Si</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                          <label class="form-check-label" for="inlineRadio2">No</label>
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">No</label>
                         </div>
                         <!-- multiselezione categorie -->
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                          <label class="form-check-label" for="inlineCheckbox1">1</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                          <label class="form-check-label" for="inlineCheckbox2">2</label>
-                        </div>
+
 
 
 
