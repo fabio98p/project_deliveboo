@@ -10,6 +10,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('admin.dishes.store') }}">
                         @csrf
+                        @method('POST')
 
                         <div class="form-group row">
                             <select class="form-control @error('restaurant') is-invalid @enderror" id="restaurant" name="restaurant_id">
