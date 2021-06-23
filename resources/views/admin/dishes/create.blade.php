@@ -24,18 +24,7 @@
                             @enderror
                         </div>
 
-                        {{-- <div class="form-group">
-                            <label for="category">Category</label>
-                            <select class="form-control @error('category') is-invalid @enderror" id="category" name="category_id">
-                                <option value="">Select</option>
-                                @foreach ($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
-                                @endforeach
-                            </select>
-                            @error('category')
-                                <small class="text-danger">{{$message}}</small>
-                            @enderror
-                        </div> --}}
+                      
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -95,6 +84,19 @@
                                 </button>
                             </div>
                         </div>
+
+                        <!-- disponibile -->
+
+                        <label for="banner">Disponibile:</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked>
+                            <label class="form-check-label" for="inlineRadio1">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0">
+                            <label class="form-check-label" for="inlineRadio2">No</label>
+                        </div>
+
                     </form>
                 </div>
             </div>
