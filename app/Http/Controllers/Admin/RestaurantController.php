@@ -156,9 +156,9 @@ class RestaurantController extends Controller
       $restaurant->update($data);
 
       if(array_key_exists('category_ids',$data)) {
-        $post->tags()->sync($data['category_ids']);
+        $restaurant->categories()->sync($data['category_ids']);
       } else {
-        $post->tags()->detach();
+        $restaurant->categories()->detach();
       }
 
       return redirect()->route('admin.restaurants.show', compact('restaurant'));
@@ -173,7 +173,9 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+      $restaurant->categories()->detach();
+      $restaurant->delete();
+      return redirect()->route('admin.restaurants.index');
     }
 
 

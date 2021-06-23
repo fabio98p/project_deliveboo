@@ -25,8 +25,8 @@ class RestaurantController extends Controller
         ]);
     }
 
-    public function filteredRestaurants(Request $request) {
-        $filteredRestaurants = Category::where('name', 'pizza')->with('restaurants')->get();
+    public function filteredRestaurants(Category $category) {
+        $filteredRestaurants = Category::where('name', $category)->with('restaurants')->get();
 
         return response()->json([
             'response' => $filteredRestaurants,

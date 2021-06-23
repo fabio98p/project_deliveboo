@@ -32,7 +32,11 @@
                                 </div>
                                 <div class="">
                                     <a class="btn btn-primary" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->id])}}">Edit</a>
-                                    <a class="btn btn-danger" href="">Delete</a>
+                                    <form action="{{route('admin.restaurants.destroy', ['restaurant' => $restaurant->id])}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input class="btn btn-danger" type="submit" value="Delete">
+                                    </form>
                                 </div>
                             </div>
                         </div>
