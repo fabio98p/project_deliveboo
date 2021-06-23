@@ -13,20 +13,6 @@
                         @method('POST')
 
                         <div class="form-group row">
-                            <select class="form-control @error('restaurant') is-invalid @enderror" id="restaurant" name="restaurant_id">
-                                <option value="">Ristorante</option>
-                                @foreach ($restaurants as $index => $restaurant)
-                                    <option value="{{$restaurant->id}}">{{$restaurant->name}}</option>
-                                @endforeach
-                            </select>
-                            @error('restaurant')
-                                <small class="text-danger">{{$message}}</small>
-                            @enderror
-                        </div>
-
-                      
-
-                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">

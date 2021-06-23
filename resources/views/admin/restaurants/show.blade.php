@@ -56,4 +56,11 @@
     </div>
 </section>
 
+            <div class="">
+              <button type="button" name="button"><a href="{{ route('admin.dishes.create', ['restaurant' => $restaurant->slug]) }}">Crea piatto</a></button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
 @endsection

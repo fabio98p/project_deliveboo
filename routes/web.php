@@ -23,6 +23,9 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
   ->group(function () {
     Route::resource('/restaurants', 'RestaurantController');
     //Route::resource('/categories', 'CategoryController');
-    Route::resource('/dishes', 'DishController');
+    Route::resource('/dishes', 'DishController')->except([
+      'create'
+    ]);
+    Route::get('/dishes/create/{restaurant?}', 'DishController@create')->name('dishes.create');
     Route::resource('/orders', 'OrderController');
   });

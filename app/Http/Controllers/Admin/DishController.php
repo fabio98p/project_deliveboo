@@ -27,10 +27,10 @@ class DishController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($slug)
     {
-        $restaurants = Restaurant::where('user_id', Auth::user()->id)->get();
-        return view('admin.dishes.create', compact('restaurants'));
+        $restaurant = Restaurant::where("slug", $slug)->first();
+        return view('admin.dishes.create', compact('restaurant'));
     }
 
     /**
