@@ -54,18 +54,18 @@ class RestaurantController extends Controller
             'description' => 'required|string',
             'banner' => 'nullable|image|max:10000',
             'category_ids' => 'exists:categories,id|nullable',
-            'available' => 'required|boolean',
+            // 'available' => 'nullable|boolean',
         ]);
         $data = $request->all();
 
         //salvataggio immagini in storage
         $logo = NULL;
         if (array_key_exists('logo', $data)) {
-            $logo = Storage::put('uploads_restaurants', $data['logo']);
+            $logo = Storage::put('uploads', $data['logo']);
         }
         $banner = NULL;
         if (array_key_exists('banner', $data)) {
-            $banner = Storage::put('uploads_restaurants', $data['banner']);
+            $banner = Storage::put('uploads', $data['banner']);
         }
 
         //creo un novo ristorante e lo fillo
