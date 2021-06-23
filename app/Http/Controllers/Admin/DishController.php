@@ -44,13 +44,12 @@ class DishController extends Controller
         $request->validate([
             'restaurant_id' => 'required|exists:restaurants,id',
             'name' => 'required|string|max:50',
-            'description' => 'required|text',
+            'description' => 'required|string',
             'price' => 'required|numeric',
             'available' => 'required|boolean',
             'image' => 'nullable|image|max:10000',
         ]);
         $data = $request->all();
-
         //salvataggio immagini in storage
         $image = NULL;
         if (array_key_exists('image', $data)) {
@@ -61,6 +60,9 @@ class DishController extends Controller
         $newDish = new Dish();
         $newDish->fill($data);
 
+        //assegnamo il resaurant_id perche non riesce col fill
+        $newDish->restaurant_id = $data['restaurant_id'];
+
         //popolo lo slug con una funzione che si riferisce al dish name
         $newDish->slug = $this->generateSlug($newDish->name);
 
@@ -70,7 +72,7 @@ class DishController extends Controller
         $newDish->save();
 
         // prendo tutti i piatti, li riordino decrescente e prendo il primo
-        $dish = Dish::where('restaurant_id', $data['restaurant_id'])->orderBy('id', 'desh')->first();
+        $dish = Dish::where('restaurant_id', $data['restaurant_id'])->orderBy('id', 'desc')->first();
 
         return redirect()->route('admin.dishes.show', compact('dish'));
     }
@@ -109,17 +111,20 @@ class DishController extends Controller
     public function update(Request $request, Dish $dish)
     {
       $request->validate([
-          'restaurant_id' => 'required|exists:restaurants,id',
-          'name' => 'required|string|max:50',
-          'description' => 'required|text',
-          'price' => 'required|numeric',
-          'available' => 'required|boolean',
-          'image' => 'nullable|image|max:10000',
+        'restaurant_id' => 'required|exists:restaurants,id',
+        'name' => 'required|string|max:50',
+        'description' => 'required|string',
+        'price' => 'required|numeric',
+        'available' => 'required|boolean',
+        'image' => 'nullable|image|max:10000',
       ]);
       $data = $request->all();
-
+      
       $data['slug'] = $this->generateSlug($data['name'], $dish->name != $data['name'], $dish->slug);
-
+      
+      // //assegnamo il resaurant_id perche non riesce col fill
+      // $newDish->restaurant_id = $data['restaurant_id'];
+      
       if (array_key_exists('image', $data)) {
         $image = Storage::put('uploads_dishes', $data['image']);
         $data['image'] = 'storage/'.$image;
