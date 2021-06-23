@@ -23,8 +23,9 @@
                 <div class="col-md-4 mt-2">
                     <a href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->id])}}">
                         <div class="card-personal">
-                            <div class="card-personal-cover" style="background-image: url('{{$restaurant['logo']}}')">
+                            <div class="card-personal-cover" style="background-image: url('{{asset($restaurant->logo)}}')">
                                 {{-- <img src="{{$restaurant['logo']}}" alt="image logo"> --}}
+                                {{-- <img src="{{asset($restaurant->logo)}}" alt="" style="height: 100px; width: 100px;"> --}}
                             </div>
                             <div class="card-info">
                                 <div class="card-title">
