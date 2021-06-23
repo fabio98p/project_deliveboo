@@ -8,7 +8,7 @@
                 <div class="card-header">CREA RISTORANTE</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.restaurants.store') }}">
+                    <form method="POST" action="{{ route('admin.restaurants.store') }}" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
 
@@ -55,13 +55,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <select class="form-control @error('category') is-invalid @enderror" id="category" name="category_id">
+                            <select class="form-control @error('category_ids') is-invalid @enderror" name="category_ids[]" multiple>
                                 <option value="">Categoria</option>
                                 @foreach ($categories as $index => $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
                             </select>
-                            @error('category')
+                            @error('category_ids')
                                 <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
@@ -86,20 +86,22 @@
                           <!-- upload file banner -->
 
                         <!-- disponibilità si no -->
-                        <label for="banner">Disponibile:</label>
+                        {{-- <label for="banner">Disponibile:</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked>
-                            <label class="form-check-label" for="inlineRadio1">Si</label>
+                            <input class="form-check-input form-control @error('available') is-invalid @enderror" type="radio" name="available" value="true" checked>
+                            <label class="form-check-label">Si</label>
+                            @error('available')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0">
-                            <label class="form-check-label" for="inlineRadio2">No</label>
-                        </div>
+                            <input class="form-check-input form-control @error('available') is-invalid @enderror" type="radio" name="available" value="false">
+                            <label class="form-check-label">No</label>
+                            @error('available')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div> --}}
                         <!-- multiselezione categorie -->
-
-
-
-
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

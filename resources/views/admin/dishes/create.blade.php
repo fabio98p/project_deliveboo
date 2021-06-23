@@ -8,7 +8,7 @@
                 <div class="card-header">CREA PIATTO</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.dishes.store') }}">
+                    <form method="POST" action="{{ route('admin.dishes.store') }}" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
 
