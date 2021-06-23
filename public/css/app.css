@@ -10942,9 +10942,10 @@ a.text-dark:focus {
   }
 }
 
-.h-prova {
-  height: 150px;
-  border: 2px solid black;
+.banner-show {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
 }
 
 .border-2px {
@@ -10962,7 +10963,9 @@ a.text-dark:focus {
   background-size: cover;
 }
 
-.card .cover img {
-  height: 100%;
+.dish-show {
+  height: 400px;
+  background-position: center;
+  background-size: cover;
 }
 
