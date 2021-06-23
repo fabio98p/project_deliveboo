@@ -32,7 +32,7 @@
             </div>
             @foreach($dishes as $index => $dish)
                 <div class="col-md-4 mt-2">
-                    <a href="{{route('admin.dishes.show', ['dish' => $dish->id])}}">
+                    <a href="{{route('admin.dishes.show', ['dish' => $dish->slug])}}">
                         <div class="card-personal">
                             <div class="card-personal-cover" style="background-image: url('{{$dish['image']}}')">
                                 {{-- <img src="{{$dish['image']}}" alt="image logo"> --}}
@@ -42,7 +42,7 @@
                                     <h2 class="text-center">{{$dish['name']}}</h5>
                                 </div>
                                 <div class="">
-                                    <a class="btn btn-primary" href="{{route('admin.dishes.edit', ['dish' => $dish->id])}}">Edit</a>
+                                    <a class="btn btn-primary" href="{{route('admin.dishes.edit', ['dish' => $dish->slug])}}">Edit</a>
                                     <a class="btn btn-danger" href="">Delete</a>
                                 </div>
                             </div>

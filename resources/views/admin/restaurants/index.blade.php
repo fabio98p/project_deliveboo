@@ -21,7 +21,7 @@
         <div class="row">
             @foreach($restaurants as $index => $restaurant)
                 <div class="col-md-4 mt-2">
-                    <a href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->id])}}">
+                    <a href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
                         <div class="card-personal">
                             <div class="card-personal-cover" style="background-image: url('{{$restaurant['logo']}}')">
                                 {{-- <img src="{{$restaurant['logo']}}" alt="image logo"> --}}
@@ -31,7 +31,7 @@
                                     <h2 class="text-center">{{$restaurant['name']}}</h5>
                                 </div>
                                 <div class="">
-                                    <a class="btn btn-primary" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->id])}}">Edit</a>
+                                    <a class="btn btn-primary" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}">Edit</a>
                                     <form action="{{route('admin.restaurants.destroy', ['restaurant' => $restaurant->id])}}" method="post">
                                         @csrf
                                         @method('DELETE')

@@ -8,8 +8,12 @@
     <div class="row">
         <div class="col-md-12 mt-5 d-flex">
             <h1>{{ $dish['name'] }}</h1>
-            <a class="btn btn-primary" href="{{route('admin.dishes.edit', ['dish' => $dish->id])}}">Edit</a>
-            <a class="btn btn-danger" href="">Delete</a>
+            <a class="btn btn-primary" href="{{route('admin.dishes.edit', ['dish' => $dish->slug])}}">Edit</a>
+            <form action="{{route('admin.dishes.destroy', ['dish' => $dish->id])}}" method="post">
+                @csrf
+                @method('DELETE')
+                <input class="btn btn-danger" type="submit" value="Delete">
+            </form>
         </div>
     </div>
 

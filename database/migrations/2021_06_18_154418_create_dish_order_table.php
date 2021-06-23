@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrderDishTable extends Migration
+class CreateDishOrderTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateOrderDishTable extends Migration
      */
     public function up()
     {
-      Schema::create('order_dish', function (Blueprint $table) {
-        $table->unsignedBigInteger('order_id');
-        $table->foreign('order_id')
-              ->references('id')
-              ->on('orders');
-
+      Schema::create('dish_order', function (Blueprint $table) {
         $table->unsignedBigInteger('dish_id');
         $table->foreign('dish_id')
               ->references('id')
               ->on('dishes');
+
+        $table->unsignedBigInteger('order_id');
+        $table->foreign('order_id')
+              ->references('id')
+              ->on('orders');
 
         $table->smallInteger('quantity');
 
@@ -37,6 +37,6 @@ class CreateOrderDishTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_dish');
+        Schema::dropIfExists('dish_order');
     }
 }
