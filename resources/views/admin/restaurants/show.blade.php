@@ -37,7 +37,7 @@
           <div class="card-my-restaurant border-2px">
 
             <div class="">
-              <button type="button" name="button"><a href="{{ route('admin.dishes.create') }}">Crea piatto</a></button>
+              <button type="button" name="button"><a href="{{ route('admin.dishes.create', ['restaurant' => $restaurant->slug]) }}">Crea piatto</a></button>
             </div>
           </div>
         </div>
