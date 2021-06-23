@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('main')
-<div class="container-fluid h-prova">
-  
+<div class="container-fluid banner-show" style="background-image: url('{{$restaurant['banner']}}')">
+
 </div>
 <div class="container" id="app">
     <div class="row justify-content-center">
@@ -23,7 +23,8 @@
                 {{-- <img src="{{$dish['image']}}" alt="image logo"> --}}
             </div>
             <div class="">
-              {{-- <a class="btn btn-primary" href="{{route('admin.dishes.edit', ['dish' => $dish->id])}}">Edit</a> --}}
+              <a class="btn btn-info" href="{{route('admin.dishes.show', ['dish' => $dish->id])}}">Show</a>
+              <a class="btn btn-primary" href="{{route('admin.dishes.edit', ['dish' => $dish->id])}}">Edit</a>
               <a class="btn btn-danger" href="">Delete</a>
             </div>
           </div>
@@ -36,7 +37,7 @@
           <div class="card-my-restaurant border-2px">
 
             <div class="">
-              <button type="button" name="button"><a href="{{ route('admin.restaurants.create') }}">Crea ristorante</a></button>
+              <button type="button" name="button"><a href="{{ route('admin.dishes.create') }}">Crea piatto</a></button>
             </div>
           </div>
         </div>

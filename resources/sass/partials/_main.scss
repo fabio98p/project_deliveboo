@@ -1,11 +1,32 @@
+.banner-show {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.border-2px {
+    border: 2px solid black;
+}
+
+.card-my-restaurant,
+.card-my-dish {
+    margin: 50px;
+}
+
 .card {
     .cover {
         height: 250px;
         background-position: center;
         background-size: cover;
 
-        img {
-            height: 100%;
-        }
+        // img {
+        //     height: 100%;
+        // }
     }
+}
+
+.dish-show {
+    height: 400px;
+    background-position: center;
+    background-size: cover;
 }
