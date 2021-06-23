@@ -221,7 +221,7 @@ return [
         "description" => "Pulled pork, avocado, jalapeño, coriandolo, tabasco",
         "price" => 12,
         "available" => true,
-        "image" => "/images/dishes/americano/pulledspicy.jpg",
+        "image" => "/images/dishes/americano/pulledspicy.jpeg",
         "restaurant_id" => "18",
     ],
     [
@@ -229,7 +229,7 @@ return [
         "description" => "Patatine fritte con salsa a scelta",
         "price" => 5,
         "available" => true,
-        "image" => "/images/dishes/americano/patatine.jpg",
+        "image" => "/images/dishes/americano/patatine.jpeg",
         "restaurant_id" => "19",
     ],
 
