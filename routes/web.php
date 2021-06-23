@@ -26,6 +26,6 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
     Route::resource('/dishes', 'DishController')->except([
       'create'
     ]);
-    Route::get('/dishes/create/{restaurant?}', 'DishController@create')->name('dishes.create');
+    Route::get('/dishes/create/{restaurant}', 'DishController@create')->name('dishes.create');
     Route::resource('/orders', 'OrderController');
   });
