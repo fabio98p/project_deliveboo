@@ -61,11 +61,11 @@ class RestaurantController extends Controller
         //salvataggio immagini in storage
         $logo = NULL;
         if (array_key_exists('logo', $data)) {
-            $logo = Storage::put('uploads', $data['logo']);
+            $logo = Storage::put('uploads_restaurants', $data['logo']);
         }
         $banner = NULL;
         if (array_key_exists('banner', $data)) {
-            $banner = Storage::put('uploads', $data['banner']);
+            $banner = Storage::put('uploads_restaurants', $data['banner']);
         }
 
         //creo un novo ristorante e lo fillo
@@ -115,7 +115,9 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        //
+      $categories = Category::all();
+
+      return view('admin.restaurants.edit', compact('restaurant','categories'));
     }
 
     /**
@@ -127,7 +129,40 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, Restaurant $restaurant)
     {
-        //
+      $request->validate([
+          'name' => 'required|string|max:50',
+          'address' => 'required|string|max:100',
+          'logo' => 'nullable|image|max:5000',
+          'description' => 'required|text',
+          'banner' => 'nullable|image|max:10000',
+          'category_ids' => 'exists:categories,id|nullable',
+          'available' => 'required|boolean',
+      ]);
+
+      $data = $request->all();
+
+      $data['slug'] = $this->generateSlug($data['name'], $restaurant->name != $data['name'], $restaurant->slug);
+
+      if (array_key_exists('logo', $data)) {
+        $logo = Storage::put('uploads_restaurants', $data['logo']);
+        $data['logo'] = 'storage/'.$logo;
+      }
+
+      if (array_key_exists('banner', $data)) {
+        $banner = Storage::put('uploads_restaurants', $data['banner']);
+        $data['banner'] = 'storage/'.$banner;
+      }
+
+      $restaurant->update($data);
+
+      if(array_key_exists('category_ids',$data)) {
+        $post->tags()->sync($data['category_ids']);
+      } else {
+        $post->tags()->detach();
+      }
+
+      return redirect()->route('admin.restaurants.show', compact('restaurant'));
+
     }
 
     /**
