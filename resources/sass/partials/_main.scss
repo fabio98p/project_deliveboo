@@ -13,24 +13,78 @@
     margin: 50px;
 }
 
-.card {
-    .cover {
-        height: 250px;
-        background-position: center;
-        background-size: cover;
 
-        // img {
-        //     height: 100%;
-        // }
-    }
-}
 
 .dish-show {
     height: 400px;
     background-position: center;
     background-size: cover;
 }
-.card-title{
-  height: 60px;
-  margin: 20px auto;
+
+.section-main {
+    padding: 40px 0;
+
+    .page-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 2em;
+        }
+    }
+
+    .card-personal {
+        background: $pink;
+        background: rgba($color: $pink, $alpha: 0.25);
+        border-radius: 0;
+        display: flex;
+        padding: 10px;
+        width: 350px;
+        height: 200px;
+
+        .card-personal-cover {
+            width: 180px;
+            height: 180px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .card-personal-title {
+            height: 60px;
+            margin: 20px auto;
+        }
+
+        .add-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+
+            i {
+                font-size: 4em;
+
+            }
+        }
+    }
+
+    .my-button {
+        padding: 10px 25px;
+        height: fit-content;
+        width: fit-content;
+        background: $red;
+        color: #fff;
+
+        &.hover {
+            background: rgba($color: $red, $alpha: 0.5);
+            color: initial;
+            text-decoration: none;
+        }
+    }
 }

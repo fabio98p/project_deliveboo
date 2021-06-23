@@ -1,49 +1,55 @@
 @extends('layouts.app')
 
 @section('main')
-<div class="container-fluid h-prova">
 
-</div>
-<div class="container" id="app">
-    <div class="row justify-content-center">
-        <div class="col-md-12 mt-5">
-                <h1>Benvenuto {{ Auth::user()->name }}</h1>
-                <h3>I miei ristoranti</h2>
+<div class="container-fluid banner-show" style="background-image: url('../images/varie/my-restaurant-banner.jpg')"></div>
+<section class="section-main">
+    <div class="container" id="app">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="page-top">
+                    {{-- <h3>Benvenuto {{ Auth::user()->name }}</h3> --}}
+                    <h1>I miei ristoranti</h1>
 
+                    <div class="my-buttons-container">
+                        <a class="my-button" href="{{ route('admin.restaurants.create') }}">Crea ristorante</a>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
-
-    </div>
-    <div class="row">
-      @foreach($restaurants as $index => $restaurant)
-        <div class="col-md-3 mt-2">
-          <div class="card">
-            <div class="card-title">
-                <h2 class="text-center">{{$restaurant['name']}}</h5>
+        <div class="row">
+            @foreach($restaurants as $index => $restaurant)
+                <div class="col-md-4 mt-2">
+                    <a href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->id])}}">
+                        <div class="card-personal">
+                            <div class="card-personal-cover" style="background-image: url('{{$restaurant['logo']}}')">
+                                {{-- <img src="{{$restaurant['logo']}}" alt="image logo"> --}}
+                            </div>
+                            <div class="card-info">
+                                <div class="card-title">
+                                    <h2 class="text-center">{{$restaurant['name']}}</h5>
+                                </div>
+                                <div class="">
+                                    <a class="btn btn-primary" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->id])}}">Edit</a>
+                                    <a class="btn btn-danger" href="">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+            <div class="col-md-4 mt-2">
+                <a href="{{ route('admin.restaurants.create') }}">
+                    <div class="card-personal">
+                        <div class="add-card">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="cover" style="background-image: url('{{$restaurant['logo']}}')">
-                {{-- <img src="{{$restaurant['logo']}}" alt="image logo"> --}}
-            </div>
-            <div class="">
-              <a class="btn btn-info" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->id])}}">Show</a>
-              <a class="btn btn-primary" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->id])}}">Edit</a>
-              <a class="btn btn-danger" href="">Delete</a>
-
-            </div>
-          </div>
-        </div>
-        @endforeach
-    </div>
-        
-
-      </div>
-        <div class="col-md-3 mt-5">
-          <div class="card-my-restaurant border-2px">
-
-            <div class="">
-              <button type="button" name="button"><a href="{{ route('admin.restaurants.create') }}">Crea ristorante</a></button>
-            </div>
-          </div>
         </div>
     </div>
-</div>
+</section>
+
 @endsection
