@@ -1,43 +1,63 @@
 @extends('layouts.app')
 
 @section('main')
-<div class="container-fluid banner-show" style="background-image: url('{{$restaurant['banner']}}')">
 
-</div>
-<div class="container" id="app">
-    <div class="row justify-content-center">
-        <div class="col-md-12 mt-5">
-                <h1>{{ $restaurant['name'] }}</h1>
+<div class="container-fluid banner-show" style="background-image: url('{{$restaurant['banner']}}')"></div>
+<section class="section-main">
+    <div class="container" id="app">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="page-top">
+                    <h1>{{ $restaurant['name'] }}</h1>
+                    <div class="my-buttons-container">
+                        <a class="my-button" href="">Modifica ristorante</a>
+                        <a class="my-button" href="">Piatti</a>
+                        <a class="my-button" href="">Ordini ricevuti</a>
+                        <a class="my-button" href="">Statistiche</a>
+                    </div>
+                    
+                </div>
                 <h3>I miei piatti</h2>
+            </div>
         </div>
-
+        <div class="row">
+            <div class="col-md-4 mt-2">
+                <a href="{{ route('admin.dishes.create') }}">
+                    <div class="card-personal">
+                        <div class="add-card">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            @foreach($dishes as $index => $dish)
+                <div class="col-md-4 mt-2">
+                    <a href="{{route('admin.dishes.show', ['dish' => $dish->id])}}">
+                        <div class="card-personal">
+                            <div class="card-personal-cover" style="background-image: url('{{$dish['image']}}')">
+                                {{-- <img src="{{$dish['image']}}" alt="image logo"> --}}
+                            </div>
+                            <div class="card-info">
+                                <div class="card-title">
+                                    <h2 class="text-center">{{$dish['name']}}</h5>
+                                </div>
+                                <div class="">
+                                    <a class="btn btn-primary" href="{{route('admin.dishes.edit', ['dish' => $dish->id])}}">Edit</a>
+                                    <a class="btn btn-danger" href="">Delete</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </a>
+                    
+                </div>
+            @endforeach
+        </div>  
     </div>
-    <div class="row">
-      @foreach($dishes as $index => $dish)
-        <div class="col-md-3 mt-2">
-          <div class="card">
-            <div class="card-title">
-                <h2 class="text-center">{{$dish['name']}}</h5>
-            </div>
-            <div class="cover" style="background-image: url('{{$dish['image']}}')">
-                {{-- <img src="{{$dish['image']}}" alt="image logo"> --}}
-            </div>
-            <div class="">
-              <a class="btn btn-info" href="{{route('admin.dishes.show', ['dish' => $dish->id])}}">Show</a>
-              <a class="btn btn-primary" href="{{route('admin.dishes.edit', ['dish' => $dish->id])}}">Edit</a>
-              <a class="btn btn-danger" href="">Delete</a>
-            </div>
-          </div>
-        </div>
-        @endforeach
-    </div>
-        
-      </div>
-        <div class="col-md-3 mt-5">
-          <div class="card-my-restaurant border-2px">
+</section>
 
             <div class="">
-              <button type="button" name="button"><a href="{{ route('admin.dishes.create') }}">Crea piatto</a></button>
+              <button type="button" name="button"><a href="{{ route('admin.dishes.create', ['restaurant' => $restaurant->slug]) }}">Crea piatto</a></button>
             </div>
           </div>
         </div>
