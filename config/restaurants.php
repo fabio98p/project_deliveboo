@@ -88,7 +88,7 @@ return [
     [
         'name' => 'Pico Taco',
         'address' => 'Via Zegna, 10',
-        'logo' => '/images/logos/pinotaco.png',
+        'logo' => '/images/logos/picotaco.png',
         'description' =>"Il vero cibo messicano cucinato a regola d'arte direttamente a casa tua con Deliveboo",
         'banner' => '/images/restaurants/pico-taco.jpg',
         'available' => true,

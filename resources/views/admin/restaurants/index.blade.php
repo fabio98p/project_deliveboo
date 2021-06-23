@@ -13,14 +13,15 @@
         </div>
 
     </div>
-        @foreach($restaurants as $index => $restaurant)
+    <div class="row">
+      @foreach($restaurants as $index => $restaurant)
         <div class="col-md-3 mt-2">
           <div class="card">
             <div class="card-title">
                 <h2 class="text-center">{{$restaurant['name']}}</h5>
             </div>
-            <div class="cover">
-                <img src="{{$restaurant['logo']}}" alt="image logo">
+            <div class="cover" style="background-image: url('{{$restaurant['logo']}}')">
+                {{-- <img src="{{$restaurant['logo']}}" alt="image logo"> --}}
             </div>
             <div class="">
               <a class="btn btn-info" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->id])}}">Show</a>
@@ -30,13 +31,9 @@
             </div>
           </div>
         </div>
-
-
-
-
-
-
         @endforeach
+    </div>
+        
 
       </div>
         <div class="col-md-3 mt-5">
