@@ -22,7 +22,7 @@
         </div>
         <div class="row">
             <div class="col-md-4 mt-2">
-                <a href="{{ route('admin.dishes.create') }}">
+                <a href="{{ route('admin.dishes.create', ['restaurant' => $restaurant->slug]) }}">
                     <div class="card-personal">
                         <div class="add-card">
                             <i class="fas fa-plus"></i>
@@ -55,12 +55,4 @@
         </div>  
     </div>
 </section>
-
-            <div class="">
-              <button type="button" name="button"><a href="{{ route('admin.dishes.create', ['restaurant' => $restaurant->slug]) }}">Crea piatto</a></button>
-            </div>
-          </div>
-        </div>
-    </div>
-</div>
 @endsection
