@@ -105,7 +105,7 @@ class RestaurantController extends Controller
     $restaurant_id = $restaurant['id'];
 
     //uso il ristorante id per prendere i piatti relativi a quel ristorante
-    $dishes = Dish::where('restaurant_id', $restaurant_id)->get();
+    $dishes = Dish::where('restaurant_id', $restaurant_id)->orderBy('name','asc')->get();
 
     return view('admin.restaurants.show', compact('restaurant', 'dishes'));
   }
