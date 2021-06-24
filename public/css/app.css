@@ -10946,6 +10946,12 @@ a.text-dark:focus {
   font-family: ‘Montserrat’, sans-serif;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .banner-show {
   height: 250px;
   background-size: cover;
