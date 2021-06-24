@@ -10,12 +10,11 @@
                 <div class="page-top">
                     <h1>{{ $restaurant['name'] }}</h1>
                     <div class="my-buttons-container">
-                        <a class="my-button" href="">Modifica ristorante</a>
-                        <a class="my-button" href="">Piatti</a>
+                        <a class="my-button" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}">Modifica ristorante</a>
                         <a class="my-button" href="">Ordini ricevuti</a>
                         <a class="my-button" href="">Statistiche</a>
                     </div>
-                    
+
                 </div>
                 <h3>I miei piatti</h2>
             </div>
@@ -46,13 +45,13 @@
                                     <a class="btn btn-danger" href="">Delete</a>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </a>
-                    
+
                 </div>
             @endforeach
-        </div>  
+        </div>
     </div>
 </section>
 @endsection

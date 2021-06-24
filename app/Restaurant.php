@@ -12,7 +12,6 @@ class Restaurant extends Model
       'logo',
       'description',
       'banner',
-      'available',
       'slug',
       'user_id'
   ];
@@ -34,5 +33,5 @@ class Restaurant extends Model
   public function orders(){
       return $this->hasMany('App\Order');
   }
-  
+
 }

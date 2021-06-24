@@ -12,19 +12,19 @@
                         @csrf
                         @method('POST')
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ $restaurant->name }}</label>
+                        <!-- <div class="form-group row">
+                            <label for="id" class="col-md-4 col-form-label text-md-right">Id Ristorante</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $restaurant->id }}" required autocomplete="name" autofocus disabled>
+                                <input id="id" type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ $restaurant->id }}" required autocomplete="id" autofocus disabled>
 
-                                @error('name')
+                                @error('id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -82,12 +82,15 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Aggiungi questo Piatto') }}
                                 </button>
+                                <a class="my-button" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
+                                  Torna al ristorante
+                                </a>
                             </div>
                         </div>
 
                         <!-- disponibile -->
 
-                        <label for="banner">Disponibile:</label>
+                        <!-- <label for="banner">Disponibile:</label>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="available" value="true" checked>
                             <label class="form-check-label" for="true">Si</label>
@@ -95,7 +98,7 @@
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="available" value="false">
                             <label class="form-check-label" for="false">No</label>
-                        </div>
+                        </div> -->
 
                     </form>
                 </div>

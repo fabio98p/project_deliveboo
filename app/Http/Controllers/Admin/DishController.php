@@ -42,7 +42,7 @@ class DishController extends Controller
   public function store(Request $request)
   {
     $request->validate([
-    //   'restaurant_id' => 'required|exists:restaurants,id',
+      // 'restaurant_id' => 'required|exists:restaurants,id',
       'name' => 'required|string|max:50',
       'description' => 'required|string',
       'price' => 'required|numeric',

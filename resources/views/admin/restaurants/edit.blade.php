@@ -56,9 +56,10 @@
 
                         <div class="form-group row">
                             <select class="form-control @error('category_ids') is-invalid @enderror" name="category_ids[]" multiple>
-                                <option value="">Categoria</option>
-                                @foreach ($categories as $index => $category)
-                                    <option value="{{$category->id}}" {{ $category->id == old('category_id', $restaurant->category_id) ? 'selected' : '' }}">{{$category->name}}</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{$category->id}}" {{ $category->id == old('category_id', $restaurant->category_id) ? 'selected' : '' }}">
+                                      {{$category->name}}
+                                    </option>
                                 @endforeach
                             </select>
                             @error('category_ids')
