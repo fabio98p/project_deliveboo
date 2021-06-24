@@ -82,7 +82,7 @@
                 <a href="#!" class="color-darkwhite">Parisi Fabio</a>
             </li>
             <li>
-                <a href="#!" class="color-darkwhite">Pignattari giorgio</a>
+                <a href="#!" class="color-darkwhite">Pignattari Giorgio</a>
             </li>
             <li>
                 <a href="#!" class="color-darkwhite">Tabbì Filippo</a>
