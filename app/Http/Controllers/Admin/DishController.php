@@ -42,11 +42,11 @@ class DishController extends Controller
   public function store(Request $request)
   {
     $request->validate([
-      //'restaurant_id' => 'required|exists:restaurants,id',
+    //   'restaurant_id' => 'required|exists:restaurants,id',
       'name' => 'required|string|max:50',
       'description' => 'required|string',
       'price' => 'required|numeric',
-      'available' => 'required|boolean',
+      'available' => 'required|in:true,false',
       'image' => 'nullable|image|max:10000',
     ]);
     $data = $request->all();
@@ -117,7 +117,7 @@ class DishController extends Controller
       'name' => 'required|string|max:50',
       'description' => 'required|string',
       'price' => 'required|numeric',
-      'available' => 'required|boolean',
+      'available' => 'required|in:true,false',
       'image' => 'nullable|image|max:10000',
     ]);
     $data = $request->all();

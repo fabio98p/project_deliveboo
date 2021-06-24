@@ -140,7 +140,7 @@ class RestaurantController extends Controller
       'description' => 'required|string',
       'banner' => 'nullable|image|max:10000',
       'category_ids' => 'exists:categories,id|nullable',
-      'available' => 'required|boolean',
+    //   'available' => 'required|in:true,false',
     ]);
 
     $data = $request->all();
