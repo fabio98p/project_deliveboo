@@ -7,7 +7,7 @@
 <div class="container" id="app">
     <div class="row">
         <div class="col-md-12 mt-5 d-flex">
-            <h1>{{ dd($dish) }}</h1>
+            <h1>{{ $dish['name'] }}</h1>
             <a class="btn btn-primary" href="{{route('admin.dishes.edit', ['dish' => $dish->slug])}}">Edit</a>
             <form action="{{route('admin.dishes.destroy', ['dish' => $dish->id])}}" method="post">
                 @csrf
