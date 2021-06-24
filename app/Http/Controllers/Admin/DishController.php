@@ -12,172 +12,171 @@ use Illuminate\Http\Request;
 
 class DishController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function index()
+  {
+    //
+  }
+
+  /**
+   * Show the form for creating a new resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function create($slug)
+  {
+    $restaurant = Restaurant::where("slug", $slug)->first();
+    return view('admin.dishes.create', compact('restaurant'));
+  }
+
+  /**
+   * Store a newly created resource in storage.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+  public function store(Request $request)
+  {
+    $request->validate([
+      //'restaurant_id' => 'required|exists:restaurants,id',
+      'name' => 'required|string|max:50',
+      'description' => 'required|string',
+      'price' => 'required|numeric',
+      'available' => 'required|boolean',
+      'image' => 'nullable|image|max:10000',
+    ]);
+    $data = $request->all();
+    //salvataggio immagini in storage
+    $image = NULL;
+    if (array_key_exists('image', $data)) {
+      $image = Storage::put('upload_dishes', $data['image']);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($slug)
-    {
-        $restaurant = Restaurant::where("slug", $slug)->first();
-        return view('admin.dishes.create', compact('restaurant'));
-    }
+    //creo un novo ristorante e lo fillo
+    $newDish = new Dish();
+    $newDish->fill($data);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $request->validate([
-            //'restaurant_id' => 'required|exists:restaurants,id',
-            'name' => 'required|string|max:50',
-            'description' => 'required|string',
-            'price' => 'required|numeric',
-            'available' => 'required|boolean',
-            'image' => 'nullable|image|max:10000',
-        ]);
-        $data = $request->all();
-        //salvataggio immagini in storage
-        $image = NULL;
-        if (array_key_exists('image', $data)) {
-            $image = Storage::put('upload_dishes', $data['image']);
-        }
+    //assegnamo il resaurant_id perche non riesce col fill
+    $newDish->restaurant_id = $data['restaurant_id'];
 
-        //creo un novo ristorante e lo fillo
-        $newDish = new Dish();
-        $newDish->fill($data);
+    //popolo lo slug con una funzione che si riferisce al dish name
+    $newDish->slug = $this->generateSlug($newDish->name);
 
-        //assegnamo il resaurant_id perche non riesce col fill
-        $newDish->restaurant_id = $data['restaurant_id'];
+    //link immagini
+    $newDish->image = 'storage/' . $image;
 
-        //popolo lo slug con una funzione che si riferisce al dish name
-        $newDish->slug = $this->generateSlug($newDish->name);
+    $newDish->save();
 
-        //link immagini
-        $newDish->image = 'storage/' . $image;
+    // prendo tutti i piatti, li riordino decrescente e prendo il primo
+    $dish = Dish::where('restaurant_id', $data['restaurant_id'])->orderBy('id', 'desc')->first();
 
-        $newDish->save();
+    return redirect()->route('admin.dishes.show', compact('dish'));
+  }
 
-        // prendo tutti i piatti, li riordino decrescente e prendo il primo
-        $dish = Dish::where('restaurant_id', $data['restaurant_id'])->orderBy('id', 'desc')->first();
+  /**
+   * Display the specified resource.
+   *
+   * @param  \App\Dish  $dish
+   * @return \Illuminate\Http\Response
+   */
+  public function show($slug)
+  {
 
-        return redirect()->route('admin.dishes.show', compact('dish'));
-    }
+    $dish = Dish::where('slug', $slug)->first();
+    $restaurant = Restaurant::where('id', $dish->restaurant_id)->first();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Dish  $dish
-     * @return \Illuminate\Http\Response
-     */
-    public function show($slug)
-    {
+    return view('admin.dishes.show', compact('dish', 'restaurant'));
+  }
 
-        $dish = Dish::where('slug', $slug)->first();
-        $restaurant = Restaurant::where('id', $dish->restaurant_id)->first();
+  /**
+   * Show the form for editing the specified resource.
+   *
+   * @param  \App\Dish  $dish
+   * @return \Illuminate\Http\Response
+   */
+  public function edit($slug)
+  {
+    $dish = Dish::where('slug', $slug)->first();
+    $restaurants = Restaurant::where('user_id', Auth::user()->id)->get();
 
-        return view('admin.dishes.show', compact('dish', 'restaurant'));
-    }
+    return view('admin.dishes.edit', compact('restaurants', 'dish'));
+  }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Dish  $dish
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($slug)
-    {
-        $dish = Dish::where('slug', $slug)->first();
-        $restaurants = Restaurant::where('user_id', Auth::user()->id)->get();
+  /**
+   * Update the specified resource in storage.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @param  \App\Dish  $dish
+   * @return \Illuminate\Http\Response
+   */
+  public function update(Request $request, Dish $dish)
+  {
+    $request->validate([
+      'restaurant_id' => 'nullable',
+      'name' => 'required|string|max:50',
+      'description' => 'required|string',
+      'price' => 'required|numeric',
+      'available' => 'required|in:1,0',
+      'image' => 'nullable|image|max:10000',
+    ]);
 
-        return view('admin.dishes.edit', compact('restaurants', 'dish'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Dish  $dish
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Dish $dish)
-    {
-        $request->validate([
-            'restaurant_id' => 'nullable',
-            'name' => 'required|string|max:50',
-            'description' => 'required|string',
-            'price' => 'required|numeric',
-            'available' => 'required|in:1,0',
-            'image' => 'nullable|image|max:10000',
-        ]);
-
-        $data = $request->all();
+    $data = $request->all();
 
     $dish->update($data);
     return redirect()->route('admin.dishes.show', ['dish' => $dish->slug]);
+
+    //assegnamo il resaurant_id perche non riesce col fill
+    $dish->restaurant_id = $data['restaurant_id'];
+
+    if (array_key_exists('image', $data)) {
+      $image = Storage::put('uploads_dishes', $data['image']);
+      $data['image'] = 'storage/' . $image;
+    }
+
+    $dish->update($data);
+    return redirect()->route('admin.dishes.show', compact('dish'));
   }
 
-        //assegnamo il resaurant_id perche non riesce col fill
-        $dish->restaurant_id = $data['restaurant_id'];
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @param  \App\Dish  $dish
+   * @return \Illuminate\Http\Response
+   */
+  public function destroy(Dish $dish)
+  {
+    $dish->orders()->detach();
 
-        if (array_key_exists('image', $data)) {
-            $image = Storage::put('uploads_dishes', $data['image']);
-            $data['image'] = 'storage/' . $image;
-        }
+    $restaurant_id = $dish['restaurant_id'];
+    $restaurants = Restaurant::where('id', $restaurant_id)->first();
+    $restaurant = $restaurants['slug'];
+    $dish->delete();
+    return redirect()->route('admin.restaurants.show', compact('restaurant'));
+  }
 
-        $dish->update($data);
-        return redirect()->route('admin.dishes.show', compact('dish'));
+
+  private function generateSlug(string $title, bool $change = true, string $old_slug = '')
+  {
+
+    if (!$change) {
+      return $old_slug;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Dish  $dish
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Dish $dish)
-    {
-        $dish->orders()->detach();
+    $slug = Str::slug($title, '-');
+    $slug_base = $slug;
+    $contatore = 1;
 
-        $restaurant_id = $dish['restaurant_id'];
-        $restaurants = Restaurant::where('id', $restaurant_id)->first();
-        $restaurant = $restaurants['slug'];
-        $dish->delete();
-        return redirect()->route('admin.restaurants.show', compact('restaurant'));
+    $post_with_slug = Dish::where('slug', '=', $slug)->first();
+    while ($post_with_slug) {
+      $slug = $slug_base . '-' . $contatore;
+      $contatore++;
+
+      $post_with_slug = Dish::where('slug', '=', $slug)->first();
     }
-
-
-    private function generateSlug(string $title, bool $change = true, string $old_slug = '')
-    {
-
-        if (!$change) {
-            return $old_slug;
-        }
-
-        $slug = Str::slug($title, '-');
-        $slug_base = $slug;
-        $contatore = 1;
-
-        $post_with_slug = Dish::where('slug', '=', $slug)->first();
-        while ($post_with_slug) {
-            $slug = $slug_base . '-' . $contatore;
-            $contatore++;
-
-            $post_with_slug = Dish::where('slug', '=', $slug)->first();
-        }
-        return $slug;
-    }
+    return $slug;
+  }
 }
