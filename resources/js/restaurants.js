@@ -5,7 +5,7 @@ var app = new Vue ({
         restaurants: [],
     },
     created() {
-        axios.get('http://localhost:8000/api/videogames').then((response) => {
+        axios.get('http://localhost:8000/api/restaurants').then((response) => {
             this.videogames = response.data.data;
         })
     },
