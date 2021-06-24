@@ -46,7 +46,7 @@ class DishController extends Controller
       'name' => 'required|string|max:50',
       'description' => 'required|string',
       'price' => 'required|numeric',
-      'available' => 'required|in:true,false',
+      'available' => 'nullable|in:true,false',
       'image' => 'nullable|image|max:10000',
     ]);
     $data = $request->all();
