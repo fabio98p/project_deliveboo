@@ -22,7 +22,7 @@
                     <a class="nav-link" href="{{ route('admin.restaurants.index') }}">I miei ristoranti</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">{{ Auth::user()->name }}</a>
+                    <a class="nav-link" href="{{ route('admin.user.index') }}">{{ Auth::user()->name }}</a>
                     {{-- <a class="nav-link" href="{{ route('admin.user.index') }}">Profilo</a> --}}
                 </li>
                 <li class="nav-item">
