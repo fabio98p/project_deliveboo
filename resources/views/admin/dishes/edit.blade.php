@@ -68,7 +68,7 @@
                             <label for="image">Immagine</label>
                             <input class="form-control-file @error('image') is-invalid @enderror" id="image" name="image" type="file">
                             @error('image')
-                            <small class="text-danger">{{ $message }}</small>
+                                <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <!-- upload immagine piatto -->
@@ -83,11 +83,11 @@
                         <!-- disponibile -->
                         <label for="banner">Disponibile:</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="available" id="inlineRadio1" value=1 checked>
+                            <input class="form-check-input" type="radio" name="available" value=1 checked>
                             <label class="form-check-label" for="inlineRadio1">Si</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="available" id="inlineRadio2" value=0>
+                            <input class="form-check-input" type="radio" name="available" value=0>
                             <label class="form-check-label" for="inlineRadio2">No</label>
                         </div>
                         
