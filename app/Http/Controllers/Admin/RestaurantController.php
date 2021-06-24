@@ -107,7 +107,12 @@ class RestaurantController extends Controller
     //uso il ristorante id per prendere i piatti relativi a quel ristorante
     $dishes = Dish::where('restaurant_id', $restaurant_id)->orderBy('name','asc')->get();
 
+    if (Auth::user()->id != $restaurant['user_id']) {
+      return redirect()->route('admin.restaurants.index');
+    }
+    
     return view('admin.restaurants.show', compact('restaurant', 'dishes'));
+
   }
 
   /**
@@ -121,8 +126,12 @@ class RestaurantController extends Controller
     $categories = Category::all();
     $restaurant = Restaurant::where('slug', $slug)->first();
 
+    if (Auth::user()->id != $restaurant['user_id']) {
+      return redirect()->route('admin.restaurants.index');
+    }
 
     return view('admin.restaurants.edit', compact('restaurant', 'categories'));
+
   }
 
   /**
