@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('main')
-{{-- <div class="container-fluid banner-show" style="background-image: url('{{$restaurant['banner']}}')">
 
-</div> --}}
+<div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')"></div>
 <div class="container" id="app">
     <div class="row">
         <div class="col-md-12 mt-5 d-flex">
             <h1>{{ $dish['name'] }}</h1>
+            <a class="my-button" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
+                Torna al ristorante
+              </a>
             <a class="btn btn-primary" href="{{route('admin.dishes.edit', ['dish' => $dish->slug])}}">Edit</a>
             <form action="{{route('admin.dishes.destroy', ['dish' => $dish->id])}}" method="post">
                 @csrf

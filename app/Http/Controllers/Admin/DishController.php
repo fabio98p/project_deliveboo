@@ -85,8 +85,11 @@ class DishController extends Controller
    */
   public function show($slug)
   {
+
     $dish = Dish::where('slug', $slug)->first();
-    return view('admin.dishes.show', compact('dish'));
+    $restaurant = Restaurant::where('id', $dish->restaurant_id)->first();
+
+    return view('admin.dishes.show', compact('dish', 'restaurant'));
   }
 
   /**
@@ -113,16 +116,18 @@ class DishController extends Controller
   public function update(Request $request, Dish $dish)
   {
     $request->validate([
-      //'restaurant_id' => 'required|exists:restaurants,id',
+      'restaurant_id' => 'nullable',
       'name' => 'required|string|max:50',
       'description' => 'required|string',
       'price' => 'required|numeric',
       'available' => 'required|in:1,0',
       'image' => 'nullable|image|max:10000',
     ]);
+
     $data = $request->all();
 
-    $data['slug'] = $this->generateSlug($data['name'], $dish->name != $data['name'], $dish->slug);
+    $dish->update($data);
+    return redirect()->route('admin.dishes.show', ['dish' => $dish->slug]);
 
     //assegnamo il resaurant_id perche non riesce col fill
     $dish->restaurant_id = $data['restaurant_id'];
@@ -133,7 +138,6 @@ class DishController extends Controller
     }
 
     $dish->update($data);
-
     return redirect()->route('admin.dishes.show', compact('dish'));
   }
 

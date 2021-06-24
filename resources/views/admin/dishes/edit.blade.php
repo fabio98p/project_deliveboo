@@ -13,6 +13,15 @@
                         @method('PUT')
 
                         <div class="form-group row">
+                            <label for="id" class="col-md-4 col-form-label text-md-right">Id Ristorante</label>
+
+                            <div class="col-md-6">
+                                  <input id="restaurant_id" type="text" class="form-control @error('restaurant_id') is-invalid @enderror" name="restaurant_id" value="{{ old('restaurant_id', $dish->restaurant_id) }}" required autocomplete="restaurant_id" autofocus readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
@@ -59,7 +68,7 @@
                             <label for="image">Immagine</label>
                             <input class="form-control-file @error('image') is-invalid @enderror" id="image" name="image" type="file">
                             @error('image')
-                            <small class="text-danger">{{ $message }}</small>
+                                <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <!-- upload immagine piatto -->
@@ -74,11 +83,11 @@
                         <!-- disponibile -->
                         <label for="banner">Disponibile:</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="available" id="inlineRadio1" value=1 checked>
+                            <input class="form-check-input" type="radio" name="available" value=1 checked>
                             <label class="form-check-label" for="inlineRadio1">Si</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="available" id="inlineRadio2" value=0>
+                            <input class="form-check-input" type="radio" name="available" value=0>
                             <label class="form-check-label" for="inlineRadio2">No</label>
                         </div>
                         
