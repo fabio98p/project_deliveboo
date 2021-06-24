@@ -55,8 +55,8 @@
                         </div>
 
                         <div class="form-group row">
+                          <label for="category" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
                             <select class="form-control @error('category_ids') is-invalid @enderror" name="category_ids[]" multiple>
-                                <option value="">Categoria</option>
                                 @foreach ($categories as $index => $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach

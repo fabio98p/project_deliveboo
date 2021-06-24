@@ -103,6 +103,7 @@ class RestaurantController extends Controller
     $restaurant = Restaurant::where('slug', $slug)->first();
 
     $restaurant_id = $restaurant['id'];
+
     //uso il ristorante id per prendere i piatti relativi a quel ristorante
     $dishes = Dish::where('restaurant_id', $restaurant_id)->get();
 
@@ -140,7 +141,7 @@ class RestaurantController extends Controller
       'description' => 'required|string',
       'banner' => 'nullable|image|max:10000',
       'category_ids' => 'exists:categories,id|nullable',
-      'available' => 'required|boolean',
+    //   'available' => 'required|in:true,false',
     ]);
 
     $data = $request->all();
