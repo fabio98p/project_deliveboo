@@ -166,7 +166,7 @@ class RestaurantController extends Controller
       $restaurant->categories()->detach();
     }
 
-    return redirect()->route('admin.restaurants.show', compact('restaurant'));
+    return redirect()->route('admin.restaurants.show', ['restaurant' => $restaurant->slug]);
   }
 
   /**

@@ -74,13 +74,14 @@
                         <!-- disponibile -->
                         <label for="banner">Disponibile:</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked>
+                            <input class="form-check-input" type="radio" name="available" id="inlineRadio1" value=1 checked>
                             <label class="form-check-label" for="inlineRadio1">Si</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="0">
+                            <input class="form-check-input" type="radio" name="available" id="inlineRadio2" value=0>
                             <label class="form-check-label" for="inlineRadio2">No</label>
                         </div>
+                        
                     </form>
                 </div>
             </div>
