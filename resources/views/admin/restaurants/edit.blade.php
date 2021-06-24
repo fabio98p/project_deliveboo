@@ -5,17 +5,18 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">CREA RISTORANTE</div>
+                <div class="card-header">MODIFICA RISTORANTE</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.restaurants.store') }}">
+                    <form method="POST" action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant->id]) }}" enctype="multipart/form-data">
                         @csrf
+                        @method('PATCH')
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $restaurant->name) }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -29,7 +30,7 @@
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address', $restaurant->address) }}" required autocomplete="address" autofocus>
 
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +44,7 @@
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <input id="description" type="description" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description">
+                                <textarea id="description" type="description" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="description">{{ old('description', $restaurant->description) }}</textarea>
 
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">
@@ -53,12 +54,24 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <select class="form-control @error('category_ids') is-invalid @enderror" name="category_ids[]" multiple>
+                                <option value="">Categoria</option>
+                                @foreach ($categories as $index => $category)
+                                    <option value="{{$category->id}}" {{ $category->id == old('category_id', $restaurant->category_id) ? 'selected' : '' }}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
+                            @error('category_ids')
+                                <small class="text-danger">{{$message}}</small>
+                            @enderror
+                        </div>
+
                         <!-- upload logo -->
                         <div class="form-group row">
                             <label for="logo">Logo</label>
                             <input class="form-control-file @error('logo') is-invalid @enderror" id="logo" name="logo" type="file">
                             @error('logo')
-                            <small class="text-danger">{{ $message }}</small>
+                                <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <!-- upload logo -->
@@ -67,27 +80,33 @@
                             <label for="banner">Banner</label>
                             <input class="form-control-file @error('banner') is-invalid @enderror" id="banner" name="banner" type="file">
                             @error('banner')
-                            <small class="text-danger">{{ $message }}</small>
+                                <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                           <!-- upload file banner -->
 
                         <!-- disponibilità si no -->
-                        <label for="banner">Disponibile:</label>
+                        {{-- <label for="banner">Disponibile:</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Si</label>
+                            <input class="form-check-input form-control @error('available') is-invalid @enderror" type="radio" name="available" value="true" checked>
+                            <label class="form-check-label">Si</label>
+                            @error('available')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">No</label>
-                        </div>
+                            <input class="form-check-input form-control @error('available') is-invalid @enderror" type="radio" name="available" value="false">
+                            <label class="form-check-label">No</label>
+                            @error('available')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div> --}}
                         <!-- multiselezione categorie -->
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Aggiungi questo Ristorante') }}
+                                    {{ __('Modifica questo Ristorante') }}
                                 </button>
                             </div>
                         </div>
