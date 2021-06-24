@@ -33,9 +33,7 @@
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
                         </div>
@@ -47,9 +45,7 @@
                                 <input id="price" type="number" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price" autofocus step="0.01">
 
                                 @error('price')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
                         </div>
@@ -61,9 +57,7 @@
                                 <textarea id="description" type="description" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description"></textarea>
 
                                 @error('description')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
                         </div>
@@ -73,10 +67,12 @@
                             <label for="image">Immagine</label>
                             <input class="form-control-file @error('image') is-invalid @enderror" id="image" name="image" type="file">
                             @error('image')
-                            <small class="text-danger">{{ $message }}</small>
+                                <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        <!-- upload immagine piatto -->
+                        <!-- fine upload immagine piatto -->
+
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
