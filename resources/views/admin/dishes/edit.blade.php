@@ -16,13 +16,8 @@
                             <label for="id" class="col-md-4 col-form-label text-md-right">Id Ristorante</label>
 
                             <div class="col-md-6">
-                                <input id="id" type="text" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ $restaurant->id }}" required autocomplete="id" autofocus disabled>
+                                  <input id="restaurant_id" type="text" class="form-control @error('restaurant_id') is-invalid @enderror" name="restaurant_id" value="{{ old('restaurant_id', $dish->restaurant_id) }}" required autocomplete="restaurant_id" autofocus readonly>
 
-                                @error('id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 

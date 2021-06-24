@@ -28,4 +28,5 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
     ]);
     Route::get('/dishes/create/{restaurant}', 'DishController@create')->name('dishes.create');
     Route::resource('/orders', 'OrderController');
+    Route::get('/users', 'UserController@index')->name('user.index');
   });
