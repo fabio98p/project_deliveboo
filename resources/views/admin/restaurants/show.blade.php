@@ -33,7 +33,7 @@
                 <div class="col-md-4 mt-2">
                     <a href="{{route('admin.dishes.show', ['dish' => $dish->slug])}}">
                         <div class="card-personal">
-                            <div class="card-personal-cover" style="background-image: url('{{$dish['image']}}')">
+                            <div class="card-personal-cover" style="background-image: url('{{asset($dish->image)}}')">
                                 {{-- <img src="{{$dish['image']}}" alt="image logo"> --}}
                             </div>
                             <div class="card-info">

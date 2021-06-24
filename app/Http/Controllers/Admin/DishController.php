@@ -89,6 +89,10 @@ class DishController extends Controller
     $dish = Dish::where('slug', $slug)->first();
     $restaurant = Restaurant::where('id', $dish->restaurant_id)->first();
 
+    if (Auth::user()->id != $restaurant['user_id']) {
+      return redirect()->route('admin.restaurants.index');
+    }
+
     return view('admin.dishes.show', compact('dish', 'restaurant'));
   }
 
@@ -102,6 +106,13 @@ class DishController extends Controller
   {
     $dish = Dish::where('slug', $slug)->first();
     $restaurants = Restaurant::where('user_id', Auth::user()->id)->get();
+
+    $restaurant_id = $dish['restaurant_id'];
+    $restaurant = Restaurant::where('id',$restaurant_id)->first();
+
+    if (Auth::user()->id != $restaurant['user_id']) {
+      return redirect()->route('admin.restaurants.index');
+    }
 
     return view('admin.dishes.edit', compact('restaurants', 'dish'));
   }
