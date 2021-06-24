@@ -74,7 +74,7 @@ class DishController extends Controller
     // prendo tutti i piatti, li riordino decrescente e prendo il primo
     $dish = Dish::where('restaurant_id', $data['restaurant_id'])->orderBy('id', 'desc')->first();
 
-    return redirect()->route('admin.dishes.show', compact('dish'));
+    return redirect()->route('admin.dishes.show', ['dish' => $dish->slug]);
   }
 
   /**
@@ -116,7 +116,6 @@ class DishController extends Controller
   public function update(Request $request, Dish $dish)
   {
     $request->validate([
-      'restaurant_id' => 'nullable',
       'name' => 'required|string|max:50',
       'description' => 'required|string',
       'price' => 'required|numeric',
@@ -126,11 +125,7 @@ class DishController extends Controller
 
     $data = $request->all();
 
-    $dish->update($data);
-    return redirect()->route('admin.dishes.show', ['dish' => $dish->slug]);
-
-    //assegnamo il resaurant_id perche non riesce col fill
-    $dish->restaurant_id = $data['restaurant_id'];
+    $data['slug'] = $this->generateSlug($data['name'], $dish->name != $data['name'], $dish->slug);
 
     if (array_key_exists('image', $data)) {
       $image = Storage::put('uploads_dishes', $data['image']);
@@ -138,7 +133,8 @@ class DishController extends Controller
     }
 
     $dish->update($data);
-    return redirect()->route('admin.dishes.show', compact('dish'));
+    return redirect()->route('admin.dishes.show', ['dish' => $dish->slug]);
+
   }
 
   /**
