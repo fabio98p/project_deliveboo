@@ -1,12 +1,11 @@
 var app = new Vue ({
-    el: '#app',
+    el: '#root',
     data: {
-        categories: [],
         restaurants: [],
     },
     created() {
-        axios.get('http://localhost:8000/api/restaurants').then((response) => {
-            this.videogames = response.data.data;
+      axios.get('http://localhost:8000/api/restaurants').then((response) => {
+            this.restaurants = response.data.response;
         })
     },
 });
