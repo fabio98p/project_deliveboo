@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-<div class="container">
+<div class="container" id="root">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -65,7 +65,7 @@
 
                         <!-- upload immagine piatto -->
                         <div class="">
-                            <img src="{{asset($dish->image)}}" alt="">
+                            <img src="{{asset($dish->image)}}" style="height: 50px;" alt="">
                         </div>
                         <div class="form-group row">
                             <label for="image">Immagine</label>
@@ -82,18 +82,21 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Modifica questo Piatto') }}
                                 </button>
+                                <a class="my-button" href="{{route('admin.dishes.show', ['dish' => $dish->slug])}}">
+                                    Torna al piatto
+                                  </a>
                             </div>
                         </div>
 
                         <!-- disponibile -->
                         <label for="banner">Disponibile:</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="available" value=1 checked>
-                            <label class="form-check-label" for="inlineRadio1">Si</label>
+                            <input class="form-check-input" type="radio" name="available" value=1 {{ $dish['available'] == 1 ? 'checked' : '' }}>
+                            <label class="form-check-label">Si</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="available" value=0>
-                            <label class="form-check-label" for="inlineRadio2">No</label>
+                            <input class="form-check-input" type="radio" name="available" value=0 {{ $dish['available'] == 0 ? 'checked' : '' }}>
+                            <label class="form-check-label">No</label>
                         </div>
                         
                     </form>
