@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-<div class="container">
+<div class="container" id="app">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -48,7 +48,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                           <label for="category" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
                             <select class="form-control @error('category_ids') is-invalid @enderror" name="category_ids[]" multiple>
                                 @foreach ($categories as $index => $category)
@@ -58,6 +58,21 @@
                             @error('category_ids')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
+                        </div> --}}
+
+                        <div class="form-group column">
+                            <div class="selectBox">
+                                <select>
+                                    <option>Categoria</option>
+                                </select>
+                                <div class="overSelect" v-on:click="checkReverse()"></div>
+                            </div>
+                            <div :class="(checkClick == true) ? 'show-this' : 'hide-this' ">
+                                @foreach ($categories as $index => $category)
+                                    <label for="one">
+                                        <input type="checkbox" name="category_ids[]" value="{{$category->id}}"/>{{$category->name}}</label>
+                                @endforeach
+                            </div>
                         </div>
 
                         <!-- upload logo -->

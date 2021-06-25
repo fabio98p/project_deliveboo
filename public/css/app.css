@@ -11102,6 +11102,52 @@ input::-webkit-inner-spin-button {
   transition: all 0.25s ease-out;
 }
 
+.multiselect {
+  width: 200px;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  border: 1px #dadada solid;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+.show-this {
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.hide-this label {
+  display: none;
+}
+
+.show-this label {
+  text-transform: capitalize;
+  display: block;
+}
+
+input[type=checkbox] {
+  margin-right: 5px;
+}
+
 footer,
 .p-4 {
   background-color: #3e281c;

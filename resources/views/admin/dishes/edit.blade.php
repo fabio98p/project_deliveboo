@@ -8,7 +8,7 @@
                 <div class="card-header">MODIFICA PIATTO</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.dishes.update', ['dish' => $dish->id]) }}">
+                    <form method="POST" action="{{ route('admin.dishes.update', ['dish' => $dish->id]) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -64,6 +64,9 @@
                         </div>
 
                         <!-- upload immagine piatto -->
+                        <div class="">
+                            <img src="{{asset($dish->image)}}" alt="">
+                        </div>
                         <div class="form-group row">
                             <label for="image">Immagine</label>
                             <input class="form-control-file @error('image') is-invalid @enderror" id="image" name="image" type="file">
@@ -72,6 +75,8 @@
                             @enderror
                         </div>
                         <!-- upload immagine piatto -->
+
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
