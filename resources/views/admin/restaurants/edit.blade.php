@@ -54,7 +54,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group column">
+                        <div class="form-group column pos-rel">
                             <div class="selectBox">
                                 <select>
                                     <option>Categoria</option>
