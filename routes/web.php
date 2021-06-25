@@ -18,6 +18,9 @@ Route::get('/', 'RestaurantController@index')->name('index');
 Route::get('restaurants/{restaurant}','RestaurantController@show')->name('restaurants.show');
 Route::get('addDish/{dish}','CartController@addDish')->name('addDish');
 Route::get('orders','OrderController@index')->name('orders.index');
+Route::post('orders','OrderController@store')->name('orders.store');
+Route::get('orders/checkout','OrderController@checkout')->name('orders.checkout');
+
 
 
 Auth::routes();
