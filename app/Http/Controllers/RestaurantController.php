@@ -17,7 +17,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+      return view('guests.restaurants.index');
     }
 
     /**
@@ -47,9 +47,12 @@ class RestaurantController extends Controller
      * @param  \App\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function show(Restaurant $restaurant)
+    public function show($slug)
     {
-        //
+      $restaurant = Restaurant::where('slug',$slug)->first();
+      $dishes = Dish::where('restaurant_id',$restaurant['id'])->orderBy('name','asc')->get();
+
+      return view('guests.restaurants.show', compact('restaurant','dishes'));
     }
 
     /**
