@@ -9,10 +9,10 @@
   </div>
   <section class="section-main">
       <div class="container">
-          <div class="row justify-content-center">
-              <div class="col-md-12">
-                <div class="row">
-                 <div class="consigliati flex-wrap">
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="consigliati flex-wrap">
 
                           <div class="col-md-2 card-homepage" v-for="category in categories" :key="category.id ">
 
@@ -22,11 +22,11 @@
                           </div>
 
                   </div>
-                </div>
 
               </div>
+            </div>
           </div>
-
+        </div>
       </div>
       <div class="container">
           <div class="row justify-content-center">
@@ -73,7 +73,5 @@
 
       </div>
   </section>
-
 </main>
-
 @endsection

@@ -16,7 +16,7 @@
                     </div>
 
                 </div>
-                <h3>I miei piatti</h2>
+                <h2>I miei piatti</h2>
             </div>
         </div>
         <div class="row">
@@ -33,7 +33,7 @@
                         <div class="card-personal-title">
                             <h4>Crea piatto</h4>
                         </div>
-                        
+
                     </div>
                 </a>
             </div>
