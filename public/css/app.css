@@ -11102,6 +11102,20 @@ input::-webkit-inner-spin-button {
   transition: all 0.25s ease-out;
 }
 
+.consigliati {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 250px;
+  border: 1px solid black;
+  margin: 10px 15px;
+}
+
 .multiselect {
   width: 200px;
 }
