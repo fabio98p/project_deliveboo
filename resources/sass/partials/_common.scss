@@ -8,15 +8,84 @@ input::-webkit-inner-spin-button {
     padding: 10px 25px;
     height: fit-content;
     width: fit-content;
-    background: $red;
-    color: #fff;
+    color: $white;
     transition: all 0.25s ease-out;
     border-radius: 5px;
+    border: none;
 
     &:hover {
-        background: rgba($color: $red, $alpha: 0.75);
         color: #fff;
         text-decoration: none;
         transition: all 0.25s ease-out;
     }
+}
+
+.my-button-red {
+    background: $red;
+
+    &:hover {
+        background: rgba($color: $red, $alpha: 1);
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.25s ease-out;
+    }
+}
+
+.my-button-green {
+    background: $green;
+
+    &:hover {
+        background: rgba($color: $green, $alpha: 1);
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.25s ease-out;
+    }
+}
+
+.my-button-blue {
+    background: $blue;
+
+    &:hover {
+        background: rgba($color: $blue, $alpha: 1);
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.25s ease-out;
+    }
+}
+
+.my-button-orange {
+    padding: 10px 25px;
+    height: fit-content;
+    width: fit-content;
+    color: $white;
+    background: $orange;
+    transition: all 0.25s ease-out;
+    border-radius: 5px;
+    border: none;
+
+    &:hover {
+        color: $orange;
+        background: $white;
+        text-decoration: none;
+        transition: all 0.25s ease-out;
+    }
+}
+
+.text-green {
+    color: $green;
+}
+
+.text-red {
+    color: $red;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p {
+    color: $darkbrown;
 }

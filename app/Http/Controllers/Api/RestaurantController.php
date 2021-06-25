@@ -17,20 +17,33 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $data = Restaurant::all();
+        $restaurants= Restaurant::all();
 
         return response()->json([
-            'response' => $data,
+            'response' => $restaurants,
             'success' => true,
         ]);
     }
 
-    public function filteredRestaurants(Category $category) {
-        $filteredRestaurants = Category::where('name', $category)->with('restaurants')->get();
+    public function filterRestaurants(string $categoryName)
+    {
+      $category = Category::where('name', $categoryName)->first();
+
+      $filteredRestaurants = $category->restaurants()->get();
 
         return response()->json([
             'response' => $filteredRestaurants,
             'success' => true,
         ]);
+    }
+
+    public function searchRestaurant(string $query)
+    {
+      $restaurants = Restaurant::where('name', 'LIKE', '%'.$query.'%')->get();
+
+      return response()->json([
+          'response' => $restaurants,
+          'success' => true,
+      ]);
     }
 }

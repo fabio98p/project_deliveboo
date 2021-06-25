@@ -4,7 +4,7 @@
 
 <div class="container-fluid banner-show" style="background-image: url('../images/varie/my-restaurant-banner.jpg')"></div>
 <section class="section-main">
-    <div class="container" id="app">
+    <div class="container" id="root">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="page-top">
@@ -21,7 +21,7 @@
         <div class="row">
             
             @foreach($restaurants as $index => $restaurant)
-                <div class="col-md-4 col-lg-3 mt-2 card-outline">
+                <div class="col-md-4 col-lg-4 mt-2 card-outline">
                     <a class="link-to" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
                         <div class="card-personal">
                             <div class="card-personal-cover" style="background-image: url('{{asset($restaurant->banner)}}')">
@@ -45,13 +45,13 @@
                             </div> --}}
 
                             <div class="card-personal-title">
-                                <h3>{{$restaurant->name}}</h3>
+                                <h4>{{$restaurant->name}}</h4>
                             </div>
                         </div>
                     </a>
                 </div>
             @endforeach
-            <div class="col-md-4 col-lg-3 mt-2 card-outline">
+            <div class="col-md-4 col-lg-4 mt-2 card-outline">
                 <a class="link-to" href="{{ route('admin.restaurants.create') }}">
                     <div class="card-personal">
                         <div class="card-personal-cover">
@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="card-personal-title">
-                            <h3>Crea ristorante</h3>
+                            <h4>Crea ristorante</h4>
                         </div>
                         
                     </div>
