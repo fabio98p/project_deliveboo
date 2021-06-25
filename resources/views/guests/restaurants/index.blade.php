@@ -32,13 +32,11 @@
           <div class="row justify-content-center">
               <div class="col-md-12">
                 <div class="row">
-                 <div class="consigliati flex-wrap">
-
-                          <div class="col-md-3" v-for="restaurant in restaurants" :key="restaurants.id ">
-                            <div class=" mt-2 card-outline"
-                            {{-- :style="`background-image: url('${restaurant.banner}') ; `" --}}
-                            >
-
+                    <div class="consigliati flex-wrap">
+                        <div class="col-md-4 col-lg-4 mt-2 card-outline" v-for="restaurant in restaurants" :key="restaurants.id ">
+                            <div class="card-personal">
+                                <div class="mt-2 card-outline card-personal-cover"
+                                :style="`background-image: url('${restaurant.banner}') ; `">
                                     <div class="card-personal">
                                         <div class="card-personal-cover">
                                             <img :src="restaurant.logo">
@@ -49,11 +47,25 @@
                                             <h3>@{{restaurant.name}}</h3>
                                         </div>
                                     </div>
-                                </a>
+                                </div>    
                             </div>
-                          </div>
+                            
+                        </div>
 
-                  </div>
+                        {{-- <div class="col-md-4 col-lg-4 mt-2 card-outline">
+                            <a class="link-to" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
+                                <div class="card-personal">
+                                    <div class="card-personal-cover" style="background-image: url('{{asset($restaurant->banner)}}')">
+                                        <img src="{{asset($restaurant->logo)}}" alt="">
+                                        <div class="overlay"></div>
+                                    </div>
+                                    <div class="card-personal-title">
+                                        <h4>{{$restaurant->name}}</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div> --}}
+                    </div>
                 </div>
 
               </div>

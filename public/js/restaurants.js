@@ -97,20 +97,36 @@ Vue.config.devtools = true;
 var app = new Vue({
   el: '#root',
   data: {
+    scriviTxt: '',
     restaurants: [],
+    categories: [],
+    searchResultRestaurant: [],
+    searchResultDish: [],
     checkClick: false
   },
   created: function created() {
     var _this = this;
 
-    axios.get('http://localhost:8001/api/restaurants')
-          .then(function (response) {
-            _this.restaurants = response.data.response;
+    axios.get('http://localhost:8000/api/categories').then(function (response) {
+      _this.categories = response.data.response;
+    });
+    axios.get('http://localhost:8000/api/restaurants').then(function (response) {
+      _this.restaurants = response.data.response;
     });
   },
   methods: {
     checkReverse: function checkReverse() {
       this.checkClick = !this.checkClick;
+    },
+    cerca: function cerca(scriviTxt) {
+      var _this2 = this;
+
+      axios.get("http://localhost:8000/api/restaurants?name=" + scriviTxt).then(function (response) {
+        _this2.searchResultRestaurant = response.data.results;
+      });
+      axios.get("http://localhost:8000/api/restaurant?name=" + scriviTxt).then(function (response) {
+        _this2.searchResultDish = response.data.results;
+      });
     }
   }
 });
@@ -124,7 +140,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\utente\Documents\Atom\Boolean-Esercizi\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
+module.exports = __webpack_require__(/*! /Users/emanueleattina/Documents/progetti_fallimentari/boolean/Esercizi/project_deliveboo/resources/js/restaurants.js */"./resources/js/restaurants.js");
 
 
 /***/ })
