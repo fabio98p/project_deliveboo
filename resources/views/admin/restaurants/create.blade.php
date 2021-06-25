@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-<div class="container" id="app">
+<div class="container" id="root">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -60,7 +60,7 @@
                             @enderror
                         </div> --}}
 
-                        <div class="form-group column">
+                        <div class="form-group column pos-rel">
                             <div class="selectBox">
                                 <select>
                                     <option>Categoria</option>
@@ -69,7 +69,7 @@
                             </div>
                             <div :class="(checkClick == true) ? 'show-this' : 'hide-this' ">
                                 @foreach ($categories as $index => $category)
-                                    <label for="one">
+                                    <label>
                                         <input type="checkbox" name="category_ids[]" value="{{$category->id}}"/>{{$category->name}}</label>
                                 @endforeach
                             </div>

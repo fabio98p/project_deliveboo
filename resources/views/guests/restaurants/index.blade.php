@@ -1,31 +1,30 @@
 @extends('layouts.app')
 
 @section('main')
+<main id="root">
+  <div class="container-fluid banner-show" style="background-image: url('../images/varie/my-restaurant-banner.jpg')"></div>
+  <section class="section-main">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-md-12">
+                <div class="row">
+                 <div class="consigliati flex-wrap">
 
-<div class="container-fluid banner-show" style="background-image: url('../images/varie/my-restaurant-banner.jpg')"></div>
-<section class="section-main">
-    <div class="container" id="app">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="page-top">
-                    <h1>Main guest</h1>
+                          <div class="card-homepage" v-for="restaurant in restaurants" :key="restaurants.id ">
+                            <h4>@{{restaurant.name}}</h4>
+                            <p>@{{restaurant.address}}</p>
+                            <p>@{{restaurant.description}}</p>
+                          </div>
+
+                  </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 mt-2">
-                <div class="card-personal">
-                    <div class="card-personal-cover" style="background-image: url('@{{ restaurant.logo }}')">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-title">
-                            <h2 class="text-center">@{{ restaurant.name }}</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
+              </div>
+          </div>
+
+      </div>
+  </section>
+
+</main>
 
 @endsection

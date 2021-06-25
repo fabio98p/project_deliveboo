@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-<div class="container">
+<div class="container" id="root">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -54,17 +54,19 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <select class="form-control @error('category_ids') is-invalid @enderror" name="category_ids[]" multiple>
-                                @foreach ($categories as $category)
-                                    <option value="{{$category->id}}" {{ $category->id == old('category_id', $restaurant->category_id) ? 'selected' : '' }}">
-                                      {{$category->name}}
-                                    </option>
+                        <div class="form-group column pos-rel">
+                            <div class="selectBox">
+                                <select>
+                                    <option>Categoria</option>
+                                </select>
+                                <div class="overSelect" v-on:click="checkReverse()"></div>
+                            </div>
+                            <div :class="(checkClick == true) ? 'show-this' : 'hide-this' ">
+                                @foreach ($categories as $index => $category)
+                                    <label>
+                                        <input type="checkbox" name="category_ids[]" value="{{$category->id}}" {{ $restaurant->categories->contains($category) ? 'checked' : '' }}/>{{$category->name}}</label>
                                 @endforeach
-                            </select>
-                            @error('category_ids')
-                                <small class="text-danger">{{$message}}</small>
-                            @enderror
+                            </div>
                         </div>
 
                         <!-- upload logo -->

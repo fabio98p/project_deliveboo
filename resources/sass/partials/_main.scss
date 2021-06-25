@@ -132,6 +132,20 @@
 
 }
 
+.consigliati {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-homepage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+    border: 1px solid black;
+    margin: 10px 15px;
+}
+
 
 .multiselect {
     width: 200px;
@@ -164,7 +178,12 @@
 
 .show-this {
     padding: 5px;
-    background-color: rgba($color: #000000, $alpha: 0.1);
+    background-color: rgba($color: #dfdfdf, $alpha: 1);
+
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    overflow: auto;
 }
 
 .hide-this label {
