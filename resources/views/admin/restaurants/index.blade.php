@@ -28,22 +28,6 @@
                                 <img src="{{asset($restaurant->logo)}}" alt="">
                                 <div class="overlay"></div>
                             </div>
-
-                            {{-- <div class="card-info">
-                                <div class="card-title">
-                                    <h3 class="text-center">{{$restaurant->name}}</h3>
-                                </div>
-
-                                <div class="">
-                                    <a class="btn btn-primary" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}">Edit</a>
-                                    <form action="{{route('admin.restaurants.destroy', ['restaurant' => $restaurant->id])}}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <input class="btn btn-danger" type="submit" value="Delete">
-                                    </form>
-                                </div>
-                            </div> --}}
-
                             <div class="card-personal-title">
                                 <h4>{{$restaurant->name}}</h4>
                             </div>

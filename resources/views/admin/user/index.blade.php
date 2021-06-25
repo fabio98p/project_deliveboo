@@ -13,8 +13,8 @@
                   <div class="user-m-b-25">
                     <img src="https://img.icons8.com/dusk/100/000000/groups.png" class="user-img-radius" alt="User-Profile-Image">
                   </div>
-                  <h5>Benvenuto/a</h5>
-                  <h5 class="f-w-600">{{ $user->name }} {{ $user->lastname }}</h5>
+                  <h5 class="user-title">Benvenuto/a</h5>
+                  <h5 class="user-title f-w-600">{{ $user->name }} {{ $user->lastname }}</h5>
                   <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                 </div>
               </div>
@@ -34,11 +34,11 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Partita IVA</p>
-                      <h6 class="user-text-muted f-w-400">{{ $user->p_iva}}</h6>
+                      <h6 class="user-text-muted f-w-400">{{ $user->p_iva }}</h6>
                     </div>
                     <div class="col-sm-6">
                       <p class="m-b-10 f-w-600">Creato il</p>
-                      <h6 class="user-text-muted f-w-400">{{ $user->created_at}}</h6>
+                      <h6 class="user-text-muted f-w-400">{{ $user->created_at }}</h6>
                     </div>
                   </div>
                   <div class="user-buttons user-card-block">
