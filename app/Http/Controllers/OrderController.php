@@ -22,9 +22,11 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function checkout()
     {
-        //
+      $message = "L'ordine è stato effettuato con successo!";
+
+      return view('guests.orders.checkout',compact('message'));
     }
 
     /**
@@ -35,7 +37,8 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+      return redirect()->route('guests.orders.checkout');
     }
 
     /**
