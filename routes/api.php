@@ -21,4 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/restaurants', 'Api\RestaurantController@index');
 Route::get('/categories', 'Api\CategoryController@index');
-Route::get('/filtered-restaurants/{category}', 'Api\RestaurantController@filteredRestaurants');
+Route::get('/filter-restaurants/{category}', 'Api\RestaurantController@filterRestaurants');
+Route::get('/search-restaurant/{query}', 'Api\RestaurantController@searchRestaurant');
