@@ -103,8 +103,9 @@ var app = new Vue({
   created: function created() {
     var _this = this;
 
-    axios.get('http://localhost:8000/api/restaurants').then(function (response) {
-      _this.restaurants = response.data.response;
+    axios.get('http://localhost:8001/api/restaurants')
+          .then(function (response) {
+            _this.restaurants = response.data.response;
     });
   },
   methods: {
@@ -123,7 +124,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/emanueleattina/Documents/progetti_fallimentari/boolean/Esercizi/project_deliveboo/resources/js/restaurants.js */"./resources/js/restaurants.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Documents\Atom\Boolean-Esercizi\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
 
 
 /***/ })

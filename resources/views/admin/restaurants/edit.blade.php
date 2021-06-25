@@ -8,7 +8,7 @@
                 <div class="card-header">MODIFICA RISTORANTE</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant->id]) }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant->slug]) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
 
