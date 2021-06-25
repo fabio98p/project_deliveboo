@@ -37,23 +37,6 @@
         h3 {
             font-size: 2em;
         }
-
-        .my-button {
-            padding: 10px 25px;
-            height: fit-content;
-            width: fit-content;
-            background: $red;
-            color: #fff;
-            transition: all 0.25s ease-out;
-            border-radius: 5px;
-
-            &:hover {
-                background: rgba($color: $red, $alpha: 0.75);
-                color: #fff;
-                text-decoration: none;
-                transition: all 0.25s ease-out;
-            }
-        }
     }
 
     .card-outline {
