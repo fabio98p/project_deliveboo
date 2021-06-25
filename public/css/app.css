@@ -10960,7 +10960,7 @@ input::-webkit-inner-spin-button {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  color: #fff;
+  color: #FFF;
   transition: all 0.25s ease-out;
   border-radius: 5px;
   border: none;
@@ -11001,6 +11001,28 @@ input::-webkit-inner-spin-button {
 .my-button-blue:hover {
   background: #3490dc;
   color: #fff;
+  text-decoration: none;
+  transition: all 0.25s ease-out;
+}
+
+.my-button-orange {
+  padding: 10px 25px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #FFF;
+  background: #df9367;
+  transition: all 0.25s ease-out;
+  border-radius: 5px;
+  border: none;
+}
+
+.my-button-orange:hover {
+  color: #df9367;
+  background: #FFF;
   text-decoration: none;
   transition: all 0.25s ease-out;
 }

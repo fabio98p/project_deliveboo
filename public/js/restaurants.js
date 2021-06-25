@@ -103,8 +103,9 @@ var app = new Vue({
   created: function created() {
     var _this = this;
 
-    axios.get('http://localhost:8000/api/restaurants').then(function (response) {
-      _this.restaurants = response.data.response;
+    axios.get('http://localhost:8001/api/restaurants')
+          .then(function (response) {
+            _this.restaurants = response.data.response;
     });
   },
   methods: {
