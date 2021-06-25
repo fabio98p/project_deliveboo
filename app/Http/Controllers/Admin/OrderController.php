@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Order;
+use App\Restaurant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +16,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -45,9 +46,12 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show($slug)
     {
-        //
+      $restaurant = Restaurant::where('slug',$slug)->first();
+      $orders = $restaurant->orders()->get();
+
+      return view('admin.orders.show',compact('restaurant','orders'));
     }
 
     /**
