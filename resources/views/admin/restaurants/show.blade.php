@@ -4,7 +4,7 @@
 
 <div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')"></div>
 <section class="section-main">
-    <div class="container" id="app">
+    <div class="container" id="root">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="page-top">

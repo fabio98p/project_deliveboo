@@ -69,7 +69,7 @@
                             </div>
                             <div :class="(checkClick == true) ? 'show-this' : 'hide-this' ">
                                 @foreach ($categories as $index => $category)
-                                    <label for="one">
+                                    <label>
                                         <input type="checkbox" name="category_ids[]" value="{{$category->id}}"/>{{$category->name}}</label>
                                 @endforeach
                             </div>
