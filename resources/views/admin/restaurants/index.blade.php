@@ -19,18 +19,21 @@
             </div>
         </div>
         <div class="row">
+            
             @foreach($restaurants as $index => $restaurant)
-                <div class="col-md-4 mt-2">
-                    <a href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
+                <div class="col-md-4 col-lg-3 mt-2 card-outline">
+                    <a class="link-to" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
                         <div class="card-personal">
-                            <div class="card-personal-cover" style="background-image: url('{{asset($restaurant->logo)}}')">
-                                {{-- <img src="{{$restaurant['logo']}}" alt="image logo"> --}}
-                                {{-- <img src="{{asset($restaurant->logo)}}" alt="" style="height: 100px; width: 100px;"> --}}
+                            <div class="card-personal-cover" style="background-image: url('{{asset($restaurant->banner)}}')">
+                                <img src="{{asset($restaurant->logo)}}" alt="">
+                                <div class="overlay"></div>
                             </div>
-                            <div class="card-info">
+
+                            {{-- <div class="card-info">
                                 <div class="card-title">
-                                    <h2 class="text-center">{{$restaurant['name']}}</h5>
+                                    <h3 class="text-center">{{$restaurant->name}}</h3>
                                 </div>
+
                                 <div class="">
                                     <a class="btn btn-primary" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}">Edit</a>
                                     <form action="{{route('admin.restaurants.destroy', ['restaurant' => $restaurant->id])}}" method="post">
@@ -39,20 +42,35 @@
                                         <input class="btn btn-danger" type="submit" value="Delete">
                                     </form>
                                 </div>
+                            </div> --}}
+
+                            <div class="card-personal-title">
+                                <h3>{{$restaurant->name}}</h3>
                             </div>
                         </div>
                     </a>
                 </div>
             @endforeach
-            <div class="col-md-4 mt-2">
-                <a href="{{ route('admin.restaurants.create') }}">
+            <div class="col-md-4 col-lg-3 mt-2 card-outline">
+                <a class="link-to" href="{{ route('admin.restaurants.create') }}">
                     <div class="card-personal">
-                        <div class="add-card">
-                            <i class="fas fa-plus"></i>
+                        <div class="card-personal-cover">
+                            <div class="add-card">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="overlay"></div>
                         </div>
+
+                        <div class="card-personal-title">
+                            <h3>Crea ristorante</h3>
+                        </div>
+                        
                     </div>
                 </a>
             </div>
+
+            
+
         </div>
     </div>
 </section>

@@ -15,201 +15,201 @@ use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function index()
-  {
-    $restaurants = Restaurant::where('user_id', Auth::user()->id)->get();
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $restaurants = Restaurant::where('user_id', Auth::user()->id)->get();
 
-    return view('admin.restaurants.index', compact('restaurants'));
-  }
-
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create()
-  {
-    $categories = Category::all();
-
-    return view('admin.restaurants.create', compact('categories'));
-  }
-
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
-  public function store(Request $request)
-  {
-    $request->validate([
-      'name' => 'required|string|max:50',
-      'address' => 'required|string|max:100',
-      'logo' => 'nullable|image|max:5000',
-      'description' => 'required|string',
-      'banner' => 'nullable|image|max:10000',
-      'category_ids' => 'exists:categories,id|nullable',
-      // 'available' => 'nullable|boolean',
-    ]);
-    $data = $request->all();
-
-    //salvataggio immagini in storage
-    $logo = NULL;
-    if (array_key_exists('logo', $data)) {
-      $logo = Storage::put('uploads', $data['logo']);
-    }
-    $banner = NULL;
-    if (array_key_exists('banner', $data)) {
-      $banner = Storage::put('uploads', $data['banner']);
+        return view('admin.restaurants.index', compact('restaurants'));
     }
 
-    //creo un novo ristorante e lo fillo
-    $restaurant = new Restaurant();
-    $restaurant->fill($data);
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $categories = Category::all();
 
-    //inserisco lo user id cercando lo user con cui si e' fatto l'accesso
-    $restaurant->user_id = Auth::user()->id;
-    //popolo lo slug con una funzione che si riferisce al restaurant name
-    $restaurant->slug = $this->generateSlug($restaurant->name);
-
-    //link immagini
-    $restaurant->logo = 'storage/' . $logo;
-    $restaurant->banner = 'storage/' . $banner;
-
-    $restaurant->save();
-
-    //popolare la tabella pvot
-    if (array_key_exists('category_ids', $data)) {
-      $restaurant->categories()->attach($data['category_ids']);
+        return view('admin.restaurants.create', compact('categories'));
     }
 
-    return redirect()->route('admin.restaurants.index');
-  }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:50',
+            'address' => 'required|string|max:100',
+            'logo' => 'nullable|image|max:5000',
+            'description' => 'required|string',
+            'banner' => 'nullable|image|max:10000',
+            'category_ids' => 'exists:categories,id|nullable',
+            // 'available' => 'nullable|boolean',
+        ]);
+        $data = $request->all();
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  \App\Restaurant  $restaurant
-   * @return \Illuminate\Http\Response
-   */
-  public function show($slug)
-  {
-    //prendo il ristorante id
-    $restaurant = Restaurant::where('slug', $slug)->first();
+        //salvataggio immagini in storage
+        $logo = NULL;
+        if (array_key_exists('logo', $data)) {
+            $logo = Storage::put('uploads', $data['logo']);
+        }
+        $banner = NULL;
+        if (array_key_exists('banner', $data)) {
+            $banner = Storage::put('uploads', $data['banner']);
+        }
 
-    $restaurant_id = $restaurant['id'];
+        // dd($request);
 
-    //uso il ristorante id per prendere i piatti relativi a quel ristorante
-    $dishes = Dish::where('restaurant_id', $restaurant_id)->orderBy('name','asc')->get();
+        //creo un novo ristorante e lo fillo
+        $restaurant = new Restaurant();
+        $restaurant->fill($data);
 
-    if (Auth::user()->id != $restaurant['user_id']) {
-      return redirect()->route('admin.restaurants.index');
-    }
-    
-    return view('admin.restaurants.show', compact('restaurant', 'dishes'));
+        //inserisco lo user id cercando lo user con cui si e' fatto l'accesso
+        $restaurant->user_id = Auth::user()->id;
+        //popolo lo slug con una funzione che si riferisce al restaurant name
+        $restaurant->slug = $this->generateSlug($restaurant->name);
 
-  }
+        //link immagini
+        $restaurant->logo = 'storage/' . $logo;
+        $restaurant->banner = 'storage/' . $banner;
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  \App\Restaurant  $restaurant
-   * @return \Illuminate\Http\Response
-   */
-  public function edit($slug)
-  {
-    $categories = Category::all();
-    $restaurant = Restaurant::where('slug', $slug)->first();
+        $restaurant->save();
 
-    if (Auth::user()->id != $restaurant['user_id']) {
-      return redirect()->route('admin.restaurants.index');
-    }
+        //popolare la tabella pvot
+        if (array_key_exists('category_ids', $data)) {
+            $restaurant->categories()->attach($data['category_ids']);
+        }
 
-    return view('admin.restaurants.edit', compact('restaurant', 'categories'));
-
-  }
-
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  \App\Restaurant  $restaurant
-   * @return \Illuminate\Http\Response
-   */
-  public function update(Request $request, Restaurant $restaurant)
-  {
-    $request->validate([
-      'name' => 'required|string|max:50',
-      'address' => 'required|string|max:100',
-      'logo' => 'nullable|image|max:5000',
-      'description' => 'required|string',
-      'banner' => 'nullable|image|max:10000',
-      'category_ids' => 'exists:categories,id|nullable',
-    //   'available' => 'required|in:true,false',
-    ]);
-
-    $data = $request->all();
-
-    $data['slug'] = $this->generateSlug($data['name'], $restaurant->name != $data['name'], $restaurant->slug);
-
-    if (array_key_exists('logo', $data)) {
-      $logo = Storage::put('uploads_restaurants', $data['logo']);
-      $data['logo'] = 'storage/' . $logo;
+        return redirect()->route('admin.restaurants.index');
     }
 
-    if (array_key_exists('banner', $data)) {
-      $banner = Storage::put('uploads_restaurants', $data['banner']);
-      $data['banner'] = 'storage/' . $banner;
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Restaurant  $restaurant
+     * @return \Illuminate\Http\Response
+     */
+    public function show($slug)
+    {
+        //prendo il ristorante id
+        $restaurant = Restaurant::where('slug', $slug)->first();
+
+        $restaurant_id = $restaurant['id'];
+
+        //uso il ristorante id per prendere i piatti relativi a quel ristorante
+        $dishes = Dish::where('restaurant_id', $restaurant_id)->orderBy('name', 'asc')->get();
+
+        if (Auth::user()->id != $restaurant['user_id']) {
+            return redirect()->route('admin.restaurants.index');
+        }
+
+        return view('admin.restaurants.show', compact('restaurant', 'dishes'));
     }
 
-    $restaurant->update($data);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Restaurant  $restaurant
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($slug)
+    {
+        $categories = Category::all();
+        $restaurant = Restaurant::where('slug', $slug)->first();
 
-    if (array_key_exists('category_ids', $data)) {
-      $restaurant->categories()->sync($data['category_ids']);
-    } else {
-      $restaurant->categories()->detach();
+        if (Auth::user()->id != $restaurant['user_id']) {
+            return redirect()->route('admin.restaurants.index');
+        }
+
+        return view('admin.restaurants.edit', compact('restaurant', 'categories'));
     }
 
-    return redirect()->route('admin.restaurants.show', ['restaurant' => $restaurant->slug]);
-  }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Restaurant  $restaurant
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Restaurant $restaurant)
+    {
+        $request->validate([
+            'name' => 'required|string|max:50',
+            'address' => 'required|string|max:100',
+            'logo' => 'nullable|image|max:5000',
+            'description' => 'required|string',
+            'banner' => 'nullable|image|max:10000',
+            'category_ids' => 'exists:categories,id|nullable',
+            //   'available' => 'required|in:true,false',
+        ]);
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  \App\Restaurant  $restaurant
-   * @return \Illuminate\Http\Response
-   */
-  public function destroy(Restaurant $restaurant)
-  {
-    $restaurant->categories()->detach();
-    $restaurant->delete();
-    return redirect()->route('admin.restaurants.index');
-  }
+        $data = $request->all();
 
+        $data['slug'] = $this->generateSlug($data['name'], $restaurant->name != $data['name'], $restaurant->slug);
 
-  private function generateSlug(string $title, bool $change = true, string $old_slug = '')
-  {
+        if (array_key_exists('logo', $data)) {
+            $logo = Storage::put('uploads', $data['logo']);
+            $data['logo'] = 'storage/' . $logo;
+        }
 
-    if (!$change) {
-      return $old_slug;
+        if (array_key_exists('banner', $data)) {
+            $banner = Storage::put('uploads', $data['banner']);
+            $data['banner'] = 'storage/' . $banner;
+        }
+
+        $restaurant->update($data);
+
+        if (array_key_exists('category_ids', $data)) {
+            $restaurant->categories()->sync($data['category_ids']);
+        } else {
+            $restaurant->categories()->detach();
+        }
+
+        return redirect()->route('admin.restaurants.show', ['restaurant' => $restaurant->slug]);
     }
 
-    $slug = Str::slug($title, '-');
-    $slug_base = $slug;
-    $contatore = 1;
-
-    $post_with_slug = Restaurant::where('slug', '=', $slug)->first();
-    while ($post_with_slug) {
-      $slug = $slug_base . '-' . $contatore;
-      $contatore++;
-
-      $post_with_slug = Restaurant::where('slug', '=', $slug)->first();
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Restaurant  $restaurant
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Restaurant $restaurant)
+    {
+        $restaurant->categories()->detach();
+        $restaurant->delete();
+        return redirect()->route('admin.restaurants.index');
     }
-    return $slug;
-  }
+
+
+    private function generateSlug(string $title, bool $change = true, string $old_slug = '')
+    {
+
+        if (!$change) {
+            return $old_slug;
+        }
+
+        $slug = Str::slug($title, '-');
+        $slug_base = $slug;
+        $contatore = 1;
+
+        $post_with_slug = Restaurant::where('slug', '=', $slug)->first();
+        while ($post_with_slug) {
+            $slug = $slug_base . '-' . $contatore;
+            $contatore++;
+
+            $post_with_slug = Restaurant::where('slug', '=', $slug)->first();
+        }
+        return $slug;
+    }
 }
