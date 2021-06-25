@@ -11,8 +11,8 @@
                     <h1>{{ $restaurant['name'] }}</h1>
                     <div class="my-buttons-container">
                         <a class="my-button" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}">Modifica ristorante</a>
-                        <a class="my-button" href="">Ordini ricevuti</a>
-                        <a class="my-button" href="">Statistiche</a>
+                        <a class="my-button" href="{{route('admin.orders.show', ['restaurant' => $restaurant->slug])}}">Ordini ricevuti</a>
+                        <a class="my-button" href="{{route('admin.statistics.show', ['restaurant' => $restaurant->slug])}}">Statistiche</a>
                     </div>
 
                 </div>

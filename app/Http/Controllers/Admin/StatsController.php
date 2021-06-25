@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Order;
 use App\Restaurant;
-use App\Category;
-use App\User;
-use App\Dish;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class RestaurantController extends Controller
+class StatsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-      return view('guests.restaurants.index');
+        //
     }
 
     /**
@@ -44,24 +43,25 @@ class RestaurantController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Restaurant  $restaurant
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
     {
       $restaurant = Restaurant::where('slug',$slug)->first();
-      $dishes = Dish::where('restaurant_id',$restaurant['id'])->orderBy('name','asc')->get();
+      $orders = $restaurant->orders()->get();
 
-      return view('guests.restaurants.show', compact('restaurant','dishes'));
+      return view('admin.statistics.show',compact('restaurant','orders'));
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Restaurant  $restaurant
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Restaurant $restaurant)
+    public function edit($id)
     {
         //
     }
@@ -70,10 +70,10 @@ class RestaurantController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Restaurant  $restaurant
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Restaurant $restaurant)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -81,10 +81,10 @@ class RestaurantController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Restaurant  $restaurant
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Restaurant $restaurant)
+    public function destroy($id)
     {
         //
     }

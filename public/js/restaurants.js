@@ -93,19 +93,38 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+Vue.config.devtools = true;
 var app = new Vue({
-  el: '#root',
+  el: '#app',
   data: {
-    restaurants: []
+    categories: [],
+    restaurants: [],
+    checkClick: false
   },
   created: function created() {
     var _this = this;
 
     axios.get('http://localhost:8000/api/restaurants').then(function (response) {
-      _this.restaurants = response.data.response;
+      _this.restaurants = response.data.data;
     });
+  },
+  methods: {
+    checkReverse: function checkReverse() {
+      this.checkClick = !this.checkClick;
+    }
   }
-});
+}); // $('select').selectpicker();
+// var expanded = false;
+// function showCheckboxes() {
+//   var checkboxes = document.getElementById("checkboxes");
+//   if (!expanded) {
+//     checkboxes.style.display = "block";
+//     expanded = true;
+//   } else {
+//     checkboxes.style.display = "none";
+//     expanded = false;
+//   }
+// }
 
 /***/ }),
 
@@ -116,7 +135,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\filippo\Desktop\boolean\Esercizi\php\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
+module.exports = __webpack_require__(/*! /Users/emanueleattina/Documents/progetti_fallimentari/boolean/Esercizi/project_deliveboo/resources/js/restaurants.js */"./resources/js/restaurants.js");
 
 
 /***/ })
