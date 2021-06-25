@@ -11146,7 +11146,11 @@ input::-webkit-inner-spin-button {
 
 .show-this {
   padding: 5px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #dfdfdf;
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  overflow: auto;
 }
 
 .hide-this label {
