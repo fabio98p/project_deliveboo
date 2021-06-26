@@ -19,14 +19,17 @@ var app = new Vue ({
             })
     },
     methods: {
-        checkReverse() {
+        checkReverse: function() {
             this.checkClick = !this.checkClick;
         },
         cerca: function() {
-          axios.get( `http://localhost:8000/api/search-restaurant/${this.scriviTxt}`)
-          .then((response) => {
-            this.searchResult = response.data.response;
-          })
-          },
+            axios.get( `http://localhost:8000/api/search-restaurant/${this.scriviTxt}`)
+            .then((response) => {
+                this.searchResult = response.data.response;
+            })
+        },
+        filter: function() {
+            
+        }
     }
 });

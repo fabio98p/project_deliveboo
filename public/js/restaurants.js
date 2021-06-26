@@ -123,7 +123,8 @@ var app = new Vue({
       axios.get("http://localhost:8000/api/search-restaurant/".concat(this.scriviTxt)).then(function (response) {
         _this2.searchResult = response.data.response;
       });
-    }
+    },
+    filter: function filter() {}
   }
 });
 
@@ -136,7 +137,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\filippo\Desktop\boolean\Esercizi\php\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
+module.exports = __webpack_require__(/*! /Users/emanueleattina/Documents/progetti_fallimentari/boolean/Esercizi/project_deliveboo/resources/js/restaurants.js */"./resources/js/restaurants.js");
 
 
 /***/ })
