@@ -6,8 +6,7 @@ var app = new Vue ({
         scriviTxt: '',
         restaurants: [],
         categories: [],
-        searchResultRestaurant:[],
-        searchResultDish:[],
+        searchResult:[],
         checkClick: false,
     },
     created() {
@@ -23,15 +22,11 @@ var app = new Vue ({
         checkReverse() {
             this.checkClick = !this.checkClick;
         },
-        cerca: function(scriviTxt) {
-          axios.get( `http://localhost:8000/api/restaurants?name=` + scriviTxt)
+        cerca: function() {
+          axios.get( `http://localhost:8000/api/search-restaurant/${this.scriviTxt}`)
           .then((response) => {
-            this.searchResultRestaurant = response.data.results;
+            this.searchResult = response.data.response;
           })
-            axios.get( `http://localhost:8000/api/restaurant?name=` + scriviTxt)
-            .then((response) => {
-              this.searchResultDish = response.data.results;
-            })
           },
     }
 });
