@@ -3,8 +3,8 @@
 @section('main')
 <main id="root">
   <div class="container-fluid banner-show" style="background-image: url('../images/varie/my-restaurant-banner.jpg')"></div>
-  <div class="container search-bar"> <span> <b>Inserisci il piatto/ristorante che stai cercando :</b> </span>
-    <label for="cerca"></label><input v-model="scriviTxt"  type="text" @keyup.enter="cerca(scriviTxt)">
+  <div class="container search-bar"> <span> <b>Inserisci il ristorante che stai cercando :</b> </span>
+    <label for="cerca"><input v-model="scriviTxt" type="text" @keyup.enter="cerca(scriviTxt)"></label>
     <button @click="cerca(scriviTxt)" >Cerca</button>
   </div>
   <section class="section-main">
@@ -27,8 +27,39 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="container">
+
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="consigliati flex-wrap "v-for="result in searchResult" :key="result.id ">
+                  <div class="col-md-4 col-lg-4 mt-2 card-outline">
+                      <div class="card-personal">
+                          <div class="mt-2 card-outline card-personal-cover"
+                          :style="`background-image: url('${result.banner}') ; `">
+                              <div class="card-personal">
+                                  <div class="card-personal-cover">
+                                      <img :src="result.logo">
+                                      <div class="overlay"></div>
+                                  </div>
+
+                                  <div class="card-personal-title">
+                                      <h3>@{{result.name}}</h3>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
+
+                </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+       <div class="container">
           <div class="row justify-content-center">
               <div class="col-md-12">
                 <div class="row">
@@ -47,9 +78,9 @@
                                             <h3>@{{restaurant.name}}</h3>
                                         </div>
                                     </div>
-                                </div>    
+                                </div>
                             </div>
-                            
+
                         </div>
 
                         {{-- <div class="col-md-4 col-lg-4 mt-2 card-outline">
@@ -65,7 +96,7 @@
                                 </div>
                             </a>
                         </div> --}}
-                    </div>
+                  </div>
                 </div>
 
               </div>

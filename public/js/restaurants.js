@@ -100,8 +100,7 @@ var app = new Vue({
     scriviTxt: '',
     restaurants: [],
     categories: [],
-    searchResultRestaurant: [],
-    searchResultDish: [],
+    searchResult: [],
     checkClick: false
   },
   created: function created() {
@@ -118,14 +117,11 @@ var app = new Vue({
     checkReverse: function checkReverse() {
       this.checkClick = !this.checkClick;
     },
-    cerca: function cerca(scriviTxt) {
+    cerca: function cerca() {
       var _this2 = this;
 
-      axios.get("http://localhost:8000/api/restaurants?name=" + scriviTxt).then(function (response) {
-        _this2.searchResultRestaurant = response.data.results;
-      });
-      axios.get("http://localhost:8000/api/restaurant?name=" + scriviTxt).then(function (response) {
-        _this2.searchResultDish = response.data.results;
+      axios.get("http://localhost:8000/api/search-restaurant/".concat(this.scriviTxt)).then(function (response) {
+        _this2.searchResult = response.data.response;
       });
     }
   }
@@ -140,7 +136,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/emanueleattina/Documents/progetti_fallimentari/boolean/Esercizi/project_deliveboo/resources/js/restaurants.js */"./resources/js/restaurants.js");
+module.exports = __webpack_require__(/*! C:\Users\filippo\Desktop\boolean\Esercizi\php\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
 
 
 /***/ })
