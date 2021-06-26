@@ -40,7 +40,3 @@
   </section>
 </main>
 @endsection
-
-@section('foot-script')
-  <script src="{{ asset('js/restaurants.js') }}"></script>
-@endsection

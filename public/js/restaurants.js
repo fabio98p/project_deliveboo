@@ -101,7 +101,8 @@ var app = new Vue({
     restaurants: [],
     categories: [],
     searchResult: [],
-    checkClick: false
+    checkClick: false,
+    deleteForm: false
   },
   created: function created() {
     var _this = this;

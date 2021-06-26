@@ -63,7 +63,3 @@
     </div>
 </section>
 @endsection
-
-@section('foot-script')
-  <script src="{{ asset('js/admin.js') }}"></script>
-@endsection

@@ -8,6 +8,7 @@ var app = new Vue ({
         categories: [],
         searchResult:[],
         checkClick: false,
+        deleteForm: false,
     },
     created() {
       axios.get('http://localhost:8000/api/categories').then((response) => {
@@ -29,7 +30,7 @@ var app = new Vue ({
             })
         },
         filter: function() {
-            
+
         }
     }
 });
