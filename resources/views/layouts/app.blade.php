@@ -40,9 +40,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="/js/app.js"></script>
     <script src="{{ asset('js/restaurants.js') }}"></script>
-
-    {{-- cdn multiselect --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 </body>
 
 </html>

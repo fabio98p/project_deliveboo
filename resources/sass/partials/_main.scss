@@ -173,10 +173,27 @@ a {
         }
     }
 
+    // .show-dish {
+
+    //     .show-dish-image {
+    //         height: 400px;
+    //         background-position: center;
+    //         background-size: cover;
+    //     }
+
+    //     h4 {
+    //         font-weight: 600;
+    //     }
+    // }
+
     .show-dish {
 
         .show-dish-image {
-            height: 400px;
+
+            img {
+                width: 100%;
+            }
+
             background-position: center;
             background-size: cover;
         }
@@ -200,10 +217,11 @@ a {
     border: 1px solid black;
 }
 
-.icon_category{
-  width: 30%;
-  margin-left: 34%;
+.icon_category {
+    width: 30%;
+    margin-left: 34%;
 }
+
 .multiselect {
     width: 200px;
 }
