@@ -14,7 +14,7 @@
                             Torna al ristorante
                         </a>
                         <a class="my-button my-button-orange" href="{{route('admin.dishes.edit', ['dish' => $dish->slug])}}">Modifica piatto</a>
-                        <button class="my-button my-button-red" type="button" name="button" @click="deleteForm = true">Cancella piatto</button>
+                        <a class="my-button my-button-red" type="button" name="button" @click="deleteForm = true">Cancella piatto</a>
                     </div>
                 </div>
             </div>
@@ -49,15 +49,17 @@
     <!-- Delete pop up -->
     <div class="delete-container" v-if="deleteForm">
       <div class="delete-form">
-        <h4>Vuoi cancellare il piatto "{{$dish->name}}"?</h4>
+        <h4>Vuoi cancellare il piatto</h4>
+          <br>
+           <h4>{{$dish->name}}"?</h4>
         <img src="{{asset($dish->image)}}" alt="{{$dish->name}}">
         <div class="buttons mt-3">
           <form class="d-inline" action="{{route('admin.dishes.destroy', ['dish' => $dish->id])}}" method="post">
             @csrf
             @method('DELETE')
-            <input class="my-button my-button-red" type="submit" value="Cancella">
+            <input class="my-button my-button-red" type="submit" value="Cancella" style="padding: 10px 25px;">
           </form>
-          <button type="button" name="button" class="my-button my-button-green" @click="deleteForm = false">Torna indietro</button>
+          <a type="button" name="button" class="my-button my-button-green" @click="deleteForm = false">Torna indietro</a>
         </div>
       </div>
     </div>

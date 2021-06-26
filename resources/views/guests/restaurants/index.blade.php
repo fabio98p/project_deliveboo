@@ -4,9 +4,12 @@
 <main id="root">
 <div class="container-fluid banner-show" style="background-image: url('../images/varie/my-restaurant-banner.jpg')"></div>
 <section class="section-main">
-  <div class="container search-bar"> <span> <b>Inserisci il ristorante che stai cercando :</b> </span>
-    <label for="cerca"><input v-model="scriviTxt" type="text" @keyup.enter="cerca(scriviTxt)"></label>
-    <button @click="cerca(scriviTxt)" >Cerca</button>
+  <div class="container search-bar">
+    <label for="Ricerca Ristoranti"></label>
+    <input v-model="scriviTxt" class="search" type="search" name="search" @keyup.enter="cerca(scriviTxt)" placeholder="Inserisci il nome del ristorante">
+    <a class="my-button my-button-orange" style="cursor: pointer; margin-left: 15px;" @click="cerca(scriviTxt)" >
+      Cerca
+    </a>
   </div>
     <div class="container">
         <div class="row justify-content-center">
@@ -23,7 +26,7 @@
             </div>
         </div>
         <hr v-if="searchResult.length > 0">
-        <h2 v-if="searchResult.length > 0">Correlati alla tua ricerca</h2>
+        <h2 v-if="searchResult.length > 0">Risultati della ricerca</h2>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12">
@@ -51,7 +54,6 @@
 
 
       <hr>
-      <h2>Scegli tra tutti i ristoranti</h2>
       <div class="container">
           <div class="row justify-content-center">
               <div class="col-md-12">

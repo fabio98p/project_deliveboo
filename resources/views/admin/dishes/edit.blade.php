@@ -6,7 +6,7 @@
       <div class="row justify-content-center">
           <div class="col-md-8">
               <div class="card">
-                  <div class="card-header">MODIFICA PIATTO</div>
+                  <div class="card-header align-center">MODIFICA PIATTO</div>
 
                   <div class="card-body">
                       <form method="POST" action="{{ route('admin.dishes.update', ['dish' => $dish->id]) }}" enctype="multipart/form-data">
@@ -83,7 +83,7 @@
                                   <button type="submit" class="btn btn-primary">
                                       {{ __('Modifica questo Piatto') }}
                                   </button>
-                                  <a class="my-button" href="{{route('admin.dishes.show', ['dish' => $dish->slug])}}">
+                                  <a class="my-button my-button-orange" href="{{route('admin.dishes.show', ['dish' => $dish->slug])}}">
                                       Torna al piatto
                                     </a>
                               </div>

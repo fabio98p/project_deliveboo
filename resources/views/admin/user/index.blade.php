@@ -42,8 +42,8 @@
                     </div>
                   </div>
                   <div class="user-buttons user-card-block">
-                    <a class="my-button-orange" href="{{ route('admin.restaurants.index') }}">I miei ristoranti</a>
-                    <a class="my-button-orange m-t-40" href="{{ route('index') }}">Torna alla Homepage</a>
+                    <a class="my-button-orange-user" href="{{ route('admin.restaurants.index') }}">I miei ristoranti</a>
+                    <a class="my-button-orange-user m-t-40" href="{{ route('index') }}">Torna alla Homepage</a>
                   </div>
                 </div>
               </div>

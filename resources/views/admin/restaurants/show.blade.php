@@ -11,7 +11,7 @@
                     <h1>{{ $restaurant['name'] }}</h1>
                     <div class="my-buttons-container">
                         <a class="my-button my-button-orange" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}">Modifica ristorante</a>
-                        <button class="my-button my-button-red" type="button" name="button" @click="deleteForm = true">Cancella ristorante</button>
+                        <a class="my-button my-button-red" style="padding: 6px 25px;" type="button" name="button" @click="deleteForm = true">Cancella ristorante</a>
                     </div>
                 </div>
                 <h2>I miei piatti</h2>
@@ -107,7 +107,9 @@
     <!-- Delete pop up -->
     <div class="delete-container" v-if="deleteForm">
       <div class="delete-form">
-        <h4>Vuoi cancellare il ristorante "{{$restaurant->name}}"?</h4>
+        <h4>Vuoi cancellare il ristorante </h4>
+          <br>
+           <h4>"{{$restaurant->name}}"?</h4>
         <img src="{{asset($restaurant->banner)}}" alt="{{$restaurant->name}}">
         <div class="buttons mt-3">
           <form class="d-inline" action="{{route('admin.restaurants.destroy', ['restaurant' => $restaurant->id])}}" method="post">
@@ -115,7 +117,7 @@
             @method('DELETE')
             <input class="my-button my-button-red" type="submit" value="Cancella">
           </form>
-          <button type="button" name="button" class="my-button my-button-green" @click="deleteForm = false">Torna indietro</button>
+          <a type="button" name="button" class="my-button my-button-green" @click="deleteForm = false">Torna indietro</a>
         </div>
       </div>
     </div>
