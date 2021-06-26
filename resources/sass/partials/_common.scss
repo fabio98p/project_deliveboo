@@ -22,9 +22,10 @@ input::-webkit-inner-spin-button {
 
 .my-button-red {
     background: $red;
+    padding: 6.5px 25px;
 
     &:hover {
-        background: rgba($color: $red, $alpha: 1);
+        background: rgba($color: $red, $alpha: 0.8);
         color: #fff;
         text-decoration: none;
         transition: all 0.25s ease-out;
@@ -35,7 +36,7 @@ input::-webkit-inner-spin-button {
     background: $green;
 
     &:hover {
-        background: rgba($color: $green, $alpha: 1);
+        background: rgba($color: $green, $alpha: 0.8);
         color: #fff;
         text-decoration: none;
         transition: all 0.25s ease-out;
@@ -46,7 +47,7 @@ input::-webkit-inner-spin-button {
     background: $blue;
 
     &:hover {
-        background: rgba($color: $blue, $alpha: 1);
+        background: rgba($color: $blue, $alpha: 0.8);
         color: #fff;
         text-decoration: none;
         transition: all 0.25s ease-out;
@@ -64,8 +65,8 @@ input::-webkit-inner-spin-button {
     border: none;
 
     &:hover {
-        color: $orange;
-        background: $white;
+        color: $white;
+        background: rgba($color: $orange, $alpha: 0.8);
         text-decoration: none;
         transition: all 0.25s ease-out;
     }

@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/restaurants.js":
-/*!*************************************!*\
-  !*** ./resources/js/restaurants.js ***!
-  \*************************************/
+/***/ "./resources/js/admin.js":
+/*!*******************************!*\
+  !*** ./resources/js/admin.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -97,47 +97,20 @@ Vue.config.devtools = true;
 var app = new Vue({
   el: '#root',
   data: {
-    scriviTxt: '',
-    restaurants: [],
-    categories: [],
-    searchResult: [],
-    checkClick: false
-  },
-  created: function created() {
-    var _this = this;
-
-    axios.get('http://localhost:8000/api/categories').then(function (response) {
-      _this.categories = response.data.response;
-    });
-    axios.get('http://localhost:8000/api/restaurants').then(function (response) {
-      _this.restaurants = response.data.response;
-    });
-  },
-  methods: {
-    checkReverse: function checkReverse() {
-      this.checkClick = !this.checkClick;
-    },
-    cerca: function cerca() {
-      var _this2 = this;
-
-      axios.get("http://localhost:8000/api/search-restaurant/".concat(this.scriviTxt)).then(function (response) {
-        _this2.searchResult = response.data.response;
-      });
-    },
-    filter: function filter() {}
+    deleteForm: false
   }
 });
 
 /***/ }),
 
-/***/ 1:
-/*!*******************************************!*\
-  !*** multi ./resources/js/restaurants.js ***!
-  \*******************************************/
+/***/ 2:
+/*!*************************************!*\
+  !*** multi ./resources/js/admin.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\admin.js */"./resources/js/admin.js");
 
 
 /***/ })

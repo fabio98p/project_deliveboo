@@ -10974,10 +10974,11 @@ input::-webkit-inner-spin-button {
 
 .my-button-red {
   background: #eb534c;
+  padding: 6.5px 25px;
 }
 
 .my-button-red:hover {
-  background: #eb534c;
+  background: rgba(235, 83, 76, 0.8);
   color: #fff;
   text-decoration: none;
   transition: all 0.25s ease-out;
@@ -10988,7 +10989,7 @@ input::-webkit-inner-spin-button {
 }
 
 .my-button-green:hover {
-  background: #43b134;
+  background: rgba(67, 177, 52, 0.8);
   color: #fff;
   text-decoration: none;
   transition: all 0.25s ease-out;
@@ -10999,7 +11000,7 @@ input::-webkit-inner-spin-button {
 }
 
 .my-button-blue:hover {
-  background: #3490dc;
+  background: rgba(52, 144, 220, 0.8);
   color: #fff;
   text-decoration: none;
   transition: all 0.25s ease-out;
@@ -11021,8 +11022,8 @@ input::-webkit-inner-spin-button {
 }
 
 .my-button-orange:hover {
-  color: #df9367;
-  background: #FFF;
+  color: #FFF;
+  background: rgba(223, 147, 103, 0.8);
   text-decoration: none;
   transition: all 0.25s ease-out;
 }
@@ -11283,6 +11284,38 @@ a:hover {
 
 input[type=checkbox] {
   margin-right: 5px;
+}
+
+.delete-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.delete-container .delete-form {
+  background-color: #FFF;
+  border-radius: 20px;
+  width: 400px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.delete-container .delete-form img {
+  width: 150px;
+}
+
+.delete-container .delete-form button {
+  padding: 6.5px 25px;
 }
 
 .pos-rel {

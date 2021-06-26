@@ -3,11 +3,11 @@
 @section('main')
 <main id="root">
 <div class="container-fluid banner-show" style="background-image: url('../images/varie/my-restaurant-banner.jpg')"></div>
-<div class="container search-bar"> <span> <b>Inserisci il ristorante che stai cercando :</b> </span>
+<section class="section-main">
+  <div class="container search-bar"> <span> <b>Inserisci il ristorante che stai cercando :</b> </span>
     <label for="cerca"><input v-model="scriviTxt" type="text" @keyup.enter="cerca(scriviTxt)"></label>
     <button @click="cerca(scriviTxt)" >Cerca</button>
-</div>
-<section class="section-main">
+  </div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -27,7 +27,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12">
-    
+
                     <div class="row">
                         <div class="col-md-4 col-lg-4 mt-2 card-outline" v-for="result in searchResult" :key="result.id ">
                             <a class="link-to" :href="'restaurants/' + result.slug">
@@ -78,4 +78,8 @@
 
 </section>
 </main>
+@endsection
+
+@section('foot-script')
+  <script src="{{ asset('js/restaurants.js') }}"></script>
 @endsection

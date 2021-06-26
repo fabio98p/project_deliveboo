@@ -3,18 +3,16 @@
 @section('main')
 
 <div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')"></div>
-<section class="section-main">
-    <div class="container" id="root">
+<section class="section-main position-relative" id="root">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="page-top">
                     <h1>{{ $restaurant['name'] }}</h1>
                     <div class="my-buttons-container">
-                        <a class="my-button my-button-red" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}">Modifica ristorante</a>
-                        <a class="my-button my-button-blue" href="{{route('admin.orders.show', ['restaurant' => $restaurant->slug])}}">Ordini ricevuti</a>
-                        <a class="my-button my-button-green" href="{{route('admin.statistics.show', ['restaurant' => $restaurant->slug])}}">Statistiche</a>
+                        <a class="my-button my-button-orange" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}">Modifica ristorante</a>
+                        <button class="my-button my-button-red" type="button" name="button" @click="deleteForm = true">Cancella ristorante</button>
                     </div>
-
                 </div>
                 <h2>I miei piatti</h2>
             </div>
@@ -96,6 +94,34 @@
                 </div>
             @endforeach
         </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-12">
+              <div class="my-buttons-container">
+                  <a class="my-button my-button-blue" href="{{route('admin.orders.show', ['restaurant' => $restaurant->slug])}}">Ordini ricevuti</a>
+                  <a class="my-button my-button-green" href="{{route('admin.statistics.show', ['restaurant' => $restaurant->slug])}}">Statistiche</a>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete pop up -->
+    <div class="delete-container" v-if="deleteForm">
+      <div class="delete-form">
+        <h4>Vuoi cancellare il ristorante "{{$restaurant->name}}"?</h4>
+        <img src="{{asset($restaurant->banner)}}" alt="{{$restaurant->name}}">
+        <div class="buttons mt-3">
+          <form class="d-inline" action="{{route('admin.restaurants.destroy', ['restaurant' => $restaurant->id])}}" method="post">
+            @csrf
+            @method('DELETE')
+            <input class="my-button my-button-red" type="submit" value="Cancella">
+          </form>
+          <button type="button" name="button" class="my-button my-button-green" @click="deleteForm = false">Torna indietro</button>
+        </div>
+      </div>
     </div>
 </section>
+@endsection
+
+@section('foot-script')
+  <script src="{{ asset('js/admin.js') }}"></script>
 @endsection
