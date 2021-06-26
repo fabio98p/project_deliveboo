@@ -30,10 +30,10 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12">
-    
+
                     <div class="row">
                         <div class="col-md-4 col-lg-4 mt-2 card-outline" v-for="result in searchResult" :key="result.id ">
-                            <a class="link-to" href="">
+                            <a class="link-to" :href="'restaurants/' + result.slug">
                                 <div class="card-personal">
                                     <div class="card-personal-cover" :style="`background-image: url('${result.banner}') ; `">
                                         <img :src="result.logo">
@@ -46,7 +46,7 @@
                             </a>
                         </div>
                     </div>
-                        
+
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
                             </a>
                         </div>
                     </div>
-                        
+
                 </div>
             </div>
         </div>
