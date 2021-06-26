@@ -50,6 +50,9 @@ class RestaurantController extends Controller
     public function show($slug)
     {
       $restaurant = Restaurant::where('slug',$slug)->first();
+
+      $restaurant_id = $restaurant['id'];
+      
       $dishes = Dish::where('restaurant_id',$restaurant['id'])->orderBy('name','asc')->get();
 
       return view('guests.restaurants.show', compact('restaurant','dishes'));
