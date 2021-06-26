@@ -12,14 +12,14 @@
                     <h1>I miei ristoranti</h1>
 
                     <div class="my-buttons-container">
-                        <a class="my-button" href="{{ route('admin.restaurants.create') }}">Crea ristorante</a>
+                        <a class="my-button my-button-orange" href="{{ route('admin.restaurants.create') }}">Crea ristorante</a>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
         <div class="row">
-            
+
             @foreach($restaurants as $index => $restaurant)
                 <div class="col-md-4 col-lg-4 mt-2 card-outline">
                     <a class="link-to" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
@@ -48,12 +48,12 @@
                         <div class="card-personal-title">
                             <h4>Crea ristorante</h4>
                         </div>
-                        
+
                     </div>
                 </a>
             </div>
 
-            
+
 
         </div>
     </div>

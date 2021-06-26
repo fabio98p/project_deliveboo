@@ -31,7 +31,7 @@
         <!--Grid column-->
         <div class="col-auto">
             <!-- Submit button -->
-            <button type="submit" class="btn btn-outline-light mb-4">
+            <button type="submit" class="btn btn-outline-light mb-4" style="sursor: pointer;">
                 Compila Form
             </button>
         </div>

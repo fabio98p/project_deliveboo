@@ -10946,6 +10946,10 @@ a.text-dark:focus {
   font-family: ‘Montserrat’, sans-serif;
 }
 
+.align-center {
+  text-align: center;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -10970,39 +10974,103 @@ input::-webkit-inner-spin-button {
   color: #fff;
   text-decoration: none;
   transition: all 0.25s ease-out;
+  border: 0.5px solid #df9367;
 }
 
 .my-button-red {
   background: #eb534c;
+  padding: 10px 25px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #FFF;
+  transition: all 0.25s ease-out;
+  border-radius: 5px;
+  border: 0.5px solid #eb534c;
+  font-size: 15px;
 }
 
 .my-button-red:hover {
-  background: #eb534c;
-  color: #fff;
+  background: rgba(235, 83, 76, 0.8);
+  color: #FFF;
   text-decoration: none;
   transition: all 0.25s ease-out;
+  border: 0.5px solid #FFF;
 }
 
 .my-button-green {
   background: #43b134;
+  padding: 10px 25px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #FFF;
+  transition: all 0.25s ease-out;
+  border-radius: 5px;
+  border: 0.5px solid #43b134;
+  font-size: 15px;
 }
 
 .my-button-green:hover {
-  background: #43b134;
-  color: #fff;
+  background: rgba(67, 177, 52, 0.8);
+  color: #FFF;
   text-decoration: none;
   transition: all 0.25s ease-out;
+  border: 0.5px solid #FFF;
 }
 
 .my-button-blue {
   background: #3490dc;
+  padding: 10px 25px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #FFF;
+  transition: all 0.25s ease-out;
+  border-radius: 5px;
+  border: 0.5px solid #3490dc;
+  font-size: 15px;
 }
 
 .my-button-blue:hover {
-  background: #3490dc;
-  color: #fff;
+  background: rgba(52, 144, 220, 0.8);
+  color: #FFF;
   text-decoration: none;
   transition: all 0.25s ease-out;
+  border: 0.5px solid #FFF;
+}
+
+.my-button-orange-user {
+  padding: 10px 25px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #FFF;
+  background: #df9367;
+  transition: all 0.25s ease-out;
+  border-radius: 5px;
+  border: 0.5px solid #df9367;
+  font-size: 15px;
+}
+
+.my-button-orange-user:hover {
+  color: #df9367;
+  background: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.25s ease-out;
+  border: 0.5px solid #df9367;
 }
 
 .my-button-orange {
@@ -11017,14 +11085,33 @@ input::-webkit-inner-spin-button {
   background: #df9367;
   transition: all 0.25s ease-out;
   border-radius: 5px;
-  border: none;
+  border: 0.5px solid #df9367;
+  font-size: 15px;
 }
 
 .my-button-orange:hover {
-  color: #df9367;
-  background: #FFF;
+  color: #FFF;
+  background: rgba(223, 147, 103, 0.8);
   text-decoration: none;
   transition: all 0.25s ease-out;
+  border: 0.5px solid #FFF;
+}
+
+.search-bar {
+  height: 75px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  width: 350px;
+  padding: 10px;
+  border: 0.5px solid #df9367;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
 }
 
 .text-green {
@@ -11285,6 +11372,38 @@ input[type=checkbox] {
   margin-right: 5px;
 }
 
+.delete-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.delete-container .delete-form {
+  background-color: #FFF;
+  border-radius: 20px;
+  width: 400px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.delete-container .delete-form img {
+  width: 150px;
+}
+
+.delete-container .delete-form button {
+  padding: 6.5px 25px;
+}
+
 .pos-rel {
   position: relative;
 }
@@ -11479,5 +11598,10 @@ footer,
 
 .color-darkwhite {
   color: #fbf4f0;
+}
+
+#form5Example2 {
+  outline: none;
+  cursor: pointer;
 }
 

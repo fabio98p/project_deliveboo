@@ -101,15 +101,16 @@ var app = new Vue({
     restaurants: [],
     categories: [],
     searchResult: [],
-    checkClick: false
+    checkClick: false,
+    deleteForm: false
   },
   created: function created() {
     var _this = this;
 
-    axios.get('http://localhost:8000/api/categories').then(function (response) {
+    axios.get('http://localhost:8001/api/categories').then(function (response) {
       _this.categories = response.data.response;
     });
-    axios.get('http://localhost:8000/api/restaurants').then(function (response) {
+    axios.get('http://localhost:8001/api/restaurants').then(function (response) {
       _this.restaurants = response.data.response;
     });
   },
@@ -120,7 +121,7 @@ var app = new Vue({
     cerca: function cerca() {
       var _this2 = this;
 
-      axios.get("http://localhost:8000/api/search-restaurant/".concat(this.scriviTxt)).then(function (response) {
+      axios.get("http://localhost:8001/api/search-restaurant/".concat(this.scriviTxt)).then(function (response) {
         _this2.searchResult = response.data.response;
       });
     },
@@ -137,7 +138,8 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/emanueleattina/Documents/progetti_fallimentari/boolean/Esercizi/project_deliveboo/resources/js/restaurants.js */"./resources/js/restaurants.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Documents\Atom\Boolean-Esercizi\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
 
 
 /***/ })
