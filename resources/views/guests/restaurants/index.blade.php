@@ -10,27 +10,24 @@
 <section class="section-main">
     <div class="container">
         <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="row">
-
-                        <div class="col-md-2 card-homepage" v-for="category in categories" :key="category.id ">
-
-                            <h4>@{{category.name}}</h4>
-                            <img class="icon_category" :src="category.icon">
-
-                        </div>
-
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2 card-homepage"
+                    v-for="category in categories"
+                    :key="category.id"
+                    @onClick="categoryFilter()">
+                        <h4>@{{category.name}}</h4>
+                        <img class="icon_category" :src="category.icon">
+                    </div>
                 </div>
-
             </div>
-        </div>
         </div>
         <hr v-if="searchResult.length > 0">
         <h2 v-if="searchResult.length > 0">Correlati alla tua ricerca</h2>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12">
-
+    
                     <div class="row">
                         <div class="col-md-4 col-lg-4 mt-2 card-outline" v-for="result in searchResult" :key="result.id ">
                             <a class="link-to" :href="'restaurants/' + result.slug">

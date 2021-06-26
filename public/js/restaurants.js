@@ -101,6 +101,7 @@ var app = new Vue({
     restaurants: [],
     categories: [],
     searchResult: [],
+    filteredRestaurant: [],
     checkClick: false
   },
   created: function created() {
@@ -124,7 +125,7 @@ var app = new Vue({
         _this2.searchResult = response.data.response;
       });
     },
-    filter: function filter() {}
+    categoryFilter: function categoryFilter() {}
   }
 });
 

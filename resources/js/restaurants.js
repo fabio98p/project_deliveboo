@@ -7,16 +7,17 @@ var app = new Vue ({
         restaurants: [],
         categories: [],
         searchResult:[],
+        filteredRestaurant:[],
         checkClick: false,
     },
     created() {
-      axios.get('http://localhost:8000/api/categories').then((response) => {
-              this.categories = response.data.response;
-          })
+        axios.get('http://localhost:8000/api/categories').then((response) => {
+            this.categories = response.data.response;
+        })
 
-      axios.get('http://localhost:8000/api/restaurants').then((response) => {
-                this.restaurants = response.data.response;
-            })
+        axios.get('http://localhost:8000/api/restaurants').then((response) => {
+            this.restaurants = response.data.response;
+        })
     },
     methods: {
         checkReverse: function() {
@@ -28,8 +29,8 @@ var app = new Vue ({
                 this.searchResult = response.data.response;
             })
         },
-        filter: function() {
-            
+        categoryFilter: function() {
+
         }
     }
 });
