@@ -100,8 +100,7 @@ var app = new Vue({
     scriviTxt: '',
     restaurants: [],
     categories: [],
-    searchResultRestaurant: [],
-    searchResultDish: [],
+    searchResult: [],
     checkClick: false
   },
   created: function created() {
@@ -118,16 +117,14 @@ var app = new Vue({
     checkReverse: function checkReverse() {
       this.checkClick = !this.checkClick;
     },
-    cerca: function cerca(scriviTxt) {
+    cerca: function cerca() {
       var _this2 = this;
 
-      axios.get("http://localhost:8000/api/restaurants?name=" + scriviTxt).then(function (response) {
-        _this2.searchResultRestaurant = response.data.results;
+      axios.get("http://localhost:8000/api/search-restaurant/".concat(this.scriviTxt)).then(function (response) {
+        _this2.searchResult = response.data.response;
       });
-      axios.get("http://localhost:8000/api/restaurant?name=" + scriviTxt).then(function (response) {
-        _this2.searchResultDish = response.data.results;
-      });
-    }
+    },
+    filter: function filter() {}
   }
 });
 

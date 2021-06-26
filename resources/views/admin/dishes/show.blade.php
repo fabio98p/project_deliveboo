@@ -29,8 +29,8 @@
 
         <div class="row show-dish">
             <div class="col-md-4">
-                <div class="show-dish-image" style="background-image: url('{{asset($dish->image)}}')">
-
+                <div class="show-dish-image">
+                    <img src="{{asset($dish->image)}}" alt="">
                 </div>
             </div>
             <div class="col-md-4">

@@ -11211,18 +11211,16 @@ a:hover {
 }
 
 .section-main .show-dish .show-dish-image {
-  height: 400px;
   background-position: center;
   background-size: cover;
 }
 
-.section-main .show-dish h4 {
-  font-weight: 600;
+.section-main .show-dish .show-dish-image img {
+  width: 100%;
 }
 
-.consigliati {
-  display: flex;
-  justify-content: space-around;
+.section-main .show-dish h4 {
+  font-weight: 600;
 }
 
 .card-homepage {
