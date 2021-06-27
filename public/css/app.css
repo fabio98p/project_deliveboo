@@ -11157,6 +11157,55 @@ p {
   color: #3e281c;
 }
 
+.btn-link-login {
+  color: #df9367;
+}
+
+.btn-link-login:hover {
+  color: #df9367;
+}
+
+input:checked {
+  background-color: #df9367;
+}
+
+.navbar {
+  background-color: #3e281c;
+}
+
+.navbar .navbar-brand {
+  color: #fbf4f0;
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+.navbar .navbar-toggler {
+  border: 1px solid #fbf4f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 5px;
+}
+
+.navbar .navbar-toggler .navbar-toggler-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fbf4f0 !important;
+}
+
+.navbar .navbar-nav .nav-item {
+  margin-left: 5px;
+}
+
+.navbar .navbar-nav .nav-item .nav-link {
+  color: #fbf4f0;
+}
+
+.navbar .navbar-nav .nav-item .nav-link:hover {
+  color: #d2b9ad;
+}
+
 .my-brand {
   font-size: 30px;
   font-weight: bold;
@@ -11461,22 +11510,67 @@ input[type=checkbox] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.delete-container .delete-form img {
+.delete-container .delete-form .delete-form {
+  background-color: #FFF;
+  border-radius: 20px;
+  width: 400px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.delete-container .delete-form .delete-form img {
   width: 150px;
 }
 
-.delete-container .delete-form button {
+.delete-container .delete-form .delete-form button {
   padding: 6.5px 25px;
 }
 
-.section-main .checkbox-categories {
+.delete-container .section-main .checkbox-categories {
   display: none;
 }
 
+.delete-container .section-main .checkbox-categories-lable-checked {
+  background-color: #1e90ff;
 .section-main .checkbox-categories-lable-checked {
   filter: drop-shadow(2px 4px 6px #AB97F3);
+}
+
+.form-group .label-personal {
+  color: #3e281c;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.form-group input.input-personal {
+  border: 0.5px solid #df9367;
+  color: #3e281c;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.form-group textarea {
+  border: 0.5px solid #df9367;
+}
+
+.form-group .form-check-input {
+  margin-left: 0;
+}
+
+.form-group .form-check-label {
+  margin-left: 1.25rem;
 }
 
 #cart {
@@ -11537,6 +11631,9 @@ input[type=checkbox] {
 
 .selectBox select {
   width: 100%;
+  border: 0.5px solid #df9367;
+  padding: 10px 5px;
+  border-radius: 0.25rem;
 }
 
 .overSelect {
@@ -11565,15 +11662,28 @@ input[type=checkbox] {
   width: 100%;
   height: 150px;
   overflow: auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 1;
 }
 
 .hide-this label {
   display: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .show-this label {
   text-transform: capitalize;
   display: block;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 input[type=checkbox] {

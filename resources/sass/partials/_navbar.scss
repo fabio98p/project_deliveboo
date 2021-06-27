@@ -1,14 +1,41 @@
-.my-brand {
-  font-size: 30px;
-  font-weight: bold;
-  color: $lightpurple;
+.navbar {
+    background-color: $darkbrown;
 
-  &:hover {
-    color: #917BD5;
-  }
-}
+    .navbar-brand {
+        color: $darkwhite;
+        font-weight: 600;
+        font-size: 1.5em;
+    }
 
-.nav-item {
-  font-size: 16px;
-  font-weight: bold;
+    .navbar-toggler {
+        border: 1px solid $darkwhite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3px 5px;
+
+        .navbar-toggler-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $darkwhite !important;
+        }
+    }
+
+
+
+    .navbar-nav {
+        .nav-item {
+            margin-left: 5px;
+
+            .nav-link {
+                color: $darkwhite;
+
+                &:hover {
+                    color: $lightpink;
+                }
+            }
+        }
+    }
+
 }
