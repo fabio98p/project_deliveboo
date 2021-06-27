@@ -11342,6 +11342,10 @@ a:hover {
   bottom: 0;
 }
 
+.select-dropdown {
+  z-index: 1;
+}
+
 #checkboxes {
   border: 1px #dadada solid;
 }
@@ -11373,7 +11377,7 @@ input[type=checkbox] {
 }
 
 .delete-container {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   width: 100%;
