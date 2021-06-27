@@ -82,7 +82,7 @@
                           <!-- disponibile -->
                           <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right" for="banner">Disponibile:</label>
-                            <div class="col-md-6 d-flex align-items-md-center ">
+                            <div class="col-md-6 d-flex align-items-md-center">
                               <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="available" value=1 {{ $dish['available'] == 1 ? 'checked' : '' }}>
                                 <label class="form-check-label">Si</label>
@@ -96,10 +96,10 @@
 
                           </div>
 
-                          <div class="form-group row mb-0">
+                          <div class="form-group row">
                               <div class="col-md-12 d-flex align-items-md-center justify-content-md-center">
                                   <button type="submit" class="my-button my-button-blue">
-                                      {{ __('Modifica questo Piatto') }}
+                                      {{ __('Modifica questo piatto') }}
                                   </button>
                                   <a class="my-button my-button-orange ml-1" href="{{route('admin.dishes.show', ['dish' => $dish->slug])}}">
                                       Torna al piatto

@@ -47,7 +47,7 @@
     </div>
 
     <!-- Delete pop up -->
-    <div class="delete-container" v-if="deleteForm">
+    <div class="delete-container" :class="(deleteForm ? 'd-flex' : '')">
       <div class="delete-form">
         <h4>Vuoi cancellare il piatto</h4>
           <br>
