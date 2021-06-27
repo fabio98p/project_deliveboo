@@ -51,7 +51,7 @@
       <div class="delete-form">
         <h4>Vuoi cancellare il piatto</h4>
           <br>
-           <h4>{{$dish->name}}"?</h4>
+           <h4>{{$dish->name}}?</h4>
         <img src="{{asset($dish->image)}}" alt="{{$dish->name}}">
         <div class="buttons mt-3">
           <form class="d-inline" action="{{route('admin.dishes.destroy', ['dish' => $dish->id])}}" method="post">
