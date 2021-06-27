@@ -147,7 +147,7 @@ return [
         'address' => 'Viale Della regione, 4',
         'logo' => 'images/logos/aloha-poke.jpg',
         'description' =>'I migliori poke direttamente a casa tua con Deliveboo',
-        'banner' => 'images/restaurants/aloha-poka.jpg',
+        'banner' => 'images/restaurants/aloha-poke.jpg',
         'available' => true,
     ],
     [

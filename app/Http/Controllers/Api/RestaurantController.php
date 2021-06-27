@@ -17,7 +17,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants= Restaurant::all();
+        $restaurants = Restaurant::all();
 
         return response()->json([
             'response' => $restaurants,
@@ -25,11 +25,18 @@ class RestaurantController extends Controller
         ]);
     }
 
-    public function filterRestaurants(string $categoryName)
+    public function filterRestaurants(string $categoryId)
     {
-      $category = Category::where('name', $categoryName)->first();
+        // $categoryIdsArray =  explode(",", $categoryIds);
+        // foreach ($categoryIdsArray as $categoryId) {
+        //     $category = Category::where('id', $categoryId)->first();
+        //     $restaurantFromCategory = $category->restaurants()->get();
+        //     $filteredRestaurantsComplete[] = $restaurantFromCategory;
+        // }
+        // $filteredRestaurantsUnique = array_unique($filteredRestaurantsComplete);
+        $category = Category::where('id', $categoryId)->first();
 
-      $filteredRestaurants = $category->restaurants()->get();
+        $filteredRestaurants = $category->restaurants()->get();
 
         return response()->json([
             'response' => $filteredRestaurants,
@@ -39,11 +46,11 @@ class RestaurantController extends Controller
 
     public function searchRestaurant(string $query)
     {
-      $restaurants = Restaurant::where('name', 'LIKE', '%'.$query.'%')->get();
+        $restaurants = Restaurant::where('name', 'LIKE', '%' . $query . '%')->get();
 
-      return response()->json([
-          'response' => $restaurants,
-          'success' => true,
-      ]);
+        return response()->json([
+            'response' => $restaurants,
+            'success' => true,
+        ]);
     }
 }

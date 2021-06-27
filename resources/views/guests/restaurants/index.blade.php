@@ -14,16 +14,20 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-2 card-homepage"
+                <div class="row justify-content-center">
+                    <div class="col-md-2 card-homepage mb-2 text-center"
                     v-for="category in categories"
                     :key="category.id"
                     @onClick="categoryFilter()">
-                        <label :class="(categoriesApi.includes(category.id) ? 'checkbox-categories-lable-checked' : '')" class="checkbox-categories_lable" :for="category.name">
-                            <h4>@{{category.name}}</h4>
-                            <img class="icon_category" :src="category.icon">
+                        <input class="checkbox-categories" type="checkbox" :id="category.name" :value="category.id">
+                        <label
+                        class="checkbox-categories_lable"
+                        :for="category.name"
+                        @click="filterRestaurants(category.id)">
+                            <img class="icon_category" :src="category.icon"
+                            :class="(categorySelected == category.id) ? 'checkbox-categories-lable-checked': ''">
+                            <h5>@{{category.name}}</h5>
                         </label>
-                        <input class="checkbox-categories" type="checkbox" :id="category.name" :value="category.id" v-model="categoriesApi">
                     </div>
                 </div>
             </div>

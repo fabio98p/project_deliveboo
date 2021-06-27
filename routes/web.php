@@ -19,7 +19,7 @@ Route::get('restaurants/{restaurant}','RestaurantController@show')->name('restau
 Route::get('addDish/{dish}','CartController@addDish')->name('addDish');
 Route::get('orders','OrderController@index')->name('orders.index');
 Route::post('orders','OrderController@store')->name('orders.store');
-Route::get('orders/checkout','OrderController@checkout')->name('orders.checkout');
+Route::get('orders/orderSent','OrderController@orderDone')->name('orders.confirmation');
 
 
 

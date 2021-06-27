@@ -1,4 +1,8 @@
 <!-- braintree -->
+<!-- 
+Card Number: 4111 1111 1111 1111
+Expiration Date: 09/22
+ -->
 <!-- html -->
 <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.js"></script>
 

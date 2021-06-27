@@ -121,6 +121,26 @@ input::-webkit-inner-spin-button {
     }
 }
 
+.my-button-purple {
+    background: $lightpurple;
+    padding: 10px 25px;
+    height: fit-content;
+    width: fit-content;
+    color: $white;
+    transition: all 0.25s ease-out;
+    border-radius: 5px;
+    border: 0.5px solid $lightpurple;
+    font-size: 15px;
+
+    &:hover {
+        background: rgba($color: $lightpurple, $alpha: 0.8);
+        color: $white;
+        text-decoration: none;
+        transition: all 0.25s ease-out;
+        border: 0.5px solid $white;
+    }
+}
+
 .search-bar {
     height: 75px;
     padding-bottom: 30px;
@@ -168,3 +188,17 @@ p {
 input:checked {
     background-color: #df9367;
 }
+
+// .scale:hover {
+//   transform: scale(1.05);
+//   transition: all 0.25s ease-out;
+//   box-shadow: 0px 22px 24px 0px rgb(0 0 0 / 8%);
+//   cursor: pointer;
+//
+//   & > .card-personal-cover {
+//     .card-personal-description {
+//       display: flex;
+//     }
+//   }
+//
+// }
