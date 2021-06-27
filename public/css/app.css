@@ -11407,6 +11407,14 @@ input[type=checkbox] {
   padding: 6.5px 25px;
 }
 
+.section-main .checkbox-categories {
+  display: none;
+}
+
+.section-main .checkbox-categories-lable-checked {
+  background-color: #1e90ff;
+}
+
 .pos-rel {
   position: relative;
 }
