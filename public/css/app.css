@@ -11388,11 +11388,10 @@ input[type=checkbox] {
 .delete-container .delete-form {
   background-color: #FFF;
   border-radius: 20px;
+  padding: 20px 0;
   width: 400px;
-  height: 250px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
 }
 

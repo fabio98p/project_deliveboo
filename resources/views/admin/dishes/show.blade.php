@@ -13,8 +13,8 @@
                         <a class="my-button my-button-blue" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
                             Torna al ristorante
                         </a>
-                        <a class="my-button my-button-orange" href="{{route('admin.dishes.edit', ['dish' => $dish->slug])}}">Modifica piatto</a>
-                        <a class="my-button my-button-red" type="button" name="button" @click="deleteForm = true">Cancella piatto</a>
+                        <a class="my-button my-button-orange ml-1" href="{{route('admin.dishes.edit', ['dish' => $dish->slug])}}">Modifica piatto</a>
+                        <a class="my-button my-button-red" name="button" @click="deleteForm = true">Cancella piatto</a>
                     </div>
                 </div>
             </div>

@@ -289,11 +289,10 @@ input[type=checkbox] {
   .delete-form {
     background-color: $white;
     border-radius: 20px;
+    padding: 20px 0;
     width: 400px;
-    height: 250px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
 
     img {

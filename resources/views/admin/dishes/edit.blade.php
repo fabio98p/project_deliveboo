@@ -65,41 +65,47 @@
                           </div>
 
                           <!-- upload immagine piatto -->
-                          <div class="">
+                          <div class="col-md-4 col-form-label text-md-right">
                               <img src="{{asset($dish->image)}}" style="height: 50px;" alt="">
                           </div>
                           <div class="form-group row">
-                              <label for="image">Immagine</label>
-                              <input class="form-control-file @error('image') is-invalid @enderror" id="image" name="image" type="file">
-                              @error('image')
-                                  <small class="text-danger">{{ $message }}</small>
-                              @enderror
+                              <label class="col-md-4 col-form-label text-md-right" for="image">Immagine</label>
+                              <div class="col-md-6">
+                                <input class="form-control-file @error('image') is-invalid @enderror" id="image" name="image" type="file">
+                                @error('image')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                              </div>
                           </div>
                           <!-- upload immagine piatto -->
 
+                          <!-- disponibile -->
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="banner">Disponibile:</label>
+                            <div class="col-md-6 d-flex align-items-md-center ">
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="available" value=1 {{ $dish['available'] == 1 ? 'checked' : '' }}>
+                                <label class="form-check-label">Si</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="available" value=0 {{ $dish['available'] == 0 ? 'checked' : '' }}>
+                                <label class="form-check-label">No</label>
+                              </div>
+
+                            </div>
+
+                          </div>
 
                           <div class="form-group row mb-0">
-                              <div class="col-md-6 offset-md-4">
-                                  <button type="submit" class="btn btn-primary">
+                              <div class="col-md-12 d-flex align-items-md-center justify-content-md-center">
+                                  <button type="submit" class="my-button my-button-blue">
                                       {{ __('Modifica questo Piatto') }}
                                   </button>
-                                  <a class="my-button my-button-orange" href="{{route('admin.dishes.show', ['dish' => $dish->slug])}}">
+                                  <a class="my-button my-button-orange ml-1" href="{{route('admin.dishes.show', ['dish' => $dish->slug])}}">
                                       Torna al piatto
                                     </a>
                               </div>
                           </div>
-
-                          <!-- disponibile -->
-                          <label for="banner">Disponibile:</label>
-                          <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="available" value=1 {{ $dish['available'] == 1 ? 'checked' : '' }}>
-                              <label class="form-check-label">Si</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="available" value=0 {{ $dish['available'] == 0 ? 'checked' : '' }}>
-                              <label class="form-check-label">No</label>
-                          </div>
-
                       </form>
                   </div>
               </div>
