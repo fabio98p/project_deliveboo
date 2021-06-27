@@ -11141,6 +11141,47 @@ p {
   color: #df9367;
 }
 
+input:checked {
+  background-color: #df9367;
+}
+
+.navbar {
+  background-color: #3e281c;
+}
+
+.navbar .navbar-brand {
+  color: #fbf4f0;
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+.navbar .navbar-toggler {
+  border: 1px solid #fbf4f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 5px;
+}
+
+.navbar .navbar-toggler .navbar-toggler-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fbf4f0 !important;
+}
+
+.navbar .navbar-nav .nav-item {
+  margin-left: 5px;
+}
+
+.navbar .navbar-nav .nav-item .nav-link {
+  color: #fbf4f0;
+}
+
+.navbar .navbar-nav .nav-item .nav-link:hover {
+  color: #d2b9ad;
+}
+
 .banner-show {
   height: 250px;
   background-size: cover;

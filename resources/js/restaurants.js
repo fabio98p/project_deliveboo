@@ -34,6 +34,6 @@ var app = new Vue({
         },
         filter: function () {
 
-        }
+        },
     }
 });
