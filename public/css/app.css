@@ -11133,6 +11133,14 @@ p {
   color: #3e281c;
 }
 
+.btn-link-login {
+  color: #df9367;
+}
+
+.btn-link-login:hover {
+  color: #df9367;
+}
+
 .banner-show {
   height: 250px;
   background-size: cover;
@@ -11397,21 +11405,39 @@ input[type=checkbox] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.delete-container .delete-form img {
+.delete-container .delete-form .delete-form {
+  background-color: #FFF;
+  border-radius: 20px;
+  width: 400px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.delete-container .delete-form .delete-form img {
   width: 150px;
 }
 
-.delete-container .delete-form button {
+.delete-container .delete-form .delete-form button {
   padding: 6.5px 25px;
 }
 
-.section-main .checkbox-categories {
+.delete-container .section-main .checkbox-categories {
   display: none;
 }
 
-.section-main .checkbox-categories-lable-checked {
+.delete-container .section-main .checkbox-categories-lable-checked {
   background-color: #1e90ff;
 }
 
@@ -11421,15 +11447,23 @@ input[type=checkbox] {
   font-weight: 600;
 }
 
-.form-group input {
-  border: none;
+.form-group input.input-personal {
+  border: 0.5px solid #df9367;
   color: #3e281c;
   font-size: 1em;
   font-weight: 500;
 }
 
 .form-group textarea {
-  border: none !important;
+  border: 0.5px solid #df9367;
+}
+
+.form-group .form-check-input {
+  margin-left: 0;
+}
+
+.form-group .form-check-label {
+  margin-left: 1.25rem;
 }
 
 .pos-rel {
@@ -11446,7 +11480,7 @@ input[type=checkbox] {
 
 .selectBox select {
   width: 100%;
-  border: none;
+  border: 0.5px solid #df9367;
   padding: 10px 5px;
   border-radius: 0.25rem;
 }

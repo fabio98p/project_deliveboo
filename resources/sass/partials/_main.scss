@@ -239,7 +239,7 @@ a {
 }
 
 .select-dropdown {
-  z-index: 1;
+    z-index: 1;
 }
 
 #checkboxes {
@@ -275,24 +275,8 @@ input[type=checkbox] {
 }
 
 .delete-container {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  background: rgba(0,0,0,0.5);
-
-  .delete-form {
-    background-color: $white;
-    border-radius: 20px;
-    padding: 20px 0;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
+    display: none;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
@@ -305,32 +289,49 @@ input[type=checkbox] {
     .delete-form {
         background-color: $white;
         border-radius: 20px;
+        padding: 20px 0;
         width: 400px;
-        height: 250px;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
         align-items: center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background: rgba(0, 0, 0, 0.5);
 
-        img {
-            width: 150px;
+        .delete-form {
+            background-color: $white;
+            border-radius: 20px;
+            width: 400px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+
+            img {
+                width: 150px;
+            }
+
+            button {
+                padding: 6.5px 25px;
+            }
+        }
+    }
+
+    //modifiche di guests.restaurant.index riguardo alle categorie
+    .section-main {
+        .checkbox-categories {
+            display: none;
         }
 
-        button {
-            padding: 6.5px 25px;
+        .checkbox-categories-lable {}
+
+        .checkbox-categories-lable-checked {
+            background-color: #1e90ff;
         }
-    }
-}
-
-//modifiche di guests.restaurant.index riguardo alle categorie
-.section-main{
-    .checkbox-categories{
-        display: none;
-    }
-    .checkbox-categories-lable{
-
-    }
-    .checkbox-categories-lable-checked{
-        background-color: #1e90ff;
     }
 }

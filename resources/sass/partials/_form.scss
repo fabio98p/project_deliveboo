@@ -5,15 +5,23 @@
         font-weight: 600;
     }
 
-    input {
-        border: none;
+    input.input-personal {
+        border: 0.5px solid #df9367;
         color: $darkbrown;
         font-size: 1em;
         font-weight: 500;
     }
 
     textarea {
-        border: none !important;
+        border: 0.5px solid #df9367;
+    }
+
+    .form-check-input {
+        margin-left: 0;
+    }
+
+    .form-check-label {
+        margin-left: 1.25rem;
     }
 }
 
@@ -31,7 +39,7 @@
 
 .selectBox select {
     width: 100%;
-    border: none;
+    border: 0.5px solid #df9367;
     padding: 10px 5px;
     border-radius: 0.25rem;
 }

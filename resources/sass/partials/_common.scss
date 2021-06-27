@@ -122,20 +122,20 @@ input::-webkit-inner-spin-button {
 }
 
 .search-bar {
-  height: 75px;
-  padding-bottom: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    height: 75px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .search {
-  width: 350px;
-  padding: 10px;
-  border: 0.5px solid $orange;
-  cursor: pointer;
-  border-radius: 5px;
-  outline: none;
+    width: 350px;
+    padding: 10px;
+    border: 0.5px solid $orange;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
 }
 
 .text-green {
@@ -155,4 +155,12 @@ h6,
 span,
 p {
     color: $darkbrown;
+}
+
+.btn-link-login {
+    color: #df9367;
+
+    &:hover {
+        color: #df9367;
+    }
 }

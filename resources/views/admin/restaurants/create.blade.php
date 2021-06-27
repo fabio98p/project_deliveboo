@@ -9,6 +9,9 @@
                 <div class="col-md-12">
                     <div class="page-top">
                         <h1>Crea ristorante</h1>
+                        <a class="my-button my-button-orange" href="{{route('admin.restaurants.index')}}">
+                            Torna ai ristoranti
+                        </a>
                     </div>
                 </div>
                 
@@ -21,7 +24,7 @@
                             <label for="name" class="col-md-4 col-form-label label-personal">{{ __('Nome') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control input-personal @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <small class="text-danger">{{ $message }}</small>
@@ -33,7 +36,7 @@
                             <label for="address" class="col-md-4 col-form-label label-personal">{{ __('Indirizzo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                <input id="address" type="text" class="form-control input-personal @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
 
                                 @error('address')
                                     <small class="text-danger">{{ $message }}</small>
@@ -54,7 +57,7 @@
                         </div>
 
                         <div class="form-group column pos-rel">
-                            <label for="description" class="col-md-4 col-form-label label-personal">{{ __('Categoria') }}</label>
+                            <label for="categories" class="col-md-4 col-form-label label-personal">{{ __('Categoria') }}</label>
                             <div class="col-md-6">
                                 <div class="selectBox">
                                     <select>
@@ -96,14 +99,13 @@
                             </div>
                         </div>
 
-                                  <a class="my-button my-button-orange ml-1" href="{{route('admin.restaurants.index')}}">
-                                    Torna ai ristoranti
-                                  </a>
+                                  
                         <div class="form-group column mb-0">
-                            <div class="col-md-6">
+                            <div class="col-md-6 column">
                                 <button type="submit" class="my button my-button-orange">
                                     {{ __('Aggiungi questo Ristorante') }}
                                 </button>
+                                
                             </div>
                         </div>
                     </form>
