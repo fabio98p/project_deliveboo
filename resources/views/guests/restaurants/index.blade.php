@@ -22,6 +22,7 @@
                         <input class="checkbox-categories" type="checkbox" :id="category.name" :value="category.id">
                         <label
                         class="checkbox-categories_lable"
+                        :class="(categorySelected == category.id) ? 'checkbox-categories-lable-checked': ''"
                         :for="category.name"
                         @click="filterRestaurants(category.id)">
                             <h4>@{{category.name}}</h4>

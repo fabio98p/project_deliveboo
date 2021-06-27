@@ -9,7 +9,7 @@ var app = new Vue({
         searchResult: [],
         checkClick: false,
         deleteForm: false,
-
+        categorySelected: '',
     },
     created() {
         axios.get('http://localhost:8000/api/categories').then((response) => {
@@ -34,11 +34,18 @@ var app = new Vue({
 
         },
         filterRestaurants: function (id) {
-
-            axios.get(`http://localhost:8000/api/filter-restaurants/${id}`)
-                .then((response) => {
+            if (this.categorySelected == id) {
+                this.categorySelected = ''
+                axios.get('http://localhost:8000/api/restaurants').then((response) => {
                     this.restaurants = response.data.response;
                 })
+            } else {
+                this.categorySelected = id
+                axios.get(`http://localhost:8000/api/filter-restaurants/${id}`)
+                    .then((response) => {
+                        this.restaurants = response.data.response;
+                    })
+            }
         },
     },
     computed: {
