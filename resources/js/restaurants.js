@@ -9,8 +9,6 @@ var app = new Vue({
         searchResult: [],
         checkClick: false,
         deleteForm: false,
-        // prende le categorie dalla selezione
-        categoriesApi: [],
 
     },
     created() {
@@ -34,6 +32,15 @@ var app = new Vue({
         },
         filter: function () {
 
-        }
-    }
-});
+        },
+        filterRestaurants: function (id) {
+
+            axios.get(`http://localhost:8000/api/filter-restaurants/${id}`)
+                .then((response) => {
+                    this.restaurants = response.data.response;
+                })
+        },
+    },
+    computed: {
+    },
+})

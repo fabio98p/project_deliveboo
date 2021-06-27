@@ -19,11 +19,14 @@
                     v-for="category in categories"
                     :key="category.id"
                     @onClick="categoryFilter()">
-                        <label :class="(categoriesApi.includes(category.id) ? 'checkbox-categories-lable-checked' : '')" class="checkbox-categories_lable" :for="category.name">
+                        <input class="checkbox-categories" type="checkbox" :id="category.name" :value="category.id">
+                        <label
+                        class="checkbox-categories_lable"
+                        :for="category.name"
+                        @click="filterRestaurants(category.id)">
                             <h4>@{{category.name}}</h4>
                             <img class="icon_category" :src="category.icon">
                         </label>
-                        <input class="checkbox-categories" type="checkbox" :id="category.name" :value="category.id" v-model="categoriesApi">
                     </div>
                 </div>
             </div>

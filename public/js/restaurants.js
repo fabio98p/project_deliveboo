@@ -102,9 +102,7 @@ var app = new Vue({
     categories: [],
     searchResult: [],
     checkClick: false,
-    deleteForm: false,
-    // prende le categorie dalla selezione
-    categoriesApi: []
+    deleteForm: false
   },
   created: function created() {
     var _this = this;
@@ -127,8 +125,16 @@ var app = new Vue({
         _this2.searchResult = response.data.response;
       });
     },
-    filter: function filter() {}
-  }
+    filter: function filter() {},
+    filterRestaurants: function filterRestaurants(id) {
+      var _this3 = this;
+
+      axios.get("http://localhost:8000/api/filter-restaurants/".concat(id)).then(function (response) {
+        _this3.restaurants = response.data.response;
+      });
+    }
+  },
+  computed: {}
 });
 
 /***/ }),
