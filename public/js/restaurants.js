@@ -102,7 +102,9 @@ var app = new Vue({
     categories: [],
     searchResult: [],
     checkClick: false,
-    deleteForm: false
+    deleteForm: false,
+    // prende le categorie dalla selezione
+    categoriesApi: []
   },
   created: function created() {
     var _this = this;

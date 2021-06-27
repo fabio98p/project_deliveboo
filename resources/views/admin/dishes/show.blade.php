@@ -13,8 +13,8 @@
                         <a class="my-button my-button-blue" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
                             Torna al ristorante
                         </a>
-                        <a class="my-button my-button-orange" href="{{route('admin.dishes.edit', ['dish' => $dish->slug])}}">Modifica piatto</a>
-                        <a class="my-button my-button-red" type="button" name="button" @click="deleteForm = true">Cancella piatto</a>
+                        <a class="my-button my-button-orange ml-1" href="{{route('admin.dishes.edit', ['dish' => $dish->slug])}}">Modifica piatto</a>
+                        <a class="my-button my-button-red" name="button" @click="deleteForm = true">Cancella piatto</a>
                     </div>
                 </div>
             </div>
@@ -47,11 +47,11 @@
     </div>
 
     <!-- Delete pop up -->
-    <div class="delete-container" v-if="deleteForm">
+    <div class="delete-container" :class="(deleteForm ? 'd-flex' : '')">
       <div class="delete-form">
         <h4>Vuoi cancellare il piatto</h4>
           <br>
-           <h4>{{$dish->name}}"?</h4>
+           <h4>{{$dish->name}}?</h4>
         <img src="{{asset($dish->image)}}" alt="{{$dish->name}}">
         <div class="buttons mt-3">
           <form class="d-inline" action="{{route('admin.dishes.destroy', ['dish' => $dish->id])}}" method="post">

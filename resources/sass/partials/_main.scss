@@ -13,10 +13,6 @@
     margin: 50px;
 }
 
-
-
-
-
 a {
     color: initial;
 
@@ -242,6 +238,10 @@ a {
     bottom: 0;
 }
 
+.select-dropdown {
+  z-index: 1;
+}
+
 #checkboxes {
     // display: none;
     border: 1px #dadada solid;
@@ -275,8 +275,24 @@ input[type=checkbox] {
 }
 
 .delete-container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: rgba(0,0,0,0.5);
+
+  .delete-form {
+    background-color: $white;
+    border-radius: 20px;
+    padding: 20px 0;
+    width: 400px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     width: 100%;
     height: 100%;
@@ -303,5 +319,18 @@ input[type=checkbox] {
         button {
             padding: 6.5px 25px;
         }
+    }
+}
+
+//modifiche di guests.restaurant.index riguardo alle categorie
+.section-main{
+    .checkbox-categories{
+        display: none;
+    }
+    .checkbox-categories-lable{
+
+    }
+    .checkbox-categories-lable-checked{
+        background-color: #1e90ff;
     }
 }

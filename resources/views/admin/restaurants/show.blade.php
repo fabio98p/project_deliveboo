@@ -105,12 +105,12 @@
     </div>
 
     <!-- Delete pop up -->
-    <div class="delete-container" v-if="deleteForm">
+    <div class="delete-container" :class="(deleteForm ? 'd-flex' : '')">
       <div class="delete-form">
         <h4>Vuoi cancellare il ristorante </h4>
           <br>
            <h4>"{{$restaurant->name}}"?</h4>
-        <img src="{{asset($restaurant->banner)}}" alt="{{$restaurant->name}}">
+        <img src="{{asset($restaurant->logo)}}" alt="{{$restaurant->name}}">
         <div class="buttons mt-3">
           <form class="d-inline" action="{{route('admin.restaurants.destroy', ['restaurant' => $restaurant->id])}}" method="post">
             @csrf

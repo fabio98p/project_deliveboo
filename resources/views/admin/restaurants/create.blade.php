@@ -96,6 +96,9 @@
                             </div>
                         </div>
 
+                                  <a class="my-button my-button-orange ml-1" href="{{route('admin.restaurants.index')}}">
+                                    Torna ai ristoranti
+                                  </a>
                         <div class="form-group column mb-0">
                             <div class="col-md-6">
                                 <button type="submit" class="my button my-button-orange">

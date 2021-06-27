@@ -2,26 +2,28 @@
 
 @section('main')
 <main id="root">
-    <div class="container-fluid banner-show" style="background-image: url('../images/varie/my-restaurant-banner.jpg')"></div>
-    <section class="section-main">
-    <div class="container search-bar">
-        <label for="Ricerca Ristoranti"></label>
-        <input v-model="scriviTxt" class="search" type="search" name="search" @keyup.enter="cerca(scriviTxt)" placeholder="Inserisci il nome del ristorante">
-        <a class="my-button my-button-orange" style="cursor: pointer; margin-left: 15px;" @click="cerca(scriviTxt)" >
-        Cerca
-        </a>
-    </div>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-2 card-homepage"
-                        v-for="category in categories"
-                        :key="category.id"
-                        @onClick="categoryFilter()">
+<div class="container-fluid banner-show" style="background-image: url('../images/varie/my-restaurant-banner.jpg')"></div>
+<section class="section-main">
+  <div class="container search-bar">
+    <label for="Ricerca Ristoranti"></label>
+    <input v-model="scriviTxt" class="search" type="search" name="search" @keyup.enter="cerca(scriviTxt)" placeholder="Inserisci il nome del ristorante">
+    <a class="my-button my-button-orange" style="cursor: pointer; margin-left: 15px;" @click="cerca(scriviTxt)" >
+      Cerca
+    </a>
+  </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2 card-homepage"
+                    v-for="category in categories"
+                    :key="category.id"
+                    @onClick="categoryFilter()">
+                        <label :class="(categoriesApi.includes(category.id) ? 'checkbox-categories-lable-checked' : '')" class="checkbox-categories_lable" :for="category.name">
                             <h4>@{{category.name}}</h4>
                             <img class="icon_category" :src="category.icon">
-                        </div>
+                        </label>
+                        <input class="checkbox-categories" type="checkbox" :id="category.name" :value="category.id" v-model="categoriesApi">
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@
                   <div class="card-header align-center">MODIFICA RISTORANTE</div>
 
                   <div class="card-body">
-                      <form method="POST" action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant->slug]) }}" enctype="multipart/form-data">
+                      <form method="POST" action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant->id]) }}" enctype="multipart/form-data">
                           @csrf
                           @method('PATCH')
 
@@ -55,14 +55,14 @@
                               </div>
                           </div>
 
-                          <div class="form-group column pos-rel">
-                              <div class="selectBox">
+                          <div class="form-group pos-rel">
+                              <div class="selectBox col-md-6 offset-md-4">
                                   <select>
                                       <option>Categoria</option>
                                   </select>
                                   <div class="overSelect" v-on:click="checkReverse()"></div>
                               </div>
-                              <div :class="(checkClick == true) ? 'show-this' : 'hide-this' ">
+                              <div class="col-md-6 offset-md-4 select-dropdown" :class="(checkClick == true) ? 'show-this' : 'hide-this' ">
                                   @foreach ($categories as $index => $category)
                                       <label>
                                           <input type="checkbox" name="category_ids[]" value="{{$category->id}}" {{ $restaurant->categories->contains($category) ? 'checked' : '' }}/>{{$category->name}}</label>
@@ -72,46 +72,37 @@
 
                           <!-- upload logo -->
                           <div class="form-group row">
-                              <label for="logo">Logo</label>
-                              <input class="form-control-file @error('logo') is-invalid @enderror" id="logo" name="logo" type="file">
-                              @error('logo')
-                                  <small class="text-danger">{{ $message }}</small>
-                              @enderror
+                              <label class="col-md-4 col-form-label text-md-right" for="logo">Logo</label>
+                              <div class="col-md-6">
+                                <input class="form-control-file @error('logo') is-invalid @enderror" id="logo" name="logo" type="file">
+                                @error('logo')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                              </div>
                           </div>
                           <!-- upload logo -->
+
                           <!-- upload file banner -->
                           <div class="form-group row">
-                              <label for="banner">Banner</label>
-                              <input class="form-control-file @error('banner') is-invalid @enderror" id="banner" name="banner" type="file">
-                              @error('banner')
-                                  <small class="text-danger">{{ $message }}</small>
-                              @enderror
+                              <label class="col-md-4 col-form-label text-md-right" for="banner">Banner</label>
+                              <div class="col-md-6">
+                                <input class="form-control-file @error('banner') is-invalid @enderror" id="banner" name="banner" type="file">
+                                @error('banner')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                              </div>
                           </div>
                             <!-- upload file banner -->
 
-                          <!-- disponibilità si no -->
-                          {{-- <label for="banner">Disponibile:</label>
-                          <div class="form-check form-check-inline">
-                              <input class="form-check-input form-control @error('available') is-invalid @enderror" type="radio" name="available" value="true" checked>
-                              <label class="form-check-label">Si</label>
-                              @error('available')
-                              <small class="text-danger">{{ $message }}</small>
-                              @enderror
-                          </div>
-                          <div class="form-check form-check-inline">
-                              <input class="form-check-input form-control @error('available') is-invalid @enderror" type="radio" name="available" value="false">
-                              <label class="form-check-label">No</label>
-                              @error('available')
-                              <small class="text-danger">{{ $message }}</small>
-                              @enderror
-                          </div> --}}
                           <!-- multiselezione categorie -->
-
                           <div class="form-group row mb-0">
-                              <div class="col-md-6 offset-md-4">
-                                  <button type="submit" class="my button my-button-orange">
-                                      {{ __('Modifica questo Ristorante') }}
+                              <div class="col-md-12 d-flex align-items-md-center justify-content-md-center">
+                                  <button type="submit" class="my-button my-button-blue">
+                                      {{ __('Modifica questo ristorante') }}
                                   </button>
+                                  <a class="my-button my-button-orange ml-1" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
+                                    Torna al ristorante
+                                  </a>
                               </div>
                           </div>
                       </form>

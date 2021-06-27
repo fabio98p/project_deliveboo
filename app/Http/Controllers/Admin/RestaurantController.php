@@ -54,7 +54,6 @@ class RestaurantController extends Controller
             'description' => 'required|string',
             'banner' => 'nullable|image|max:10000',
             'category_ids' => 'exists:categories,id|nullable',
-            // 'available' => 'nullable|boolean',
         ]);
         $data = $request->all();
 
@@ -101,9 +100,9 @@ class RestaurantController extends Controller
      */
     public function show($slug)
     {
-        //prendo il ristorante id
         $restaurant = Restaurant::where('slug', $slug)->first();
 
+        //prendo il ristorante id
         $restaurant_id = $restaurant['id'];
 
         //uso il ristorante id per prendere i piatti relativi a quel ristorante
@@ -150,7 +149,6 @@ class RestaurantController extends Controller
             'description' => 'required|string',
             'banner' => 'nullable|image|max:10000',
             'category_ids' => 'exists:categories,id|nullable',
-            //   'available' => 'required|in:true,false',
         ]);
 
         $data = $request->all();

@@ -59,31 +59,38 @@
 
                           <!-- upload immagine piatto -->
                           <div class="form-group row">
-                              <label for="image">Immagine</label>
-                              <input class="form-control-file @error('image') is-invalid @enderror" id="image" name="image" type="file">
-                              @error('image')
-                                  <small class="text-danger">{{ $message }}</small>
-                              @enderror
+                              <label class="col-md-4 col-form-label text-md-right" for="image">Immagine</label>
+                              <div class="col-md-6">
+                                <input class="form-control-file @error('image') is-invalid @enderror" id="image" name="image" type="file">
+                                @error('image')
+                                <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                              </div>
                           </div>
                           <!-- fine upload immagine piatto -->
 
                           <!-- disponibile -->
-                          <label for="banner">Disponibile:</label>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="available" value=1 checked>
-                            <label class="form-check-label" for="inlineRadio1">Si</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="available" value=0>
-                            <label class="form-check-label" for="inlineRadio2">No</label>
+                          <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="banner">Disponibile:</label>
+                            <div class="col-md-6 d-flex align-items-md-center">
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="available" value=1 checked>
+                                <label class="form-check-label" for="inlineRadio1">Si</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="available" value=0>
+                                <label class="form-check-label" for="inlineRadio2">No</label>
+                              </div>
+                            </div>
+
                           </div>
 
-                          <div class="form-group row mb-0">
-                              <div class="col-md-6 offset-md-4">
-                                  <button type="submit" class="btn btn-primary">
+                          <div class="form-group row">
+                              <div class="col-md-12 d-flex align-items-md-center justify-content-md-center">
+                                  <button type="submit" class="my-button my-button-blue">
                                       {{ __('Aggiungi questo piatto') }}
                                   </button>
-                                  <a class="my-button my-button-orange" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
+                                  <a class="my-button my-button-orange ml-1" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
                                     Torna al ristorante
                                   </a>
                               </div>
