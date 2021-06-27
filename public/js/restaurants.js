@@ -102,7 +102,9 @@ var app = new Vue({
     categories: [],
     searchResult: [],
     checkClick: false,
-    deleteForm: false
+    deleteForm: false,
+    // prende le categorie dalla selezione
+    categoriesApi: []
   },
   created: function created() {
     var _this = this;
@@ -138,7 +140,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
+module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
 
 
 /***/ })
