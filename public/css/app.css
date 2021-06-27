@@ -11415,6 +11415,13 @@ input[type=checkbox] {
   background-color: #1e90ff;
 }
 
+#cart {
+  background-color: #fff;
+  border-radius: 20px;
+  height: 100px;
+  padding: 20px;
+}
+
 .pos-rel {
   position: relative;
 }
