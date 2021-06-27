@@ -11,11 +11,11 @@ var app = new Vue ({
         deleteForm: false,
     },
     created() {
-      axios.get('http://localhost:8001/api/categories').then((response) => {
+      axios.get('http://localhost:8000/api/categories').then((response) => {
               this.categories = response.data.response;
           })
 
-      axios.get('http://localhost:8001/api/restaurants').then((response) => {
+      axios.get('http://localhost:8000/api/restaurants').then((response) => {
                 this.restaurants = response.data.response;
             })
     },
@@ -24,7 +24,7 @@ var app = new Vue ({
             this.checkClick = !this.checkClick;
         },
         cerca: function() {
-            axios.get( `http://localhost:8001/api/search-restaurant/${this.scriviTxt}`)
+            axios.get( `http://localhost:8000/api/search-restaurant/${this.scriviTxt}`)
             .then((response) => {
                 this.searchResult = response.data.response;
             })
