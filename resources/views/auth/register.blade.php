@@ -78,11 +78,9 @@
                         <label for="password-confirm" class="col-md-4 col-form-label label-personal">{{ __('Conferma password') }}</label>
 
                         <div class="col-md-6">
-                            <input id="password-confirm" type="password-confirm" class="form-control input-personal @error('name') is-invalid @enderror" name="password_confirmation" value="{{ old('password-confirm') }}" required autocomplete="new-password" autofocus>
 
-                            @error('password')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
+                            <input id="password-confirm" type="password" class="form-control input-personal"
+                                        name="password_confirmation" required autocomplete="new-password">
                         </div>
                     </div>
 

@@ -282,7 +282,7 @@ a {
 
 .show-this {
     padding: 5px;
-    background-color: rgba($color: #dfdfdf, $alpha: 1);
+    background-color: $darkwhite;
 
     position: absolute;
     width: 100%;
@@ -323,42 +323,26 @@ input[type=checkbox] {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        background: rgba(0, 0, 0, 0.5);
 
-        .delete-form {
-            background-color: $white;
-            border-radius: 20px;
-            width: 400px;
-            height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
+        img {
+            width: 150px;
+        }
 
-            img {
-                width: 150px;
-            }
-
-            button {
-                padding: 6.5px 25px;
-            }
+        button {
+            padding: 6.5px 25px;
         }
     }
 }
+
 //modifiche di guests.restaurant.index riguardo alle categorie
 .section-main {
     .checkbox-categories {
         display: none;
         background-color: #1e90ff;
     }
-    .checkbox-categories-label-checked{
-      filter: drop-shadow(2px 4px 6px $lightpurple);
+
+    .checkbox-categories-label-checked {
+        filter: drop-shadow(2px 4px 6px $lightpurple);
     }
 }
 
