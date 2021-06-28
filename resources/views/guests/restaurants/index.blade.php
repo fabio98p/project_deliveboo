@@ -21,11 +21,11 @@
                     @onClick="categoryFilter()">
                         <input class="checkbox-categories" type="checkbox" :id="category.name" :value="category.id">
                         <label
-                        class="checkbox-categories_lable"
+                        class="checkbox-categories_label"
                         :for="category.name"
                         @click="filterRestaurants(category.id)">
                             <img class="icon_category" :src="category.icon"
-                            :class="(categorySelected == category.id) ? 'checkbox-categories-lable-checked': ''">
+                            :class="(categorySelected == category.id) ? 'checkbox-categories-label-checked': ''">
                             <h5>@{{category.name}}</h5>
                         </label>
                     </div>
