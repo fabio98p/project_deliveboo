@@ -56,25 +56,28 @@
             </div>
         </div>
         <hr>
-        <div class="container">
+
+        {{-- <div class=""> --}}
             <div class="row justify-content-center">
-                <div class="row">
-                    <div class="col-md-4 col-lg-4 mt-2 card-outline" v-for="restaurant in restaurants" :key="restaurants.id ">
-                        <a class="link-to" :href="'restaurants/' + restaurant.slug">
-                            <div class="card-personal">
-                                <div class="card-personal-cover" :style="`background-image: url('${restaurant.banner}') ; `">
-                                    <img :src="restaurant.logo">
-                                    <div class="overlay"></div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 mt-2 card-outline" v-for="restaurant in restaurants" :key="restaurants.id">
+                            <a class="link-to" :href="'restaurants/' + restaurant.slug">
+                                <div class="card-personal">
+                                    <div class="card-personal-cover" :style="`background-image: url('${restaurant.banner}') ; `">
+                                        <img :src="restaurant.logo">
+                                        <div class="overlay"></div>
+                                    </div>
+                                    <div class="card-personal-title">
+                                        <h4>@{{restaurant.name}}</h4>
+                                    </div>
                                 </div>
-                                <div class="card-personal-title">
-                                    <h4>@{{restaurant.name}}</h4>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        {{-- </div> --}}
     </section>
 </main>
 @endsection
