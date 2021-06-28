@@ -101,9 +101,11 @@ var app = new Vue({
     restaurants: [],
     categories: [],
     searchResult: [],
+    filterResult: [],
     checkClick: false,
     deleteForm: false,
-    categorySelected: ''
+    categorySelected: '',
+    search: false
   },
   created: function created() {
     var _this = this;
@@ -125,25 +127,38 @@ var app = new Vue({
       axios.get("http://localhost:8000/api/search-restaurant/".concat(this.scriviTxt)).then(function (response) {
         _this2.searchResult = response.data.response;
       });
+      this.scriviTxt = '';
+      this.filterResult = [];
+      this.categorySelected = '';
+      this.search = true;
     },
-    filter: function filter() {},
     filterRestaurants: function filterRestaurants(id) {
       var _this3 = this;
 
-      if (this.categorySelected == id) {
-        this.categorySelected = '';
-        axios.get('http://localhost:8000/api/restaurants').then(function (response) {
-          _this3.restaurants = response.data.response;
-        });
-      } else {
-        this.categorySelected = id;
-        axios.get("http://localhost:8000/api/filter-restaurants/".concat(id)).then(function (response) {
-          _this3.restaurants = response.data.response;
-        });
-      }
+      this.categorySelected = id;
+      axios.get("http://localhost:8000/api/filter-restaurants/".concat(id)).then(function (response) {
+        _this3.filterResult = response.data.response;
+      });
+      this.searchResult = [];
+    },
+    restart: function restart() {
+      this.search = false;
+      this.categorySelected = '';
+      this.filterResult = [];
+      this.searchResult = [];
     }
   },
-  computed: {}
+  computed: {
+    results: function results() {
+      if (this.categorySelected == '' && !this.search) {
+        return this.restaurants;
+      } else if (this.categorySelected != '') {
+        return this.filterResult;
+      } else {
+        return this.searchResult;
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -155,7 +170,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/emanueleattina/Documents/progetti_fallimentari/boolean/Esercizi/project_deliveboo/resources/js/restaurants.js */"./resources/js/restaurants.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
 
 
 /***/ })

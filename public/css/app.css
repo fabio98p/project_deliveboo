@@ -11533,6 +11533,21 @@ input[type=checkbox] {
   filter: drop-shadow(2px 4px 6px #AB97F3);
 }
 
+.section-main .results-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-main .card-personal-title .restaurant-cat img {
+  width: 30px;
+}
+
+.section-main .no-results {
+  display: none;
+}
+
 #cart {
   padding: 20px;
 }

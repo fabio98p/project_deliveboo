@@ -17,7 +17,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::with('categories')->get();
 
         return response()->json([
             'response' => $restaurants,
@@ -38,7 +38,7 @@ class RestaurantController extends Controller
         // $filteredRestaurantsUnique = array_unique($filteredRestaurantsComplete);
         $category = Category::where('id', $categoryId)->first();
 
-        $filteredRestaurants = $category->restaurants()->get();
+        $filteredRestaurants = $category->restaurants()->with('categories')->get();
 
         return response()->json([
             'response' => $filteredRestaurants,
@@ -48,7 +48,7 @@ class RestaurantController extends Controller
 
     public function searchRestaurant(string $query)
     {
-        $restaurants = Restaurant::where('name', 'LIKE', '%' . $query . '%')->get();
+        $restaurants = Restaurant::where('name', 'LIKE', '%' . $query . '%')->with('categories')->get();
 
         return response()->json([
             'response' => $restaurants,

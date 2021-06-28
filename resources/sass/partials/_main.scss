@@ -363,6 +363,25 @@ input[type=checkbox] {
     .checkbox-categories-label-checked {
         filter: drop-shadow(2px 4px 6px $lightpurple);
     }
+
+    .results-title {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-personal-title {
+      .restaurant-cat {
+        img {
+          width: 30px;
+        }
+      }
+    }
+
+    .no-results {
+      display: none;
+    }
 }
 
 #cart {
