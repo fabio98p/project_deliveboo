@@ -11415,9 +11415,24 @@ a:hover {
   font-weight: 600;
 }
 
-.card-homepage .icon_category {
-  width: 35%;
+.row-categories {
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.row-categories .card-homepage {
+  width: 150px;
+  margin-left: 30px;
+}
+
+.row-categories .card-homepage .icon-category {
+  width: 100px;
   margin-bottom: 5px;
+}
+
+.row-categories .card-homepage h5 {
+  text-transform: capitalize;
 }
 
 .multiselect {
@@ -11780,10 +11795,6 @@ h6 {
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
-}
-
-footer {
-  height: 308px;
 }
 
 footer,

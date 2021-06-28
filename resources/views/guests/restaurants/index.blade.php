@@ -14,8 +14,28 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="row justify-content-center">
-                    <div class="col-md-2 card-homepage mb-2 text-center"
+                <div class="row row-categories">
+                    <div class="card-homepage mb-2 text-center"
+                    v-for="category in categories"
+                    :key="category.id"
+                    @onClick="categoryFilter()">
+                        <input class="checkbox-categories" type="checkbox" :id="category.name" :value="category.id">
+                        <label
+                        class="checkbox-categories-label"
+                        :for="category.name"
+                        @click="filterRestaurants(category.id)">
+                            <img class="icon-category" :src="category.icon"
+                            :class="(categorySelected == category.id) ? 'checkbox-categories-label-checked': ''">
+                            <h5>@{{category.name}}</h5>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {{-- <div class="col-md-12">
+                <div class="row justify-content-center row-categories">
+                    <div class="card-homepage mb-2 text-center"
                     v-for="category in categories"
                     :key="category.id"
                     @onClick="categoryFilter()">
@@ -30,10 +50,11 @@
                         </label>
                     </div>
                 </div>
-            </div>
-            <h2 v-if="searchResult.length > 0">Risultati della ricerca</h2>
-            <hr v-if="searchResult.length > 0">
+            </div> --}}
+            
             <div class="container">
+                <hr v-if="searchResult.length > 0">
+                <h2 v-if="searchResult.length > 0">Risultati della ricerca</h2>
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="row">

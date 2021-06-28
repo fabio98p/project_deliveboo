@@ -238,13 +238,27 @@ a {
 //     justify-content: space-around;
 // }
 
-.card-homepage {
+.row-categories {
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
 
-    .icon_category {
-        width: 35%;
-        margin-bottom: 5px;
+    .card-homepage {
+        width: 150px;
+        margin-left: 30px;
+
+        .icon-category {
+            width: 100px;
+            margin-bottom: 5px;
+        }
+
+        h5 {
+            text-transform: capitalize;
+        }
     }
 }
+
+
 
 
 .multiselect {
