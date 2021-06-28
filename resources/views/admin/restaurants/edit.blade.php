@@ -103,7 +103,7 @@
                         <div class="form-group column mb-0">
                             <div class="col-md-6 column">
                                 <button type="submit" class="my button my-button-orange">
-                                    {{ __('Aggiungi questo Ristorante') }}
+                                    {{ __('Modifica questo Ristorante') }}
                                 </button>
                                 
                             </div>

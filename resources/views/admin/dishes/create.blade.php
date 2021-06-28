@@ -20,7 +20,7 @@
                         @csrf
                         @method('POST')
 
-                        <div class="form-group column">
+                        <div class="form-group column d-none">
                             <label for="name" class="col-md-4 col-form-label label-personal">Id Ristorante</label>
 
                             <div class="col-md-6">
