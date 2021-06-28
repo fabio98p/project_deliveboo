@@ -341,6 +341,11 @@ input[type=checkbox] {
         background-color: #1e90ff;
     }
 
+    .checkbox-categories-label {
+        cursor: pointer;
+
+    }
+
     .checkbox-categories-label-checked {
         filter: drop-shadow(2px 4px 6px $lightpurple);
     }

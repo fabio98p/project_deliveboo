@@ -21,7 +21,7 @@
                     @onClick="categoryFilter()">
                         <input class="checkbox-categories" type="checkbox" :id="category.name" :value="category.id">
                         <label
-                        class="checkbox-categories_label"
+                        class="checkbox-categories-label"
                         :for="category.name"
                         @click="filterRestaurants(category.id)">
                             <img class="icon_category" :src="category.icon"
