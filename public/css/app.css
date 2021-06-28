@@ -11528,11 +11528,7 @@ input[type=checkbox] {
   background-color: #1e90ff;
 }
 
-.section-main .checkbox-categories-lable-checked {
-  background-color: #1e90ff;
-}
-
-.checkbox-categories-lable-checked {
+.section-main .checkbox-categories-label-checked {
   filter: drop-shadow(2px 4px 6px #AB97F3);
 }
 
