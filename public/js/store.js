@@ -102,8 +102,25 @@ var store = {
   },
   mutations: {
     addToCart: function addToCart(state, item) {
-      state.cart.push(item);
+      var found = state.cart.find(function (product) {
+        return product.id == item.id;
+      });
+
+      if (found) {
+        found.quantity++;
+        found.totalPrice = found.quantity * found.price;
+      } else {
+        state.cart.push(item);
+        Vue.set(item, 'quantity', 1);
+        Vue.set(item, 'totalPrice', item.price);
+      }
+
       state.cartCount++;
+    }
+  },
+  methods: {
+    addToCart: function addToCart(item) {
+      this.$store.commit('addToCart', item);
     }
   }
 };

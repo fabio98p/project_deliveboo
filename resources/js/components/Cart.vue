@@ -33,7 +33,17 @@
 </template>
 
 <script>
-  export default {
+export default {
+  computed: {
+    totalPrice() {
+        let total = 0;
 
-  }
+        for (let item of this.$store.state.cart) {
+            total += item.totalPrice;
+        }
+
+        return total.toFixed(2);
+    }
+  },
+}
 </script>

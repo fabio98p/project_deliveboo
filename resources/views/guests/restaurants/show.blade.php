@@ -46,7 +46,7 @@
 </main>
 
 <!-- Prova Carrello -->
-<div id="app" style="padding-top: 50px;">
+<div id="app">
     <nav class="navbar is-primary">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
@@ -72,4 +72,6 @@
         <example-component></example-component>
     </div>
 </div>
+
+
 @endsection
