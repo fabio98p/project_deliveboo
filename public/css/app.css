@@ -11206,21 +11206,6 @@ input:checked {
   color: #d2b9ad;
 }
 
-.my-brand {
-  font-size: 30px;
-  font-weight: bold;
-  color: #AB97F3;
-}
-
-.my-brand:hover {
-  color: #917BD5;
-}
-
-.nav-item {
-  font-size: 16px;
-  font-weight: bold;
-}
-
 .banner-show {
   height: 250px;
   background-size: cover;
@@ -11538,39 +11523,17 @@ input[type=checkbox] {
   padding: 6.5px 25px;
 }
 
-.delete-container .section-main .checkbox-categories {
+.section-main .checkbox-categories {
   display: none;
-}
-
-.delete-container .section-main .checkbox-categories-lable-checked {
   background-color: #1e90ff;
+}
+
 .section-main .checkbox-categories-lable-checked {
+  background-color: #1e90ff;
+}
+
+.checkbox-categories-lable-checked {
   filter: drop-shadow(2px 4px 6px #AB97F3);
-}
-
-.form-group .label-personal {
-  color: #3e281c;
-  font-size: 1.25em;
-  font-weight: 600;
-}
-
-.form-group input.input-personal {
-  border: 0.5px solid #df9367;
-  color: #3e281c;
-  font-size: 1em;
-  font-weight: 500;
-}
-
-.form-group textarea {
-  border: 0.5px solid #df9367;
-}
-
-.form-group .form-check-input {
-  margin-left: 0;
-}
-
-.form-group .form-check-label {
-  margin-left: 1.25rem;
 }
 
 #cart {
@@ -11615,6 +11578,31 @@ input[type=checkbox] {
 
 #cart .cart-inner .cart-item .dish-cover .dish-name .dish-quantity i:hover {
   transform: scale(1.5);
+}
+
+.form-group .label-personal {
+  color: #3e281c;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.form-group input.input-personal {
+  border: 0.5px solid #df9367;
+  color: #3e281c;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.form-group textarea {
+  border: 0.5px solid #df9367;
+}
+
+.form-group .form-check-input {
+  margin-left: 0;
+}
+
+.form-group .form-check-label {
+  margin-left: 1.25rem;
 }
 
 .pos-rel {
