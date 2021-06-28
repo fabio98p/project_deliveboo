@@ -21,7 +21,7 @@
         <div class="row">
 
             @foreach($restaurants as $index => $restaurant)
-                <div class="col-md-4 col-lg-4 mt-2 card-outline">
+                <div class="col-md-6 col-lg-4 mt-2 card-outline">
                     <a class="link-to" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
                         <div class="card-personal">
                             <div class="card-personal-cover" style="background-image: url('{{asset($restaurant->banner)}}')">
@@ -35,7 +35,7 @@
                     </a>
                 </div>
             @endforeach
-            <div class="col-md-4 col-lg-4 mt-2 card-outline">
+            <div class="col-md-6 col-lg-4 mt-2 card-outline">
                 <a class="link-to" href="{{ route('admin.restaurants.create') }}">
                     <div class="card-personal">
                         <div class="card-personal-cover">

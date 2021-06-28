@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="row row-categories">
+                <div class="row row-categories" v-dragscroll>
                     <div class="card-homepage mb-2 text-center"
                     v-for="category in categories"
                     :key="category.id"
@@ -47,7 +47,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-4 col-lg-4 mt-2 card-outline" v-for="result in results" :key="result.id">
+                    <div class="col-md-6 col-lg-4 mt-2 card-outline" v-for="result in results" :key="result.id">
                         <a class="link-to" :href="'restaurants/' + result.slug">
                             <div class="card-personal">
                                 <div class="card-personal-cover" :style="`background-image: url('${result.banner}') ; `">

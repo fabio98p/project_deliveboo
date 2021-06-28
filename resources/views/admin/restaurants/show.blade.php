@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-lg-4 mt-2 card-outline">
+            <div class="col-md-6 col-lg-4 mt-2 card-outline">
                 <a class="link-to" href="{{ route('admin.dishes.create', ['restaurant' => $restaurant->slug]) }}">
                     <div class="card-personal">
                         <div class="card-personal-cover">
@@ -59,7 +59,7 @@
             @endforeach --}}
 
             @foreach($dishes as $index => $dish)
-                <div class="col-md-4 col-lg-4 mt-2 card-outline">
+                <div class="col-md-6 col-lg-4 mt-2 card-outline">
                     <a class="link-to" href="{{route('admin.dishes.show', ['dish' => $dish->slug])}}">
                         <div class="card-personal">
                             <div class="card-personal-cover" style="background-image: url('{{asset($dish->image)}}')">

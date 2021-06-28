@@ -19,7 +19,7 @@
             <div class="col-md-8 col-lg-8">
               <div class="row">
                 @foreach($dishes as $index => $dish)
-                <div class="col-md-4 col-lg-4 mt-2 card-outline">
+                <div class="col-md-6 col-lg-4 mt-2 card-outline">
                   <div class="card-personal scale">
                     <div class="card-personal-cover position-relative" style="background-image: url('{{asset($dish->image)}}')">
                       <div class="card-personal-description">
