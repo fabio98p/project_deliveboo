@@ -1,17 +1,25 @@
-footer ,.p-4{
-  background-color: $darkbrown;
-}
-.color-orange{
-  color: $orange;
-}
-.color-red{
-  color: $red;
-}
-.color-darkwhite{
-  color: $darkwhite;
+footer {
+    height: 308px;
 }
 
-#form5Example2{
-  outline: none;
-  cursor: pointer;
+footer,
+.p-4 {
+    background-color: $darkbrown;
+}
+
+.color-orange {
+    color: $orange;
+}
+
+.color-red {
+    color: $red;
+}
+
+.color-darkwhite {
+    color: $darkwhite;
+}
+
+#form5Example2 {
+    outline: none;
+    cursor: pointer;
 }
