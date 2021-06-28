@@ -11532,6 +11532,31 @@ input[type=checkbox] {
   filter: drop-shadow(2px 4px 6px #AB97F3);
 }
 
+.form-group .label-personal {
+  color: #3e281c;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.form-group input.input-personal {
+  border: 0.5px solid #df9367;
+  color: #3e281c;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.form-group textarea {
+  border: 0.5px solid #df9367;
+}
+
+.form-group .form-check-input {
+  margin-left: 0;
+}
+
+.form-group .form-check-label {
+  margin-left: 1.25rem;
+}
+
 #cart {
   padding: 20px;
 }
