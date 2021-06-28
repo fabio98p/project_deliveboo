@@ -30,8 +30,10 @@ class RestaurantController extends Controller
         // $categoryIdsArray =  explode(",", $categoryIds);
         // foreach ($categoryIdsArray as $categoryId) {
         //     $category = Category::where('id', $categoryId)->first();
-        //     $restaurantFromCategory = $category->restaurants()->get();
-        //     $filteredRestaurantsComplete[] = $restaurantFromCategory;
+        //     $restaurantsFromCategory = $category->restaurants()->get();
+        //     foreach ($restaurantsFromCategory as $restaurantFromCategory) {
+        //         $filteredRestaurantsComplete[] = $restaurantFromCategory;
+        //     }
         // }
         // $filteredRestaurantsUnique = array_unique($filteredRestaurantsComplete);
         $category = Category::where('id', $categoryId)->first();
