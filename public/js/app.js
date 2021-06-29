@@ -2022,6 +2022,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -20534,51 +20545,57 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("table", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "tbody",
-      _vm._l(_vm.items, function(item) {
-        return _c("tr", { key: item.id }, [
-          _c("td", { domProps: { textContent: _vm._s(item["name"]) } }),
-          _vm._v(" "),
-          _c("td", [_vm._v("$" + _vm._s(item.price.toFixed(2)))]),
-          _vm._v(" "),
-          _c("td", [
-            _c(
-              "button",
-              {
-                staticClass: "button is-success",
-                on: {
-                  click: function($event) {
-                    return _vm.addToCart(item)
-                  }
-                }
-              },
-              [_vm._v("\n          Add to Cart\n        ")]
-            )
-          ])
-        ])
-      }),
-      0
-    )
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-md-8 col-lg-8" }, [
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.items, function(item) {
+          return _c(
+            "div",
+            {
+              key: item.id,
+              staticClass: "col-md-6 col-lg-6 mt-2 card-outline"
+            },
+            [
+              _c("div", { staticClass: "card-personal scale" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "card-personal-cover position-relative",
+                    style: "background-image:url('" + item.image + "')"
+                  },
+                  [
+                    _c("div", { staticClass: "card-personal-description" }, [
+                      _c("p", { staticClass: "text-center" }, [
+                        _vm._v(_vm._s(item.description))
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-personal-title" }, [
+                  _c("h4", [_vm._v(_vm._s(item.name))]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "dish-price" }, [
+                    _c("h5", [_vm._v("€" + _vm._s(item.price.toFixed(2)))]),
+                    _vm._v(" "),
+                    _c("i", {
+                      staticClass: "fas fa-circle",
+                      class: item.available == 1 ? "text-green" : "text-red"
+                    })
+                  ])
+                ])
+              ])
+            ]
+          )
+        }),
+        0
+      )
+    ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("th", [_vm._v("Name")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Price")]),
-      _vm._v(" "),
-      _c("th")
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

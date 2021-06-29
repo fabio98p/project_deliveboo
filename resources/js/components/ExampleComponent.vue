@@ -1,24 +1,35 @@
 <template>
-  <table>
-    <thead>
-      <th>Name</th>
-      <th>Price</th>
-      <th></th>
-    </thead>
-    <tbody>
-      <tr v-for="item in items" :key="item.id">
-        <td v-text="item['name']"></td>
+  <div class="row">
+    <div class="col-md-8 col-lg-8">
+      <div class="row">
+        <div class="col-md-6 col-lg-6 mt-2 card-outline"
+        v-for="item in items"
+        :key="item.id">
+          <div class="card-personal scale">
+            <div
+              class="card-personal-cover position-relative"
+              :style="`background-image:url('${item.image}')`"
+            >
+              <div class="card-personal-description">
+                <p class="text-center">{{ item.description }}</p>
+              </div>
+            </div>
 
-        <td>${{ item.price.toFixed(2) }}</td>
-
-        <td>
-          <button class="button is-success" @click="addToCart(item)">
-            Add to Cart
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+            <div class="card-personal-title">
+              <h4>{{ item.name }}</h4>
+              <div class="dish-price">
+                <h5>€{{ item.price.toFixed(2) }}</h5>
+                <i
+                  class="fas fa-circle"
+                  :class="item.available == 1 ? 'text-green' : 'text-red'"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -43,7 +54,7 @@ export default {
         var dishes = response.data.response;
 
         dishes.forEach((dish) => {
-            dish.price = parseFloat(dish.price)
+          dish.price = parseFloat(dish.price);
           this.items.push(dish);
         });
       });
