@@ -75,3 +75,7 @@
 
 
 @endsection
+
+<script>
+    var id = {!! json_encode($restaurant->id) !!};
+</script>

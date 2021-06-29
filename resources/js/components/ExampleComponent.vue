@@ -25,6 +25,7 @@
 export default {
   data() {
     return {
+      id: window.id,
       items: [],
     };
   },
@@ -35,7 +36,7 @@ export default {
     item() {},
   },
   created() {
-    axios.get(`http://localhost:8000/api/dishes/1`).then((response) => {
+    axios.get(`http://localhost:8000/api/dishes/${this.id}`).then((response) => {
       console.log(response.data.response);
 
       response.data.response.forEach((element) => {
