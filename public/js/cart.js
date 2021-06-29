@@ -81,29 +81,23 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/restaurants.js":
-/*!*************************************!*\
-  !*** ./resources/js/restaurants.js ***!
-  \*************************************/
+/***/ "./resources/js/cart.js":
+/*!******************************!*\
+  !*** ./resources/js/cart.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 Vue.config.devtools = true;
 var app = new Vue({
-  el: '#root',
+  el: '#cart',
   data: {
-    scriviTxt: '',
-    restaurants: [],
-    categories: [],
-    searchResult: [],
-    checkClick: false,
-    deleteForm: false,
-    categorySelected: ''
+    dishes: []
   },
   created: function created() {
     var _this = this;
@@ -116,46 +110,49 @@ var app = new Vue({
     });
   },
   methods: {
-    checkReverse: function checkReverse() {
-      this.checkClick = !this.checkClick;
-    },
-    cerca: function cerca() {
+    addDish: function addDish(dish) {
       var _this2 = this;
 
-      axios.get("http://localhost:8000/api/search-restaurant/".concat(this.scriviTxt)).then(function (response) {
-        _this2.searchResult = response.data.response;
+      axios.get("http://localhost:8000/api/dish/".concat(dish)).then(function (response) {
+        var dishesElements = localStorage;
+        var dishesKey = Object.keys(dishesElements);
+        var dish = response.data.response;
+
+        if (dishesKey.includes(response.data.response['slug'])) {
+          console.log('si');
+          localStorage.removeItem(dish['slug']);
+        } else {
+          console.log('no');
+          localStorage.setItem(dish['slug'], JSON.stringify(dish));
+        }
+
+        _this2.dishes = [];
+
+        for (var i = 0; i < dishesElements.length; i++) {
+          dishObject = JSON.parse(dishesElements[dishesKey[i]]);
+          console.log('for', dishObject);
+
+          _this2.dishes.push(dishObject);
+        }
       });
     },
-    filter: function filter() {},
-    filterRestaurants: function filterRestaurants(id) {
-      var _this3 = this;
-
-      if (this.categorySelected == id) {
-        this.categorySelected = '';
-        axios.get('http://localhost:8000/api/restaurants').then(function (response) {
-          _this3.restaurants = response.data.response;
-        });
-      } else {
-        this.categorySelected = id;
-        axios.get("http://localhost:8000/api/filter-restaurants/".concat(id)).then(function (response) {
-          _this3.restaurants = response.data.response;
-        });
-      }
+    sumDish: function sumDish(dish) {
+      dish = response.data.response;
+      localStorage.setItem(dish['slug'], JSON.stringify(dish));
     }
-  },
-  computed: {}
+  }
 });
 
 /***/ }),
 
-/***/ 1:
-/*!*******************************************!*\
-  !*** multi ./resources/js/restaurants.js ***!
-  \*******************************************/
+/***/ 2:
+/*!************************************!*\
+  !*** multi ./resources/js/cart.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
+module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\cart.js */"./resources/js/cart.js");
 
 
 /***/ })

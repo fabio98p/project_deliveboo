@@ -41,6 +41,7 @@
     
     <script src="/js/app.js"></script>
     <script src="{{ asset('js/restaurants.js') }}"></script>
+    <script src="{{ asset('js/cart.js') }}"></script>
 </body>
 
 </html>
