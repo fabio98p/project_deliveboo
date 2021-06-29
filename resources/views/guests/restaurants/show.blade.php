@@ -10,6 +10,7 @@
               <div class="col-md-12">
                   <div class="page-top">
                       <h1>{{ $restaurant['name'] }}</h1>
+                      <a href="{{route('index')}}" class="my-button my-button-orange">Torna ai ristoranti</a>
                   </div>
                   <h2>Menù</h2>
               </div>
