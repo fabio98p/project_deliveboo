@@ -1,10 +1,17 @@
 footer {
-    // height: 308px;
-}
+    background-color: $navbar;
 
-footer,
-.p-4 {
-    background-color: $darkbrown;
+    .container {
+        padding: 2em 0;
+    }
+
+    .footer-bottom {
+        padding: 1.5em 0;
+
+        a {
+            font-size: 1.2em;
+        }
+    }
 }
 
 .color-orange {
@@ -22,4 +29,22 @@ footer,
 #form5Example2 {
     outline: none;
     cursor: pointer;
+}
+
+.links {
+    // display: flex;
+
+    h4 {
+        font-weight: 800;
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+
+    ul {
+        li {
+            a {
+                font-size: 1.1em;
+            }
+        }
+    }
 }

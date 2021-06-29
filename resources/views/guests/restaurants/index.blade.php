@@ -2,7 +2,7 @@
 
 @section('main')
 <main id="root">
-<div class="container-fluid banner-show" style="background-image: url('../images/varie/my-restaurant-banner.jpg')"></div>
+{{-- <div class="container-fluid banner-show" style="background-image: url('../images/varie/my-restaurant-banner.jpg')"></div> --}}
 <section class="section-main">
   <div class="container search-bar">
     <label for="Ricerca Ristoranti"></label>
@@ -39,7 +39,7 @@
           <h2 v-if="searchResult.length > 0 || filterResult.length > 0 || results.length == 0">Risultati della ricerca</h2>
           <button v-if="searchResult.length > 0 || filterResult.length > 0 || results.length == 0"
             type="button" name="button"
-            class="my-button my-button-purple"
+            class="my-button my-button-orange"
             @click="restart">
             Tutti ristoranti
           </button>
