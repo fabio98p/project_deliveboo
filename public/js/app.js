@@ -2025,53 +2025,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      items: [{
-        id: 1,
-        title: 'Children of Bodom - Hatebreeder',
-        price: 9.99
-      }, {
-        id: 2,
-        title: 'Emperor - Anthems to the Welkin at Dusk',
-        price: 6.66
-      }, {
-        id: 3,
-        title: 'Epica - The Quantum Enigma',
-        price: 15.99
-      }, {
-        id: 4,
-        title: 'Chthonic - Takasago Army',
-        price: 14.00
-      }, {
-        id: 5,
-        title: 'Silencer - Death - Pierce Me',
-        price: 1.20
-      }, {
-        id: 6,
-        title: 'My Dying Bride - 34.788%... Complete',
-        price: 10.00
-      }, {
-        id: 7,
-        title: 'Shape of Despair - Shades of',
-        price: 7.80
-      }, {
-        id: 8,
-        title: 'Ne Obliviscaris - Portal of I',
-        price: 11.30
-      }, {
-        id: 9,
-        title: 'Protest the Hero - Fortress',
-        price: 5.55
-      }, {
-        id: 10,
-        title: 'Dark Lunacy - Devoid',
-        price: 6.00
-      }]
+      items: []
     };
   },
   methods: {
     addToCart: function addToCart(item) {
-      this.$store.commit('addToCart', item);
-    }
+      this.$store.commit("addToCart", item);
+    },
+    item: function item() {}
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("http://localhost:8000/api/dishes/1").then(function (response) {
+      console.log(response.data.response);
+      response.data.response.forEach(function (element) {
+        _this.items.push(element);
+      });
+    }); //     this.items = [{
+    //                 id: 1,
+    //                 title: 'Children of Bodom - Hatebreeder',
+    //                 price: 9.99
+    //             },
+    //             {
+    //                 id: 2,
+    //                 title: 'Emperor - Anthems to the Welkin at Dusk',
+    //                 price: 6.66
+    //             },
+    //             {
+    //                 id: 3,
+    //                 title: 'Epica - The Quantum Enigma',
+    //                 price: 15.99
+    //             },
+    //             {
+    //                 id: 4,
+    //                 title: 'Chthonic - Takasago Army',
+    //                 price: 14.00
+    //             },
+    //             {
+    //                 id: 5,
+    //                 title: 'Silencer - Death - Pierce Me',
+    //                 price: 1.20
+    //             },
+    //             {
+    //                 id: 6,
+    //                 title: 'My Dying Bride - 34.788%... Complete',
+    //                 price: 10.00
+    //             },
+    //             {
+    //                 id: 7,
+    //                 title: 'Shape of Despair - Shades of',
+    //                 price: 7.80
+    //             },
+    //             {
+    //                 id: 8,
+    //                 title: 'Ne Obliviscaris - Portal of I',
+    //                 price: 11.30
+    //             },
+    //             {
+    //                 id: 9,
+    //                 title: 'Protest the Hero - Fortress',
+    //                 price: 5.55
+    //             },
+    //             {
+    //                 id: 10,
+    //                 title: 'Dark Lunacy - Devoid',
+    //                 price: 6.00
+    //             },]
+    //
   }
 });
 
@@ -20516,9 +20537,7 @@ var render = function() {
       "tbody",
       _vm._l(_vm.items, function(item) {
         return _c("tr", { key: item.id }, [
-          _c("td", { domProps: { textContent: _vm._s(item.title) } }),
-          _vm._v(" "),
-          _c("td", [_vm._v("$" + _vm._s(item.price.toFixed(2)))]),
+          _c("td", { domProps: { textContent: _vm._s(item["name"]) } }),
           _vm._v(" "),
           _c("td", [
             _c(
@@ -20531,7 +20550,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("Add to Cart")]
+              [_vm._v("\n          Add to Cart\n        ")]
             )
           ])
         ])
@@ -34354,8 +34373,8 @@ var store = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\utente\Documents\Atom\Boolean-Esercizi\project_deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\utente\Documents\Atom\Boolean-Esercizi\project_deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
