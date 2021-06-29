@@ -1984,6 +1984,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   methods: {
     removeFromCart: function removeFromCart(item) {
       this.$store.commit('removeFromCart', item);
+    },
+    addToCart: function addToCart(item) {
+      this.$store.commit('addToCart', item);
     }
   }
 });
@@ -34334,7 +34337,6 @@ var store = {
       var found = state.cart.find(function (product) {
         return product.id == item.id;
       });
-      console.log(found);
 
       if (found && found.quantity > 1) {
         found.quantity--;
@@ -34343,9 +34345,7 @@ var store = {
         state.cart.splice(index, 1);
       }
 
-      state.cartCount -= product.quantity;
-      Vue.set(item, 'quantity', 1);
-      Vue.set(item, 'totalPrice', item.price);
+      state.cartCount--;
       this.commit('saveCart');
     },
     saveCart: function saveCart(state) {
@@ -34376,8 +34376,8 @@ var store = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

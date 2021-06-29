@@ -125,7 +125,6 @@ var store = {
       var found = state.cart.find(function (product) {
         return product.id == item.id;
       });
-      console.log(found);
 
       if (found && found.quantity > 1) {
         found.quantity--;
@@ -134,9 +133,7 @@ var store = {
         state.cart.splice(index, 1);
       }
 
-      state.cartCount -= product.quantity;
-      Vue.set(item, 'quantity', 1);
-      Vue.set(item, 'totalPrice', item.price);
+      state.cartCount--;
       this.commit('saveCart');
     },
     saveCart: function saveCart(state) {
@@ -156,7 +153,7 @@ var store = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\store.js */"./resources/js/store.js");
+module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\store.js */"./resources/js/store.js");
 
 
 /***/ })

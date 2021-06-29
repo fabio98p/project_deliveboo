@@ -60,6 +60,9 @@ export default {
   methods: {
     removeFromCart(item) {
         this.$store.commit('removeFromCart', item);
+    },
+    addToCart(item) {
+        this.$store.commit('addToCart', item);
     }
 }
 }
