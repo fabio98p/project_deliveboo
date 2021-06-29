@@ -1962,6 +1962,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     totalPrice: function totalPrice() {
@@ -20418,7 +20419,14 @@ var render = function() {
         [
           _c("h3", { staticClass: "text-center" }, [_vm._v("IL TUO ORDINE")]),
           _vm._v(" "),
-          _vm._m(0),
+          _c(
+            "div",
+            {
+              staticClass: "cart-empty text-center mt-3",
+              class: _vm.$store.state.cartCount == 0 ? "d-block" : "d-none"
+            },
+            [_c("h5", [_vm._v("Il tuo carello è vuoto!")])]
+          ),
           _vm._v(" "),
           _vm._l(_vm.$store.state.cart, function(item) {
             return _c("div", { key: item.id, staticClass: "cart-item" }, [
@@ -20460,52 +20468,57 @@ var render = function() {
             ])
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "cart-sum mt-3" }, [
-            _c("span", [
-              _vm._v(
-                "Prodotti nel carello: " + _vm._s(_vm.$store.state.cartCount)
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Totale: €" + _vm._s(_vm.totalPrice))])
-          ]),
+          _c(
+            "div",
+            {
+              staticClass: "cart-sum mt-3",
+              class: _vm.$store.state.cartCount != 0 ? "d-block" : "d-none"
+            },
+            [
+              _c("span", [
+                _vm._v(
+                  "Prodotti nel carello: " + _vm._s(_vm.$store.state.cartCount)
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Totale: €" + _vm._s(_vm.totalPrice))])
+            ]
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "mt-4 text-center" }, [
-            _c(
-              "a",
-              {
-                staticClass: "my-button my-button-purple",
-                attrs: { href: "/orders" }
-              },
-              [_vm._v("Vai alla cassa")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "my button my-button-orange mt-3",
-                on: { click: _vm.emptyCart }
-              },
-              [_vm._v("\r\n          Svuota il carello\r\n      ")]
-            ),
-            _c("br")
-          ])
+          _c(
+            "div",
+            {
+              staticClass: "mt-4 text-center",
+              class: _vm.$store.state.cartCount != 0 ? "d-block" : "d-none"
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "my-button my-button-purple",
+                  attrs: { href: "/orders" }
+                },
+                [_vm._v("Vai alla cassa")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "my button my-button-orange mt-3",
+                  on: { click: _vm.emptyCart }
+                },
+                [_vm._v("\r\n          Svuota il carello\r\n      ")]
+              ),
+              _c("br")
+            ]
+          )
         ],
         2
       )
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-none cart-empty text-center mt-3" }, [
-      _c("h5", [_vm._v("Il tuo carello è vuoto!")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
