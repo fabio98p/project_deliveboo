@@ -28,7 +28,7 @@
     Totale: €{{ totalPrice }}
     </div>
     <div class="mt-4 text-center">
-      <a href="/guests/orders/index.blade.php" class="my-button my-button-purple">Vai alla cassa</a>
+      <a href="/orders" class="my-button my-button-purple">Vai alla cassa</a>
     </div>
   </div>
 </div>
@@ -58,11 +58,11 @@ export default {
   },
 
   methods: {
+    addToCart(item) {
+      this.$store.commit("addToCart", item);
+    },
     removeFromCart(item) {
         this.$store.commit('removeFromCart', item);
-    },
-    addToCart(item) {
-        this.$store.commit('addToCart', item);
     }
 }
 }

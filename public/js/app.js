@@ -1982,11 +1982,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
   },
   methods: {
+    addToCart: function addToCart(item) {
+      this.$store.commit("addToCart", item);
+    },
     removeFromCart: function removeFromCart(item) {
       this.$store.commit('removeFromCart', item);
-    },
-    addToCart: function addToCart(item) {
-      this.$store.commit('addToCart', item);
     }
   }
 });
@@ -20491,7 +20491,7 @@ var staticRenderFns = [
         "a",
         {
           staticClass: "my-button my-button-purple",
-          attrs: { href: "/guests/orders/index.blade.php" }
+          attrs: { href: "/orders" }
         },
         [_vm._v("Vai alla cassa")]
       )
@@ -34320,16 +34320,32 @@ var store = {
         return product.id == item.id;
       });
 
-      if (found) {
-        found.quantity++;
-        found.totalPrice = found.quantity * found.price;
+      if (state.cartCount > 0) {
+        if (item.restaurant_id == state.cart[0].restaurant_id) {
+          if (found) {
+            found.quantity++;
+            found.totalPrice = found.quantity * found.price;
+          } else {
+            state.cart.push(item);
+            Vue.set(item, 'quantity', 1);
+            Vue.set(item, 'totalPrice', item.price);
+          }
+
+          state.cartCount++;
+        }
       } else {
-        state.cart.push(item);
-        Vue.set(item, 'quantity', 1);
-        Vue.set(item, 'totalPrice', item.price);
+        if (found) {
+          found.quantity++;
+          found.totalPrice = found.quantity * found.price;
+        } else {
+          state.cart.push(item);
+          Vue.set(item, 'quantity', 1);
+          Vue.set(item, 'totalPrice', item.price);
+        }
+
+        state.cartCount++;
       }
 
-      state.cartCount++;
       this.commit('saveCart');
     },
     removeFromCart: function removeFromCart(state, item) {
@@ -34376,8 +34392,8 @@ var store = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

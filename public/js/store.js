@@ -108,16 +108,32 @@ var store = {
         return product.id == item.id;
       });
 
-      if (found) {
-        found.quantity++;
-        found.totalPrice = found.quantity * found.price;
+      if (state.cartCount > 0) {
+        if (item.restaurant_id == state.cart[0].restaurant_id) {
+          if (found) {
+            found.quantity++;
+            found.totalPrice = found.quantity * found.price;
+          } else {
+            state.cart.push(item);
+            Vue.set(item, 'quantity', 1);
+            Vue.set(item, 'totalPrice', item.price);
+          }
+
+          state.cartCount++;
+        }
       } else {
-        state.cart.push(item);
-        Vue.set(item, 'quantity', 1);
-        Vue.set(item, 'totalPrice', item.price);
+        if (found) {
+          found.quantity++;
+          found.totalPrice = found.quantity * found.price;
+        } else {
+          state.cart.push(item);
+          Vue.set(item, 'quantity', 1);
+          Vue.set(item, 'totalPrice', item.price);
+        }
+
+        state.cartCount++;
       }
 
-      state.cartCount++;
       this.commit('saveCart');
     },
     removeFromCart: function removeFromCart(state, item) {
@@ -153,7 +169,7 @@ var store = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\store.js */"./resources/js/store.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\store.js */"./resources/js/store.js");
 
 
 /***/ })
