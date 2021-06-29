@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-<main id="root">
+<main id="app">
   <div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')">
   </div>
   <section class="section-main">
@@ -15,65 +15,31 @@
               </div>
           </div>
 
-          <div class="row">
-            <div class="col-md-8 col-lg-8">
-              <div class="row">
-                @foreach($dishes as $index => $dish)
-                <div class="col-md-6 col-lg-6 mt-2 card-outline">
-                  <div class="card-personal scale">
-                    <div class="card-personal-cover position-relative" style="background-image: url('{{asset($dish->image)}}')">
-                      <div class="card-personal-description">
-                        <p class="text-center">{{$dish->description}}</p>
-                      </div>
-                    </div>
+          <example-component></example-component>
 
-                    <div class="card-personal-title">
-                      <h4>{{$dish->name}}</h4>
-                      <div class="dish-price">
-                        <h5>€{{$dish->price}}</h5>
-                        <i class="fas fa-circle" :class="({{$dish->available}} == 1) ? 'text-green' : 'text-red' "></i>
-                      </div>
-                    </div>
+          <nav class="navbar is-primary" style="background-color: #fff;">
+              <div class="navbar-brand">
+                  <a class="navbar-item" href="/">
+                      Deliveboo Shopping Cart
+                  </a>
+
+                  <div class="navbar-burger burger">
+                      <span></span>
+                      <span></span>
+                      <span></span>
                   </div>
-                </div>
-                @endforeach
               </div>
-            </div>
 
-          </div>
+              <div id="navbarExampleTransparentExample" class="navbar-menu">
+                  <div class="navbar-end">
+                      <cart-dropdown></cart-dropdown>
+                  </div>
+              </div>
+          </nav>
+
       </div>
   </section>
 </main>
-
-<!-- Prova Carrello -->
-<div id="app">
-    <nav class="navbar is-primary" style="background-color: #fff;">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-                Deliveboo Shopping Cart
-            </a>
-
-            <div class="navbar-burger burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
-            <div class="navbar-end">
-                <cart-dropdown></cart-dropdown>
-            </div>
-        </div>
-    </nav>
-
-    <div class="section content">
-        <h1>Our Products</h1>
-        <example-component></example-component>
-    </div>
-</div>
-
-
 @endsection
 
 <script>

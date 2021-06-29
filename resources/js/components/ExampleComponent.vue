@@ -4,7 +4,8 @@
       <div class="row">
         <div class="col-md-6 col-lg-6 mt-2 card-outline"
         v-for="item in items"
-        :key="item.id">
+        :key="item.id"
+        @click="addToCart(item)">
           <div class="card-personal scale">
             <div
               class="card-personal-cover position-relative"
@@ -58,57 +59,6 @@ export default {
           this.items.push(dish);
         });
       });
-    //     this.items = [{
-    //                 id: 1,
-    //                 title: 'Children of Bodom - Hatebreeder',
-    //                 price: 9.99
-    //             },
-    //             {
-    //                 id: 2,
-    //                 title: 'Emperor - Anthems to the Welkin at Dusk',
-    //                 price: 6.66
-    //             },
-    //             {
-    //                 id: 3,
-    //                 title: 'Epica - The Quantum Enigma',
-    //                 price: 15.99
-    //             },
-    //             {
-    //                 id: 4,
-    //                 title: 'Chthonic - Takasago Army',
-    //                 price: 14.00
-    //             },
-    //             {
-    //                 id: 5,
-    //                 title: 'Silencer - Death - Pierce Me',
-    //                 price: 1.20
-    //             },
-    //             {
-    //                 id: 6,
-    //                 title: 'My Dying Bride - 34.788%... Complete',
-    //                 price: 10.00
-    //             },
-    //             {
-    //                 id: 7,
-    //                 title: 'Shape of Despair - Shades of',
-    //                 price: 7.80
-    //             },
-    //             {
-    //                 id: 8,
-    //                 title: 'Ne Obliviscaris - Portal of I',
-    //                 price: 11.30
-    //             },
-    //             {
-    //                 id: 9,
-    //                 title: 'Protest the Hero - Fortress',
-    //                 price: 5.55
-    //             },
-    //             {
-    //                 id: 10,
-    //                 title: 'Dark Lunacy - Devoid',
-    //                 price: 6.00
-    //             },]
-    //
   },
 };
 </script>
