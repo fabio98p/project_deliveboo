@@ -2030,10 +2030,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -20415,7 +20411,11 @@ var render = function() {
         [
           _c("h3", { staticClass: "text-center" }, [_vm._v("IL TUO ORDINE")]),
           _vm._v(" "),
-          _c("span", [_vm._v("(" + _vm._s(_vm.$store.state.cartCount) + ")")]),
+          _c("span", [
+            _vm._v(
+              "Prodotti nel carello: " + _vm._s(_vm.$store.state.cartCount)
+            )
+          ]),
           _vm._v(" "),
           _vm._m(0),
           _vm._v(" "),
@@ -20428,13 +20428,27 @@ var render = function() {
                   _c("span", [_vm._v(_vm._s(item.name))]),
                   _vm._v(" "),
                   _c("div", { staticClass: "dish-quantity" }, [
-                    _c("i", { staticClass: "fas fa-minus" }),
+                    _c("i", {
+                      staticClass: "fas fa-minus",
+                      on: {
+                        click: function($event) {
+                          return _vm.removeFromCart(item)
+                        }
+                      }
+                    }),
                     _vm._v(" "),
                     _c("span", { staticClass: "ml-1 mr-1" }, [
                       _vm._v(_vm._s(item.quantity))
                     ]),
                     _vm._v(" "),
-                    _c("i", { staticClass: "fas fa-plus" })
+                    _c("i", {
+                      staticClass: "fas fa-plus",
+                      on: {
+                        click: function($event) {
+                          return _vm.addToCart(item)
+                        }
+                      }
+                    })
                   ])
                 ])
               ]),
@@ -20502,60 +20516,56 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-md-8 col-lg-8" }, [
-      _c(
+  return _c(
+    "div",
+    { staticClass: "row" },
+    _vm._l(_vm.items, function(item) {
+      return _c(
         "div",
-        { staticClass: "row" },
-        _vm._l(_vm.items, function(item) {
-          return _c(
-            "div",
-            {
-              key: item.id,
-              staticClass: "col-md-6 col-lg-6 mt-2 card-outline",
-              on: {
-                click: function($event) {
-                  return _vm.addToCart(item)
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "card-personal scale" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "card-personal-cover position-relative",
-                    style: "background-image:url('" + item.image + "')"
-                  },
-                  [
-                    _c("div", { staticClass: "card-personal-description" }, [
-                      _c("p", { staticClass: "text-center" }, [
-                        _vm._v(_vm._s(item.description))
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-personal-title" }, [
-                  _c("h4", [_vm._v(_vm._s(item.name))]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "dish-price" }, [
-                    _c("h5", [_vm._v("€" + _vm._s(item.price.toFixed(2)))]),
-                    _vm._v(" "),
-                    _c("i", {
-                      staticClass: "fas fa-circle",
-                      class: item.available == 1 ? "text-green" : "text-red"
-                    })
+        {
+          key: item.id,
+          staticClass: "col-md-6 col-lg-6 mt-2 card-outline",
+          on: {
+            click: function($event) {
+              return _vm.addToCart(item)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "card-personal scale" }, [
+            _c(
+              "div",
+              {
+                staticClass: "card-personal-cover position-relative",
+                style: "background-image:url('" + item.image + "')"
+              },
+              [
+                _c("div", { staticClass: "card-personal-description" }, [
+                  _c("p", { staticClass: "text-center" }, [
+                    _vm._v(_vm._s(item.description))
                   ])
                 ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-personal-title" }, [
+              _c("h4", [_vm._v(_vm._s(item.name))]),
+              _vm._v(" "),
+              _c("div", { staticClass: "dish-price" }, [
+                _c("h5", [_vm._v("€" + _vm._s(item.price.toFixed(2)))]),
+                _vm._v(" "),
+                _c("i", {
+                  staticClass: "fas fa-circle",
+                  class: item.available == 1 ? "text-green" : "text-red"
+                })
               ])
-            ]
-          )
-        }),
-        0
+            ])
+          ])
+        ]
       )
-    ])
-  ])
+    }),
+    0
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -34321,13 +34331,21 @@ var store = {
     },
     removeFromCart: function removeFromCart(state, item) {
       var index = state.cart.indexOf(item);
+      var found = state.cart.find(function (product) {
+        return product.id == item.id;
+      });
+      console.log(found);
 
-      if (index > -1) {
-        var product = state.cart[index];
-        state.cartCount -= product.quantity;
+      if (found && found.quantity > 1) {
+        found.quantity--;
+        found.totalPrice = found.quantity * found.price;
+      } else {
         state.cart.splice(index, 1);
       }
 
+      state.cartCount -= product.quantity;
+      Vue.set(item, 'quantity', 1);
+      Vue.set(item, 'totalPrice', item.price);
       this.commit('saveCart');
     },
     saveCart: function saveCart(state) {

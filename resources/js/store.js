@@ -29,12 +29,19 @@ let store = {
       removeFromCart(state, item) {
         let index = state.cart.indexOf(item);
 
-        if (index > -1) {
-            let product = state.cart[index];
-            state.cartCount -= product.quantity;
-
+        let found = state.cart.find(product => product.id == item.id);
+        console.log(found);
+        if (found && found.quantity > 1) {
+            found.quantity --;
+            found.totalPrice = found.quantity * found.price;
+        } else {
             state.cart.splice(index, 1);
         }
+
+        state.cartCount -= product.quantity;
+        Vue.set(item, 'quantity', 1);
+        Vue.set(item, 'totalPrice', item.price);
+
 
         this.commit('saveCart');
       },

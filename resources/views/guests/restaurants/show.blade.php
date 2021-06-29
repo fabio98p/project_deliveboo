@@ -15,10 +15,12 @@
               </div>
           </div>
 
-          <example-component></example-component>
-
-          <cart-dropdown></cart-dropdown>
-
+          <div class="row">
+            <div class="col-md-8 col-lg-8">
+              <example-component></example-component>
+            </div>
+            <cart-dropdown></cart-dropdown>
+          </div>
       </div>
   </section>
 </main>

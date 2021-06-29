@@ -2,7 +2,7 @@
 <div class="col-md-4 col-lg-4" id="cart">
   <div class="cart-inner">
     <h3 class="text-center">IL TUO ORDINE</h3>
-    <span>({{ $store.state.cartCount }})</span>
+    <span>Prodotti nel carello: {{ $store.state.cartCount }}</span>
     <div class="d-none cart-empty text-center mt-3">
       <h5>Il tuo carello è vuoto!</h5>
     </div>
@@ -14,9 +14,9 @@
         <div class="dish-name ml-3">
           <span>{{item.name}}</span>
           <div class="dish-quantity">
-            <i class="fas fa-minus"></i>
+            <i class="fas fa-minus" @click="removeFromCart(item)"></i>
             <span class="ml-1 mr-1">{{ item.quantity }}</span>
-            <i class="fas fa-plus"></i>
+            <i class="fas fa-plus" @click="addToCart(item)"></i>
           </div>
         </div>
       </div>

@@ -122,13 +122,21 @@ var store = {
     },
     removeFromCart: function removeFromCart(state, item) {
       var index = state.cart.indexOf(item);
+      var found = state.cart.find(function (product) {
+        return product.id == item.id;
+      });
+      console.log(found);
 
-      if (index > -1) {
-        var product = state.cart[index];
-        state.cartCount -= product.quantity;
+      if (found && found.quantity > 1) {
+        found.quantity--;
+        found.totalPrice = found.quantity * found.price;
+      } else {
         state.cart.splice(index, 1);
       }
 
+      state.cartCount -= product.quantity;
+      Vue.set(item, 'quantity', 1);
+      Vue.set(item, 'totalPrice', item.price);
       this.commit('saveCart');
     },
     saveCart: function saveCart(state) {
