@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md" id="nav">
+<nav class="navbar fixed-top navbar-expand-md" id="nav">
     <div class="container">
         <a class="navbar-brand" href="{{ route('index') }}"> <img class="logo-navbar" src="/images/logos/deliveboo-2.png" alt=""> </a>
         <button class="navbar-toggler" v-on:click="showNavToggler()">

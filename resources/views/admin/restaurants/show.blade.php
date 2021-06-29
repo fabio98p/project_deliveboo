@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('main')
-
-<div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')"></div>
+<main>
+    <div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')"></div>
 <section class="section-main position-relative" id="root">
     <div class="container">
         <div class="row justify-content-center">
@@ -102,7 +102,7 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-md-12">
-              <div class="my-buttons-container d-flex justify-content-center">
+              <div class="my-buttons-container d-flex justify-content-center padding-top-54">
                   <a class="my-button my-button-blue mr-1" href="{{route('admin.orders.show', ['restaurant' => $restaurant->slug])}}">Ordini ricevuti</a>
                   <a class="my-button my-button-green ml-1" href="{{route('admin.statistics.show', ['restaurant' => $restaurant->slug])}}">Statistiche</a>
               </div>
@@ -128,4 +128,6 @@
       </div>
     </div>
 </section>
+</main>
+
 @endsection

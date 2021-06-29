@@ -1,46 +1,19 @@
 <!-- Footer -->
 <footer class=" text-center color-darkwhite">
 <!-- Grid container -->
+
+<div class="text-center footer-bottom" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="social-icons">
+        <i class="fab fa-facebook-square"></i>
+        <i class="fab fa-twitter-square"></i>
+        <i class="fab fa-instagram-square"></i>
+        <i class="fas fa-rss-square"></i>
+    </div>
+</div>
 <div class="container">
 <!-- Section: Social media -->
 
 <!-- Section: Social media -->
-
-<!-- Section: Form -->
-<section class="">
-    <form action="">
-    <!--Grid row-->
-    <div class="row d-flex justify-content-center">
-        <!--Grid column-->
-        <div class="col-auto">
-            <p class="pt-2">
-                <strong>Hai qualche Problema?</strong>
-            </p>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-md-5 col-12">
-            <!-- Email input -->
-            <div class="form-outline form-white mb-4">
-                <input type="email" id="form5Example2" class="form-control" placeholder="Contattaci qui" />
-            </div>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-auto">
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-outline-light mb-4" style="sursor: pointer;">
-                Compila Form
-            </button>
-        </div>
-        <!--Grid column-->
-    </div>
-    <!--Grid row-->
-    </form>
-</section>
-<!-- Section: Form -->
 
 <!-- Section: Links -->
 <section class="links">

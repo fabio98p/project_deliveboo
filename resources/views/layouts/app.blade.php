@@ -32,9 +32,7 @@
 <body>
 
     @include('partials.navbar')
-    <main>
         @yield('main')
-    </main>
     @include('partials.footer')
 
     {{-- cdn e script --}}

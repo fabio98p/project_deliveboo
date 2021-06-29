@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('main')
-
-<div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')"></div>
+<main class="full-height">
+    <div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')"></div>
 <section class="section-main position-relative" id="root">
     <div class="container">
         <div class="row">
@@ -71,4 +71,6 @@
       </div>
     </div>
 </section>
+</main>
+
 @endsection

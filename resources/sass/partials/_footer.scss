@@ -8,8 +8,24 @@ footer {
     .footer-bottom {
         padding: 1.5em 0;
 
+        .social-icons {
+            i {
+                margin: 0 5px;
+                font-size: 2em;
+                cursor: pointer;
+
+                &:hover {
+                    color: rgba($color: $white, $alpha: 0.5);
+                }
+            }
+        }
+
         a {
             font-size: 1.2em;
+
+            &:hover {
+                color: rgba($color: $white, $alpha: 0.5);
+            }
         }
     }
 }
@@ -34,26 +50,31 @@ footer {
 .links {
 
     .flex {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-evenly;
-
-      ul {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        
-          li {
-              h4 {
-                  font-weight: 800;
-                  font-size: 22px;
-                  margin-bottom: 5px;
-              }
-              a {
-                  font-size: 1.1em;
-              }
-          }
-      }
+        align-items: center;
+        justify-content: space-evenly;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            li {
+                h4 {
+                    font-weight: 800;
+                    font-size: 22px;
+                    margin-bottom: 5px;
+                }
+
+                a {
+                    font-size: 1.1em;
+
+                    &:hover {
+                        color: rgba($color: $white, $alpha: 0.5);
+                    }
+                }
+            }
+        }
     }
 }
