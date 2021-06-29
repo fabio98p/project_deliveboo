@@ -102,9 +102,9 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-md-12">
-              <div class="my-buttons-container">
-                  <a class="my-button my-button-blue" href="{{route('admin.orders.show', ['restaurant' => $restaurant->slug])}}">Ordini ricevuti</a>
-                  <a class="my-button my-button-green" href="{{route('admin.statistics.show', ['restaurant' => $restaurant->slug])}}">Statistiche</a>
+              <div class="my-buttons-container d-flex justify-content-center">
+                  <a class="my-button my-button-blue mr-1" href="{{route('admin.orders.show', ['restaurant' => $restaurant->slug])}}">Ordini ricevuti</a>
+                  <a class="my-button my-button-green ml-1" href="{{route('admin.statistics.show', ['restaurant' => $restaurant->slug])}}">Statistiche</a>
               </div>
             </div>
         </div>
