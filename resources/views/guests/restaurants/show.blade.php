@@ -17,25 +17,7 @@
 
           <example-component></example-component>
 
-          <nav class="navbar is-primary" style="background-color: #fff;">
-              <div class="navbar-brand">
-                  <a class="navbar-item" href="/">
-                      Deliveboo Shopping Cart
-                  </a>
-
-                  <div class="navbar-burger burger">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                  </div>
-              </div>
-
-              <div id="navbarExampleTransparentExample" class="navbar-menu">
-                  <div class="navbar-end">
-                      <cart-dropdown></cart-dropdown>
-                  </div>
-              </div>
-          </nav>
+          <cart-dropdown></cart-dropdown>
 
       </div>
   </section>

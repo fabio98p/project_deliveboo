@@ -1,40 +1,40 @@
 <template>
-    <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="">
-            Cart ({{ $store.state.cartCount }})
-        </a>
-
-        <div v-if="$store.state.cart.length > 0" class="navbar-dropdown is-boxed is-right">
-            <a v-for="item in $store.state.cart"
-                :key="item.id"
-                class="navbar-item"
-                href="">
-
-                <span class="removeBtn"
-                    title="Remove from cart"
-                    @click.prevent="removeFromCart(item)">X</span>
-
-                {{ item.title }} x{{ item.quantity }} - ${{ item.totalPrice }}
-            </a>
-
-            <a class="navbar-item" href="">
-                Total: ${{ totalPrice }}
-            </a>
-
-            <hr class="navbar-divider">
-
-            <a class="navbar-item" href="">
-                Checkout
-            </a>
-        </div>
-
-        <div v-else class="navbar-dropdown is-boxed is-right">
-            <a class="navbar-item" href="">
-                Cart is empty
-            </a>
-        </div>
+<div class="col-md-4 col-lg-4" id="cart">
+  <div class="cart-inner">
+    <h3 class="text-center">IL TUO ORDINE</h3>
+    <span>({{ $store.state.cartCount }})</span>
+    <div class="d-none cart-empty text-center mt-3">
+      <h5>Il tuo carello è vuoto!</h5>
     </div>
+    <div class="cart-item"
+        v-for="item in $store.state.cart"
+        :key="item.id">
+      <div class="dish-cover">
+        <img :src="item.image" :alt="item.name">
+        <div class="dish-name ml-3">
+          <span>{{item.name}}</span>
+          <div class="dish-quantity">
+            <i class="fas fa-minus"></i>
+            <span class="ml-1 mr-1">{{ item.quantity }}</span>
+            <i class="fas fa-plus"></i>
+          </div>
+        </div>
+      </div>
+      <div class="dish-price">
+        <span>€{{item.totalPrice}}</span>
+      </div>
+    </div>
+    <div>
+    Totale: €{{ totalPrice }}
+    </div>
+    <div class="mt-4 text-center">
+      <a href="/guests/orders/index.blade.php" class="my-button my-button-purple">Vai alla cassa</a>
+    </div>
+  </div>
+</div>
 </template>
+
+
 
 <style>
 .removeBtn {
