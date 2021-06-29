@@ -86,37 +86,25 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/navbar.js":
-/*!********************************!*\
-  !*** ./resources/js/navbar.js ***!
-  \********************************/
-/*! no static exports found */
+/***/ "./resources/js/store.js":
+/*!*******************************!*\
+  !*** ./resources/js/store.js ***!
+  \*******************************/
+/*! exports provided: default */
 /***/ (function(module, exports) {
 
-Vue.config.devtools = true;
-var app = new Vue({
-  el: '#nav',
-  data: {
-    showNav: false
-  },
-  methods: {
-    showNavToggler: function showNavToggler() {
-      console.log('ciao');
-      this.showNav = !this.showNav;
-    }
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\filippo\\Desktop\\boolean\\Esercizi\\php\\project_deliveboo\\resources\\js\\store.js'");
 
 /***/ }),
 
 /***/ 2:
-/*!**************************************!*\
-  !*** multi ./resources/js/navbar.js ***!
-  \**************************************/
+/*!*************************************!*\
+  !*** multi ./resources/js/store.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\filippo\Desktop\boolean\Esercizi\php\project_deliveboo\resources\js\navbar.js */"./resources/js/navbar.js");
+module.exports = __webpack_require__(/*! C:\Users\filippo\Desktop\boolean\Esercizi\php\project_deliveboo\resources\js\store.js */"./resources/js/store.js");
 
 
 /***/ })

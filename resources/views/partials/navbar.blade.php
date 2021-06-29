@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md" id="nav">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('index') }}">DeliveBoo</a>
+        <a class="navbar-brand" href="{{ route('index') }}"> <img class="logo-navbar" src="/images/logos/deliveboo.png" alt=""> </a>
         <button class="navbar-toggler" v-on:click="showNavToggler()">
             <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
         </button>
