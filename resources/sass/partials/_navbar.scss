@@ -1,3 +1,11 @@
+$breakpoint-tablet: 768px;
+
+@media (max-width: $breakpoint-tablet) {
+    .navbar-toggler {
+        display: flex;
+    }
+}
+
 .navbar {
     background-color: $darkbrown;
 
@@ -9,7 +17,7 @@
 
     .navbar-toggler {
         border: 1px solid $darkwhite;
-        display: flex;
+        // display: none;
         justify-content: center;
         align-items: center;
         padding: 3px 5px;
@@ -21,8 +29,6 @@
             color: $darkwhite !important;
         }
     }
-
-
 
     .navbar-nav {
         .nav-item {
@@ -37,5 +43,18 @@
             }
         }
     }
+}
 
+$breakpoint-tablet: 768px;
+
+@media (max-width: $breakpoint-tablet) {
+    .navbar-toggler {
+        display: flex;
+    }
+}
+
+@media (min-width: $breakpoint-tablet) {
+    .navbar-toggler {
+        display: none;
+    }
 }

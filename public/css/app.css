@@ -11169,6 +11169,12 @@ input:checked {
   background-color: #df9367;
 }
 
+@media (max-width: 768px) {
+  .navbar-toggler {
+    display: flex;
+  }
+}
+
 .navbar {
   background-color: #3e281c;
 }
@@ -11181,7 +11187,6 @@ input:checked {
 
 .navbar .navbar-toggler {
   border: 1px solid #fbf4f0;
-  display: flex;
   justify-content: center;
   align-items: center;
   padding: 3px 5px;
@@ -11204,6 +11209,18 @@ input:checked {
 
 .navbar .navbar-nav .nav-item .nav-link:hover {
   color: #d2b9ad;
+}
+
+@media (max-width: 768px) {
+  .navbar-toggler {
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-toggler {
+    display: none;
+  }
 }
 
 .banner-show {
