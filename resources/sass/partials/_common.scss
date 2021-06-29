@@ -175,6 +175,7 @@ h6,
 span,
 p {
     color: $darkbrown;
+    margin-bottom: 0;
 }
 
 .btn-link-login {
@@ -202,3 +203,42 @@ input:checked {
 //   }
 //
 // }
+
+.my-button {
+    padding: 10px 25px;
+    height: fit-content;
+    width: fit-content;
+    color: $white;
+    transition: all 0.25s ease-out;
+    border-radius: 5px;
+    border: none;
+
+    &:hover {
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.25s ease-out;
+        border: 0.5px solid $orange;
+    }
+}
+
+$breakpoint-mobile: 768px;
+
+@media (max-width: $breakpoint-mobile) {
+    .my-button-responsive-hide {
+        visibility: visible;
+    }
+
+    .my-button-responsive-show {
+        display: none;
+    }
+}
+
+@media (min-width: $breakpoint-mobile) {
+    .my-button-responsive-hide {
+        display: none;
+    }
+
+    .my-button-responsive-show {
+        visibility: visible;
+    }
+}

@@ -4,7 +4,7 @@
 <section class="section-main">
 <div class="container" id="root">
     <div class="row justify-content-center">
-        <div class="col-md-8 offset-md-4">
+        <div class="col-md-12 col-lg-8 col-xl-8">
             <div class="">
                 <div class="col-md-12">
                     <div class="page-top">
@@ -17,9 +17,9 @@
                         @csrf
 
                         <div class="form-group column">
-                            <label for="email" class="col-md-4 col-form-label label-personal">{{ __('Indirizzo e-mail') }}</label>
+                            <label for="email" class="col-md-12 col-form-label label-personal">{{ __('Indirizzo e-mail') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input id="email" type="email" class="form-control input-personal @error('name') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -29,9 +29,9 @@
                         </div>
 
                         <div class="form-group column">
-                            <label for="password" class="col-md-4 col-form-label label-personal">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-12 col-form-label label-personal">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input id="password" type="password" class="form-control input-personal @error('name') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="current-password" autofocus>
 
                                 @error('password')
@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="form-group column">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                 <label class="form-check-label" for="remember">
@@ -51,7 +51,7 @@
                         </div>
                                   
                         <div class="form-group column mb-0">
-                            <div class="col-md-6 column">
+                            <div class="col-md-12 column">
                                 <button type="submit" class="my button my-button-orange">
                                     {{ __('Login') }}
                                 </button>

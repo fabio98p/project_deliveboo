@@ -11155,6 +11155,7 @@ h6,
 span,
 p {
   color: #3e281c;
+  margin-bottom: 0;
 }
 
 .btn-link-login {
@@ -11167,6 +11168,47 @@ p {
 
 input:checked {
   background-color: #df9367;
+}
+
+.my-button {
+  padding: 10px 25px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #FFF;
+  transition: all 0.25s ease-out;
+  border-radius: 5px;
+  border: none;
+}
+
+.my-button:hover {
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.25s ease-out;
+  border: 0.5px solid #df9367;
+}
+
+@media (max-width: 768px) {
+  .my-button-responsive-hide {
+    visibility: visible;
+  }
+
+  .my-button-responsive-show {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .my-button-responsive-hide {
+    display: none;
+  }
+
+  .my-button-responsive-show {
+    visibility: visible;
+  }
 }
 
 @media (max-width: 768px) {
@@ -11266,17 +11308,17 @@ a:hover {
   font-size: 2em;
 }
 
-.section-main .page-top .my-button-container {
+.section-main .page-top .my-buttons-container {
   display: flex;
   align-items: center;
 }
 
-.section-main .page-top .my-button-container a,
-.section-main .page-top .my-button-container form {
+.section-main .page-top .my-buttons-container a,
+.section-main .page-top .my-buttons-container form {
   margin-left: 5px;
 }
 
-.section-main .page-top .my-button-container form {
+.section-main .page-top .my-buttons-container form {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -11299,6 +11341,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   border-radius: 20px;
+  transition: all 0.25s ease-out;
 }
 
 .section-main .card-outline .card-personal .card-personal-cover {
@@ -11358,14 +11401,14 @@ a:hover {
   font-size: 18px;
 }
 
-.section-main .card-outline .card-personal.scale:hover {
+.section-main .card-outline .card-personal:hover {
   transform: scale(1.05);
   transition: all 0.25s ease-out;
   box-shadow: 0px 22px 24px 0px rgba(0, 0, 0, 0.08);
   cursor: pointer;
 }
 
-.section-main .card-outline .card-personal.scale:hover .card-personal-description {
+.section-main .card-outline .card-personal:hover .card-personal-description {
   display: flex;
 }
 
@@ -11444,7 +11487,7 @@ a:hover {
 }
 
 .row-categories .card-homepage .icon-category {
-  width: 100px;
+  width: 65px;
   margin-bottom: 5px;
 }
 

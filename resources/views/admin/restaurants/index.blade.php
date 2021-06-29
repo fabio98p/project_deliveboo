@@ -12,7 +12,10 @@
                     <h1>I miei ristoranti</h1>
 
                     <div class="my-buttons-container">
-                        <a class="my-button my-button-orange" href="{{ route('admin.restaurants.create') }}">Crea ristorante</a>
+                        <a class="my-button-responsive-show my-button-orange " href="{{ route('admin.restaurants.create') }}">Crea ristorante</a>
+
+                        {{-- button che appare su tablet/mobile --}}
+                        <a class="my-button-responsive-hide my-button-orange" href="{{ route('admin.restaurants.create') }}"><i class="fas fa-plus"></i></a>
                     </div>
 
                 </div>

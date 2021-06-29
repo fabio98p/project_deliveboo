@@ -10,9 +10,15 @@
                 <div class="page-top">
                     <h1>{{ $restaurant['name'] }}</h1>
                     <div class="my-buttons-container">
-                        <a class="my-button my-button-orange" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}">Modifica ristorante</a>
-                        <a class="my-button my-button-red" style="padding: 6px 25px;" type="button" name="button" @click="deleteForm = true">Cancella ristorante</a>
+                        <a class="my-button-responsive-show my-button-orange" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}">Modifica ristorante</a>
+                        <a class="my-button-responsive-show my-button-red" type="button" name="button" @click="deleteForm = true">Cancella ristorante</a>
+
+                        {{-- buttons che appaiono solo su tablet/mobile --}}
+                        <a class="my-button-responsive-hide my-button-orange" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}"><i class="fas fa-edit"></i></a>
+                        <a class="my-button-responsive-hide my-button-red " type="button" name="button" @click="deleteForm = true"><i class="fas fa-trash-alt"></i></a>
+                        
                     </div>
+
                 </div>
                 <h2>I miei piatti</h2>
             </div>
