@@ -47,10 +47,10 @@
 
 <!-- Prova Carrello -->
 <div id="app">
-    <nav class="navbar is-primary">
+    <nav class="navbar is-primary" style="background-color: #fff;">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-                Voerro Shopping Cart Tutorial
+                Deliveboo Shopping Cart
             </a>
 
             <div class="navbar-burger burger">

@@ -95,10 +95,12 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+var cart = window.localStorage.getItem('cart');
+var cartCount = window.localStorage.getItem('cartCount');
 var store = {
   state: {
-    cart: [],
-    cartCount: 0
+    cart: cart ? JSON.parse(cart) : [],
+    cartCount: cartCount ? parseInt(cartCount) : 0
   },
   mutations: {
     addToCart: function addToCart(state, item) {
@@ -116,11 +118,22 @@ var store = {
       }
 
       state.cartCount++;
-    }
-  },
-  methods: {
-    addToCart: function addToCart(item) {
-      this.$store.commit('addToCart', item);
+      this.commit('saveCart');
+    },
+    removeFromCart: function removeFromCart(state, item) {
+      var index = state.cart.indexOf(item);
+
+      if (index > -1) {
+        var product = state.cart[index];
+        state.cartCount -= product.quantity;
+        state.cart.splice(index, 1);
+      }
+
+      this.commit('saveCart');
+    },
+    saveCart: function saveCart(state) {
+      window.localStorage.setItem('cart', JSON.stringify(state.cart));
+      window.localStorage.setItem('cartCount', state.cartCount);
     }
   }
 };

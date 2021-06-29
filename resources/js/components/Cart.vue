@@ -8,8 +8,12 @@
             <a v-for="item in $store.state.cart"
                 :key="item.id"
                 class="navbar-item"
-                href=""
-            >
+                href="">
+
+                <span class="removeBtn"
+                    title="Remove from cart"
+                    @click.prevent="removeFromCart(item)">X</span>
+
                 {{ item.title }} x{{ item.quantity }} - ${{ item.totalPrice }}
             </a>
 
@@ -32,6 +36,13 @@
     </div>
 </template>
 
+<style>
+.removeBtn {
+    margin-right: 1rem;
+    color: red;
+}
+</style>
+
 <script>
 export default {
   computed: {
@@ -45,5 +56,11 @@ export default {
         return total.toFixed(2);
     }
   },
+
+  methods: {
+    removeFromCart(item) {
+        this.$store.commit('removeFromCart', item);
+    }
+}
 }
 </script>

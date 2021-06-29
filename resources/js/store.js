@@ -1,8 +1,11 @@
+let cart = window.localStorage.getItem('cart');
+let cartCount = window.localStorage.getItem('cartCount');
+
 let store = {
-    state: {
-        cart: [],
-        cartCount: 0,
-    },
+  state: {
+    cart: cart ? JSON.parse(cart) : [],
+    cartCount: cartCount ? parseInt(cartCount) : 0,
+  },
 
     mutations: {
       addToCart(state, item) {
@@ -19,14 +22,29 @@ let store = {
         }
 
         state.cartCount++;
-      }
-    },
 
-    methods: {
-        addToCart(item) {
-            this.$store.commit('addToCart', item);
+        this.commit('saveCart');
+      },
+
+      removeFromCart(state, item) {
+        let index = state.cart.indexOf(item);
+
+        if (index > -1) {
+            let product = state.cart[index];
+            state.cartCount -= product.quantity;
+
+            state.cart.splice(index, 1);
         }
-    }
+
+        this.commit('saveCart');
+      },
+
+      saveCart(state) {
+        window.localStorage.setItem('cart', JSON.stringify(state.cart));
+        window.localStorage.setItem('cartCount', state.cartCount);
+      },
+
+    },
 };
 
 export default store;
