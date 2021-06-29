@@ -2,7 +2,6 @@
 <div class="col-md-4 col-lg-4" id="cart">
   <div class="cart-inner">
     <h3 class="text-center">IL TUO ORDINE</h3>
-    <span>Prodotti nel carello: {{ $store.state.cartCount }}</span>
     <div class="d-none cart-empty text-center mt-3">
       <h5>Il tuo carello è vuoto!</h5>
     </div>
@@ -24,11 +23,15 @@
         <span>€{{item.totalPrice}}</span>
       </div>
     </div>
-    <div>
-    Totale: €{{ totalPrice }}
+    <div class="cart-sum mt-3">
+      <span>Prodotti nel carello: {{ $store.state.cartCount }}</span>
+      <p>Totale: €{{ totalPrice }}</p>
     </div>
     <div class="mt-4 text-center">
       <a href="/orders" class="my-button my-button-purple">Vai alla cassa</a>
+      <button class="my button my-button-orange mt-3" @click="emptyCart">
+          Svuota il carello
+      </button><br>
     </div>
   </div>
 </div>
@@ -63,6 +66,9 @@ export default {
     },
     removeFromCart(item) {
         this.$store.commit('removeFromCart', item);
+    },
+    emptyCart() {
+        this.$store.commit('emptyCart');
     }
 }
 }

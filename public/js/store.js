@@ -152,6 +152,11 @@ var store = {
       state.cartCount--;
       this.commit('saveCart');
     },
+    emptyCart: function emptyCart(state) {
+      state.cart = [];
+      state.cartCount = 0;
+      this.commit('saveCart');
+    },
     saveCart: function saveCart(state) {
       window.localStorage.setItem('cart', JSON.stringify(state.cart));
       window.localStorage.setItem('cartCount', state.cartCount);

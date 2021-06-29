@@ -41,13 +41,11 @@ export default {
     addToCart(item) {
       this.$store.commit("addToCart", item);
     },
-    item() {},
   },
   created() {
     axios
       .get(`http://localhost:8000/api/dishes/${this.id}`)
       .then((response) => {
-        console.log(response.data.response);
         var dishes = response.data.response;
 
         dishes.forEach((dish) => {

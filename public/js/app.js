@@ -1959,6 +1959,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     totalPrice: function totalPrice() {
@@ -1987,6 +1990,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     removeFromCart: function removeFromCart(item) {
       this.$store.commit('removeFromCart', item);
+    },
+    emptyCart: function emptyCart() {
+      this.$store.commit('emptyCart');
     }
   }
 });
@@ -2043,14 +2049,12 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addToCart: function addToCart(item) {
       this.$store.commit("addToCart", item);
-    },
-    item: function item() {}
+    }
   },
   created: function created() {
     var _this = this;
 
     axios.get("http://localhost:8000/api/dishes/".concat(this.id)).then(function (response) {
-      console.log(response.data.response);
       var dishes = response.data.response;
       dishes.forEach(function (dish) {
         dish.price = parseFloat(dish.price);
@@ -20414,12 +20418,6 @@ var render = function() {
         [
           _c("h3", { staticClass: "text-center" }, [_vm._v("IL TUO ORDINE")]),
           _vm._v(" "),
-          _c("span", [
-            _vm._v(
-              "Prodotti nel carello: " + _vm._s(_vm.$store.state.cartCount)
-            )
-          ]),
-          _vm._v(" "),
           _vm._m(0),
           _vm._v(" "),
           _vm._l(_vm.$store.state.cart, function(item) {
@@ -20462,11 +20460,36 @@ var render = function() {
             ])
           }),
           _vm._v(" "),
-          _c("div", [
-            _vm._v("\r\n    Totale: €" + _vm._s(_vm.totalPrice) + "\r\n    ")
+          _c("div", { staticClass: "cart-sum mt-3" }, [
+            _c("span", [
+              _vm._v(
+                "Prodotti nel carello: " + _vm._s(_vm.$store.state.cartCount)
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("Totale: €" + _vm._s(_vm.totalPrice))])
           ]),
           _vm._v(" "),
-          _vm._m(1)
+          _c("div", { staticClass: "mt-4 text-center" }, [
+            _c(
+              "a",
+              {
+                staticClass: "my-button my-button-purple",
+                attrs: { href: "/orders" }
+              },
+              [_vm._v("Vai alla cassa")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "my button my-button-orange mt-3",
+                on: { click: _vm.emptyCart }
+              },
+              [_vm._v("\r\n          Svuota il carello\r\n      ")]
+            ),
+            _c("br")
+          ])
         ],
         2
       )
@@ -20480,21 +20503,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "d-none cart-empty text-center mt-3" }, [
       _c("h5", [_vm._v("Il tuo carello è vuoto!")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-4 text-center" }, [
-      _c(
-        "a",
-        {
-          staticClass: "my-button my-button-purple",
-          attrs: { href: "/orders" }
-        },
-        [_vm._v("Vai alla cassa")]
-      )
     ])
   }
 ]
@@ -34362,6 +34370,11 @@ var store = {
       }
 
       state.cartCount--;
+      this.commit('saveCart');
+    },
+    emptyCart: function emptyCart(state) {
+      state.cart = [];
+      state.cartCount = 0;
       this.commit('saveCart');
     },
     saveCart: function saveCart(state) {

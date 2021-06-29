@@ -60,6 +60,12 @@ let store = {
         this.commit('saveCart');
       },
 
+      emptyCart(state) {
+        state.cart = [];
+        state.cartCount = 0;
+        this.commit('saveCart');
+      },
+
       saveCart(state) {
         window.localStorage.setItem('cart', JSON.stringify(state.cart));
         window.localStorage.setItem('cartCount', state.cartCount);
