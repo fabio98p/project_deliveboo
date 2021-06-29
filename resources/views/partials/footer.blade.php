@@ -47,31 +47,36 @@
     <!--Grid row-->
     <div class="row">
     <!--Grid column-->
-    <div class="col-lg-3 col-md-6 mb-4 mb-md-0 d-flex align-items-center flex-column">
-        <h4 class="text-uppercase">Scopri Deliveboo</h4>
-
-        <ul class="list-unstyled mb-0 ">
-            <li>
-                <a href="#!" class="color-darkwhite">Programmazione</a>
-            </li>
-            <li>
-                <a href="#!" class="color-darkwhite">Design</a>
-            </li>
-            <li>
-                <a href="#!" class="color-darkwhite">Contatti</a>
-            </li>
-            <li>
-                <a href="#!" class="color-darkwhite">Collabora con noi</a>
-            </li>
-        </ul>
+    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <div class="flex">
+          <ul class="list-unstyled mb-0 ">
+              <li>
+                <h4 class="text-uppercase">Deliveboo</h4>
+              </li>
+              <li>
+                  <a href="#!" class="color-darkwhite">Programmazione</a>
+              </li>
+              <li>
+                  <a href="#!" class="color-darkwhite">Design</a>
+              </li>
+              <li>
+                  <a href="#!" class="color-darkwhite">Contatti</a>
+              </li>
+              <li>
+                  <a href="#!" class="color-darkwhite">Collabora con noi</a>
+              </li>
+          </ul>
+        </div>
     </div>
     <!--Grid column-->
 
     <!--Grid column-->
-    <div class="col-lg-3 col-md-6 mb-4 mb-md-0 d-flex align-items-center flex-column">
-        <h4 class="text-uppercase">Creators</h4>
-
+    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+      <div class="flex">
         <ul class="list-unstyled mb-0">
+            <li>
+              <h4 class="text-uppercase">Creators</h4>
+            </li>
             <li>
                 <a href="#!" class="color-darkwhite">Attinà Emanuele</a>
             </li>
@@ -88,14 +93,17 @@
                 <a href="#!" class="color-darkwhite">Tabbì Filippo</a>
             </li>
         </ul>
+      </div>
     </div>
     <!--Grid column-->
 
     <!--Grid column-->
-    <div class="col-lg-3 col-md-6 mb-4 mb-md-0 d-flex align-items-center flex-column">
-        <h4 class="text-uppercase">Note legali</h4>
-
+    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+      <div class="flex">
         <ul class="list-unstyled mb-0">
+            <li>
+                <h4 class="text-uppercase">Note legali</h4>
+            </li>
             <li>
                 <a href="#!" class="color-darkwhite">Termini & Condizioni</a>
             </li>
@@ -109,27 +117,31 @@
 
             </li>
         </ul>
+      </div>
     </div>
     <!--Grid column-->
 
     <!--Grid column-->
-    <div class="col-lg-3 col-md-6 mb-4 mb-md-0 d-flex align-items-center flex-column">
-        <h4 class="text-uppercase">Aiuto</h4>
-
-        <ul class="list-unstyled mb-0">
-            <li>
-                <a href="#!" class="color-darkwhite">Contatti</a>
-            </li>
-            <li>
-                <a href="#!" class="color-darkwhite">FAQ</a>
-            </li>
-            <li>
-                <a href="#!" class="color-darkwhite">Tipi di cucina</a>
-            </li>
-            <li>
-                <a href="#!" class="color-darkwhite">Mappa del sito</a>
-            </li>
-        </ul>
+    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <div class="flex">
+          <ul class="list-unstyled mb-0">
+              <li>
+                <h4 class="text-uppercase">Aiuto</h4>
+              </li>
+              <li>
+                  <a href="#!" class="color-darkwhite">Contatti</a>
+              </li>
+              <li>
+                  <a href="#!" class="color-darkwhite">FAQ</a>
+              </li>
+              <li>
+                  <a href="#!" class="color-darkwhite">Tipi di cucina</a>
+              </li>
+              <li>
+                  <a href="#!" class="color-darkwhite">Mappa del sito</a>
+              </li>
+          </ul>
+        </div>
     </div>
     <!--Grid column-->
     </div>

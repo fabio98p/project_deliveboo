@@ -11914,13 +11914,26 @@ footer .footer-bottom a {
   cursor: pointer;
 }
 
-.links h4 {
+.links .flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.links .flex ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.links .flex ul li h4 {
   font-weight: 800;
   font-size: 22px;
   margin-bottom: 5px;
 }
 
-.links ul li a {
+.links .flex ul li a {
   font-size: 1.1em;
 }
 

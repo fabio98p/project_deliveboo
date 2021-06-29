@@ -32,19 +32,28 @@ footer {
 }
 
 .links {
-    // display: flex;
 
-    h4 {
-        font-weight: 800;
-        font-size: 22px;
-        margin-bottom: 5px;
-    }
+    .flex {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
 
-    ul {
-        li {
-            a {
-                font-size: 1.1em;
-            }
-        }
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        
+          li {
+              h4 {
+                  font-weight: 800;
+                  font-size: 22px;
+                  margin-bottom: 5px;
+              }
+              a {
+                  font-size: 1.1em;
+              }
+          }
+      }
     }
 }
