@@ -9,7 +9,7 @@
       <tr v-for="item in items" :key="item.id">
         <td v-text="item['name']"></td>
 
-        <!-- <td>${{ item.price.toFixed(2) }}</td> -->
+        <td>${{ item.price.toFixed(2) }}</td>
 
         <td>
           <button class="button is-success" @click="addToCart(item)">
@@ -36,13 +36,17 @@ export default {
     item() {},
   },
   created() {
-    axios.get(`http://localhost:8000/api/dishes/${this.id}`).then((response) => {
-      console.log(response.data.response);
+    axios
+      .get(`http://localhost:8000/api/dishes/${this.id}`)
+      .then((response) => {
+        console.log(response.data.response);
+        var dishes = response.data.response;
 
-      response.data.response.forEach((element) => {
-        this.items.push(element);
+        dishes.forEach((dish) => {
+            dish.price = parseFloat(dish.price)
+          this.items.push(dish);
+        });
       });
-    });
     //     this.items = [{
     //                 id: 1,
     //                 title: 'Children of Bodom - Hatebreeder',

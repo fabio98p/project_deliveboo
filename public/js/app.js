@@ -2040,8 +2040,11 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get("http://localhost:8000/api/dishes/".concat(this.id)).then(function (response) {
       console.log(response.data.response);
-      response.data.response.forEach(function (element) {
-        _this.items.push(element);
+      var dishes = response.data.response;
+      dishes.forEach(function (dish) {
+        dish.price = parseFloat(dish.price);
+
+        _this.items.push(dish);
       });
     }); //     this.items = [{
     //                 id: 1,
@@ -20540,6 +20543,8 @@ var render = function() {
         return _c("tr", { key: item.id }, [
           _c("td", { domProps: { textContent: _vm._s(item["name"]) } }),
           _vm._v(" "),
+          _c("td", [_vm._v("$" + _vm._s(item.price.toFixed(2)))]),
+          _vm._v(" "),
           _c("td", [
             _c(
               "button",
@@ -34374,8 +34379,8 @@ var store = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
