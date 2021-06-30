@@ -8,7 +8,7 @@
 
 main {
     margin-top: 71px;
-    height: 100%;
+    // height: 100%;
 }
 
 .not-full-height {
@@ -17,4 +17,8 @@ main {
 
 .full-height {
     height: calc(100vh - 358px - 71px);
+}
+
+.form-personal {
+    width: 100%;
 }
