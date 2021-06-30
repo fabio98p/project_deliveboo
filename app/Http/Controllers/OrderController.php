@@ -14,7 +14,16 @@ class OrderController extends Controller
      */
     public function index()
     {
-      return view('guests.orders.index');
+      $gateway = new \Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+
+        $token = $gateway->ClientToken()->generate();
+
+      return view('guests.orders.index', compact('token'));
     }
 
     /**
@@ -37,8 +46,18 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+      $gateway = new \Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
 
-      return redirect()->route('guests.orders.confirmation');
+        $data = $request->all();
+        $total = $request->totalPrice;
+        $nonce = $request->payment_method_nonce;
+
+      return redirect()->route('orders.confirmation');
     }
 
     /**
