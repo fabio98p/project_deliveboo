@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -109,14 +109,14 @@ var app = new Vue({
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!**************************************!*\
   !*** multi ./resources/js/navbar.js ***!
   \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/emanueleattina/Documents/progetti_fallimentari/boolean/Esercizi/project_deliveboo/resources/js/navbar.js */"./resources/js/navbar.js");
+module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\navbar.js */"./resources/js/navbar.js");
 
 
 /***/ })

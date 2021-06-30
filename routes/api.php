@@ -24,3 +24,8 @@ Route::get('/categories', 'Api\CategoryController@index');
 Route::get('/filter-restaurants/{category}', 'Api\RestaurantController@filterRestaurants');
 Route::get('/search-restaurant/{query}', 'Api\RestaurantController@searchRestaurant');
 Route::get('/dishes/{restaurantId}', 'Api\DishController@index');
+
+//braintree
+Route::get('/generate', 'Api\OrderController@generate');
+Route::post('/make/payment', 'Api\OrderController@makePayment');
+
