@@ -8,7 +8,7 @@
     text-align: center;
     border-style: solid;
     border-width: 1px;
-    border-radius: 3px;
+    // border-radius: 3px;
     -webkit-appearance: none;
     -moz-appearance: none;
     display: inline-block;
@@ -32,6 +32,32 @@
     color: white;
 }
 
-.braintree-container label {
+.braintree-upper-container label {
     width: 100%;
+}
+
+.checkout-card {
+    // background: $pink;
+    box-shadow: 0px 22px 24px 0px rgb(0 0 0 / 8%);
+    border-radius: 20px;
+
+    .page-top {
+        background: rgba($color: $pink, $alpha: 0.25);
+        padding: 20px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    .form-personal {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .checkout-card-inner {
+        padding: 20px;
+
+        img {
+            width: 100%;
+        }
+    }
 }

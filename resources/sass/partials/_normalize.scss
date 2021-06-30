@@ -19,6 +19,11 @@ main {
     height: calc(100vh - 358px - 71px);
 }
 
-.form-personal {
-    width: 100%;
+.form-group {
+
+    input[type=text],
+    textarea,
+    select {
+        border-radius: 25px;
+    }
 }
