@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-<main id="app">
+<main id="app" class="not-full-height">
   <div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')">
   </div>
   <section class="section-main">

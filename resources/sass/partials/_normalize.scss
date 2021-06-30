@@ -11,6 +11,10 @@ main {
     height: 100%;
 }
 
+.not-full-height {
+    height: auto;
+}
+
 .full-height {
     height: calc(100vh - 358px - 71px);
 }

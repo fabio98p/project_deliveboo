@@ -253,7 +253,11 @@ a {
 .row-categories {
     flex-wrap: nowrap;
     overflow-y: hidden;
-    overflow-x: auto;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     .card-homepage {
         width: 150px;
@@ -269,9 +273,6 @@ a {
         }
     }
 }
-
-
-
 
 .multiselect {
     width: 200px;
@@ -443,10 +444,10 @@ input[type=checkbox] {
         }
 
         .cart-sum {
-          p {
-            font-size: 16px;
-            font-weight: bold;
-          }
+            p {
+                font-size: 16px;
+                font-weight: bold;
+            }
         }
     }
 }
