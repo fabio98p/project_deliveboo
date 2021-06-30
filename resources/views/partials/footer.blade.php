@@ -54,7 +54,7 @@
                 <a href="#!" class="color-darkwhite">Attinà Emanuele</a>
             </li>
             <li>
-                <a href="#!" class="color-darkwhite">Budic Dora</a>
+                <a href="#!" class="color-darkwhite">Budić Dora</a>
             </li>
             <li>
                 <a href="#!" class="color-darkwhite">Parisi Fabio</a>

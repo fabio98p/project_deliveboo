@@ -10,7 +10,7 @@
     <title>Deliveboo</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
     <!-- Fonts -->
     <link rel=“preconnect” href=“https://fonts.googleapis.com”>
@@ -32,16 +32,16 @@
 <body>
 
     @include('partials.navbar')
-        @yield('main')
+
+    @yield('main')
+
     @include('partials.footer')
 
     {{-- cdn e script --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-
     <script src="https://unpkg.com/vue-dragscroll"></script>
-    
-    {{-- <script src="/js/app.js"></script> --}}
+    <script src="{{ asset('js/store.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/restaurants.js') }}"></script>
     <script src="{{ asset('js/navbar.js') }}"></script>

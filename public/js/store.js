@@ -91,9 +91,79 @@
   !*** ./resources/js/store.js ***!
   \*******************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\filippo\\Desktop\\boolean\\Esercizi\\php\\project_deliveboo\\resources\\js\\store.js'");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var cart = window.localStorage.getItem('cart');
+var cartCount = window.localStorage.getItem('cartCount');
+var store = {
+  state: {
+    cart: cart ? JSON.parse(cart) : [],
+    cartCount: cartCount ? parseInt(cartCount) : 0
+  },
+  mutations: {
+    addToCart: function addToCart(state, item) {
+      var found = state.cart.find(function (product) {
+        return product.id == item.id;
+      });
+
+      if (state.cartCount > 0) {
+        if (item.restaurant_id == state.cart[0].restaurant_id) {
+          if (found) {
+            found.quantity++;
+            found.totalPrice = found.quantity * found.price;
+          } else {
+            state.cart.push(item);
+            Vue.set(item, 'quantity', 1);
+            Vue.set(item, 'totalPrice', item.price);
+          }
+
+          state.cartCount++;
+        }
+      } else {
+        if (found) {
+          found.quantity++;
+          found.totalPrice = found.quantity * found.price;
+        } else {
+          state.cart.push(item);
+          Vue.set(item, 'quantity', 1);
+          Vue.set(item, 'totalPrice', item.price);
+        }
+
+        state.cartCount++;
+      }
+
+      this.commit('saveCart');
+    },
+    removeFromCart: function removeFromCart(state, item) {
+      var index = state.cart.indexOf(item);
+      var found = state.cart.find(function (product) {
+        return product.id == item.id;
+      });
+
+      if (found && found.quantity > 1) {
+        found.quantity--;
+        found.totalPrice = found.quantity * found.price;
+      } else {
+        state.cart.splice(index, 1);
+      }
+
+      state.cartCount--;
+      this.commit('saveCart');
+    },
+    emptyCart: function emptyCart(state) {
+      state.cart = [];
+      state.cartCount = 0;
+      this.commit('saveCart');
+    },
+    saveCart: function saveCart(state) {
+      window.localStorage.setItem('cart', JSON.stringify(state.cart));
+      window.localStorage.setItem('cartCount', state.cartCount);
+    }
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (store);
 
 /***/ }),
 
@@ -104,7 +174,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\filippo\Desktop\boolean\Esercizi\php\project_deliveboo\resources\js\store.js */"./resources/js/store.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\store.js */"./resources/js/store.js");
 
 
 /***/ })
