@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('main')
-<main> 
+<main>
+    <div class="container-fluid banner-show-homepage banner-show-user" style="background-image: url('../../images/varie/deliveboo-jumbo.png')"></div>
     <section class="section-main">
         <div class="container" id="root">
             <div class="row justify-content-center">
