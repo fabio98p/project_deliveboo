@@ -2,19 +2,26 @@
 
 @section('main')
 <main id="root">
-{{-- <div class="container-fluid banner-show" style="background-image: url('../images/varie/my-restaurant-banner.jpg')"></div> --}}
+<div class="container-fluid banner-show-homepage" style="background-image: url('../images/varie/deliveboo-jumbo.png')">
+    <div class="container search-bar">
+        <label for="Ricerca Ristoranti"></label>
+        <input v-model="scriviTxt" class="search" type="search" name="search" @keyup.enter="cerca(scriviTxt)" placeholder="Dove vuoi mangiare oggi?">
+        <a class="my-button my-button-orange" style="cursor: pointer; margin-left: 15px;" @click="cerca(scriviTxt)" >
+          Cerca
+        </a>
+      </div></div>
 <section class="section-main">
-  <div class="container search-bar">
+  {{-- <div class="container search-bar">
     <label for="Ricerca Ristoranti"></label>
-    <input v-model="scriviTxt" class="search" type="search" name="search" @keyup.enter="cerca(scriviTxt)" placeholder="Inserisci il nome del ristorante">
+    <input v-model="scriviTxt" class="search" type="search" name="search" @keyup.enter="cerca(scriviTxt)" placeholder="Dove vuoi mangiare?">
     <a class="my-button my-button-orange" style="cursor: pointer; margin-left: 15px;" @click="cerca(scriviTxt)" >
       Cerca
     </a>
-  </div>
+  </div> --}}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="row row-categories" v-dragscroll>
+                <div class="row row-categories">
                     <div class="card-homepage mb-2 text-center"
                     v-for="category in categories"
                     :key="category.id"
