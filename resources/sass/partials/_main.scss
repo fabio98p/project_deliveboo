@@ -41,6 +41,10 @@
     }
 }
 
+.banner-show-user {
+    height: 300px;
+}
+
 .border-2px {
     border: 2px solid black;
 }
@@ -526,5 +530,11 @@ $breakpoint-large: 1200px;
         height: 400px;
         background-size: cover;
         background-position: bottom;
+    }
+
+    .banner-show-user {
+        height: 300px;
+        background-size: cover;
+        background-position: bottom left;
     }
 }

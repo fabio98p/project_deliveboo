@@ -2,7 +2,7 @@
 
 @section('main')
 <main>
-    <div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')"></div>
+<div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')"></div>
 <section class="section-main position-relative" id="root">
     <div class="container">
         <div class="row justify-content-center">
