@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-md">
+<nav class="navbar fixed-top navbar-expand-md" id="nav">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('index') }}">DeliveBoo</a>
-        {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <a class="navbar-brand" href="{{ route('index') }}"> <img class="logo-navbar" src="/images/logos/deliveboo-2.png" alt=""> </a>
+        <button class="navbar-toggler" v-on:click="showNavToggler()">
             <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
-        </button> --}}
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        </button>
+        <div class="collapse navbar-collapse" :class="(showNav == true) ? 'show' : '' ">
             <ul class="navbar-nav ml-auto">
                 @guest
                     <li class="nav-item">

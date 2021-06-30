@@ -7,9 +7,11 @@ var app = new Vue({
         restaurants: [],
         categories: [],
         searchResult: [],
+        filterResult: [],
         checkClick: false,
         deleteForm: false,
         categorySelected: '',
+        search: false,
     },
     created() {
         axios.get('http://localhost:8000/api/categories').then((response) => {
@@ -28,26 +30,36 @@ var app = new Vue({
             axios.get(`http://localhost:8000/api/search-restaurant/${this.scriviTxt}`)
                 .then((response) => {
                     this.searchResult = response.data.response;
-                })
-        },
-        filter: function () {
-
+                });
+            this.scriviTxt = '';
+            this.filterResult = [];
+            this.categorySelected = '';
+            this.search = true;
         },
         filterRestaurants: function (id) {
-            if (this.categorySelected == id) {
-                this.categorySelected = ''
-                axios.get('http://localhost:8000/api/restaurants').then((response) => {
-                    this.restaurants = response.data.response;
-                })
-            } else {
-                this.categorySelected = id
-                axios.get(`http://localhost:8000/api/filter-restaurants/${id}`)
-                    .then((response) => {
-                        this.restaurants = response.data.response;
-                    })
-            }
+          this.categorySelected = id;
+          axios.get(`http://localhost:8000/api/filter-restaurants/${id}`)
+              .then((response) => {
+                  this.filterResult = response.data.response;
+              });
+          this.searchResult = [];
         },
+        restart: function () {
+          this.search = false;
+          this.categorySelected = '';
+          this.filterResult = [];
+          this.searchResult = [];
+        }
     },
     computed: {
+      results: function () {
+        if (this.categorySelected == '' && !this.search) {
+          return this.restaurants;
+        } else if (this.categorySelected != '') {
+          return this.filterResult;
+        } else {
+          return this.searchResult;
+        }
+      }
     },
 })

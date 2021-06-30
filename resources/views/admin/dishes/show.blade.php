@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('main')
-
-<div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')"></div>
+<main class="full-height">
+    <div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')"></div>
 <section class="section-main position-relative" id="root">
     <div class="container">
         <div class="row">
@@ -10,11 +10,18 @@
                 <div class="page-top">
                     <h1>{{ $dish['name'] }}</h1>
                     <div class="my-buttons-container">
-                        <a class="my-button my-button-blue" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">
-                            Torna al ristorante
-                        </a>
-                        <a class="my-button my-button-orange ml-1" href="{{route('admin.dishes.edit', ['dish' => $dish->slug])}}">Modifica piatto</a>
-                        <a class="my-button my-button-red" name="button" @click="deleteForm = true">Cancella piatto</a>
+                        <a class="my-button-responsive-show my-button-blue" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}">Torna al ristorante</a>
+                        <a class="my-button-responsive-show my-button-orange" href="{{route('admin.dishes.edit', ['dish' => $dish->slug])}}">Modifica piatto</a>
+                        <a class="my-button-responsive-show my-button-red" name="button" @click="deleteForm = true">Cancella piatto</a>
+
+                        {{-- buttons che appaiono solo su tablet/mobile --}}
+                        <a class="my-button-responsive-hide my-button-blue" href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}"><i class="fas fa-chevron-left"></i></a>
+                        <a class="my-button-responsive-hide my-button-orange" href="{{route('admin.dishes.edit', ['dish' => $dish->slug])}}"><i class="fas fa-edit"></i></a>
+                        <a class="my-button-responsive-hide my-button-red" name="button" @click="deleteForm = true"><i class="fas fa-trash-alt"></i></a>
+                        
+
+                        {{-- <a class="my-button-responsive my-button-red " href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}"><i class="fas fa-trash-alt"></i></a>
+                        <a class="my-button-responsive my-button-orange" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}"><i class="fas fa-edit"></i></a> --}}
                     </div>
                 </div>
             </div>
@@ -64,4 +71,6 @@
       </div>
     </div>
 </section>
+</main>
+
 @endsection

@@ -81,96 +81,100 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/restaurants.js":
-/*!*************************************!*\
-  !*** ./resources/js/restaurants.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./resources/js/store.js":
+/*!*******************************!*\
+  !*** ./resources/js/store.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-Vue.config.devtools = true;
-var app = new Vue({
-  el: '#root',
-  data: {
-    scriviTxt: '',
-    restaurants: [],
-    categories: [],
-    searchResult: [],
-    filterResult: [],
-    checkClick: false,
-    deleteForm: false,
-    categorySelected: '',
-    search: false
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var cart = window.localStorage.getItem('cart');
+var cartCount = window.localStorage.getItem('cartCount');
+var store = {
+  state: {
+    cart: cart ? JSON.parse(cart) : [],
+    cartCount: cartCount ? parseInt(cartCount) : 0
   },
-  created: function created() {
-    var _this = this;
-
-    axios.get('http://localhost:8000/api/categories').then(function (response) {
-      _this.categories = response.data.response;
-    });
-    axios.get('http://localhost:8000/api/restaurants').then(function (response) {
-      _this.restaurants = response.data.response;
-    });
-  },
-  methods: {
-    checkReverse: function checkReverse() {
-      this.checkClick = !this.checkClick;
-    },
-    cerca: function cerca() {
-      var _this2 = this;
-
-      axios.get("http://localhost:8000/api/search-restaurant/".concat(this.scriviTxt)).then(function (response) {
-        _this2.searchResult = response.data.response;
+  mutations: {
+    addToCart: function addToCart(state, item) {
+      var found = state.cart.find(function (product) {
+        return product.id == item.id;
       });
-      this.scriviTxt = '';
-      this.filterResult = [];
-      this.categorySelected = '';
-      this.search = true;
-    },
-    filterRestaurants: function filterRestaurants(id) {
-      var _this3 = this;
 
-      this.categorySelected = id;
-      axios.get("http://localhost:8000/api/filter-restaurants/".concat(id)).then(function (response) {
-        _this3.filterResult = response.data.response;
-      });
-      this.searchResult = [];
-    },
-    restart: function restart() {
-      this.search = false;
-      this.categorySelected = '';
-      this.filterResult = [];
-      this.searchResult = [];
-    }
-  },
-  computed: {
-    results: function results() {
-      if (this.categorySelected == '' && !this.search) {
-        return this.restaurants;
-      } else if (this.categorySelected != '') {
-        return this.filterResult;
+      if (state.cartCount > 0) {
+        if (item.restaurant_id == state.cart[0].restaurant_id) {
+          if (found) {
+            found.quantity++;
+            found.totalPrice = found.quantity * found.price;
+          } else {
+            state.cart.push(item);
+            Vue.set(item, 'quantity', 1);
+            Vue.set(item, 'totalPrice', item.price);
+          }
+
+          state.cartCount++;
+        }
       } else {
-        return this.searchResult;
+        if (found) {
+          found.quantity++;
+          found.totalPrice = found.quantity * found.price;
+        } else {
+          state.cart.push(item);
+          Vue.set(item, 'quantity', 1);
+          Vue.set(item, 'totalPrice', item.price);
+        }
+
+        state.cartCount++;
       }
+
+      this.commit('saveCart');
+    },
+    removeFromCart: function removeFromCart(state, item) {
+      var index = state.cart.indexOf(item);
+      var found = state.cart.find(function (product) {
+        return product.id == item.id;
+      });
+
+      if (found && found.quantity > 1) {
+        found.quantity--;
+        found.totalPrice = found.quantity * found.price;
+      } else {
+        state.cart.splice(index, 1);
+      }
+
+      state.cartCount--;
+      this.commit('saveCart');
+    },
+    emptyCart: function emptyCart(state) {
+      state.cart = [];
+      state.cartCount = 0;
+      this.commit('saveCart');
+    },
+    saveCart: function saveCart(state) {
+      window.localStorage.setItem('cart', JSON.stringify(state.cart));
+      window.localStorage.setItem('cartCount', state.cartCount);
     }
   }
-});
+};
+/* harmony default export */ __webpack_exports__["default"] = (store);
 
 /***/ }),
 
-/***/ 1:
-/*!*******************************************!*\
-  !*** multi ./resources/js/restaurants.js ***!
-  \*******************************************/
+/***/ 2:
+/*!*************************************!*\
+  !*** multi ./resources/js/store.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\store.js */"./resources/js/store.js");
 
 
 /***/ })

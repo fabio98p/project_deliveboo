@@ -51,11 +51,11 @@ class RestaurantController extends Controller
     {
       $restaurant = Restaurant::where('slug',$slug)->first();
 
-      $restaurant_id = $restaurant['id'];
+      // $restaurant_id = $restaurant['id'];
+      //
+      // $dishes = Dish::where('restaurant_id',$restaurant['id'])->where('available',1)->orderBy('name','asc')->get();
 
-      $dishes = Dish::where('restaurant_id',$restaurant['id'])->where('available',1)->orderBy('name','asc')->get();
-
-      return view('guests.restaurants.show', compact('restaurant','dishes'));
+      return view('guests.restaurants.show', compact('restaurant'));
     }
 
     /**
