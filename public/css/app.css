@@ -11269,10 +11269,12 @@ input:checked {
 .navbar .navbar-nav .nav-item .nav-link {
   color: #fbf4f0;
   font-size: 1.2em;
+  padding: 0;
+  margin-left: 1em;
 }
 
 .navbar .navbar-nav .nav-item .nav-link:hover {
-  color: #d2b9ad;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 @media (max-width: 768px) {
