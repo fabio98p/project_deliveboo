@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('main')
-
+<main>
 <div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')"></div>
 <section class="section-main position-relative" id="root">
     <div class="container">
@@ -10,15 +10,21 @@
                 <div class="page-top">
                     <h1>{{ $restaurant['name'] }}</h1>
                     <div class="my-buttons-container">
-                        <a class="my-button my-button-orange" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}">Modifica ristorante</a>
-                        <a class="my-button my-button-red" style="padding: 6px 25px;" type="button" name="button" @click="deleteForm = true">Cancella ristorante</a>
+                        <a class="my-button-responsive-show my-button-orange" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}">Modifica ristorante</a>
+                        <a class="my-button-responsive-show my-button-red" type="button" name="button" @click="deleteForm = true">Cancella ristorante</a>
+
+                        {{-- buttons che appaiono solo su tablet/mobile --}}
+                        <a class="my-button-responsive-hide my-button-orange" href="{{route('admin.restaurants.edit', ['restaurant' => $restaurant->slug])}}"><i class="fas fa-edit"></i></a>
+                        <a class="my-button-responsive-hide my-button-red " type="button" name="button" @click="deleteForm = true"><i class="fas fa-trash-alt"></i></a>
+                        
                     </div>
+
                 </div>
                 <h2>I miei piatti</h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-lg-4 mt-2 card-outline">
+            <div class="col-md-6 col-lg-4 mt-2 card-outline">
                 <a class="link-to" href="{{ route('admin.dishes.create', ['restaurant' => $restaurant->slug]) }}">
                     <div class="card-personal">
                         <div class="card-personal-cover">
@@ -59,7 +65,7 @@
             @endforeach --}}
 
             @foreach($dishes as $index => $dish)
-                <div class="col-md-4 col-lg-4 mt-2 card-outline">
+                <div class="col-md-6 col-lg-4 mt-2 card-outline">
                     <a class="link-to" href="{{route('admin.dishes.show', ['dish' => $dish->slug])}}">
                         <div class="card-personal">
                             <div class="card-personal-cover" style="background-image: url('{{asset($dish->image)}}')">
@@ -96,9 +102,9 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-md-12">
-              <div class="my-buttons-container">
-                  <a class="my-button my-button-blue" href="{{route('admin.orders.show', ['restaurant' => $restaurant->slug])}}">Ordini ricevuti</a>
-                  <a class="my-button my-button-green" href="{{route('admin.statistics.show', ['restaurant' => $restaurant->slug])}}">Statistiche</a>
+              <div class="my-buttons-container d-flex justify-content-center padding-top-54">
+                  <a class="my-button my-button-blue mr-1" href="{{route('admin.orders.show', ['restaurant' => $restaurant->slug])}}">Ordini ricevuti</a>
+                  <a class="my-button my-button-green ml-1" href="{{route('admin.statistics.show', ['restaurant' => $restaurant->slug])}}">Statistiche</a>
               </div>
             </div>
         </div>
@@ -122,4 +128,6 @@
       </div>
     </div>
 </section>
+</main>
+
 @endsection

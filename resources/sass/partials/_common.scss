@@ -10,7 +10,7 @@ input::-webkit-inner-spin-button {
     width: fit-content;
     color: $white;
     transition: all 0.25s ease-out;
-    border-radius: 5px;
+    border-radius: 20px;
     border: none;
 
     &:hover {
@@ -28,7 +28,7 @@ input::-webkit-inner-spin-button {
     width: fit-content;
     color: $white;
     transition: all 0.25s ease-out;
-    border-radius: 5px;
+    border-radius: 25px;
     border: 0.5px solid $red;
     font-size: 15px;
 
@@ -48,7 +48,7 @@ input::-webkit-inner-spin-button {
     width: fit-content;
     color: $white;
     transition: all 0.25s ease-out;
-    border-radius: 5px;
+    border-radius: 25px;
     border: 0.5px solid $green;
     font-size: 15px;
 
@@ -68,7 +68,7 @@ input::-webkit-inner-spin-button {
     width: fit-content;
     color: $white;
     transition: all 0.25s ease-out;
-    border-radius: 5px;
+    border-radius: 25px;
     border: 0.5px solid $blue;
     font-size: 15px;
 
@@ -88,7 +88,7 @@ input::-webkit-inner-spin-button {
     color: $white;
     background: $orange;
     transition: all 0.25s ease-out;
-    border-radius: 5px;
+    border-radius: 25px;
     border: 0.5px solid $orange;
     font-size: 15px;
 
@@ -108,7 +108,7 @@ input::-webkit-inner-spin-button {
     color: $white;
     background: $orange;
     transition: all 0.25s ease-out;
-    border-radius: 5px;
+    border-radius: 25px;
     border: 0.5px solid $orange;
     font-size: 15px;
 
@@ -128,7 +128,7 @@ input::-webkit-inner-spin-button {
     width: fit-content;
     color: $white;
     transition: all 0.25s ease-out;
-    border-radius: 5px;
+    border-radius: 25px;
     border: 0.5px solid $lightpurple;
     font-size: 15px;
 
@@ -147,6 +147,11 @@ input::-webkit-inner-spin-button {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    ::placeholder {
+        font-size: 1.2em;
+        padding-left: 10px;
+    }
 }
 
 .search {
@@ -154,7 +159,7 @@ input::-webkit-inner-spin-button {
     padding: 10px;
     border: 0.5px solid $orange;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 25px;
     outline: none;
 }
 
@@ -166,6 +171,10 @@ input::-webkit-inner-spin-button {
     color: $red;
 }
 
+.padding-top-54 {
+    padding-top: 54px;
+}
+
 h1,
 h2,
 h3,
@@ -175,6 +184,7 @@ h6,
 span,
 p {
     color: $darkbrown;
+    margin-bottom: 0;
 }
 
 .btn-link-login {
@@ -202,3 +212,38 @@ input:checked {
 //   }
 //
 // }
+
+$breakpoint-mobile: 768px;
+
+@media (max-width: $breakpoint-mobile) {
+    .my-button-responsive-hide {
+        visibility: visible;
+    }
+
+    .my-button-responsive-show {
+        display: none;
+    }
+}
+
+@media (min-width: $breakpoint-mobile) {
+    .my-button-responsive-hide {
+        display: none;
+    }
+
+    .my-button-responsive-show {
+        visibility: visible;
+    }
+}
+
+$breakpoint-large: 1200px;
+
+@media (min-width: $breakpoint-large) {
+
+    .container-xl,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container {
+        max-width: 1300px;
+    }
+}

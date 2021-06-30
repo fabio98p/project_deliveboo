@@ -3,4 +3,5 @@
     "/css/app.css": "/css/app.css",
     "/js/restaurants.js": "/js/restaurants.js",
     "/js/store.js": "/js/store.js"
+    "/js/navbar.js": "/js/navbar.js",
 }
