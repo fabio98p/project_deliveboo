@@ -1,7 +1,7 @@
 <template>
 <div class="col-md-4 col-lg-4" id="cart">
   <div class="cart-inner">
-    <h3 class="text-center">IL TUO ORDINE</h3>
+    <h3 class="text-center">CARRELLO</h3>
     <div class="cart-empty text-center mt-3"
     :class="($store.state.cartCount == 0) ? 'd-block' : 'd-none'">
       <h5>Il tuo carello è vuoto!</h5>
