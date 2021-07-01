@@ -107,19 +107,17 @@ Expiration Date: 09/22
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="page-top">
-                                    <h2>Carrello</h2>
+                                    <h2>Riepilogo Ordine</h2>
                                 </div>
                             </div>
                         </div>
                         <div class="row checkout-card-inner">
                             <cart-checkout></cart-checkout>
                         </div>
+
                         <div class="row column checkout-card-inner">
                             <div class="col-md-12">
-                                <div id="dropin-container" class="braintree-upper-container"></div>
-                            </div>
-                            <div class="col-md-12">
-                                <button id="submit-button" class="button button--small button--green">Purchase</button>
+                                <payment></payment>
                             </div>
                         </div>
                     </div>
