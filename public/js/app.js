@@ -2127,7 +2127,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.removeBtn {\r\n    margin-right: 1rem;\r\n    color: red;\n}\r\n", ""]);
+exports.push([module.i, "\n.removeBtn {\n    margin-right: 1rem;\n    color: red;\n}\n", ""]);
 
 // exports
 
@@ -20554,7 +20554,7 @@ var render = function() {
                   staticClass: "my button my-button-orange mt-3",
                   on: { click: _vm.emptyCart }
                 },
-                [_vm._v("\r\n          Svuota il carello\r\n      ")]
+                [_vm._v("\n          Svuota il carello\n      ")]
               ),
               _c("br")
             ]
@@ -34465,8 +34465,13 @@ var store = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
+__webpack_require__(/*! /Users/emanueleattina/Documents/progetti_fallimentari/boolean/Esercizi/project_deliveboo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/emanueleattina/Documents/progetti_fallimentari/boolean/Esercizi/project_deliveboo/resources/sass/app.scss */"./resources/sass/app.scss");
+=======
 __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> Frontend
 
 
 /***/ })

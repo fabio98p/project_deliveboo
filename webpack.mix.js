@@ -16,3 +16,8 @@ mix.js('resources/js/app.js', 'public/js')
    .js('resources/js/store.js', 'public/js')
    .js('resources/js/navbar.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
+<<<<<<< HEAD
+
+    
+=======
+>>>>>>> Frontend

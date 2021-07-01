@@ -11213,6 +11213,11 @@ input:checked {
   margin-bottom: 50px;
 }
 
+.padding-y-50 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 @media (max-width: 768px) {
   .navbar-toggler {
     display: flex;
@@ -11572,6 +11577,12 @@ a:hover {
 .row-categories .card-homepage .icon-category {
   width: 55px;
   margin-bottom: 5px;
+  transition: all 0.25s ease-out;
+}
+
+.row-categories .card-homepage .icon-category:hover {
+  transform: rotate(15deg);
+  transition: all 0.1s ease-out;
 }
 
 .row-categories .card-homepage h5 {
@@ -11680,6 +11691,7 @@ input[type=checkbox] {
 
 .section-main .checkbox-categories-label-checked {
   filter: drop-shadow(2px 4px 6px #df814a);
+  transform: rotate(15deg);
 }
 
 .section-main .results-title {
