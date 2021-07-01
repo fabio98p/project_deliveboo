@@ -112,6 +112,14 @@ input::-webkit-inner-spin-button {
     border: 0.5px solid $orange;
     font-size: 15px;
 
+    a {
+        color: $white;
+
+        &:hover {
+            color: $white;
+        }
+    }
+
     &:hover {
         color: $white;
         background: rgba($color: $orange, $alpha: 0.8);
@@ -192,6 +200,21 @@ input:checked {
 //   }
 //
 // }
+
+.button-anchor {
+    z-index: 10;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    box-shadow: 0px 5px 24px 0px rgb(0 0 0 / 20%);
+}
+
+.no-button {
+    background: none;
+    border: none;
+    height: fit-content;
+    width: fit-content;
+}
 
 $breakpoint-mobile: 768px;
 
