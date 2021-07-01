@@ -5,7 +5,7 @@
 <div class="container-fluid banner-show-homepage" style="background-image: url('../images/varie/deliveboo-jumbo.png')">
     <div class="container search-bar">
         <label for="Ricerca Ristoranti"></label>
-        <input v-model="scriviTxt" class="search" type="search" name="search" @keyup.enter="cerca(scriviTxt)" placeholder="Dove vuoi mangiare oggi?">
+        <input v-model="scriviTxt" class="search" type="search" name="search" @keyup.enter="cerca(scriviTxt)" placeholder="Dove vuoi ordinare oggi?">
         <a class="my-button my-button-orange" style="cursor: pointer; margin-left: 15px;" @click="cerca(scriviTxt)" >
           Cerca
         </a>
