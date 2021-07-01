@@ -18,9 +18,9 @@
 
           <div class="row">
             <div class="col-md-8 col-lg-8">
-              <example-component></example-component>
+              <dishes></dishes>
             </div>
-            <cart-dropdown></cart-dropdown>
+            <cart></cart>
           </div>
       </div>
   </section>

@@ -112,7 +112,7 @@ Expiration Date: 09/22
                             </div>
                         </div>
                         <div class="row checkout-card-inner">
-                            <cart-dropdown></cart-dropdown>
+                            <cart-checkout></cart-checkout>
                         </div>
                         <div class="row column checkout-card-inner">
                             <div class="col-md-12">
