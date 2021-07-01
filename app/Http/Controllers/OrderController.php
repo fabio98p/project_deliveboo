@@ -14,16 +14,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-      $gateway = new \Braintree\Gateway([
-            'environment' => config('services.braintree.environment'),
-            'merchantId' => config('services.braintree.merchantId'),
-            'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
-        ]);
 
-        $token = $gateway->ClientToken()->generate();
-
-      return view('guests.orders.index', compact('token'));
+      return view('guests.orders.index');
     }
 
     /**
