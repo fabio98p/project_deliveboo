@@ -50,7 +50,6 @@ async function getDummyData() {
   const barChatData = await response.json()
 
   const salary = barChatData.data.map((x) => x.employee_salary)
-  console.log(salary)
   const age = barChatData.data.map((x) => x.employee_age)
   const name = barChatData.data.map((x) => x.employee_name)
 
