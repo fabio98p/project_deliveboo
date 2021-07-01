@@ -1986,6 +1986,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      clickQuantity: false,
+      currentId: null,
+      newQuantity: null
+    };
+  },
   computed: {
     totalPrice: function totalPrice() {
       var total = 0;
@@ -2081,7 +2088,76 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      clickQuantity: false,
+      currentId: null,
+      newQuantity: null
+    };
+  },
   computed: {
     totalPrice: function totalPrice() {
       var total = 0;
@@ -2108,10 +2184,26 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.$store.commit("addToCart", item);
     },
     removeFromCart: function removeFromCart(item) {
-      this.$store.commit('removeFromCart', item);
+      this.$store.commit("removeFromCart", item);
     },
     emptyCart: function emptyCart() {
-      this.$store.commit('emptyCart');
+      this.$store.commit("emptyCart");
+    },
+    setManually: function setManually(item) {
+      this.currentId = item; // this.clickQuantity = !this.clickQuantity;
+    },
+    setManuallyDone: function setManuallyDone(item) {
+      this.$store.commit("setManuallyDone", item);
+    },
+    changeQuantity: function changeQuantity(item, event, state) {
+      item.quantity = event.target.value; // Actual assignment
+      // this.newQuantity = item.quantity;
+
+      this.currentId = null;
+      this.$store.commit("changeQuantity", item);
+    },
+    removeItemFromCart: function removeItemFromCart(item) {
+      this.$store.commit("removeItemFromCart", item);
     }
   }
 });
@@ -2374,7 +2466,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.removeBtn {\r\n    margin-right: 1rem;\r\n    color: red;\n}\r\n", ""]);
+exports.push([module.i, "\n.removeBtn {\n\tmargin-right: 1rem;\n\tcolor: red;\n}\n", ""]);
 
 // exports
 
@@ -21517,34 +21609,74 @@ var render = function() {
                 _c("div", { staticClass: "dish-name ml-3" }, [
                   _c("span", [_vm._v(_vm._s(item.name))]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "dish-quantity" }, [
-                    _c("i", {
-                      staticClass: "fas fa-minus",
-                      on: {
-                        click: function($event) {
-                          return _vm.removeFromCart(item)
-                        }
-                      }
-                    }),
+                  _c("div", { staticClass: "dish-name ml-3" }, [
+                    _c("span", [_vm._v(_vm._s(item.name))]),
                     _vm._v(" "),
-                    _c("span", { staticClass: "ml-1 mr-1" }, [
-                      _vm._v(_vm._s(item.quantity))
-                    ]),
-                    _vm._v(" "),
-                    _c("i", {
-                      staticClass: "fas fa-plus",
-                      on: {
-                        click: function($event) {
-                          return _vm.addToCart(item)
+                    _c("div", { staticClass: "dish-quantity" }, [
+                      _c("i", {
+                        staticClass: "fas fa-minus",
+                        on: {
+                          click: function($event) {
+                            return _vm.removeFromCart(item)
+                          }
                         }
-                      }
-                    })
+                      }),
+                      _vm._v(" "),
+                      item.id != _vm.currentId
+                        ? _c(
+                            "span",
+                            {
+                              staticClass: "ml-1 mr-1",
+                              on: {
+                                click: function($event) {
+                                  return _vm.setManually(item.id)
+                                }
+                              }
+                            },
+                            [_vm._v(_vm._s(item.quantity))]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      item.id == _vm.currentId
+                        ? _c("input", {
+                            staticClass: "set-quantity",
+                            attrs: { type: "number" },
+                            domProps: { value: item.quantity },
+                            on: {
+                              keyup: function($event) {
+                                if (
+                                  !$event.type.indexOf("key") &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                return _vm.changeQuantity(item, $event)
+                              }
+                            }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("i", {
+                        staticClass: "fas fa-plus",
+                        on: {
+                          click: function($event) {
+                            return _vm.addToCart(item)
+                          }
+                        }
+                      })
+                    ])
                   ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "dish-price" }, [
+                  _c("span", [_vm._v("€" + _vm._s(item.totalPrice))])
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "dish-price" }, [
-                _c("span", [_vm._v("€" + _vm._s(item.totalPrice))])
               ])
             ])
           }),
@@ -21599,7 +21731,26 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "page-top" }, [
+      _c("h3", { staticClass: "text-center" }, [_vm._v("IL TUO ORDINE")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "/orders" } }, [
+      _c("button", { staticClass: "my-button my-button-orange" }, [
+        _vm._v("\n\t\t\t\t\t\t\tVai alla cassa\n\t\t\t\t\t\t")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -21627,14 +21778,12 @@ var render = function() {
     [
       _c(
         "div",
-        { staticClass: "cart-inner" },
+        { staticClass: "cart-inner-no-padding" },
         [
-          _c("h3", { staticClass: "text-center" }, [_vm._v("CARRELLO")]),
-          _vm._v(" "),
           _c(
             "div",
             {
-              staticClass: "cart-empty text-center mt-3",
+              staticClass: "cart-empty text-center",
               class: _vm.$store.state.cartCount == 0 ? "d-block" : "d-none"
             },
             [_c("h5", [_vm._v("Il tuo carello è vuoto!")])]
@@ -21643,7 +21792,25 @@ var render = function() {
           _vm._l(_vm.$store.state.cart, function(item) {
             return _c("div", { key: item.id, staticClass: "cart-item" }, [
               _c("div", { staticClass: "dish-cover" }, [
-                _c("img", { attrs: { src: item.image, alt: item.name } }),
+                _c(
+                  "div",
+                  {
+                    staticClass: "dish-cover-image",
+                    style: "background-image: url('" + item.image + "');"
+                  },
+                  [
+                    _c("div", { staticClass: "dish-cover-overlay" }, [
+                      _c("i", {
+                        staticClass: "fas fa-times",
+                        on: {
+                          click: function($event) {
+                            return _vm.removeItemFromCart(item)
+                          }
+                        }
+                      })
+                    ])
+                  ]
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "dish-name ml-3" }, [
                   _c("span", [_vm._v(_vm._s(item.name))]),
@@ -21658,9 +21825,45 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("span", { staticClass: "ml-1 mr-1" }, [
-                      _vm._v(_vm._s(item.quantity))
-                    ]),
+                    item.id != _vm.currentId
+                      ? _c(
+                          "span",
+                          {
+                            staticClass: "ml-1 mr-1",
+                            on: {
+                              click: function($event) {
+                                return _vm.setManually(item.id)
+                              }
+                            }
+                          },
+                          [_vm._v(_vm._s(item.quantity))]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    item.id == _vm.currentId
+                      ? _c("input", {
+                          staticClass: "set-quantity",
+                          attrs: { type: "number" },
+                          domProps: { value: item.quantity },
+                          on: {
+                            keyup: function($event) {
+                              if (
+                                !$event.type.indexOf("key") &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              return _vm.changeQuantity(item, $event)
+                            }
+                          }
+                        })
+                      : _vm._e(),
                     _vm._v(" "),
                     _c("i", {
                       staticClass: "fas fa-plus",
@@ -21694,6 +21897,25 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("p", [_vm._v("Totale: €" + _vm._s(_vm.totalPrice))])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "mt-4 text-center",
+              class: _vm.$store.state.cartCount != 0 ? "d-block" : "d-none"
+            },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "my button my-button-red mt-3",
+                  on: { click: _vm.emptyCart }
+                },
+                [_vm._v("\n\t\t\t\t\tSvuota il carello")]
+              ),
+              _c("br")
             ]
           )
         ],
@@ -35811,6 +36033,34 @@ var store = {
     emptyCart: function emptyCart(state) {
       state.cart = [];
       state.cartCount = 0;
+      this.commit('saveCart');
+    },
+    changeQuantity: function changeQuantity(state, item) {
+      var index = state.cart.indexOf(item);
+      var found = state.cart.find(function (product) {
+        return product.id == item.id;
+      });
+      found.totalPrice = found.quantity * found.price;
+      found.quantity = item.quantity;
+      var sum = 0;
+      state.cart.forEach(function (element) {
+        sum = sum + parseInt(element.quantity);
+      });
+      state.cartCount = sum;
+
+      if (found.quantity == 0) {
+        state.cart.splice(index, 1);
+      }
+
+      this.commit('saveCart');
+    },
+    removeItemFromCart: function removeItemFromCart(state, item) {
+      var index = state.cart.indexOf(item);
+      var found = state.cart.find(function (product) {
+        return product.id == item.id;
+      });
+      state.cartCount = state.cartCount - found.quantity;
+      state.cart.splice(index, 1);
       this.commit('saveCart');
     },
     saveCart: function saveCart(state) {

@@ -157,6 +157,34 @@ var store = {
       state.cartCount = 0;
       this.commit('saveCart');
     },
+    changeQuantity: function changeQuantity(state, item) {
+      var index = state.cart.indexOf(item);
+      var found = state.cart.find(function (product) {
+        return product.id == item.id;
+      });
+      found.totalPrice = found.quantity * found.price;
+      found.quantity = item.quantity;
+      var sum = 0;
+      state.cart.forEach(function (element) {
+        sum = sum + parseInt(element.quantity);
+      });
+      state.cartCount = sum;
+
+      if (found.quantity == 0) {
+        state.cart.splice(index, 1);
+      }
+
+      this.commit('saveCart');
+    },
+    removeItemFromCart: function removeItemFromCart(state, item) {
+      var index = state.cart.indexOf(item);
+      var found = state.cart.find(function (product) {
+        return product.id == item.id;
+      });
+      state.cartCount = state.cartCount - found.quantity;
+      state.cart.splice(index, 1);
+      this.commit('saveCart');
+    },
     saveCart: function saveCart(state) {
       window.localStorage.setItem('cart', JSON.stringify(state.cart));
       window.localStorage.setItem('cartCount', state.cartCount);
@@ -174,7 +202,7 @@ var store = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\filippo\Desktop\boolean\Esercizi\php\project_deliveboo\resources\js\store.js */"./resources/js/store.js");
+module.exports = __webpack_require__(/*! /Users/emanueleattina/Documents/progetti_fallimentari/boolean/Esercizi/project_deliveboo/resources/js/store.js */"./resources/js/store.js");
 
 
 /***/ })
