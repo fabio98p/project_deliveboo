@@ -1,56 +1,87 @@
 <template>
-  <div>
-    <v-braintree
-      :authorization="authorization"
-      locale="it_IT"
-      @success="onSuccess"
-      @error="onError"
-      @load="onLoad"
-    >
-      <template #button="slotProps">
-        <v-btn ref="paymentBtnRef" @click="slotProps.submit" />
-      </template>
-    </v-braintree>
-    <div>
-      <p v-if="error" class="text-red-500 mb-4">
-        {{ error }}
-      </p>
+  <div class="flex flex-col mx-auto  max-w-lg p-10 justify-middle">
+    <div class="text-2xl">
+      Stai acquistando il prodotto con id: 
     </div>
+    {{ form }}
+    <Payment
+      ref="paymentRef"
+      :authorization="tokenApi"
+      @loading="handleLoading"
+      @onSuccess="paymentOnSuccess"
+      @onError="paymentOnError"
+    />
+
+    <button
+      v-if="!disableBuyButton"
+      class="w-full text-center px-4 py-3 bg-green-500 rounded-md shadow-md text-white font-semibold"
+      @click.prevent="beforeBuy"
+    >
+      Procedi con l'acquisto 🎉
+    </button>
+    <button
+      v-else
+      class="w-full text-center px-4 py-3 bg-green-300 rounded-md shadow-md text-white font-semibold cursor-not-allowed"
+    >
+      {{
+        loadingPayment ? 'Loading...' : 'Procedi con l\'acquisto 🎉'
+      }}
+    </button>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    authorization: {
-      required: true,
-      type: String
+  async asyncData ({ app }) {
+    let tokenApi = null
+    const response = await app.$axios.$get('/api/orders/generate')
+    tokenApi = response.token
+    return {
+      tokenApi,
+      loadingPayment: false
     }
   },
   data () {
     return {
-      error: ''
+      tokenApi: '',
+      disableBuyButton: true,
+      loadingPayment: true,
+      form: {
+        token: '',
+        product: ''
+      }
     }
   },
+  mounted () {
+    this.form.product = this.$route.params.id
+  },
   methods: {
-    onLoad () {
-      this.$emit('loading')
+    handleLoading () {
+      this.disableBuyButton = false
     },
-    onSuccess (payload) {
-      const token = payload.nonce
-      this.$emit('onSuccess', token)
-      // const nonce = payload.nonce
-      // Do something great with the nonce...
+    paymentOnSuccess (nonce) {
+      // alert(nonce);
+      this.form.token = nonce
+      this.buy()
     },
     // eslint-disable-next-line node/handle-callback-err
-    onError (error) {
-      const message = error.message
-      if (message === 'No payment method is available.') {
-        this.error = 'Seleziona un metodo di Pagamento'
-      } else {
-        this.error = message
+    paymentOnError (error) {
+    },
+    beforeBuy () {
+      this.$refs.paymentRef.$refs.paymentBtnRef.click()
+    },
+    async buy () {
+      this.disableBuyButton = true
+      this.loadingPayment = true
+      try {
+        await this.$axios.$post('/api/orders/make/payment', { ...this.form })
+        // const message = response.message
+        // alert(message)
+        this.$router.push({ path: '/checkout/thankyou' })
+      } catch (error) {
+        this.disableBuyButton = false
+        this.loadingPayment = false
       }
-      this.$emit('onError', message)
     }
   }
 }

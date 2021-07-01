@@ -127,18 +127,4 @@ Expiration Date: 09/22
     </section>
 </main>
 
-<script>
-    var button = document.querySelector('#submit-button');
-
-    braintree.dropin.create({
-      authorization: 'sandbox_7b83drqs_8mwh82p8nbkbbr3n',
-      selector: '#dropin-container'
-    }, function (err, instance) {
-      button.addEventListener('click', function () {
-        instance.requestPaymentMethod(function (err, payload) {
-          // Submit payload.nonce to your server
-        });
-      })
-    });
-    </script>
 @endsection
