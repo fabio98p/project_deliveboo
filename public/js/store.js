@@ -174,7 +174,7 @@ var store = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\utente\Documents\Atom\Boolean-Esercizi\project_deliveboo\resources\js\store.js */"./resources/js/store.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\store.js */"./resources/js/store.js");
 
 
 /***/ })
