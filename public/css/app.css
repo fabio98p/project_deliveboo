@@ -11478,7 +11478,6 @@ a:hover {
   transform: scale(1.05);
   transition: all 0.25s ease-out;
   box-shadow: 0px 22px 24px 0px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
 }
 
 .section-main .card-outline .card-personal:hover .card-personal-description {
@@ -11513,6 +11512,18 @@ a:hover {
 .section-main .card-outline .card-personal .card-personal-title .dish-price i {
   margin-left: 5px;
   font-size: 0.8em;
+}
+
+.section-main .card-outline .card-personal .card-personal-title .dish-price i.fa-cart-plus {
+  font-size: 1.2em;
+  margin-right: 10px;
+  transition: all 0.25s ease-out;
+  cursor: pointer;
+}
+
+.section-main .card-outline .card-personal .card-personal-title .dish-price i.fa-cart-plus:hover {
+  transform: scale(1.2);
+  transition: all 0.1s ease-out;
 }
 
 .section-main .card-outline .card-personal .add-card {
@@ -11559,6 +11570,7 @@ a:hover {
 }
 
 .row-categories {
+  padding-top: 10px;
   flex-wrap: nowrap;
   overflow-y: hidden;
   overflow-x: scroll;
@@ -11710,7 +11722,7 @@ input[type=checkbox] {
 }
 
 #cart {
-  padding: 20px;
+  padding-top: 20px;
 }
 
 #cart .cart-inner {
@@ -11758,6 +11770,11 @@ input[type=checkbox] {
   font-weight: bold;
 }
 
+.banner-show-user {
+  height: 400px;
+  background-position: bottom;
+}
+
 @media (min-width: 1200px) {
   .banner-show-homepage {
     height: 400px;
@@ -11766,9 +11783,9 @@ input[type=checkbox] {
   }
 
   .banner-show-user {
-    height: 300px;
+    height: 400px;
     background-size: cover;
-    background-position: bottom left;
+    background-position: bottom;
   }
 }
 

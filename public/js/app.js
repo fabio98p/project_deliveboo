@@ -2022,6 +2022,16 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     totalPrice: function totalPrice() {
@@ -2049,10 +2059,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.$store.commit("addToCart", item);
     },
     removeFromCart: function removeFromCart(item) {
-      this.$store.commit('removeFromCart', item);
+      this.$store.commit("removeFromCart", item);
     },
     emptyCart: function emptyCart() {
-      this.$store.commit('emptyCart');
+      this.$store.commit("emptyCart");
     }
   }
 });
@@ -2164,6 +2174,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -2390,7 +2402,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.removeBtn {\r\n    margin-right: 1rem;\r\n    color: red;\n}\r\n", ""]);
+exports.push([module.i, "\n.removeBtn {\r\n\tmargin-right: 1rem;\r\n\tcolor: red;\n}\r\n", ""]);
 
 // exports
 
@@ -21527,15 +21539,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "col-md-4 col-lg-4", attrs: { id: "cart" } },
-    [
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-md-12 col-lg-12", attrs: { id: "cart" } }, [
       _c(
         "div",
         { staticClass: "cart-inner" },
         [
-          _c("h3", { staticClass: "text-center" }, [_vm._v("CARRELLO")]),
+          _c("h3", { staticClass: "text-center" }, [_vm._v("IL TUO ORDINE")]),
           _vm._v(" "),
           _c(
             "div",
@@ -21625,7 +21635,7 @@ var render = function() {
                   staticClass: "my button my-button-orange mt-3",
                   on: { click: _vm.emptyCart }
                 },
-                [_vm._v("\r\n          Svuota il carello\r\n      ")]
+                [_vm._v("\n\t\t\t\t\tSvuota il carello")]
               ),
               _c("br")
             ]
@@ -21633,8 +21643,8 @@ var render = function() {
         ],
         2
       )
-    ]
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -21769,12 +21779,7 @@ var render = function() {
         "div",
         {
           key: item.id,
-          staticClass: "col-md-6 col-lg-6 mt-2 card-outline",
-          on: {
-            click: function($event) {
-              return _vm.addToCart(item)
-            }
-          }
+          staticClass: "col-md-12 col-lg-12 col-xl-6 mt-2 card-outline"
         },
         [
           _c("div", { staticClass: "card-personal scale" }, [
@@ -21797,6 +21802,15 @@ var render = function() {
               _c("h4", [_vm._v(_vm._s(item.name))]),
               _vm._v(" "),
               _c("div", { staticClass: "dish-price" }, [
+                _c("i", {
+                  staticClass: "fas fa-cart-plus",
+                  on: {
+                    click: function($event) {
+                      return _vm.addToCart(item)
+                    }
+                  }
+                }),
+                _vm._v(" "),
                 _c("h5", [_vm._v("€" + _vm._s(item.price.toFixed(2)))]),
                 _vm._v(" "),
                 _c("i", {
