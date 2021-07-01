@@ -10,17 +10,28 @@
               <div class="col-md-12">
                   <div class="page-top">
                       <h1>{{ $restaurant['name'] }}</h1>
-                      <a href="{{route('index')}}" class="my-button my-button-orange">Torna ai ristoranti</a>
+
+                      <div class="my-buttons-container">
+                        <a class="my-button-responsive-show my-button-orange" href="{{route('index')}}">
+                            Torna al ristorante
+                        </a>
+
+                        <a class="my-button-responsive-hide my-button-orange" href="{{route('index')}}"><i class="fas fa-chevron-left"></i></a>
+                    </div>
                   </div>
                   <h2>Menù</h2>
               </div>
           </div>
 
           <div class="row">
-            <div class="col-md-8 col-lg-8">
+            <div class="col-md-6 col-lg-6 col-xl-8">
               <dishes></dishes>
             </div>
-            <cart></cart>
+            <div class="col-md-6 col-lg-6 col-xl-4">
+                <cart></cart>
+            </div>
+            
+            
           </div>
       </div>
   </section>
