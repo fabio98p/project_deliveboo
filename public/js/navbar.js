@@ -101,7 +101,6 @@ var app = new Vue({
   },
   methods: {
     showNavToggler: function showNavToggler() {
-      console.log('ciao');
       this.showNav = !this.showNav;
     }
   }

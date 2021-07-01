@@ -5,10 +5,9 @@ var app = new Vue({
     data: {
         showNav: false,
     },
-    
+
     methods: {
         showNavToggler: function() {
-            console.log('ciao');
             this.showNav = !this.showNav;
         }
     },

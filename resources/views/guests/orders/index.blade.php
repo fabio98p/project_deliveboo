@@ -25,7 +25,92 @@ Expiration Date: 09/22
                         </div>
 
                         <div class="row">
-                            <form class="form-personal" method="POST" action="{{ route('admin.restaurants.store') }}" enctype="multipart/form-data">
+                            @if (session()->has('success_message'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success_message') }}
+                            </div>
+                            @endif
+
+                            @if(count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+                            <form action="{{ url('/checkout') }}" method="POST" id="payment-form">
+                                @csrf
+
+                                <div class="form-group">
+                                    <label for="name_on_card">Nome</label>
+                                    <input type="text" class="form-control" id="name_on_card" name="name_on_card">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name_on_card">Cognome</label>
+                                    <input type="text" class="form-control" id="name_on_card" name="name_on_card">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address">Indirizzo</label>
+                                    <input type="text" class="form-control" id="address" name="address">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Cellulare</label>
+                                    <input type="text" class="form-control" id="phone" name="phone">
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="amount">Amount</label>
+                                            <input type="text" class="form-control" id="amount" name="amount" value="11">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="cc_number">Numero Di carta di credito</label>
+                                            <input type="text" class="form-control" id="cc_number" name="cc_number">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="expiry">Data di scadenza</label>
+                                            <input type="text" class="form-control" id="expiry" name="expiry">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="cvc">CVC</label>
+                                            <input type="text" class="form-control" id="cvc" name="cvc">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                        </div>
+
+
+                        <input id="nonce" name="payment_method_nonce" type="hidden" />
+                        <button type="submit" class="btn btn-success">Submit Payment</button>
+                        </form>
+                        <!-- <form class="form-personal" method="POST" action="{{ route('admin.restaurants.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 @method('POST')
 
@@ -89,42 +174,147 @@ Expiration Date: 09/22
                                     </div>
                                 </div>
 
-                                <!-- <div class="form-group column mb-0">
+                                 <div class="form-group column mb-0">
                                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 column">
                                         <button type="submit" class="my button my-button-orange">
                                             {{ __('Completa ordine') }}
                                         </button>
 
                                     </div>
-                                </div> -->
-                            </form>
-                        </div>
+                                </div>
+                            </form> -->
                     </div>
                 </div>
+            </div>
 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                    <div class="checkout-card">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="page-top">
-                                    <h2>Riepilogo Ordine</h2>
-                                </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="checkout-card">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-top">
+                                <h2>Riepilogo Ordine</h2>
                             </div>
                         </div>
-                        <div class="row checkout-card-inner">
-                            <cart-checkout></cart-checkout>
-                        </div>
+                    </div>
+                    <div class="row checkout-card-inner">
+                        <cart-checkout></cart-checkout>
+                    </div>
 
-                        <div class="row column checkout-card-inner">
-                            <div class="col-md-12">
-                                <payment></payment>
-                            </div>
+                    <div class="row column checkout-card-inner">
+                        <div class="col-md-12">
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
     </section>
 </main>
-
+<script>
+      var form = document.querySelector('#payment-form');
+      var submit = document.querySelector('input[type="submit"]');
+      braintree.client.create({
+        authorization: '{{ $token }}'
+      }, function (clientErr, clientInstance) {
+        if (clientErr) {
+          console.error(clientErr);
+          return;
+        }
+        // This example shows Hosted Fields, but you can also use this
+        // client instance to create additional components here, such as
+        // PayPal or Data Collector.
+        braintree.hostedFields.create({
+          client: clientInstance,
+          styles: {
+            'input': {
+              'font-size': '14px'
+            },
+            'input.invalid': {
+              'color': 'red'
+            },
+            'input.valid': {
+              'color': 'green'
+            }
+          },
+          fields: {
+            number: {
+              selector: '#card-number',
+              placeholder: '4111 1111 1111 1111'
+            },
+            cvv: {
+              selector: '#cvv',
+              placeholder: '123'
+            },
+            expirationDate: {
+              selector: '#expiration-date',
+              placeholder: '10/2019'
+            }
+          }
+        }, function (hostedFieldsErr, hostedFieldsInstance) {
+          if (hostedFieldsErr) {
+            console.error(hostedFieldsErr);
+            return;
+          }
+          // submit.removeAttribute('disabled');
+          form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
+              if (tokenizeErr) {
+                console.error(tokenizeErr);
+                return;
+              }
+              // If this was a real integration, this is where you would
+              // send the nonce to your server.
+              // console.log('Got a nonce: ' + payload.nonce);
+              document.querySelector('#nonce').value = payload.nonce;
+              form.submit();
+            });
+          }, false);
+        });
+        // Create a PayPal Checkout component.
+        braintree.paypalCheckout.create({
+            client: clientInstance
+        }, function (paypalCheckoutErr, paypalCheckoutInstance) {
+        // Stop if there was a problem creating PayPal Checkout.
+        // This could happen if there was a network error or if it's incorrectly
+        // configured.
+        if (paypalCheckoutErr) {
+          console.error('Error creating PayPal Checkout:', paypalCheckoutErr);
+          return;
+        }
+        // Set up PayPal with the checkout.js library
+        paypal.Button.render({
+          env: 'sandbox', // or 'production'
+          commit: true,
+          payment: function () {
+            return paypalCheckoutInstance.createPayment({
+              // Your PayPal options here. For available options, see
+              // http://braintree.github.io/braintree-web/current/PayPalCheckout.html#createPayment
+              flow: 'checkout', // Required
+              amount: 13.00, // Required
+              currency: 'USD', // Required
+            });
+          },
+          onAuthorize: function (data, actions) {
+            return paypalCheckoutInstance.tokenizePayment(data, function (err, payload) {
+              // Submit `payload.nonce` to your server.
+              document.querySelector('#nonce').value = payload.nonce;
+              form.submit();
+            });
+          },
+          onCancel: function (data) {
+            console.log('checkout.js payment cancelled', JSON.stringify(data, 0, 2));
+          },
+          onError: function (err) {
+            console.error('checkout.js error', err);
+          }
+        }, '#paypal-button').then(function () {
+          // The PayPal button will be rendered in an html element with the id
+          // `paypal-button`. This function will be called when the PayPal button
+          // is set up and ready to be used.
+        });
+        });
+      });
+    </script>
 @endsection
