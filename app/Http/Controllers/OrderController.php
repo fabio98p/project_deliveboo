@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Braintree\Gateway;
 use App\Order;
 use Illuminate\Http\Request;
 
@@ -12,10 +13,19 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
 
-      return view('guests.orders.index');
+    public function index() {
+
+         $gateway = new \Braintree\Gateway([
+             'environment' => config('services.braintree.environment'),
+             'merchantId' => config('services.braintree.merchantId'),
+             'publicKey' => config('services.braintree.publicKey'),
+             'privateKey' => config('services.braintree.privateKey')
+         ]);
+
+         $token = $gateway->ClientToken()->generate();
+
+         return view('guests.orders.index', compact('token'));
     }
 
     /**
@@ -25,9 +35,7 @@ class OrderController extends Controller
      */
     public function orderDone()
     {
-      $message = "L'ordine è stato effettuato con successo!";
-
-      return view('guests.orders.confirmation',compact('message'));
+      //
     }
 
     /**
@@ -38,18 +46,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-      $gateway = new \Braintree\Gateway([
-            'environment' => config('services.braintree.environment'),
-            'merchantId' => config('services.braintree.merchantId'),
-            'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
-        ]);
-
-        $data = $request->all();
-        $total = $request->totalPrice;
-        $nonce = $request->payment_method_nonce;
-
-      return redirect()->route('orders.confirmation');
+      //
     }
 
     /**

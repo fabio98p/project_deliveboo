@@ -3,6 +3,7 @@
     "/css/app.css": "/css/app.css",
     "/js/chart.js": "/js/chart.js",
     "/js/navbar.js": "/js/navbar.js",
+    "/js/payment.js": "/js/payment.js",
     "/js/restaurants.js": "/js/restaurants.js",
     "/js/store.js": "/js/store.js"
 }

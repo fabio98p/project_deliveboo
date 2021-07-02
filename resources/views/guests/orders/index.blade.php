@@ -5,6 +5,7 @@
 <main>
     <section class="section-main">
         <div class="container" id="app">
+          
             <div class="row justify-content-center">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-4">
                     <div class="checkout-card">
@@ -15,6 +16,25 @@
                                 </div>
                             </div>
                         </div>
+
+                        <form method="post" id="payment-form" action="#">
+                        @csrf
+                        <section>
+                            <label for="amount">
+                                <span class="input-label"></span>
+                                <div class="input-wrapper amount-wrapper">
+                                    <input id="amount" name="amount" type="tel" placeholder="Amount" value="1">
+                                </div>
+                            </label>
+
+                            <div class="bt-drop-in-wrapper">
+                                <div id="bt-dropin"></div>
+                            </div>
+                        </section>
+
+                            <input id="nonce" name="payment_method_nonce" type="hidden" />
+                            <button class="button" type="submit"><span>Test Transaction</span></button>
+                        </form>
                         <!-- <form class="form-personal" method="POST" action="{{ route('admin.restaurants.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 @method('POST')
@@ -112,12 +132,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+
+
         </div>
     </section>
 </main>
-
-<script>
-
-</script>
 @endsection
