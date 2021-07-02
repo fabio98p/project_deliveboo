@@ -2,7 +2,7 @@
 
 @section('main')
 <main>
-    <div class="container-fluid banner-show-homepage banner-show-user" style="background-image: url('../../images/varie/banner-deliveboo-admin.png')"></div>
+    <div class="container-fluid banner-show-homepage banner-show-user" style="background-image: url('/../images/varie/banner-deliveboo-admin.png')"></div>
     <section class="section-main">
         <div class="container" id="root">
             <div class="row justify-content-center">

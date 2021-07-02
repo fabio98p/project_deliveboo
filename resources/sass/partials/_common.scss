@@ -187,6 +187,10 @@ input:checked {
     background-color: #df9367;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 // .scale:hover {
 //   transform: scale(1.05);
 //   transition: all 0.25s ease-out;
@@ -207,6 +211,26 @@ input:checked {
     bottom: 30px;
     right: 30px;
     box-shadow: 0px 5px 24px 0px rgb(0 0 0 / 20%);
+    // position: relative;
+
+    .badge-cart {
+        background-color: $red;
+        height: 30px;
+        min-width: 30px;
+        position: absolute;
+        top: -12px;
+        right: 0;
+        padding: 5px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            color: $white;
+            font-weight: 600;
+        }
+    }
 }
 
 .no-button {
@@ -221,6 +245,7 @@ $breakpoint-mobile: 768px;
 @media (max-width: $breakpoint-mobile) {
     .my-button-responsive-hide {
         visibility: visible;
+        cursor: pointer;
     }
 
     .my-button-responsive-show {
@@ -235,6 +260,7 @@ $breakpoint-mobile: 768px;
 
     .my-button-responsive-show {
         visibility: visible;
+        cursor: pointer;
     }
 }
 
