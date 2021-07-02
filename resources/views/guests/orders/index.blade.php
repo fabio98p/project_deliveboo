@@ -4,7 +4,7 @@
 <main>
     <section class="section-main">
         <div class="container" id="app">
-          
+
             <div class="row justify-content-center">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-4">
                     <div class="checkout-card">
@@ -16,8 +16,24 @@
                             </div>
                         </div>
 
-                        <form method="post" id="payment-form" action="#">
+                        @if (session()->has('success_message'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success_message') }}
+                            </div>
+                        @endif
+
+                        @if(count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <form method="post" id="payment-form" action="{{route('orders.store')}}">
                         @csrf
+                        @method('POST')
                         <section>
                             <label for="amount">
                                 <span class="input-label"></span>
