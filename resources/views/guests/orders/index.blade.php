@@ -16,40 +16,6 @@
                             </div>
                         </div>
 
-                        @if (session()->has('success_message'))
-                            <div class="alert alert-success">
-                                {{ session()->get('success_message') }}
-                            </div>
-                        @endif
-
-                        @if(count($errors) > 0)
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                        <form method="post" id="payment-form" action="{{route('orders.store')}}">
-                        @csrf
-                        @method('POST')
-                        <section>
-                            <label for="amount">
-                                <span class="input-label"></span>
-                                <div class="input-wrapper amount-wrapper">
-                                    <input id="amount" name="amount" type="tel" placeholder="Amount" value="1">
-                                </div>
-                            </label>
-
-                            <div class="bt-drop-in-wrapper">
-                                <div id="bt-dropin"></div>
-                            </div>
-                        </section>
-
-                            <input id="nonce" name="payment_method_nonce" type="hidden" />
-                            <button class="button" type="submit"><span>Test Transaction</span></button>
-                        </form>
                         <!-- <form class="form-personal" method="POST" action="{{ route('admin.restaurants.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 @method('POST')
@@ -142,12 +108,47 @@
 
                     <div class="row column checkout-card-inner">
                         <div class="col-md-12">
-                          <h1>@{{ amount }}</h1>
+                          <h1>@{{amount}}</h1>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        @if (session()->has('success_message'))
+            <div class="alert alert-success">
+                {{ session()->get('success_message') }}
+            </div>
+        @endif
+
+        @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <form method="post" id="payment-form" action="{{route('orders.store')}}">
+        @csrf
+        @method('POST')
+        <section>
+            <label for="amount">
+                <span class="input-label">Totale:</span>
+                <div class="input-wrapper amount-wrapper">
+                    <input id="amount" name="amount" type="tel" placeholder="Amount" value="{{ old('amount') }}">
+                </div>
+            </label>
+
+            <div class="bt-drop-in-wrapper">
+                <div id="bt-dropin"></div>
+            </div>
+        </section>
+
+            <input id="nonce" name="payment_method_nonce" type="hidden">
+            <button class="button" type="submit"><span>Test Transaction</span></button>
+        </form>
+
     </section>
 </main>
 <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
@@ -175,5 +176,6 @@ braintree.dropin.create({
      form.submit();
    });
  });
-});</script>
+});
+</script>
 @endsection
