@@ -92,20 +92,18 @@
 				</div>
 			</div>
 
-			<a
-				class="
-					my-button my-button-responsive-hide my-button-orange
-					button-anchor
-				"
-				@click="reverseCart()"
-			>
+			<a class="my-button-responsive-hide button-anchor" @click="reverseCart()">
 				<i class="fas fa-shopping-cart"></i>
 				<div class="badge-cart">
 					<span>{{ $store.state.cartCount }}</span>
 				</div>
 			</a>
 		</div>
-		<div class="overlay-cart" :class="showCart == true ? 'd-block' : ''"></div>
+		<div
+			class="overlay-cart"
+			:class="showCart == true ? 'd-block' : ''"
+			@click="reverseCart()"
+		></div>
 	</div>
 </template>
 
