@@ -94,7 +94,10 @@
 
 			<a class="my-button-responsive-hide button-anchor" @click="reverseCart()">
 				<i class="fas fa-shopping-cart"></i>
-				<div class="badge-cart">
+				<div
+					class="badge-cart"
+					:class="$store.state.cartCount != 0 ? 'd-flex' : 'd-none'"
+				>
 					<span>{{ $store.state.cartCount }}</span>
 				</div>
 			</a>
