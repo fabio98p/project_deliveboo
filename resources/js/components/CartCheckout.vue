@@ -111,6 +111,7 @@ export default {
 			clickQuantity: false,
 			currentId: null,
 			newQuantity: null,
+			amount: null
 		};
 	},
 	computed: {
@@ -121,6 +122,7 @@ export default {
 				total += item.totalPrice;
 			}
 
+			this.$root.amount = total.toFixed(2);
 			return total.toFixed(2);
 		},
 	},
