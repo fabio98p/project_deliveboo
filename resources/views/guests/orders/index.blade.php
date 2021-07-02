@@ -131,20 +131,28 @@
                     </div>
                 </label>
 
+                <label for="order_details">
+                    <span class="input-label"></span>
+                    <div class="input-wrapper order_details-wrapper">
+                        <input id="order_details" name="order_details" type="hidden" placeholder="order_details">
+                    </div>
+                </label>
+
                 <div class="bt-drop-in-wrapper">
                     <div id="bt-dropin"></div>
                 </div>
             </section>
 
             <input id="nonce" name="payment_method_nonce" type="hidden">
-                <div class="form-group column mb-0">
-                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 column">
-                        <button type="submit" class="my button my-button-orange">
-                            {{ __('Completa ordine') }}
-                        </button>
 
-                    </div>
+            <div class="form-group column mb-0">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 column">
+                    <button type="submit" class="my button my-button-orange">
+                        {{ __('Completa ordine') }}
+                    </button>
+
                 </div>
+            </div>
         </form>
 
     </section>
@@ -189,6 +197,14 @@
 
                 // Add total amount to the form and submit
                 document.querySelector('#amount').value = amount;
+
+                var order_details = []
+                cartArray.forEach((item, i) => {
+                    order_details.push(item.id);
+                });
+
+                document.querySelector('#order_details').value = order_details;
+
 
                 form.submit();
             });

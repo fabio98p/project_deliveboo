@@ -4,7 +4,16 @@ namespace App\Http\Controllers;
 
 use Braintree\Gateway;
 use App\Order;
+use App\Restaurant;
+use App\Category;
+use App\User;
+use App\Dish;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+
 
 class OrderController extends Controller
 {
@@ -14,7 +23,8 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index() {
+    public function index()
+    {
 
         $gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
@@ -23,9 +33,9 @@ class OrderController extends Controller
             'privateKey' => config('services.braintree.privateKey')
         ]);
 
-         $token = $gateway->ClientToken()->generate();
+        $token = $gateway->ClientToken()->generate();
 
-         return view('guests.orders.index', compact('token'));
+        return view('guests.orders.index', compact('token'));
     }
 
     /**
@@ -35,7 +45,7 @@ class OrderController extends Controller
      */
     public function orderDone()
     {
-      //
+        //
     }
 
     /**
@@ -46,7 +56,33 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $request->validate([
+            'customer_name' => 'required|string|max:50',
+            'customer_lastname' => 'required|string|max:50',
+            'customer_email' => 'nullable|string|max:100',
+            'customer_address' => 'nullable|string|max:100',
+            'customer_phone_number' => 'required|numeric',
+            //'order_details' => 'exists:categories,id|nullable',
+            //'restaurant_id' => 'exists:categories,id|nullable',
+        ]);
+
+        $data = $request->all();
+
+        //creo un novo ordine e lo fillo
+        $order = new Order();
+        $order->fill($data);
+
+        $order->customer_address = $data['customer_address'];
+        //mi salvo l'amount come totalpricwe nel backend
+        $order->total_price = $data['amount'];
+
+        $dish = explode(",", $data['order_details'])[0];
+        $order->restaurant_id = Dish::find($dish)->value('restaurant_id');
+        $order->save();
+
+
+
+        #region braintree
         $gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
@@ -75,7 +111,6 @@ class OrderController extends Controller
             // header("Location: transaction.php?id=" . $transaction->id);
 
             return view('guests.orders.confirmation')->with('transaction', $transaction->id);
-
         } else {
             $errorString = "";
 
@@ -85,9 +120,9 @@ class OrderController extends Controller
 
             // $_SESSION["errors"] = $errorString;
             // header("Location: index.php");
-            return back()->withErrors('Transazione rifiutata: '.$result->message);
-
+            return back()->withErrors('Transazione rifiutata: ' . $result->message);
         }
+        #endregion
     }
 
     /**
@@ -134,4 +169,26 @@ class OrderController extends Controller
     {
         //
     }
+
+    private function generateSlug(string $title, bool $change = true, string $old_slug = '')
+    {
+
+        if (!$change) {
+            return $old_slug;
+        }
+
+        $slug = Str::slug($title, '-');
+        $slug_base = $slug;
+        $contatore = 1;
+
+        $post_with_slug = Restaurant::where('slug', '=', $slug)->first();
+        while ($post_with_slug) {
+            $slug = $slug_base . '-' . $contatore;
+            $contatore++;
+
+            $post_with_slug = Restaurant::where('slug', '=', $slug)->first();
+        }
+        return $slug;
+    }
 }
+
