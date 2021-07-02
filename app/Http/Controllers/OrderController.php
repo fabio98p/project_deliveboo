@@ -46,6 +46,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
