@@ -12,15 +12,16 @@ use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
-
-  public function generate(Request $request, Gateway $gateway)
+  
+  public function ordersShow($restaurant)
   {
-    $token = $gateway->clientToken()->generate();
-    $data = [
+
+    $order = Order::where('restaurant_id',$restaurant)->orderBy('created_at','asc')->get();
+    
+    return response()->json([
+      'response' => $order,
       'success' => true,
-      'token' => $token,
-    ];
-    return response()->json($data, 200);
+   ]);
   }
 
   public function makePayment(OrderRequest $request, Gateway $gateway)
