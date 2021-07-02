@@ -108,12 +108,14 @@
 
                     <div class="row column checkout-card-inner">
                         <div class="col-md-12">
-                          <h1>@{{amount}}</h1>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- FINE ID APP DI VUE -->
+
+        <!-- FORM BRAINTREE -->
         @if (session()->has('success_message'))
             <div class="alert alert-success">
                 {{ session()->get('success_message') }}
@@ -134,9 +136,9 @@
         @method('POST')
         <section>
             <label for="amount">
-                <span class="input-label">Totale:</span>
+                <span class="input-label"></span>
                 <div class="input-wrapper amount-wrapper">
-                    <input id="amount" name="amount" type="tel" placeholder="Amount" value="{{ old('amount') }}">
+                    <input id="amount" name="amount" type="hidden" placeholder="Amount">
                 </div>
             </label>
 
@@ -151,10 +153,13 @@
 
     </section>
 </main>
+
+
 <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
 <script>
 var form = document.querySelector('#payment-form');
 var client_token = "{{$token}}";
+
 braintree.dropin.create({
  authorization: client_token,
  selector: '#bt-dropin',
@@ -164,16 +169,32 @@ braintree.dropin.create({
    console.log('Create Error', createErr);
    return;
  }
- form.addEventListener('submit', function (event) {
-   event.preventDefault();
-   instance.requestPaymentMethod(function (err, payload) {
-     if (err) {
-       console.log('Request Payment Method Error', err);
-       return;
-     }
-     // Add the nonce to the form and submit
-     document.querySelector('#nonce').value = payload.nonce;
-     form.submit();
+
+
+form.addEventListener('submit', function (event) {
+
+event.preventDefault();
+
+instance.requestPaymentMethod(function (err, payload) {
+ if (err) {
+   console.log('Request Payment Method Error', err);
+   return;
+ }
+ // Add the nonce to the form and submit
+ document.querySelector('#nonce').value = payload.nonce;
+
+ // get total amount from local storage
+ var cart = localStorage.getItem('cart');
+ var cartArray = JSON.parse(cart);
+ var amount = 0;
+ cartArray.forEach((item, i) => {
+   amount = amount + item.totalPrice;
+ });
+
+ // Add total amount to the form and submit
+ document.querySelector('#amount').value = amount;
+
+ form.submit();
    });
  });
 });

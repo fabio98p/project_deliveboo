@@ -73,7 +73,8 @@ class OrderController extends Controller
             $transaction = $result->transaction;
             // header("Location: transaction.php?id=" . $transaction->id);
 
-            return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
+            return view('guests.orders.confirmation')->with('transaction', $transaction->id);
+
         } else {
             $errorString = "";
 
@@ -83,7 +84,8 @@ class OrderController extends Controller
 
             // $_SESSION["errors"] = $errorString;
             // header("Location: index.php");
-            return back()->withErrors('An error occurred with the message: '.$result->message);
+            return back()->withErrors('Transazione rifiutata: '.$result->message);
+
         }
     }
 
