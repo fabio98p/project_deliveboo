@@ -2,28 +2,36 @@
 
 @section('main')
 <main id="app">
-  <div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')">
-  </div>
-  <section class="section-main">
-      <div class="container">
-          <div class="row justify-content-center">
-              <div class="col-md-12">
-                  <div class="page-top">
-                      <h1>{{ $restaurant['name'] }}</h1>
-                      <a href="{{route('index')}}" class="my-button my-button-orange">Torna ai ristoranti</a>
-                  </div>
-                  <h2>Menù</h2>
-              </div>
-          </div>
+    <div class="container-fluid banner-show" style="background-image: url('{{asset($restaurant->banner)}}')"></div>
+    <section class="section-main">
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="page-top">
+                        <h1>{{ $restaurant['name'] }}</h1>
 
-          <div class="row">
-            <div class="col-md-8 col-lg-8">
-              <example-component></example-component>
+                        <div class="my-buttons-container">
+                            <a class="my-button-responsive-show my-button-orange" href="{{route('index')}}">
+                                Torna al ristorante
+                            </a>
+
+                            <a class="my-button-responsive-hide my-button-orange" href="{{route('index')}}"><i class="fas fa-chevron-left"></i></a>
+                        </div>
+                    </div>
+                    <h2 class="mt-3">Menù</h2>
+                </div>
             </div>
-            <cart-dropdown></cart-dropdown>
-          </div>
-      </div>
-  </section>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-xl-8">
+                    <dishes></dishes>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4">
+                    <cart></cart>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 @endsection
 
