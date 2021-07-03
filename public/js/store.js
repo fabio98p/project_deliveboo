@@ -202,7 +202,7 @@ var store = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\store.js */"./resources/js/store.js");
+module.exports = __webpack_require__(/*! C:\Users\filippo\Desktop\my-projects\project_deliveboo\resources\js\store.js */"./resources/js/store.js");
 
 
 /***/ })

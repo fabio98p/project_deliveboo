@@ -11806,10 +11806,6 @@ input[type=checkbox] {
   display: none;
 }
 
-#cart {
-  padding-top: 20px;
-}
-
 #cart .cart-inner {
   border-radius: 20px;
   padding: 20px;
@@ -11909,10 +11905,6 @@ input[type=checkbox] {
 #cart .cart-inner .cart-sum p {
   font-size: 16px;
   font-weight: bold;
-}
-
-#cart {
-  padding-top: 20px;
 }
 
 #cart .cart-inner-no-padding {
@@ -12337,6 +12329,21 @@ h6 {
 
 .box-shadow-none {
   box-shadow: none;
+}
+
+button.page-link {
+  display: inline-block;
+}
+
+button.page-link {
+  font-size: 20px;
+  color: #29b3ed;
+  font-weight: 500;
+}
+
+.offset {
+  width: 500px !important;
+  margin: 20px auto;
 }
 
 footer {
