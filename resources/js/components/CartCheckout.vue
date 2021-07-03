@@ -74,11 +74,19 @@
 				class="text-center"
 				:class="$store.state.cartCount != 0 ? 'd-block' : 'd-none'"
 			>
+				<!-- <a
+					href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}"
+				>
+					<button class="my-button my-button-orange">
+						Torna al ristorante
+					</button></a
+				> -->
 				<a href="">
 					<button class="my-button my-button-orange">
 						Torna al ristorante
 					</button></a
 				>
+
 				<button class="mybutton my-button-red mt-3" @click="emptyCart">
 					Svuota il carello</button
 				><br />
