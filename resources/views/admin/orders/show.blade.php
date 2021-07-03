@@ -56,7 +56,7 @@
         <button type="button" class="page-link" v-if="page != 1" @click="page--"> Previous </button>
       </li>
       <li class="page-item">
-        <button type="button" class="page-link" @click="page = pageNumber"> @{{pageNumber}} </button>
+        <button type="button" class="page-link" v-for="pageNumber in pages.slice(page-1, page+5)" @click="page = pageNumber"> @{{pageNumber}} </button>
       </li>
       <li class="page-item">
         <button type="button" @click="page++" v-if="page < pages.length" class="page-link"> Next </button>
