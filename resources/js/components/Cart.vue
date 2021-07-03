@@ -1,9 +1,22 @@
 <template>
-	<div class="row">
+	<div class="row just-cent position-relative">
 		<div class="col-md-12 col-lg-12" id="cart">
-			<div class="checkout-card">
+			<div
+				class="checkout-card cart-mobile w-80"
+				:class="showCart == true ? 'd-block' : ''"
+				style="background-color: #fff"
+			>
 				<div class="page-top">
-					<h3 class="text-center">IL TUO ORDINE</h3>
+					<h3 class="text-center">Il tuo ordine</h3>
+					<div class="my-buttons-container">
+						<button
+							class="my-button my-button-orange"
+							:class="$store.state.cartCount != 0 ? 'd-block' : 'd-none'"
+							@click="clickEditCart = !clickEditCart"
+						>
+							<i class="fas fa-edit"></i>
+						</button>
+					</div>
 				</div>
 				<div class="cart-inner">
 					<div
@@ -24,7 +37,7 @@
 								class="dish-cover-image"
 								:style="`background-image: url('${item.image}');`"
 							>
-								<div class="dish-cover-overlay">
+								<div class="dish-cover-overlay" v-if="clickEditCart">
 									<i class="fas fa-times" @click="removeItemFromCart(item)"></i>
 								</div>
 							</div>
@@ -35,11 +48,13 @@
 									<span
 										@click="setManually(item.id)"
 										v-if="item.id != currentId"
-										class="ml-1 mr-1"
+										class="ml-1 mr-1 cursor-pointer"
 										>{{ item.quantity }}</span
 									>
 									<input
 										v-if="item.id == currentId"
+										autofocus
+										@focus="$event.target.select()"
 										class="set-quantity"
 										type="number"
 										:value="item.quantity"
@@ -76,7 +91,22 @@
 					</div>
 				</div>
 			</div>
+
+			<a class="my-button-responsive-hide button-anchor" @click="reverseCart()">
+				<i class="fas fa-shopping-cart"></i>
+				<div
+					class="badge-cart"
+					:class="$store.state.cartCount != 0 ? 'd-flex' : 'd-none'"
+				>
+					<span>{{ $store.state.cartCount }}</span>
+				</div>
+			</a>
 		</div>
+		<div
+			class="overlay-cart"
+			:class="showCart == true ? 'd-block' : ''"
+			@click="reverseCart()"
+		></div>
 	</div>
 </template>
 
@@ -105,6 +135,8 @@ export default {
 			clickQuantity: false,
 			currentId: null,
 			newQuantity: null,
+			clickEditCart: false,
+			showCart: false,
 		};
 	},
 	computed: {
@@ -145,6 +177,10 @@ export default {
 		},
 		removeItemFromCart(item) {
 			this.$store.commit("removeItemFromCart", item);
+			this.clickEditCart = false;
+		},
+		reverseCart() {
+			this.showCart = !this.showCart;
 		},
 	},
 };

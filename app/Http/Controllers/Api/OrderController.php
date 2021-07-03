@@ -12,6 +12,9 @@ use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
+  
+  public function ordersShow($restaurant)
+  {
 
   // public function generate(Request $request, Gateway $gateway)
   // {

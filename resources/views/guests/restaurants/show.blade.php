@@ -26,13 +26,10 @@
                 <div class="col-md-6 col-lg-6 col-xl-8">
                     <dishes></dishes>
                 </div>
-                <div class="col-md-6 col-lg-6 col-xl-4" id="cart-anchor">
+                <div class="col-md-6 col-lg-6 col-xl-4">
                     <cart></cart>
                 </div>
-                
-                
             </div>
-            <a class="my-button my-button-responsive-hide my-button-orange button-anchor" href="#cart"><i class="fas fa-shopping-cart"></i></a>
         </div>
     </section>
 </main>

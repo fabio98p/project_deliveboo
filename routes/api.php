@@ -26,6 +26,7 @@ Route::get('/search-restaurant/{query}', 'Api\RestaurantController@searchRestaur
 Route::get('/dishes/{restaurantId}', 'Api\DishController@index');
 
 //braintree
+Route::get('/ordersShow/{restaurant}', 'Api\OrderController@ordersShow');
 Route::get('/generate', 'Api\OrderController@generate');
 Route::post('/make/payment', 'Api\OrderController@makePayment');
 

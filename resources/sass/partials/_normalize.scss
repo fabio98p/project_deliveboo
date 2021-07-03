@@ -30,3 +30,13 @@ main {
         border-radius: 25px;
     }
 }
+
+$breakpoint-medium: 768px;
+
+@media (max-width: $breakpoint-medium) {
+
+    h1 {
+        font-size: 1em;
+    }
+
+}
