@@ -12,7 +12,7 @@
 
                         <div class="my-buttons-container">
                             <a class="my-button-responsive-show my-button-orange" href="{{route('index')}}">
-                                Torna al ristorante
+                                Torna ai ristoranti
                             </a>
 
                             <a class="my-button-responsive-hide my-button-orange" href="{{route('index')}}"><i class="fas fa-chevron-left"></i></a>
