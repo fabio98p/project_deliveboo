@@ -12065,6 +12065,21 @@ input[type=checkbox] {
   }
 }
 
+.set-quantity {
+  height: 21px;
+  border: none;
+  border-radius: 3px;
+  font-weight: 600;
+  text-align: center;
+  width: 25px;
+}
+
+.banner-show-confirmation {
+  height: 300px;
+  background-size: cover;
+  background-position: bottom;
+}
+
 .form-group .label-personal {
   color: #3e281c;
   font-size: 1.25em;
@@ -12276,6 +12291,8 @@ h6 {
 
 .checkout-card .checkout-card-inner {
   padding: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .checkout-card .checkout-card-inner h3 {
@@ -12284,6 +12301,41 @@ h6 {
 
 .checkout-card .checkout-card-inner img {
   width: 100%;
+}
+
+.checkout-card .checkout-card-inner .confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+.checkout-card .checkout-card-inner .confirmation p {
+  font-size: 1.5em;
+  text-align: left;
+}
+
+.checkout-card .checkout-card-inner .confirmation .order-code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 22px 24px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-self: center;
+  padding: 20px;
+}
+
+.checkout-card .checkout-card-inner .confirmation .order-code img {
+  width: 100px;
+  height: 100px;
+}
+
+.checkout-card .checkout-card-inner .confirmation .order-code span {
+  font-size: 2em;
+  font-weight: 700;
 }
 
 .checkout-card {
