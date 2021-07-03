@@ -958,7 +958,6 @@ function _getDummyData() {
             salary = barChatData.data.map(function (x) {
               return x.employee_salary;
             });
-            console.log(salary);
             age = barChatData.data.map(function (x) {
               return x.employee_age;
             });
@@ -969,7 +968,7 @@ function _getDummyData() {
             employeeAgeData = age;
             employeeLabel = name;
 
-          case 14:
+          case 13:
           case "end":
             return _context2.stop();
         }
@@ -988,7 +987,7 @@ function _getDummyData() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\filippo\Desktop\boolean\Esercizi\php\project_deliveboo\resources\js\chart.js */"./resources/js/chart.js");
+module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\chart.js */"./resources/js/chart.js");
 
 
 /***/ })
