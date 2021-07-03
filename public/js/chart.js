@@ -33083,12 +33083,14 @@ var stats = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
       var monthsPrice = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       var yearPrice = 0;
+      var orderTotalPrice = [];
       axios.get("http://localhost:8000/api/ordersShow/".concat(this.id)).then(function (response) {
         var orders = response.data.response;
         var self = _this;
         orders.forEach(function (element) {
           var orderCreateDate = element.created_at;
           var orderTotalPrice = element.total_price;
+          console.log(orderTotalPrice);
 
           for (var i = 0; i <= 12; i++) {
             if (orderCreateDate.substr(5, 2) == i) {
@@ -33100,7 +33102,6 @@ var stats = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
           monthsPrice.forEach(function (element) {
             yearPrice += element;
           });
-          console.log(monthsPrice);
         });
         var ctx = document.getElementById('chart').getContext('2d');
         var chart = new Chart(ctx, {

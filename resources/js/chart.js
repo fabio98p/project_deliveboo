@@ -12,6 +12,8 @@ const stats = new Vue({
     filterByYear(){
       let monthsPrice = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       let yearPrice = 0;
+      let orderTotalPrice = [];
+
 
       axios
         .get(`http://localhost:8000/api/ordersShow/${this.id}`)
@@ -27,27 +29,20 @@ const stats = new Vue({
               (element) => {
                 let orderCreateDate = element.created_at;
                 let orderTotalPrice = element.total_price;
-
-
-
+                console.log(orderTotalPrice);
                   for(var i = 0; i <= 12; i++){
                     if(orderCreateDate.substr(5, 2) == i){
                      monthsPrice[i - 1] = orderTotalPrice;
                     }
                   }
 
+
                   //Guadagno totale dell'anno
            monthsPrice.forEach(
               (element) => {
                 yearPrice += element;
-              }
-            );
-
-
-                  console.log(monthsPrice);
-
-              }
-            );
+              });
+          });
 
 
 

@@ -15,7 +15,7 @@ class OrderController extends Controller
 
   public function ordersShow($restaurant)
   {
-    $orders = Order::where('restaurant_id',$restaurant)->orderBy('created_at','asc')->get();
+    $orders = Order::where('restaurant_id',$restaurant)->orderBy('created_at','desc')->get();
 
     return response()->json([
         'response' => $orders,
