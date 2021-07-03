@@ -78,8 +78,9 @@ class OrderController extends Controller
         //mi salvo l'amount come totalpricwe nel backend
         $order->total_price = $data['amount'];
 
-        $dish = explode(",", $data['order_details'])[0];
-        $order->restaurant_id = Dish::find($dish)->value('restaurant_id');
+        $dish_id = explode(",", $data['order_details'])[0];
+        $dish = Dish::where('id', $dish_id)->get();
+        $order->restaurant_id = $dish[0]->restaurant_id;
         
         //invio mail
         Mail::to( $order->customer_email)->send(new SendNewMail());
