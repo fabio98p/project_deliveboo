@@ -65,27 +65,11 @@ class OrderController extends Controller
             'customer_address' => 'nullable|string|max:100',
             'customer_phone_number' => 'required|numeric',
             //'order_details' => 'exists:categories,id|nullable',
-            //'restaurant_id' => 'exists:categories,id|nullable',
         ]);
 
         $data = $request->all();
 
-        //creo un novo ordine e lo fillo
-        $order = new Order();
-        $order->fill($data);
-
-        $order->customer_address = $data['customer_address'];
-        //mi salvo l'amount come totalpricwe nel backend
-        $order->total_price = $data['amount'];
-
-        $dish = explode(",", $data['order_details'])[0];
-        $order->restaurant_id = Dish::find($dish)->value('restaurant_id');
-        
-        //invio mail
-        Mail::to( $order->customer_email)->send(new SendNewMail());
-        
-        $order->save();
-
+        $dishes = json_decode(stripslashes($data["order_details"]), true);
 
         #region braintree
         $gateway = new \Braintree\Gateway([
@@ -114,6 +98,30 @@ class OrderController extends Controller
         if ($result->success) {
             $transaction = $result->transaction;
             // header("Location: transaction.php?id=" . $transaction->id);
+
+            //creo un novo ordine e lo fillo
+            $order = new Order();
+            $order->fill($data);
+
+
+            $order->customer_address = $data['customer_address'];
+            //mi salvo l'amount come totalpricwe nel backend
+            $order->total_price = $data['amount'];
+
+
+            $dish_id = $dishes[0]['id'];
+            $dish = Dish::where('id', $dish_id)->get();
+            $order->restaurant_id = $dish[0]->restaurant_id;
+
+
+            //invio mail
+            Mail::to($order->customer_email)->send(new SendNewMail());
+
+            $order->save();
+            //popolazione tabella pivot
+            foreach ($dishes as $dish) {
+                $order->dishes()->attach($dish['id'], ['quantity' => $dish["quantity"]]);
+            }
 
             return view('guests.orders.confirmation')->with('transaction', $transaction->id);
         } else {
@@ -196,4 +204,3 @@ class OrderController extends Controller
         return $slug;
     }
 }
-

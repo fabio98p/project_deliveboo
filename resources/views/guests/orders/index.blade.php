@@ -180,12 +180,7 @@
                 // Add total amount to the form and submit
                 document.querySelector('#amount').value = amount;
 
-                var order_details = []
-                cartArray.forEach((item, i) => {
-                    order_details.push(item.id);
-                });
-
-                document.querySelector('#order_details').value = order_details;
+                document.querySelector('#order_details').value = localStorage.getItem('cart');
 
 
                 form.submit();
