@@ -1,1 +1,1 @@
-<h1>e' una nuova maillllllalallaalla</h1>
+<h1>Il tuo ordine e' stato ricevuto e sta arrivando</h1>
