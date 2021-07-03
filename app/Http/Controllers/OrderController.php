@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Mail\SendNewMail;
+use Illuminate\Support\Facades\Mail;
 
 
 class OrderController extends Controller
@@ -78,8 +80,11 @@ class OrderController extends Controller
 
         $dish = explode(",", $data['order_details'])[0];
         $order->restaurant_id = Dish::find($dish)->value('restaurant_id');
+        
+        //invio mail
+        Mail::to( $order->customer_email)->send(new SendNewMail());
+        
         $order->save();
-
 
 
         #region braintree
