@@ -7,6 +7,25 @@ button.page-link {
     font-weight: 500;
 }
 .offset{
-  width: 500px !important;
+
   margin: 20px auto;
+}
+.justify-content-right{
+	justify-content: flex-end;
+}
+#orderhistory{
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+.table{
+	background-color: #FFF;
+}
+th{
+	background-color: #29b3ef;
+}
+tr:nth-child(odd) {background: #CCC}
+tr:nth-child(even) {background: #FFF}
+.active{
+	background-color: #29b3ed;
 }

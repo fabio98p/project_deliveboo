@@ -17,35 +17,44 @@ new Vue({
       })
 
 
+
   },
   methods:{
-    setPages () {
-      let numberOfPages = Math.ceil(this.posts.length / this.perPage);
-      for (let index = 1; index <= numberOfPages; index++) {
-        this.pages.push(index);
-      }
+    getTime(post) {
+      this.post = post.substr(11, 5) ;
+      return (this.post)
     },
-    paginate (posts) {
-      let page = this.page;
-      let perPage = this.perPage;
-      let from = (page * perPage) - perPage;
-      let to = (page * perPage);
-      return  posts.slice(from, to);
-    }
-  },
-  computed: {
-    displayedPosts () {
-      return this.paginate(this.posts);
-    }
-  },
-  watch: {
-    posts () {
-      this.setPages();
-    }
-  },
-  filters: {
-    trimWords(value){
-      return value.split(" ").splice(0,20).join(" ") + '...';
-    }
-  }
-});
+    getDay(post) {
+      this.post = post.substr(0, 10) ;
+      return (this.post)
+    },
+    setPages () {
+			let numberOfPages = Math.ceil(this.posts.length / this.perPage);
+			for (let index = 1; index <= numberOfPages; index++) {
+				this.pages.push(index);
+			}
+		},
+		paginate (posts) {
+			let page = this.page;
+			let perPage = this.perPage;
+			let from = (page * perPage) - perPage;
+			let to = (page * perPage);
+			return  posts.slice(from, to);
+		}
+	},
+	computed: {
+		displayedPosts () {
+			return this.paginate(this.posts);
+		}
+	},
+	watch: {
+		posts () {
+			this.setPages();
+		}
+	},
+	filters: {
+		trimWords(value){
+			return value.split(" ").splice(0,20).join(" ") + '...';
+		}
+	}
+})

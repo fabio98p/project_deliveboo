@@ -12394,8 +12394,52 @@ button.page-link {
 }
 
 .offset {
-  width: 500px !important;
   margin: 20px auto;
+}
+
+.justify-content-right {
+  justify-content: flex-end;
+}
+
+#orderhistory {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.table {
+  background-color: #FFF;
+}
+
+th {
+  background-color: #29b3ef;
+}
+
+tr:nth-child(odd) {
+  background: #CCC;
+}
+
+tr:nth-child(even) {
+  background: #FFF;
+}
+
+.active {
+  background-color: #29b3ed;
+}
+
+.mychart {
+  background-color: #FFF;
+}
+
+#stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.w-chart {
+  width: 80%;
+  margin: 0 auto;
 }
 
 footer {
