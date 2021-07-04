@@ -319,3 +319,9 @@ $breakpoint-large: 1200px;
     padding-top: 50px;
     padding-bottom: 50px;
 }
+
+.active-pagination {
+  background: rgba($color: , $alpha: 0.8);
+  color: $white;
+  text-decoration: none;
+}
