@@ -31,8 +31,6 @@
 						:key="item.id"
 					>
 						<div class="dish-cover">
-							<!-- <img :src="item.image" :alt="item.name" /> -->
-
 							<div
 								class="dish-cover-image"
 								:style="`background-image: url('${item.image}');`"
@@ -125,7 +123,7 @@ export default {
 		};
 	},
 	mounted() {
-		localStorage.setItem('slug', JSON.stringify(this.slug));
+		localStorage.setItem("slug", JSON.stringify(this.slug));
 	},
 	computed: {
 		totalPrice() {
@@ -151,14 +149,12 @@ export default {
 		},
 		setManually(item) {
 			this.currentId = item;
-			// this.clickQuantity = !this.clickQuantity;
 		},
 		setManuallyDone(item) {
 			this.$store.commit("setManuallyDone", item);
 		},
 		changeQuantity(item, event, state) {
 			item.quantity = event.target.value; // Actual assignment
-			// this.newQuantity = item.quantity;
 			this.currentId = null;
 
 			this.$store.commit("changeQuantity", item);

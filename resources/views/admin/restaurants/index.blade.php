@@ -67,8 +67,4 @@
             </div>
         </section>
     </main>
-
-    {{-- <div class="container-fluid banner-show" style="background-image: url('../images/varie/my-restaurant-banner.jpg')"></div> --}}
-
-
 @endsection

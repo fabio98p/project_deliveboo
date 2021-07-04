@@ -1,8 +1,8 @@
-    let cart = window.localStorage.getItem('cart');
-    let cartCount = window.localStorage.getItem('cartCount');
+let cart = window.localStorage.getItem('cart');
+let cartCount = window.localStorage.getItem('cartCount');
 
 
-    let store = {
+let store = {
     state: {
         cart: cart ? JSON.parse(cart) : [],
         cartCount: cartCount ? parseInt(cartCount) : 0,
@@ -13,31 +13,31 @@
             let found = state.cart.find(product => product.id == item.id);
 
             if (state.cartCount > 0) {
-            if (item.restaurant_id == state.cart[0].restaurant_id) {
-                if (found) {
-                found.quantity ++;
-                found.totalPrice = found.quantity * found.price;
-                } else {
-                state.cart.push(item);
+                if (item.restaurant_id == state.cart[0].restaurant_id) {
+                    if (found) {
+                        found.quantity++;
+                        found.totalPrice = found.quantity * found.price;
+                    } else {
+                        state.cart.push(item);
 
-                Vue.set(item, 'quantity', 1);
-                Vue.set(item, 'totalPrice', item.price);
+                        Vue.set(item, 'quantity', 1);
+                        Vue.set(item, 'totalPrice', item.price);
+                    }
+
+                    state.cartCount++;
+                }
+            } else {
+                if (found) {
+                    found.quantity++;
+                    found.totalPrice = found.quantity * found.price;
+                } else {
+                    state.cart.push(item);
+
+                    Vue.set(item, 'quantity', 1);
+                    Vue.set(item, 'totalPrice', item.price);
                 }
 
                 state.cartCount++;
-            }
-            } else {
-            if (found) {
-                found.quantity ++;
-                found.totalPrice = found.quantity * found.price;
-            } else {
-                state.cart.push(item);
-
-                Vue.set(item, 'quantity', 1);
-                Vue.set(item, 'totalPrice', item.price);
-            }
-
-            state.cartCount++;
             }
 
             this.commit('saveCart');
@@ -49,16 +49,16 @@
             let found = state.cart.find(product => product.id == item.id);
 
             if (found && found.quantity > 1) {
-                found.quantity --;
+                found.quantity--;
                 found.totalPrice = found.quantity * found.price;
             } else {
                 state.cart.splice(index, 1);
             }
 
-            state.cartCount --
+            state.cartCount--
 
 
-            this.commit('saveCart');
+                this.commit('saveCart');
         },
 
         emptyCart(state) {
@@ -66,7 +66,7 @@
             state.cartCount = 0;
             this.commit('saveCart');
         },
-        changeQuantity (state, item) {
+        changeQuantity(state, item) {
             let index = state.cart.indexOf(item);
 
             let found = state.cart.find(product => product.id == item.id);
@@ -81,7 +81,7 @@
 
             state.cartCount = sum;
 
-            if(found.quantity == 0) {
+            if (found.quantity == 0) {
                 state.cart.splice(index, 1);
             }
 
@@ -98,7 +98,7 @@
             state.cart.splice(index, 1);
 
             this.commit('saveCart');
-          },
+        },
 
         saveCart(state) {
             window.localStorage.setItem('cart', JSON.stringify(state.cart));
@@ -108,6 +108,6 @@
 
     },
 
-    };
+};
 
-    export default store;
+export default store;

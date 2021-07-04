@@ -13,8 +13,8 @@ var app = new Vue({
         categorySelected: '',
         search: false,
         page: 1,
-  			perPage: 9,
-  			pages: [],
+        perPage: 9,
+        pages: [],
     },
     created() {
         axios.get('http://localhost:8000/api/categories').then((response) => {
@@ -26,10 +26,10 @@ var app = new Vue({
         });
     },
     methods: {
-        checkReverse: function () {
+        checkReverse: function() {
             this.checkClick = !this.checkClick;
         },
-        cerca: function () {
+        cerca: function() {
             axios.get(`http://localhost:8000/api/search-restaurant/${this.scriviTxt}`)
                 .then((response) => {
                     this.searchResult = response.data.response;
@@ -62,33 +62,33 @@ var app = new Vue({
           this.page = 1;
           this.setPages();
         },
-        setPages: function () {
-          let numberOfPages = Math.ceil(this.results.length / this.perPage);
-          for (let index = 1; index <= numberOfPages; index++) {
-            this.pages.push(index);
-          }
+        setPages: function() {
+            let numberOfPages = Math.ceil(this.results.length / this.perPage);
+            for (let index = 1; index <= numberOfPages; index++) {
+                this.pages.push(index);
+            }
         },
-        paginate: function (restaurants) {
-    			let page = this.page;
-    			let perPage = this.perPage;
-    			let from = (page * perPage) - perPage;
-    			let to = (page * perPage);
-    			return  restaurants.slice(from, to);
-    		}
+        paginate: function(restaurants) {
+            let page = this.page;
+            let perPage = this.perPage;
+            let from = (page * perPage) - perPage;
+            let to = (page * perPage);
+            return restaurants.slice(from, to);
+        }
     },
     computed: {
-      results: function () {
-        if (this.categorySelected == '' && !this.search) {
-          return this.restaurants;
-        } else if (this.categorySelected != '') {
-          return this.filterResult;
-        } else {
-          return this.searchResult;
-        }
-      },
-      displayedResults: function () {
-        return this.paginate(this.results);
-      },
+        results: function() {
+            if (this.categorySelected == '' && !this.search) {
+                return this.restaurants;
+            } else if (this.categorySelected != '') {
+                return this.filterResult;
+            } else {
+                return this.searchResult;
+            }
+        },
+        displayedResults: function() {
+            return this.paginate(this.results);
+        },
     },
     watch: {
       restaurants: function () {

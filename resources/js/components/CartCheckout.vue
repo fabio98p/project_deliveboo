@@ -25,8 +25,6 @@
 			</div>
 			<div class="cart-item" v-for="item in $store.state.cart" :key="item.id">
 				<div class="dish-cover">
-					<!-- <img :src="item.image" :alt="item.name" /> -->
-
 					<div
 						class="dish-cover-image"
 						:style="`background-image: url('${item.image}');`"
@@ -70,17 +68,18 @@
 				<span>Prodotti nel carello: {{ $store.state.cartCount }}</span>
 				<h4 style="font-weight: 700">Totale: €{{ totalPrice }}</h4>
 			</div>
-			<div
-				class="text-center"
-			>
+			<div class="text-center">
 				<a :href="`/restaurants/${this.restaurantSlug}`">
 					<button class="my-button my-button-orange">
 						Torna al ristorante
 					</button></a
 				>
 
-				<button class="mybutton my-button-red mt-3" @click="emptyCart"
-				:class="$store.state.cartCount != 0 ? 'd-inline' : 'd-none'">
+				<button
+					class="mybutton my-button-red mt-3"
+					@click="emptyCart"
+					:class="$store.state.cartCount != 0 ? 'd-inline' : 'd-none'"
+				>
 					Svuota il carello</button
 				><br />
 			</div>
@@ -98,11 +97,11 @@ export default {
 			newQuantity: null,
 			clickEditCart: false,
 			showCart: false,
-			restaurantSlug: '',
+			restaurantSlug: "",
 		};
 	},
 	mounted() {
-		this.restaurantSlug = JSON.parse(localStorage.getItem('slug'));
+		this.restaurantSlug = JSON.parse(localStorage.getItem("slug"));
 	},
 	computed: {
 		totalPrice() {
@@ -128,14 +127,12 @@ export default {
 		},
 		setManually(item) {
 			this.currentId = item;
-			// this.clickQuantity = !this.clickQuantity;
 		},
 		setManuallyDone(item) {
 			this.$store.commit("setManuallyDone", item);
 		},
 		changeQuantity(item, event, state) {
 			item.quantity = event.target.value; // Actual assignment
-			// this.newQuantity = item.quantity;
 			this.currentId = null;
 
 			this.$store.commit("changeQuantity", item);

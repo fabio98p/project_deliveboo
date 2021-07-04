@@ -9,7 +9,6 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="page-top">
-                            {{-- <h3>Benvenuto {{ Auth::user()->name }}</h3> --}}
                             <h1>Storico ordini</h1>
 
                             <div class="my-buttons-container">
