@@ -135,7 +135,6 @@ export default {
 				total += item.totalPrice;
 			}
 
-
 			return total.toFixed(2);
 		},
 	},

@@ -4,7 +4,6 @@
 			class="col-md-12 col-lg-12 col-xl-6 mt-2 card-outline cursor-pointer"
 			v-for="item in items"
 			:key="item.id"
-			@click="addToCart(item)"
 		>
 			<div class="card-personal scale">
 				<div
