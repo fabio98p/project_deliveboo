@@ -61,9 +61,9 @@ class OrderController extends Controller
         $request->validate([
             'customer_name' => 'required|string|max:50',
             'customer_lastname' => 'required|string|max:50',
-            'customer_email' => 'nullable|string|max:100',
+            'customer_email' => 'nullable|email|max:100',
             'customer_address' => 'nullable|string|max:100',
-            'customer_phone_number' => 'required|numeric',
+            'customer_phone_number' => 'required|string|max:20',
             //'order_details' => 'exists:categories,id|nullable',
         ]);
 
