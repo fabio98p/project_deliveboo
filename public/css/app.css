@@ -11293,6 +11293,16 @@ input:checked {
   margin-bottom: 50px;
 }
 
+.padding-y-30 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.padding-y-40 {
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
 .padding-y-50 {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -12310,32 +12320,22 @@ h6 {
   text-align: left;
 }
 
+.checkout-card .checkout-card-inner .confirmation span {
+  font-size: 2em;
+  font-weight: 700;
+}
+
 .checkout-card .checkout-card-inner .confirmation p {
   font-size: 1.5em;
   text-align: left;
 }
 
 .checkout-card .checkout-card-inner .confirmation .order-code {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0px 22px 24px 0px rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  align-self: center;
-  padding: 20px;
-}
-
-.checkout-card .checkout-card-inner .confirmation .order-code img {
-  width: 100px;
-  height: 100px;
-}
-
-.checkout-card .checkout-card-inner .confirmation .order-code span {
-  font-size: 2em;
-  font-weight: 700;
+  height: 150px;
+  width: 150px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
 }
 
 .checkout-card {
@@ -12389,8 +12389,16 @@ button.page-link {
 
 button.page-link {
   font-size: 20px;
-  color: #29b3ed;
+  color: #df814a;
   font-weight: 500;
+}
+
+.page-link:hover {
+  z-index: 2;
+  color: #c06632;
+  text-decoration: none;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
 }
 
 .offset {
@@ -12409,14 +12417,33 @@ button.page-link {
 
 .table {
   background-color: #FFF;
+  border: 1px solid #FFF;
+}
+
+.table th {
+  border: 1px solid #FFF;
+}
+
+.table td {
+  border: 1px solid #df814a;
+}
+
+.table thead th {
+  border: 1px solid #FFF;
 }
 
 th {
-  background-color: #29b3ef;
+  background-color: #df814a;
+  color: #FFF;
+  border: 1px solid #FFF;
+}
+
+.th-sm {
+  border: 1px solid #FFF;
 }
 
 tr:nth-child(odd) {
-  background: #CCC;
+  background: rgba(223, 129, 74, 0.2);
 }
 
 tr:nth-child(even) {
@@ -12424,7 +12451,7 @@ tr:nth-child(even) {
 }
 
 .active {
-  background-color: #29b3ed;
+  background-color: #df814a;
 }
 
 .mychart {

@@ -38,6 +38,8 @@
         </section>
 
     </main>
+    
+    <script src="{{ asset('js/chart.js') }}"></script>
     <script>
         var id = {!! json_encode($restaurant->id) !!};
     </script>

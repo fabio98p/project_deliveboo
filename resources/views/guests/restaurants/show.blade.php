@@ -36,8 +36,6 @@
 @endsection
 
 <script src="{{ asset('js/store.js') }}"></script>
-
-
 <script>
     var id = {!! json_encode($restaurant->id) !!};
     var slug = {!! json_encode($restaurant->slug) !!};

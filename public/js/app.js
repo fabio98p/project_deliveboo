@@ -2072,8 +2072,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2087,7 +2085,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     };
   },
   mounted: function mounted() {
-    localStorage.setItem('slug', JSON.stringify(this.slug));
+    localStorage.setItem("slug", JSON.stringify(this.slug));
   },
   computed: {
     totalPrice: function totalPrice() {
@@ -2121,14 +2119,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.$store.commit("emptyCart");
     },
     setManually: function setManually(item) {
-      this.currentId = item; // this.clickQuantity = !this.clickQuantity;
+      this.currentId = item;
     },
     setManuallyDone: function setManuallyDone(item) {
       this.$store.commit("setManuallyDone", item);
     },
     changeQuantity: function changeQuantity(item, event, state) {
       item.quantity = event.target.value; // Actual assignment
-      // this.newQuantity = item.quantity;
 
       this.currentId = null;
       this.$store.commit("changeQuantity", item);
@@ -2250,7 +2247,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2259,11 +2255,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       newQuantity: null,
       clickEditCart: false,
       showCart: false,
-      restaurantSlug: ''
+      restaurantSlug: ""
     };
   },
   mounted: function mounted() {
-    this.restaurantSlug = JSON.parse(localStorage.getItem('slug'));
+    this.restaurantSlug = JSON.parse(localStorage.getItem("slug"));
   },
   computed: {
     totalPrice: function totalPrice() {
@@ -2297,14 +2293,13 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.$store.commit("emptyCart");
     },
     setManually: function setManually(item) {
-      this.currentId = item; // this.clickQuantity = !this.clickQuantity;
+      this.currentId = item;
     },
     setManuallyDone: function setManuallyDone(item) {
       this.$store.commit("setManuallyDone", item);
     },
     changeQuantity: function changeQuantity(item, event, state) {
       item.quantity = event.target.value; // Actual assignment
-      // this.newQuantity = item.quantity;
 
       this.currentId = null;
       this.$store.commit("changeQuantity", item);
@@ -20563,44 +20558,48 @@ var render = function() {
             "col-md-12 col-lg-12 col-xl-6 mt-2 card-outline cursor-pointer"
         },
         [
-          _c("div", { staticClass: "card-personal scale" }, [
-            _c(
-              "div",
-              {
-                staticClass: "card-personal-cover position-relative",
-                style: "background-image:url('" + item.image + "')"
-              },
-              [
-                _c("div", { staticClass: "card-personal-description" }, [
-                  _c("p", { staticClass: "text-center" }, [
-                    _vm._v(_vm._s(item.description))
+          _c(
+            "div",
+            {
+              staticClass: "card-personal scale",
+              on: {
+                click: function($event) {
+                  return _vm.addToCart(item)
+                }
+              }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-personal-cover position-relative",
+                  style: "background-image:url('" + item.image + "')"
+                },
+                [
+                  _c("div", { staticClass: "card-personal-description" }, [
+                    _c("p", { staticClass: "text-center" }, [
+                      _vm._v(_vm._s(item.description))
+                    ])
                   ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-personal-title" }, [
-              _c("h4", [_vm._v(_vm._s(item.name))]),
+                ]
+              ),
               _vm._v(" "),
-              _c("div", { staticClass: "dish-price" }, [
-                _c("i", {
-                  staticClass: "fas fa-cart-plus",
-                  on: {
-                    click: function($event) {
-                      return _vm.addToCart(item)
-                    }
-                  }
-                }),
+              _c("div", { staticClass: "card-personal-title" }, [
+                _c("h4", [_vm._v(_vm._s(item.name))]),
                 _vm._v(" "),
-                _c("h5", [_vm._v("€" + _vm._s(item.price.toFixed(2)))]),
-                _vm._v(" "),
-                _c("i", {
-                  staticClass: "fas fa-circle",
-                  class: item.available == 1 ? "text-green" : "text-red"
-                })
+                _c("div", { staticClass: "dish-price" }, [
+                  _c("i", { staticClass: "fas fa-cart-plus" }),
+                  _vm._v(" "),
+                  _c("h5", [_vm._v("€" + _vm._s(item.price.toFixed(2)))]),
+                  _vm._v(" "),
+                  _c("i", {
+                    staticClass: "fas fa-circle",
+                    class: item.available == 1 ? "text-green" : "text-red"
+                  })
+                ])
               ])
-            ])
-          ])
+            ]
+          )
         ]
       )
     }),
@@ -34514,8 +34513,8 @@ var store = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

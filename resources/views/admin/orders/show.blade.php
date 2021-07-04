@@ -86,9 +86,8 @@
                 </div>
             </div>
         </section>
-
-
     </main>
+
     <script>
         var id = {!! json_encode($restaurant->id) !!};
     </script>
