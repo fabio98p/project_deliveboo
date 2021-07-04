@@ -2363,6 +2363,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -20559,7 +20560,13 @@ var render = function() {
         "div",
         {
           key: item.id,
-          staticClass: "col-md-12 col-lg-12 col-xl-6 mt-2 card-outline"
+          staticClass:
+            "col-md-12 col-lg-12 col-xl-6 mt-2 card-outline cursor-pointer",
+          on: {
+            click: function($event) {
+              return _vm.addToCart(item)
+            }
+          }
         },
         [
           _c("div", { staticClass: "card-personal scale" }, [
