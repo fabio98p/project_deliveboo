@@ -45,6 +45,7 @@
     <script src="{{ asset('js/restaurants.js') }}"></script>
     <script src="{{ asset('js/navbar.js') }}"></script>
     <script src="{{ asset('js/orderhistory.js') }}"></script>
+    <script src="{{ asset('js/chart.js') }}"></script>
 
 </body>
 

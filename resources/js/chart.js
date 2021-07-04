@@ -1,5 +1,3 @@
-require('./bootstrap');
-import Vue from 'vue';
 
 const stats = new Vue({
     el: '#stats',
