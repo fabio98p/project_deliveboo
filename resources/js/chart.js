@@ -14,32 +14,13 @@ const stats = new Vue({
 
 
             axios
-                .get(`http://localhost:8000/api/ordersShow/${this.id}`)
+                .get(`http://localhost:8000/api/totalForMonth/${this.id}`)
                 .then(
                     (response) => {
 
                         let orders = response.data.response;
+                        console.log(orders);
 
-                        const self = this;
-
-
-                        orders.forEach(
-                            (element) => {
-                                let orderCreateDate = element.created_at;
-                                let orderTotalPrice = element.total_price;
-                                for (var i = 0; i <= 12; i++) {
-                                    if (orderCreateDate.substr(5, 2) == i) {
-                                        monthsPrice[i - 1] = orderTotalPrice;
-                                    }
-                                }
-
-
-                                //Guadagno totale dell'anno
-                                monthsPrice.forEach(
-                                    (element) => {
-                                        yearPrice += element;
-                                    });
-                            });
 
 
 
@@ -51,10 +32,10 @@ const stats = new Vue({
                             data: {
                                 labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
                                 datasets: [{
-                                    label: "Guadagno totale: " + 575 + "€",
+                                    label: "Guadagno totale (in valuta EU)  " ,
                                     backgroundColor: 'rgba(255, 168, 3 , 0.4)',
                                     borderColor: 'rgb(255, 168, 3)',
-                                    data: monthsPrice,
+                                    data: orders ,
                                 }]
                             },
                             options: {
