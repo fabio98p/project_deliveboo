@@ -105,7 +105,10 @@ var app = new Vue({
     checkClick: false,
     deleteForm: false,
     categorySelected: '',
-    search: false
+    search: false,
+    page: 1,
+    perPage: 9,
+    pages: []
   },
   created: function created() {
     var _this = this;
@@ -146,6 +149,20 @@ var app = new Vue({
       this.categorySelected = '';
       this.filterResult = [];
       this.searchResult = [];
+    },
+    setPages: function setPages() {
+      var numberOfPages = Math.ceil(this.results.length / this.perPage);
+
+      for (var index = 1; index <= numberOfPages; index++) {
+        this.pages.push(index);
+      }
+    },
+    paginate: function paginate(restaurants) {
+      var page = this.page;
+      var perPage = this.perPage;
+      var from = page * perPage - perPage;
+      var to = page * perPage;
+      return restaurants.slice(from, to);
     }
   },
   computed: {
@@ -157,6 +174,14 @@ var app = new Vue({
       } else {
         return this.searchResult;
       }
+    },
+    displayedResults: function displayedResults() {
+      return this.paginate(this.results);
+    }
+  },
+  watch: {
+    restaurants: function restaurants() {
+      this.setPages();
     }
   }
 });
@@ -170,7 +195,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\restaurants.js */"./resources/js/restaurants.js");
 
 
 /***/ })

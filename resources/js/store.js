@@ -1,6 +1,7 @@
     let cart = window.localStorage.getItem('cart');
     let cartCount = window.localStorage.getItem('cartCount');
 
+
     let store = {
     state: {
         cart: cart ? JSON.parse(cart) : [],
@@ -89,25 +90,24 @@
 
         removeItemFromCart(state, item) {
             let index = state.cart.indexOf(item);
-    
+
             let found = state.cart.find(product => product.id == item.id);
 
             state.cartCount = state.cartCount - found.quantity;
 
             state.cart.splice(index, 1);
-    
+
             this.commit('saveCart');
           },
-
 
         saveCart(state) {
             window.localStorage.setItem('cart', JSON.stringify(state.cart));
             window.localStorage.setItem('cartCount', state.cartCount);
         },
-        
+
 
     },
-    
+
     };
 
     export default store;

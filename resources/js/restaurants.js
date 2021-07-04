@@ -12,6 +12,9 @@ var app = new Vue({
         deleteForm: false,
         categorySelected: '',
         search: false,
+        page: 1,
+  			perPage: 9,
+  			pages: [],
     },
     created() {
         axios.get('http://localhost:8000/api/categories').then((response) => {
@@ -49,7 +52,20 @@ var app = new Vue({
           this.categorySelected = '';
           this.filterResult = [];
           this.searchResult = [];
-        }
+        },
+        setPages: function () {
+          let numberOfPages = Math.ceil(this.results.length / this.perPage);
+          for (let index = 1; index <= numberOfPages; index++) {
+            this.pages.push(index);
+          }
+        },
+        paginate: function (restaurants) {
+    			let page = this.page;
+    			let perPage = this.perPage;
+    			let from = (page * perPage) - perPage;
+    			let to = (page * perPage);
+    			return  restaurants.slice(from, to);
+    		}
     },
     computed: {
       results: function () {
@@ -60,6 +76,14 @@ var app = new Vue({
         } else {
           return this.searchResult;
         }
-      }
+      },
+      displayedResults: function () {
+        return this.paginate(this.results);
+      },
     },
+    watch: {
+		restaurants: function () {
+			this.setPages();
+		}
+	},
 })
