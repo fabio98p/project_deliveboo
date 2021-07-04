@@ -31,4 +31,8 @@
     </section>
 
 </main>
+
+<script type="text/javascript">
+  localStorage.clear();
+</script>
 @endsection

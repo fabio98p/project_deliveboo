@@ -101,39 +101,22 @@ var stats = new Vue({
   },
   methods: {
     filterByYear: function filterByYear() {
-      var _this = this;
-
       var monthsPrice = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       var yearPrice = 0;
       var orderTotalPrice = [];
-      axios.get("http://localhost:8000/api/ordersShow/".concat(this.id)).then(function (response) {
+      axios.get("http://localhost:8000/api/totalForMonth/".concat(this.id)).then(function (response) {
         var orders = response.data.response;
-        var self = _this;
-        orders.forEach(function (element) {
-          var orderCreateDate = element.created_at;
-          var orderTotalPrice = element.total_price;
-
-          for (var i = 0; i <= 12; i++) {
-            if (orderCreateDate.substr(5, 2) == i) {
-              monthsPrice[i - 1] = orderTotalPrice;
-            }
-          } //Guadagno totale dell'anno
-
-
-          monthsPrice.forEach(function (element) {
-            yearPrice += element;
-          });
-        });
+        console.log(orders);
         var ctx = document.getElementById('chart').getContext('2d');
         var chart = new Chart(ctx, {
           type: 'line',
           data: {
             labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
             datasets: [{
-              label: "Guadagno totale: " + 575 + "€",
+              label: "Guadagno totale (in valuta EU)  ",
               backgroundColor: 'rgba(255, 168, 3 , 0.4)',
               borderColor: 'rgb(255, 168, 3)',
-              data: monthsPrice
+              data: orders
             }]
           },
           options: {
@@ -162,7 +145,7 @@ var stats = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\filippo\Desktop\my-projects\project_deliveboo\resources\js\chart.js */"./resources/js/chart.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\chart.js */"./resources/js/chart.js");
 
 
 /***/ })

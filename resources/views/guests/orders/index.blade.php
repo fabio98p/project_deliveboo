@@ -65,7 +65,7 @@
                                                 <label for="customer_email" class="col-md-4 col-form-label label-personal">{{ __('Email') }}</label>
 
                                                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                                    <input id="customer_email" type="text" class="form-control input-personal @error('customer_email') is-invalid @enderror" name="customer_email" value="" required autocomplete="customer_email" autofocus>
+                                                    <input id="customer_email" type="email" class="form-control input-personal @error('customer_email') is-invalid @enderror" name="customer_email" value="" required autocomplete="customer_email" autofocus>
 
                                                     @error('customer_email')
                                                     <small class="text-danger">{{ $message }}</small>
@@ -184,7 +184,6 @@
 
 
                 form.submit();
-                localStorage.clear();
             });
         });
     });

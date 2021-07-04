@@ -54,11 +54,11 @@ class OrderController extends Controller
         }
       }
     }
-
+    foreach ($totalForMonth as $value) {
+      $totalMonth[] = $value;
+    }
     return response()->json([
-      'response' => [
-        $totalForMonth,
-      ],
+      'response' => $totalMonth,
       'success' => true,
     ]);
   }
