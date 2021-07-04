@@ -145,7 +145,7 @@ var stats = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\filippo\Desktop\my-projects\project_deliveboo\resources\js\chart.js */"./resources/js/chart.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\chart.js */"./resources/js/chart.js");
 
 
 /***/ })
