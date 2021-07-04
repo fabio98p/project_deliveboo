@@ -20,7 +20,6 @@ class CreateRestaurantsTable extends Migration
             $table->text('logo')->nullable();
             $table->text('description')->nullable();
             $table->text('banner')->nullable();
-            $table->boolean('available');
             $table->string('slug')->unique();
             $table->timestamps();
         });

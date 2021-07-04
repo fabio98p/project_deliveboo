@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Restaurant;
+use App\Category;
+use App\User;
+use App\Dish;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -14,7 +17,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+      return view('guests.restaurants.index');
     }
 
     /**
@@ -44,9 +47,15 @@ class RestaurantController extends Controller
      * @param  \App\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function show(Restaurant $restaurant)
+    public function show($slug)
     {
-        //
+      $restaurant = Restaurant::where('slug',$slug)->first();
+
+      // $restaurant_id = $restaurant['id'];
+      //
+      // $dishes = Dish::where('restaurant_id',$restaurant['id'])->where('available',1)->orderBy('name','asc')->get();
+
+      return view('guests.restaurants.show', compact('restaurant'));
     }
 
     /**

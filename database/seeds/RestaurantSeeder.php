@@ -22,7 +22,6 @@ class RestaurantSeeder extends Seeder
             $newRestaurant->logo = $restaurant['logo'];
             $newRestaurant->description = $restaurant['description'];
             $newRestaurant->banner = $restaurant['banner'];
-            $newRestaurant->available = $restaurant['available'];
             $newRestaurant->slug = $this->generateSlug($restaurant['name']);
             $newRestaurant->user_id = rand(1,5);
             

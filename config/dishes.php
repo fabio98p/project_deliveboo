@@ -9,7 +9,7 @@ return [
         "description" => "Pomodoro, Basilico",
         "price" => 4,
         "available" => true,
-        "image" => "/images/dishes/pizza/marinara.png",
+        "image" => "/images/dishes/pizza/marinara.jpeg",
         "restaurant_id" => "1",
     ],
     [
@@ -17,7 +17,7 @@ return [
         "description" => "Pomodoro, Mozzarella, Basilico",
         "price" => 5,
         "available" => true,
-        "image" => "/images/dishes/pizza/margherita.png",
+        "image" => "/images/dishes/pizza/margherita.jpeg",
         "restaurant_id" => "2",
     ],
     [
@@ -25,7 +25,7 @@ return [
         "description" => "Pomodoro, Mozzarella, Fiore di Zucca e Bacon",
         "price" => 8,
         "available" => true,
-        "image" => "/images/dishes/pizza/zuccabacon.png",
+        "image" => "/images/dishes/pizza/zuccabacon.jpeg",
         "restaurant_id" => "1",
     ],
     [
@@ -33,7 +33,7 @@ return [
         "description" => "Pomodoro, Mozzarella, Salamino piccante",
         "price" => 6,
         "available" => true,
-        "image" => "/images/dishes/pizza/diavola.png",
+        "image" => "/images/dishes/pizza/diavola.jpeg",
         "restaurant_id" => "1",
     ],
     [
@@ -41,7 +41,7 @@ return [
         "description" => "Pomodoro, Mozzarella, Prosciutto cotto, Funghi",
         "price" => 7.50,
         "available" => true,
-        "image" => "/images/dishes/pizza/prosciuttofunghi.png",
+        "image" => "/images/dishes/pizza/prosciuttofunghi.jpeg",
         "restaurant_id" => "2",
     ],
     [
@@ -49,7 +49,7 @@ return [
         "description" => "Pomodoro, Mozzarella, Prosciutto cotto",
         "price" => 8,
         "available" => true,
-        "image" => "/images/dishes/pizza/calzone.png",
+        "image" => "/images/dishes/pizza/calzone.jpeg",
         "restaurant_id" => "2",
     ],
 
@@ -60,7 +60,7 @@ return [
         "description" => "Pasta con Uovo, Guanciale, Pecorino Romano, Pepe",
         "price" => 17,
         "available" => true,
-        "image" => "/images/dishes/italiano/carbonara.png",
+        "image" => "/images/dishes/italiano/carbonara.jpeg",
         "restaurant_id" => "3",
     ],
     [
@@ -68,7 +68,7 @@ return [
         "description" => "",
         "price" => 12,
         "available" => true,
-        "image" => "/images/dishes/italiano/pomodoro.png",
+        "image" => "/images/dishes/italiano/pomodoro.jpeg",
         "restaurant_id" => "3",
     ],
     [
@@ -76,7 +76,7 @@ return [
         "description" => "Pasta al Pomodoro, Macinato di Bovino e Suino",
         "price" => 19,
         "available" => true,
-        "image" => "/images/dishes/italiano/ragu.png",
+        "image" => "/images/dishes/italiano/ragu.jpeg",
         "restaurant_id" => "3",
     ],
     [
@@ -84,7 +84,7 @@ return [
         "description" => "Pasta con Pecorino Romano, Cacio e Pepe",
         "price" => 9,
         "available" => true,
-        "image" => "/images/dishes/italiano/caciopepe.png",
+        "image" => "/images/dishes/italiano/caciopepe.jpeg",
         "restaurant_id" => "3",
     ],
     [
@@ -92,7 +92,7 @@ return [
         "description" => "Pasta con Guanciale, Pecorino Romano, Pepe",
         "price" => 9,
         "available" => true,
-        "image" => "/images/dishes/italiano/gricia.png",
+        "image" => "/images/dishes/italiano/gricia.jpeg",
         "restaurant_id" => "3",
     ],
 
@@ -103,7 +103,7 @@ return [
         "description" => "Burrito ripieno di Pollo, Salsa Barbecue, Formaggio e Verdure",
         "price" => 14,
         "available" => true,
-        "image" => "/images/dishes/messicano/burritopollo.png",
+        "image" => "/images/dishes/messicano/burritopollo.jpeg",
         "restaurant_id" => "10",
     ],
     [
@@ -111,7 +111,7 @@ return [
         "description" => "Burrito ripieno di Carne, Formaggio cheddar, Peperoni e Cipolla di Tropea",
         "price" => 12,
         "available" => true,
-        "image" => "/images/dishes/messicano/burritochili.png",
+        "image" => "/images/dishes/messicano/burritochili.jpeg",
         "restaurant_id" => "11",
     ],
     [
@@ -119,7 +119,7 @@ return [
         "description" => "Burrito ripieno di Uova, Fagioli, Peperone dolce e Cipolla di Tropea",
         "price" => 13,
         "available" => true,
-        "image" => "/images/dishes/messicano/burritovegetariano.png",
+        "image" => "/images/dishes/messicano/burritovegetariano.jpeg",
         "restaurant_id" => "10",
     ],
     [
@@ -127,7 +127,7 @@ return [
         "description" => "Burrito ripieno di Gamberi, Instalata, Pomodoro, Cipolla",
         "price" => 15,
         "available" => true,
-        "image" => "/images/dishes/messicano/burritogamberi.png",
+        "image" => "/images/dishes/messicano/burritogamberi.jpeg",
         "restaurant_id" => "11",
     ],
     [
@@ -135,7 +135,7 @@ return [
         "description" => "Tacos con Carne, Formaggio cheddar, Pomodori e Guacamole",
         "price" => 15,
         "available" => true,
-        "image" => "/images/dishes/messicano/tacoschili.png",
+        "image" => "/images/dishes/messicano/tacoschili.jpeg",
         "restaurant_id" => "10",
     ],
     [
@@ -143,7 +143,7 @@ return [
         "description" => "Tacos con Fagioli, Instalata, Pomodori, Formaggio Cheddar e Guacamole",
         "price" => 3,
         "available" => true,
-        "image" => "/images/dishes/messicano/tacosvegetariano",
+        "image" => "/images/dishes/messicano/tacosvegetariano.jpeg",
         "restaurant_id" => "11",
     ],
 
@@ -221,7 +221,7 @@ return [
         "description" => "Pulled pork, avocado, jalapeño, coriandolo, tabasco",
         "price" => 12,
         "available" => true,
-        "image" => "/images/dishes/americano/pulledspicy.jpg",
+        "image" => "/images/dishes/americano/pulledspicy.jpeg",
         "restaurant_id" => "18",
     ],
     [
@@ -229,7 +229,7 @@ return [
         "description" => "Patatine fritte con salsa a scelta",
         "price" => 5,
         "available" => true,
-        "image" => "/images/dishes/americano/patatine.jpg",
+        "image" => "/images/dishes/americano/patatine.jpeg",
         "restaurant_id" => "19",
     ],
 

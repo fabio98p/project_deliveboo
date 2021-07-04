@@ -17,11 +17,11 @@ class UpdateRestaurantsTable extends Migration
         $table->unsignedBigInteger('user_id')
               ->nullable()
               ->after('slug');
-              
+
         $table->foreign('user_id')
               ->references('id')
               ->on('users')
-              ->onDelete('set null');
+              ->onDelete('cascade');
       });
     }
 
