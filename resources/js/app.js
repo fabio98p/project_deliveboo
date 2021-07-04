@@ -12,7 +12,7 @@ new Vue({
     el: '#app',
     data() {
         return {
-            amount: null
+
         }
     },
     store: new Vuex.Store(store)

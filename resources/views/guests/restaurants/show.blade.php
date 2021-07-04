@@ -37,4 +37,5 @@
 
 <script>
     var id = {!! json_encode($restaurant->id) !!};
+    var slug = {!! json_encode($restaurant->slug) !!};
 </script>
