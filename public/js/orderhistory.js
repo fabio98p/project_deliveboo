@@ -107,19 +107,16 @@ new Vue({
   created: function created() {
     var _this = this;
 
-    console.log(this.id);
     axios.get("http://localhost:8000/api/ordersShow/".concat(this.id)).then(function (response) {
       _this.posts = response.data.response;
     });
   },
   methods: {
     getTime: function getTime(post) {
-      this.post = post.substr(11, 5);
-      return this.post;
+      return post.substr(11, 5);
     },
     getDay: function getDay(post) {
-      this.post = post.substr(0, 10);
-      return this.post;
+      return post.substr(0, 10);
     },
     setPages: function setPages() {
       var numberOfPages = Math.ceil(this.posts.length / this.perPage);
@@ -144,11 +141,6 @@ new Vue({
   watch: {
     posts: function posts() {
       this.setPages();
-    }
-  },
-  filters: {
-    trimWords: function trimWords(value) {
-      return value.split(" ").splice(0, 20).join(" ") + '...';
     }
   }
 });

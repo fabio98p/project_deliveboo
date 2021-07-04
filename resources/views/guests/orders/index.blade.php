@@ -136,7 +136,7 @@
         </div>
         <!-- FINE ID APP DI VUE -->
 
-        
+
     </section>
 </main>
 
@@ -184,6 +184,7 @@
 
 
                 form.submit();
+                localStorage.clear();
             });
         });
     });

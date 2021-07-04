@@ -58,7 +58,7 @@
                                     <td class="">@{{ post . customer_address }} </td>
                                     <td class="">@{{ getDay(post . created_at) }}
                                         H:@{{ getTime(post . created_at) }} </td>
-                                    <td class="">@{{ post . total_price }}</td>
+                                    <td class="">€@{{ post . total_price }}</td>
                                 </tr>
 
                             </tbody>

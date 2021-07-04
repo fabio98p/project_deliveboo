@@ -33090,7 +33090,6 @@ var stats = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         orders.forEach(function (element) {
           var orderCreateDate = element.created_at;
           var orderTotalPrice = element.total_price;
-          console.log(orderTotalPrice);
 
           for (var i = 0; i <= 12; i++) {
             if (orderCreateDate.substr(5, 2) == i) {

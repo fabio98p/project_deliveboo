@@ -10,7 +10,6 @@ new Vue({
         }
     },
     created() {
-        console.log(this.id);
         axios.get(`http://localhost:8000/api/ordersShow/${this.id}`).then((response) => {
             this.posts = response.data.response;
 
@@ -47,9 +46,4 @@ new Vue({
             this.setPages();
         }
     },
-    filters: {
-        trimWords(value) {
-            return value.split(" ").splice(0, 20).join(" ") + '...';
-        }
-    }
 })
