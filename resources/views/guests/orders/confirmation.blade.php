@@ -9,15 +9,13 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
                     <div class="checkout-card">
                         <div class="page-top">
-                            <h2>Transazione effettuata con successo!</h2>
-                            <span class="text-uppercase">ID transazione: {{ $transaction }}.</span>
+                            <h2>Transazione accettata!</h2>
                         </div>
                         <div class="checkout-card-inner" style="background-color: #fff">
                             <div class="confirmation">
-                                <p>Il ristorante ha ricevuto il tuo ordine</p>
-                                <div class="order-code">
-                                    <img alt='Barcode Generator TEC-IT' src='https://barcode.tec-it.com/barcode.ashx?data={{ $transaction }}&code=QRCode&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=96&imagetype=Gif&rotation=0&color=%233e281c&bgcolor=%23ffffff&codepage=Default&qunit=Mm&quiet=0&hidehrt=False&eclevel=L'/>
-                                </div>
+                                <span class="text-uppercase">ID transazione: {{ $transaction }}.</span>
+                                <p class="mb-4">Il ristorante ha ricevuto il tuo ordine</p>
+                                <div class="order-code mb-3" style="background-image: url('../images/varie/noodles.gif')"></div>
                                 <div class="mt-4 text-center">
                                     <a href="{{ route('index') }}" class="my-button-orange">Homepage</a>
                                 </div>

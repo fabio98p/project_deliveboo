@@ -1,31 +1,71 @@
 button.page-link {
-	display: inline-block;
+    display: inline-block;
 }
+
 button.page-link {
     font-size: 20px;
-    color: #29b3ed;
+    color: $orange;
     font-weight: 500;
 }
-.offset{
 
-  margin: 20px auto;
+.page-link:hover {
+    z-index: 2;
+    color: $darkorange;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
 }
-.justify-content-right{
-	justify-content: flex-end;
+
+.offset {
+
+    margin: 20px auto;
 }
-#orderhistory{
-display: flex;
-flex-direction: column;
-justify-content: center;
+
+.justify-content-right {
+    justify-content: flex-end;
 }
-.table{
-	background-color: #FFF;
+
+#orderhistory {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-th{
-	background-color: #29b3ef;
+
+.table {
+    background-color: #FFF;
+    border: 1px solid $white;
 }
-tr:nth-child(odd) {background: #CCC}
-tr:nth-child(even) {background: #FFF}
-.active{
-	background-color: #29b3ed;
+
+.table th {
+    border: 1px solid $white;
+}
+
+.table td {
+    border: 1px solid $orange;
+}
+
+.table thead th {
+    border: 1px solid $white;
+}
+
+th {
+    background-color: $orange;
+    color: $white;
+    border: 1px solid $white;
+}
+
+.th-sm {
+    border: 1px solid $white;
+}
+
+tr:nth-child(odd) {
+    background: rgba($color: $orange, $alpha: 0.2);
+}
+
+tr:nth-child(even) {
+    background: #FFF;
+}
+
+.active {
+    background-color: $orange;
 }
