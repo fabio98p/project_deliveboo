@@ -19,7 +19,7 @@
 				<div class="card-personal-title">
 					<h4>{{ item.name }}</h4>
 					<div class="dish-price">
-						<i class="fas fa-cart-plus" @click="addToCart(item)"></i>
+						<!-- <i class="fas fa-cart-plus" @click="addToCart(item)"></i> -->
 						<h5>€{{ item.price.toFixed(2) }}</h5>
 						<i
 							class="fas fa-circle"
