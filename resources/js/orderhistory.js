@@ -15,18 +15,13 @@ new Vue({
             this.posts = response.data.response;
 
         })
-
-
-
     },
     methods: {
         getTime(post) {
-            this.post = post.substr(11, 5);
-            return (this.post)
+            return post.substr(11, 5);
         },
         getDay(post) {
-            this.post = post.substr(0, 10);
-            return (this.post)
+            return post.substr(0, 10);
         },
         setPages() {
             let numberOfPages = Math.ceil(this.posts.length / this.perPage);
