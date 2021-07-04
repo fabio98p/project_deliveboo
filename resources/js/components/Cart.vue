@@ -111,23 +111,6 @@
 </template>
 
 
-
-<style>
-.removeBtn {
-	margin-right: 1rem;
-	color: red;
-}
-
-.set-quantity {
-	height: 21px;
-	border: none;
-	border-radius: 3px;
-	font-weight: 600;
-	text-align: center;
-	width: 25px;
-}
-</style>
-
 <script>
 export default {
 	data() {
@@ -137,7 +120,12 @@ export default {
 			newQuantity: null,
 			clickEditCart: false,
 			showCart: false,
+			id: window.id,
+			slug: window.slug,
 		};
+	},
+	mounted() {
+		localStorage.setItem('slug', JSON.stringify(this.slug));
 	},
 	computed: {
 		totalPrice() {
@@ -146,6 +134,7 @@ export default {
 			for (let item of this.$store.state.cart) {
 				total += item.totalPrice;
 			}
+
 
 			return total.toFixed(2);
 		},

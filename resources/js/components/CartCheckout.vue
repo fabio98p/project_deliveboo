@@ -18,7 +18,7 @@
 		</div>
 		<div class="cart-inner">
 			<div
-				class="cart-empty text-center"
+				class="cart-empty text-center mb-3"
 				:class="$store.state.cartCount == 0 ? 'd-block' : 'd-none'"
 			>
 				<h5>Il tuo carello è vuoto!</h5>
@@ -72,22 +72,15 @@
 			</div>
 			<div
 				class="text-center"
-				:class="$store.state.cartCount != 0 ? 'd-block' : 'd-none'"
 			>
-				<!-- <a
-					href="{{route('admin.restaurants.show', ['restaurant' => $restaurant->slug])}}"
-				>
-					<button class="my-button my-button-orange">
-						Torna al ristorante
-					</button></a
-				> -->
-				<a href="">
+				<a :href="`/restaurants/${this.restaurantSlug}`">
 					<button class="my-button my-button-orange">
 						Torna al ristorante
 					</button></a
 				>
 
-				<button class="mybutton my-button-red mt-3" @click="emptyCart">
+				<button class="mybutton my-button-red mt-3" @click="emptyCart"
+				:class="$store.state.cartCount != 0 ? 'd-inline' : 'd-none'">
 					Svuota il carello</button
 				><br />
 			</div>
@@ -95,23 +88,6 @@
 	</div>
 </template>
 
-
-
-<style>
-.removeBtn {
-	margin-right: 1rem;
-	color: red;
-}
-
-.set-quantity {
-	height: 21px;
-	border: none;
-	border-radius: 3px;
-	font-weight: 600;
-	text-align: center;
-	width: 25px;
-}
-</style>
 
 <script>
 export default {
@@ -122,7 +98,11 @@ export default {
 			newQuantity: null,
 			clickEditCart: false,
 			showCart: false,
+			restaurantSlug: '',
 		};
+	},
+	mounted() {
+		this.restaurantSlug = JSON.parse(localStorage.getItem('slug'));
 	},
 	computed: {
 		totalPrice() {

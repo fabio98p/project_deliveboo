@@ -33141,7 +33141,7 @@ var stats = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\.ProgettiInviatiGit\project_deliveboo\resources\js\chart.js */"./resources/js/chart.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\Boolean-careers\GitHub\Progetto finale\project_deliveboo\resources\js\chart.js */"./resources/js/chart.js");
 
 
 /***/ })
