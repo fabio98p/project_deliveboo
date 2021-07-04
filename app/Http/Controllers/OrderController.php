@@ -97,7 +97,6 @@ class OrderController extends Controller
 
         if ($result->success) {
             $transaction = $result->transaction;
-            // header("Location: transaction.php?id=" . $transaction->id);
 
             //creo un novo ordine e lo fillo
             $order = new Order();
@@ -131,8 +130,6 @@ class OrderController extends Controller
                 $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
             }
 
-            // $_SESSION["errors"] = $errorString;
-            // header("Location: index.php");
             return back()->withErrors('Transazione rifiutata: ' . $result->message);
         }
         #endregion
@@ -183,24 +180,4 @@ class OrderController extends Controller
         //
     }
 
-    private function generateSlug(string $title, bool $change = true, string $old_slug = '')
-    {
-
-        if (!$change) {
-            return $old_slug;
-        }
-
-        $slug = Str::slug($title, '-');
-        $slug_base = $slug;
-        $contatore = 1;
-
-        $post_with_slug = Restaurant::where('slug', '=', $slug)->first();
-        while ($post_with_slug) {
-            $slug = $slug_base . '-' . $contatore;
-            $contatore++;
-
-            $post_with_slug = Restaurant::where('slug', '=', $slug)->first();
-        }
-        return $slug;
-    }
 }

@@ -54,7 +54,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-6 col-lg-4 mt-2 card-outline" v-for="result in results" :key="result.id">
+                    <div class="col-md-6 col-lg-4 mt-2 card-outline" v-for="result in displayedResults" :key="result.id">
                         <a class="link-to" :href="'restaurants/' + result.slug">
                             <div class="card-personal">
                                 <div class="card-personal-cover" :style="`background-image: url('${result.banner}') ; `">
@@ -72,12 +72,27 @@
                         </a>
                     </div>
 
-                    <div class="no-results text-center col-md-12 col-lg-12" :class="(searchResult.length == 0 && filterResult.length == 0 && results.length == 0 ? 'd-block' : '')">
+                    <div class="no-results text-center col-md-12 col-lg-12" :class="(searchResult.length == 0 && filterResult.length == 0 && results.length == 0) ? 'd-block' : ''">
                       <h4 class="mt-2">Nessun risultato</h4>
                     </div>
                 </div>
             </div>
-        </div>
+
+            <div class="col-md-12">
+              <nav aria-label="Page navigation example">
+          			<ul class="pagination">
+          				<li class="page-item">
+          					<button type="button" class="page-link" v-if="page != 1" @click="page--"> Precedente </button>
+          				</li>
+          				<li class="page-item">
+          					<button type="button" class="page-link" v-for="pageNumber in pages.slice(page-1, page+5)" @click="page = pageNumber"> @{{pageNumber}} </button>
+          				</li>
+          				<li class="page-item">
+          					<button type="button" @click="page++" v-if="page < pages.length" class="page-link"> Successivo </button>
+          				</li>
+          			</ul>
+          		</nav>
+            </div>
       </div>
     </section>
 </main>
