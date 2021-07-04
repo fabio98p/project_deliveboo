@@ -2363,7 +2363,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -20561,12 +20560,7 @@ var render = function() {
         {
           key: item.id,
           staticClass:
-            "col-md-12 col-lg-12 col-xl-6 mt-2 card-outline cursor-pointer",
-          on: {
-            click: function($event) {
-              return _vm.addToCart(item)
-            }
-          }
+            "col-md-12 col-lg-12 col-xl-6 mt-2 card-outline cursor-pointer"
         },
         [
           _c("div", { staticClass: "card-personal scale" }, [
@@ -34115,9 +34109,6 @@ Vue.component('cart-checkout', __webpack_require__(/*! ./components/CartCheckout
 
 new Vue({
   el: '#app',
-  data: function data() {
-    return {};
-  },
   store: new Vuex.Store(_store_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 });
 

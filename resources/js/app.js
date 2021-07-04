@@ -10,10 +10,6 @@ import store from './store.js';
 
 new Vue({
     el: '#app',
-    data() {
-        return {
 
-        }
-    },
     store: new Vuex.Store(store)
 });

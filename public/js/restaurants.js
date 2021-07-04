@@ -134,6 +134,9 @@ var app = new Vue({
       this.filterResult = [];
       this.categorySelected = '';
       this.search = true;
+      this.pages = [];
+      this.page = 1;
+      this.setPages();
     },
     filterRestaurants: function filterRestaurants(id) {
       var _this3 = this;
@@ -143,12 +146,18 @@ var app = new Vue({
         _this3.filterResult = response.data.response;
       });
       this.searchResult = [];
+      this.pages = [];
+      this.page = 1;
+      this.setPages();
     },
     restart: function restart() {
       this.search = false;
       this.categorySelected = '';
       this.filterResult = [];
       this.searchResult = [];
+      this.pages = [];
+      this.page = 1;
+      this.setPages();
     },
     setPages: function setPages() {
       var numberOfPages = Math.ceil(this.results.length / this.perPage);

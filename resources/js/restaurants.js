@@ -19,11 +19,11 @@ var app = new Vue({
     created() {
         axios.get('http://localhost:8000/api/categories').then((response) => {
             this.categories = response.data.response;
-        })
+        });
 
         axios.get('http://localhost:8000/api/restaurants').then((response) => {
             this.restaurants = response.data.response;
-        })
+        });
     },
     methods: {
         checkReverse: function () {
@@ -38,6 +38,9 @@ var app = new Vue({
             this.filterResult = [];
             this.categorySelected = '';
             this.search = true;
+            this.pages = [];
+            this.page = 1;
+            this.setPages();
         },
         filterRestaurants: function (id) {
           this.categorySelected = id;
@@ -46,12 +49,18 @@ var app = new Vue({
                   this.filterResult = response.data.response;
               });
           this.searchResult = [];
+          this.pages = [];
+          this.page = 1;
+          this.setPages();
         },
         restart: function () {
           this.search = false;
           this.categorySelected = '';
           this.filterResult = [];
           this.searchResult = [];
+          this.pages = [];
+          this.page = 1;
+          this.setPages();
         },
         setPages: function () {
           let numberOfPages = Math.ceil(this.results.length / this.perPage);
@@ -82,8 +91,8 @@ var app = new Vue({
       },
     },
     watch: {
-		restaurants: function () {
-			this.setPages();
-		}
-	},
+      restaurants: function () {
+        this.setPages();
+      },
+  	},
 })

@@ -4,7 +4,6 @@
 			class="col-md-12 col-lg-12 col-xl-6 mt-2 card-outline cursor-pointer"
 			v-for="item in items"
 			:key="item.id"
-			@click="addToCart(item)"
 		>
 			<div class="card-personal scale">
 				<div
@@ -19,7 +18,7 @@
 				<div class="card-personal-title">
 					<h4>{{ item.name }}</h4>
 					<div class="dish-price">
-						<i class="fas fa-cart-plus" @click="addToCart(item)"></i>
+						<!-- <i class="fas fa-cart-plus" @click="addToCart(item)"></i> -->
 						<h5>€{{ item.price.toFixed(2) }}</h5>
 						<i
 							class="fas fa-circle"
