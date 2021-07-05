@@ -12,7 +12,6 @@ input::-webkit-inner-spin-button {
     transition: all 0.25s ease-out;
     border-radius: 20px;
     border: none;
-
     &:hover {
         color: #fff;
         text-decoration: none;
@@ -31,7 +30,6 @@ input::-webkit-inner-spin-button {
     border-radius: 25px;
     border: 0.5px solid $red;
     font-size: 15px;
-
     &:hover {
         background: rgba($color: $red, $alpha: 0.8);
         color: $white;
@@ -51,7 +49,6 @@ input::-webkit-inner-spin-button {
     border-radius: 25px;
     border: 0.5px solid $green;
     font-size: 15px;
-
     &:hover {
         background: rgba($color: $green, $alpha: 0.8);
         color: $white;
@@ -71,7 +68,6 @@ input::-webkit-inner-spin-button {
     border-radius: 25px;
     border: 0.5px solid $blue;
     font-size: 15px;
-
     &:hover {
         background: rgba($color: $blue, $alpha: 0.8);
         color: $white;
@@ -91,7 +87,6 @@ input::-webkit-inner-spin-button {
     border-radius: 25px;
     border: 0.5px solid $orange;
     font-size: 15px;
-
     &:hover {
         color: $orange;
         background: rgba($color: $white, $alpha: 0.8);
@@ -111,15 +106,12 @@ input::-webkit-inner-spin-button {
     border-radius: 25px;
     border: 0.5px solid $orange;
     font-size: 15px;
-
     a {
         color: $white;
-
         &:hover {
             color: $white;
         }
     }
-
     &:hover {
         color: $white;
         background: rgba($color: $orange, $alpha: 0.8);
@@ -139,7 +131,6 @@ input::-webkit-inner-spin-button {
     border-radius: 25px;
     border: 0.5px solid $lightpurple;
     font-size: 15px;
-
     &:hover {
         background: rgba($color: $lightpurple, $alpha: 0.8);
         color: $white;
@@ -148,8 +139,6 @@ input::-webkit-inner-spin-button {
         border: 0.5px solid $white;
     }
 }
-
-
 
 .text-green {
     color: $green;
@@ -177,7 +166,6 @@ p {
 
 .btn-link-login {
     color: #df9367;
-
     &:hover {
         color: #df9367;
     }
@@ -204,7 +192,6 @@ input:checked {
 //   }
 //
 // }
-
 .button-anchor {
     z-index: 10;
     position: fixed;
@@ -213,29 +200,24 @@ input:checked {
     border: 2px solid $darkwhite;
     box-shadow: 0px 5px 24px 0px rgb(0 0 0 / 20%);
     // position: relative;
-
     padding: 10px 25px;
     background: $orange;
     transition: all 0.25s ease-out;
     border-radius: 25px;
     color: $white;
     font-size: 15px;
-
     a {
         color: $white;
-
         &:hover {
             color: $white;
         }
     }
-
     &:hover {
         color: $white;
         background: rgba($color: $orange, $alpha: 0.8);
         text-decoration: none;
         transition: all 0.25s ease-out;
     }
-
     .badge-cart {
         background-color: $red;
         height: 30px;
@@ -248,7 +230,6 @@ input:checked {
         display: flex;
         justify-content: center;
         align-items: center;
-
         span {
             color: $white;
             font-weight: 600;
@@ -264,13 +245,11 @@ input:checked {
 }
 
 $breakpoint-mobile: 768px;
-
 @media (max-width: $breakpoint-mobile) {
     .my-button-responsive-hide {
         visibility: visible;
         cursor: pointer;
     }
-
     .my-button-responsive-show {
         display: none;
     }
@@ -280,7 +259,6 @@ $breakpoint-mobile: 768px;
     .my-button-responsive-hide {
         display: none;
     }
-
     .my-button-responsive-show {
         visibility: visible;
         cursor: pointer;
@@ -288,9 +266,7 @@ $breakpoint-mobile: 768px;
 }
 
 $breakpoint-large: 1200px;
-
 @media (min-width: $breakpoint-large) {
-
     .container-xl,
     .container-lg,
     .container-md,
@@ -318,10 +294,4 @@ $breakpoint-large: 1200px;
 .padding-y-50 {
     padding-top: 50px;
     padding-bottom: 50px;
-}
-
-.active-pagination {
-  background: rgba($color: , $alpha: 0.8);
-  color: $white;
-  text-decoration: none;
 }

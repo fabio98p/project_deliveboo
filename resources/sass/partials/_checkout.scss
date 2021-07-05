@@ -81,6 +81,14 @@
                 border-radius: 50%;
             }
         }
+        h4 {
+            display: flex;
+            align-items: center;
+            i {
+                margin-left: 10px;
+                font-size: 14px;
+            }
+        }
     }
 }
 

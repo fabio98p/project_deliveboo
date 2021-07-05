@@ -25,59 +25,61 @@
 
                 <div class="row">
                     <div id="history" class="col-sm-12 padding-y-30">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    {{-- <th class="th-sm">ID
+                        <div class="height-table">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        {{-- <th class="th-sm">ID
+    
+                                        </th> --}}
+                                        <th class="th-sm">NOME
 
-                                    </th> --}}
-                                    <th class="th-sm">NOME
+                                        </th>
+                                        <th class="th-sm">N.TELEFONO
 
-                                    </th>
-                                    <th class="th-sm">N.TELEFONO
+                                        </th>
+                                        <th class="th-sm">INDIRIZZO
 
-                                    </th>
-                                    <th class="th-sm">INDIRIZZO
+                                        </th>
+                                        <th class="th-sm">DATA
 
-                                    </th>
-                                    <th class="th-sm">DATA
+                                        </th>
+                                        <th class="th-sm">TOTALE SPESO
 
-                                    </th>
-                                    <th class="th-sm">TOTALE SPESO
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                                    <tr class="t-row" v-for="post in displayedPosts" :key="post.id">
+                                        {{-- <th class="" scope="row">@{{ post . id }}</th> --}}
+                                        <td class="">@{{ post . customer_name }}
+                                            @{{ post . customer_lastname }}</td>
+                                        <td class="">@{{ post . customer_phone_number }}</td>
+                                        <td class="">@{{ post . customer_address }} </td>
+                                        <td class="">@{{ getDay(post . created_at) }}
+                                            H:@{{ getTime(post . created_at) }} </td>
+                                        <td class="">€@{{ post . total_price }}</td>
+                                    </tr>
 
-                                <tr class="t-row" v-for="post in displayedPosts" :key="post.id">
-                                    {{-- <th class="" scope="row">@{{ post . id }}</th> --}}
-                                    <td class="">@{{ post . customer_name }}
-                                        @{{ post . customer_lastname }}</td>
-                                    <td class="">@{{ post . customer_phone_number }}</td>
-                                    <td class="">@{{ post . customer_address }} </td>
-                                    <td class="">@{{ getDay(post . created_at) }}
-                                        H:@{{ getTime(post . created_at) }} </td>
-                                    <td class="">€@{{ post . total_price }}</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-
-                        <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <button type="button" class="page-link" v-if="page != 1" @click="page--"><i
-                                            class="fas fa-chevron-left"></i></button>
+                                </tbody>
+                            </table>
+                        </div>
+                        <nav>
+                            <ul class="pagination justify-content-center pt-5">
+                                <li class="page-item" :class="(page == pages[0]) ? 'disabled' : ''">
+                                    <button type="button" class="page-link" @click="page--;">
+                                        Precedente
+                                    </button>
                                 </li>
                                 <li class="page-item">
-                                    <button type="button" class="page-link"
-                                        v-for="pageNumber in pages.slice(page-1, page+5)" @click="page = pageNumber">
-                                        @{{ pageNumber }} </button>
+                                    <button type="button" class="page-link" v-for="pageNumber in pages"
+                                        :class="(page == pageNumber) ? 'active-pagination' : '' "
+                                        @click="page = pageNumber"> @{{ pageNumber }}</button>
                                 </li>
-                                <li class="page-item">
-                                    <button type="button" @click="page++" v-if="page < pages.length" class="page-link"><i
-                                            class="fas fa-chevron-right"></i>
+                                <li class="page-item" :class="(page == pages.length) ? 'disabled' : ''">
+                                    <button type="button" @click="page++" class="page-link">
+                                        Successivo
                                     </button>
                                 </li>
                             </ul>

@@ -35,9 +35,9 @@
                 <hr>
                 <div class="results-title">
                     <h2 v-if="searchResult.length == 0 && filterResult.length == 0 && results.length != 0">
-                      I nostri ristoranti</h2>
+                        I nostri ristoranti</h2>
                     <h2 v-if="searchResult.length > 0 || filterResult.length > 0 || results.length == 0">
-                      Risultati della ricerca</h2>
+                        Risultati della ricerca</h2>
                     <button v-if="searchResult.length > 0 || filterResult.length > 0 || results.length == 0" type="button"
                         name="button" class="my-button my-button-orange" @click="restart">
                         Tutti ristoranti
@@ -76,9 +76,9 @@
                     <div class="col-md-12" v-if="pages.length > 1">
                         <nav>
                             <ul class="pagination justify-content-center pt-5">
-                                <li class="page-item">
-                                    <button type="button" class="page-link" v-if="page != 1" @click="page--;">
-                                      Precedente
+                                <li class="page-item" :class="(page == pages[0]) ? 'disabled' : ''">
+                                    <button type="button" class="page-link" @click="page--;">
+                                        Precedente
                                     </button>
                                 </li>
                                 <li class="page-item">
@@ -86,8 +86,8 @@
                                         :class="(page == pageNumber) ? 'active-pagination' : '' "
                                         @click="page = pageNumber"> @{{ pageNumber }}</button>
                                 </li>
-                                <li class="page-item">
-                                    <button type="button" @click="page++" v-if="page < pages.length" class="page-link">
+                                <li class="page-item" :class="(page == pages.length) ? 'disabled' : ''">
+                                    <button type="button" @click="page++" class="page-link">
                                         Successivo
                                     </button>
                                 </li>
