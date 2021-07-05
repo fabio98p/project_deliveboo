@@ -67,7 +67,7 @@ class DishController extends Controller
         $newDish->slug = $this->generateSlug($newDish->name);
 
         //link immagini
-        $newDish->image = 'storage/' . $image;
+        $newDish->image = '/storage/' . $image;
 
         $newDish->save();
 
@@ -140,7 +140,7 @@ class DishController extends Controller
 
         if (array_key_exists('image', $data)) {
             $image = Storage::put('uploads', $data['image']);
-            $data['image'] = 'storage/' . $image;
+            $data['image'] = '/storage/' . $image;
         }
 
         $dish->update($data);

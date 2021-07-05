@@ -101,6 +101,7 @@
                 </tr>
             @endforeach
         </table>
+        <h4>Prezzo totale: €{{ $amount }}</h4>
     </section>
 </body>
 

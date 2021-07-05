@@ -33,7 +33,7 @@
 						<div class="dish-cover">
 							<div
 								class="dish-cover-image"
-								:style="`background-image: url('${item.image}');`"
+								:style="`background-image: url('${item.image}')`"
 							>
 								<div class="dish-cover-overlay" v-if="clickEditCart">
 									<i class="fas fa-times" @click="removeItemFromCart(item)"></i>

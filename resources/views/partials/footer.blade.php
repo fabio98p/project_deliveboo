@@ -76,7 +76,7 @@
                                 <a href="#!" class="color-darkwhite">Termini & Condizioni</a>
                             </li>
                             <li>
-                                <a href="#!" class="color-darkwhite">Informativa sulla privacy</a>
+                                <a href="#!" class="color-darkwhite">Privacy</a>
                             </li>
                             <li>
                                 <a href="#!" class="color-darkwhite">Cookies</a>
