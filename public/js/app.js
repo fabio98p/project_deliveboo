@@ -2358,9 +2358,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      //deleteForm: false,
       id: window.id,
       items: []
     };
@@ -2368,7 +2395,17 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addToCart: function addToCart(item) {
       this.$store.commit("addToCart", item);
-    }
+    } // deleteCart() {
+    //   this.deleteForm = false
+    //   localStorage.clear();
+    //   location.reload();
+    // },
+    //     deleteCart() {
+    //   this.deleteForm = false
+    //   localStorage.clear();
+    //   location.reload();
+    // },
+
   },
   created: function created() {
     var _this = this;
@@ -2380,7 +2417,11 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.items.push(dish);
       });
-    });
+    }); // var oldOrder = JSON.parse(localStorage.getItem("cart"))[0];
+    // if (this.id == oldOrder.restaurant_id) {
+    // } else {
+    //   this.deleteForm = true;
+    // }
   }
 });
 
@@ -20132,7 +20173,7 @@ var render = function() {
                       "div",
                       {
                         staticClass: "dish-cover-image",
-                        style: "background-image: url('" + item.image + "');"
+                        style: "background-image: url('" + item.image + "')"
                       },
                       [
                         _vm.clickEditCart
