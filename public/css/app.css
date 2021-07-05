@@ -12461,7 +12461,7 @@ tr:nth-child(odd) {
 }
 
 tr:nth-child(even) {
-  background: #FFF;
+  background: rgba(223, 129, 74, 0.4);
 }
 
 .active {
