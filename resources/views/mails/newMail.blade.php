@@ -83,7 +83,7 @@
         <h1>deliveboo</h1>
     </header>
     <section class="mail-top">
-        <h1>{{ $restaurant }} ha ricevuto il tuo ordine!</h1>
+        <h1>"{{ $restaurant }}" ha ricevuto il tuo ordine!</h1>
     </section>
 
     <section class="mail-content">
