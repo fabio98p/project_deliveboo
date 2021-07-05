@@ -12338,6 +12338,16 @@ h6 {
   border-radius: 50%;
 }
 
+.checkout-card .checkout-card-inner h4 {
+  display: flex;
+  align-items: center;
+}
+
+.checkout-card .checkout-card-inner h4 i {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
 .checkout-card {
   box-shadow: 0px 22px 24px 0px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
@@ -12389,7 +12399,7 @@ button.page-link {
 
 button.page-link {
   font-size: 20px;
-  color: #df814a;
+  color: #c06632;
   font-weight: 500;
 }
 
@@ -12397,8 +12407,12 @@ button.page-link {
   z-index: 2;
   color: #c06632;
   text-decoration: none;
-  background-color: #e9ecef;
-  border-color: #dee2e6;
+  background-color: rgba(223, 129, 74, 0.1);
+  border-color: rgba(192, 102, 50, 0.5);
+}
+
+.page-link {
+  border-color: rgba(223, 129, 74, 0.5);
 }
 
 .offset {
@@ -12452,6 +12466,31 @@ tr:nth-child(even) {
 
 .active {
   background-color: #df814a;
+}
+
+.active-pagination {
+  background: rgba(223, 129, 74, 0.1);
+  color: #FFF;
+  text-decoration: none;
+}
+
+.page-link:focus {
+  box-shadow: 0px 5px 5px 0px rgba(223, 129, 74, 0.1);
+}
+
+.page-item:first-child .page-link {
+  margin-left: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.page-item:last-child .page-link {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.height-table {
+  min-height: 500px;
 }
 
 .mychart {

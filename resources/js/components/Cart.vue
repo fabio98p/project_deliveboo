@@ -133,7 +133,7 @@ export default {
 				total += item.totalPrice;
 			}
 
-			return total.toFixed(2);
+			return parseFloat(total).toFixed(2);
 		},
 	},
 
