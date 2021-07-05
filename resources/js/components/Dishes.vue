@@ -18,7 +18,7 @@
         <div class="card-personal-title">
           <h4>{{ item.name }}</h4>
           <div class="dish-price">
-            <i class="fas fa-cart-plus" ></i>
+            <i class="fas fa-cart-plus"></i>
             <h5>€{{ item.price.toFixed(2) }}</h5>
             <i
               class="fas fa-circle"
@@ -28,6 +28,32 @@
         </div>
       </div>
     </div>
+    <!-- Delete pop up
+    <div class="delete-container" :class="deleteForm ? 'd-flex' : ''">
+      <div class="delete-form">
+        <h4>
+          Vuoi cancellare il tuo precedente carrello e iniziare il tuo ordine in
+          questo ristorante??
+        </h4>
+        <div class="buttons mt-3">
+          <a
+            type="button"
+            name="button"
+            class="my-button my-button-green"
+            @click="deleteCart()"
+            >svuota carrekki</a
+          >
+          <a
+            type="button"
+            name="button"
+            class="my-button my-button-green"
+            href="/"
+            @click="deleteForm = false"
+            >Torna indietro</a
+          >
+        </div>
+      </div>
+    </div> -->
   </div>
 </template>
 
@@ -35,14 +61,26 @@
 export default {
   data() {
     return {
+      //deleteForm: false,
       id: window.id,
       items: [],
     };
   },
+
   methods: {
     addToCart(item) {
       this.$store.commit("addToCart", item);
     },
+    // deleteCart() {
+    //   this.deleteForm = false
+    //   localStorage.clear();
+    //   location.reload();
+    // },
+    //     deleteCart() {
+    //   this.deleteForm = false
+    //   localStorage.clear();
+    //   location.reload();
+    // },
   },
   created() {
     axios
@@ -55,6 +93,11 @@ export default {
           this.items.push(dish);
         });
       });
+    // var oldOrder = JSON.parse(localStorage.getItem("cart"))[0];
+    // if (this.id == oldOrder.restaurant_id) {
+    // } else {
+    //   this.deleteForm = true;
+    // }
   },
 };
 </script>
