@@ -112,9 +112,11 @@ class OrderController extends Controller
             $dish = Dish::where('id', $dish_id)->get();
             $order->restaurant_id = $dish[0]->restaurant_id;
 
+            $restaurant = Restaurant::where('id',$dish[0]->restaurant_id)->first();
+
 
             //invio mail
-            Mail::to($order->customer_email)->send(new SendNewMail());
+            Mail::to($order->customer_email)->send(new SendNewMail($data['amount'],$restaurant,$transaction->id, $dishes));
 
             $order->save();
             //popolazione tabella pivot
