@@ -16,7 +16,7 @@ class UpdateOrdersTable extends Migration
       Schema::table('orders', function (Blueprint $table) {
         $table->unsignedBigInteger('restaurant_id')
               ->nullable()
-              ->after('order_details');
+              ->after('total_price');
 
         $table->foreign('restaurant_id')
               ->references('id')
