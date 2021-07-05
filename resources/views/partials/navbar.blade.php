@@ -39,3 +39,7 @@
         </div>
     </div>
 </nav>
+
+@section('footer-scripts')
+  @include('scripts.navbarScripts')
+@endsection
