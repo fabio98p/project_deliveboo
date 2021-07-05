@@ -99,3 +99,7 @@
         </section>
     </main>
 @endsection
+
+@section('footer-scripts')
+  @include('scripts.restaurantScripts')
+@endsection

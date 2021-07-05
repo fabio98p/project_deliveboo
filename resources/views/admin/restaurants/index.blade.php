@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('main')
-
     <main>
         <div class="container-fluid banner-show-homepage banner-show-user"
             style="background-image: url('../images/varie/banner-deliveboo-admin.png')"></div>
         <section class="section-main">
-            <div class="container" id="root">
+            <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="page-top">
@@ -60,8 +59,6 @@
                             </div>
                         </a>
                     </div>
-
-
 
                 </div>
             </div>

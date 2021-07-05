@@ -70,7 +70,6 @@ class OrderController extends Controller
         $data = $request->all();
 
         $dishes = json_decode(stripslashes($data["order_details"]), true);
-
         #region braintree
         $gateway = new \Braintree\Gateway([
             'environment' => config('services.braintree.environment'),
@@ -113,10 +112,10 @@ class OrderController extends Controller
             $order->restaurant_id = $dish[0]->restaurant_id;
 
             $restaurant = Restaurant::where('id',$dish[0]->restaurant_id)->first();
-
+            $message = 'Conferma ordine';
 
             //invio mail
-            Mail::to($order->customer_email)->send(new SendNewMail($data['amount'],$restaurant,$transaction->id, $dishes));
+            Mail::to($order->customer_email)->send(new SendNewMail($message,$restaurant->name,$transaction->id, $dishes,$data['amount']));
 
             $order->save();
             //popolazione tabella pivot
