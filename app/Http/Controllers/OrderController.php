@@ -64,7 +64,6 @@ class OrderController extends Controller
             'customer_email' => 'nullable|email|max:100',
             'customer_address' => 'nullable|string|max:100',
             'customer_phone_number' => 'required|string|max:20',
-            //'order_details' => 'exists:categories,id|nullable',
         ]);
 
         $data = $request->all();
