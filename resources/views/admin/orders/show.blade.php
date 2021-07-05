@@ -88,8 +88,8 @@
 @endsection
 
 @section('footer-scripts')
-  @include('scripts.orderhistoryScripts')
   <script>
       var id = {!! json_encode($restaurant->id) !!};
   </script>
+  @include('scripts.orderhistoryScripts')
 @endsection

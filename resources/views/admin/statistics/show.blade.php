@@ -40,8 +40,8 @@
 @endsection
 
 @section('footer-scripts')
-  @include('scripts.chartScripts')
   <script>
       var id = {!! json_encode($restaurant->id) !!};
   </script>
+  @include('scripts.chartScripts')
 @endsection
