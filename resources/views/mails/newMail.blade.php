@@ -6,8 +6,10 @@
     <title>Il tuo ordine</title>
   </head>
   <body>
+    {{$restaurant}}
     @foreach($dishes as $dish)
-      {{$dish->name}}
+      <span>{{$dish['name']}}</span>
+      <span>x{{$dish['quantity']}}</span>
     @endforeach
     <h1>Il tuo ordine e' stato ricevuto e sta arrivando</h1>
   </body>

@@ -11,14 +11,24 @@ class SendNewMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private $title;
+    private $restaurant;
+    private $transaction;
+    private $dishes;
+    private $amount;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($title,$restaurant,$transaction,$dishes,$amount)
     {
-        //
+      $this->title = $title;
+      $this->restaurant = $restaurant;
+      $this->transaction = $transaction;
+      $this->dishes = $dishes;
+      $this->amount = $amount;
     }
 
     /**
@@ -28,6 +38,12 @@ class SendNewMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.newMail');
+        return $this->view('mails.newMail')
+                    ->subject($this->title)
+                    ->with('restaurant',$this->restaurant)
+                    ->with('transaction',$this->transaction)
+                    ->with('dishes',$this->dishes)
+                    ->with('amount',$this->amount);
+
     }
 }
