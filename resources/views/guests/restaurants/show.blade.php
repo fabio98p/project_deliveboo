@@ -27,7 +27,7 @@
                     <div class="col-md-6 col-lg-6 col-xl-8">
                         <dishes></dishes>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4">
+                    <div class="col-md-6 col-lg-6 col-xl-4 mt-3">
                         <cart></cart>
                     </div>
                 </div>
