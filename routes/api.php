@@ -17,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/restaurants', 'Api\RestaurantController@index');
+Route::get('/categories', 'Api\CategoryController@index');
+Route::get('/filter-restaurants/{category}', 'Api\RestaurantController@filterRestaurants');
+Route::get('/search-restaurant/{query}', 'Api\RestaurantController@searchRestaurant');
+Route::get('/dishes/{restaurantId}', 'Api\DishController@index');
+
+//orderController
+Route::get('/ordersShow/{restaurant}', 'Api\OrderController@ordersShow');
+Route::get('/totalForMonth/{restaurant}', 'Api\OrderController@totalForMonth');
+
