@@ -19,7 +19,14 @@
                                         class="fas fa-chevron-left"></i></a>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h4>{{ $restaurant->description }}</h4>
+                            </div>
+                        </div>
+
                         <h2 class="mt-3">Menù</h2>
+
                     </div>
                 </div>
 

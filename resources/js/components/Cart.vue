@@ -23,7 +23,7 @@
 						class="cart-empty text-center"
 						:class="$store.state.cartCount == 0 ? 'd-block' : 'd-none'"
 					>
-						<h5>Il tuo carello è vuoto!</h5>
+						<h4>Il tuo carello è vuoto!</h4>
 					</div>
 					<div
 						class="cart-item"

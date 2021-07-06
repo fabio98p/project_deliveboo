@@ -68,7 +68,7 @@
 
                             <div class="no-results text-center col-md-12 col-lg-12"
                                 :class="(searchResult.length == 0 && filterResult.length == 0 && results.length == 0) ? 'd-block' : ''">
-                                <h4 class="mt-2">Ops... nessun risultato</h4>
+                                <h4 class="mt-2 padding-y-50">Ops... nessun risultato</h4>
                             </div>
                         </div>
                     </div>
@@ -101,5 +101,5 @@
 @endsection
 
 @section('footer-scripts')
-  @include('scripts.restaurantScripts')
+    @include('scripts.restaurantScripts')
 @endsection

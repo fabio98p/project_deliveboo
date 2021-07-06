@@ -74,14 +74,6 @@
 						Torna al ristorante
 					</button></a
 				>
-
-				<button
-					class="mybutton my-button-red mt-3"
-					@click="emptyCart"
-					:class="$store.state.cartCount != 0 ? 'd-inline' : 'd-none'"
-				>
-					Svuota il carello</button
-				><br />
 			</div>
 		</div>
 	</div>
