@@ -609,12 +609,12 @@ input[type=checkbox] {
 $breakpoint-large: 1200px;
 @media (min-width: $breakpoint-large) {
     .banner-show-homepage {
-        height: 400px;
+        height: 370px;
         background-size: cover;
         background-position: bottom;
     }
     .banner-show-user {
-        height: 400px;
+        height: 370px;
         background-size: cover;
         background-position: bottom;
     }
